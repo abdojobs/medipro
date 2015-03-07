@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41EDCBA2-2141-46BA-98AD-9181D7D271F8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lab</RootNamespace>
+    <AssemblyName>Lab</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabCatDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabCatDetail.designer.cs">
+      <DependentUpon>frmLabCatDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabCategory.designer.cs">
+      <DependentUpon>frmLabCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLaboratory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLaboratory.designer.cs">
+      <DependentUpon>frmLaboratory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLaboratoryDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLaboratoryDetail.designer.cs">
+      <DependentUpon>frmLaboratoryDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabPackage.designer.cs">
+      <DependentUpon>frmLabPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabPackageDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabPackageDetail.designer.cs">
+      <DependentUpon>frmLabPackageDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabSubTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabSubTest.designer.cs">
+      <DependentUpon>frmLabSubTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabSubTestDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabSubTestDetail.designer.cs">
+      <DependentUpon>frmLabSubTestDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabTest.designer.cs">
+      <DependentUpon>frmLabTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabTestDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabTestDetail.designer.cs">
+      <DependentUpon>frmLabTestDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartup.Designer.cs">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabCatDetail.resx">
+      <DependentUpon>frmLabCatDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabCategory.resx">
+      <DependentUpon>frmLabCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLaboratory.resx">
+      <DependentUpon>frmLaboratory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLaboratoryDetail.resx">
+      <DependentUpon>frmLaboratoryDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabPackage.resx">
+      <DependentUpon>frmLabPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabPackageDetail.resx">
+      <DependentUpon>frmLabPackageDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabSubTest.resx">
+      <DependentUpon>frmLabSubTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabSubTestDetail.resx">
+      <DependentUpon>frmLabSubTestDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabTest.resx">
+      <DependentUpon>frmLabTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabTestDetail.resx">
+      <DependentUpon>frmLabTestDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartup.resx">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\exaCore\exaCore.csproj">
+      <Project>{28B9AB6A-8ABF-470B-A10F-643C83DC71FF}</Project>
+      <Name>exaCore</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pwd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagnosis32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exa_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\examination32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frequency32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historytitle32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_red16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lab32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-visit16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\position32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\specialize32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stats.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timebydoctor16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timebydoctor32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User group 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

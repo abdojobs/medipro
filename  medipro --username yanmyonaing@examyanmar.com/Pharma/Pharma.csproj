@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F307C4DF-E1BF-4333-8047-D9DE98CE8305}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Pharma</RootNamespace>
+    <AssemblyName>Pharma</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\VBPowerPacks\v10.0\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmBodySystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBodySystem.Designer.cs">
+      <DependentUpon>frmBodySystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBodySystemDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBodySystemDetail.Designer.cs">
+      <DependentUpon>frmBodySystemDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChemName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChemName.Designer.cs">
+      <DependentUpon>frmChemName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChemNameDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChemNameDetail.Designer.cs">
+      <DependentUpon>frmChemNameDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManuFacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManuFacturer.Designer.cs">
+      <DependentUpon>frmManuFacturer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmManufacturerDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManufacturerDetail.Designer.cs">
+      <DependentUpon>frmManufacturerDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedicineDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedicineDetail.designer.cs">
+      <DependentUpon>frmMedicineDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedicines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedicines.designer.cs">
+      <DependentUpon>frmMedicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedType.Designer.cs">
+      <DependentUpon>frmMedType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedTypeDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedTypeDetail.Designer.cs">
+      <DependentUpon>frmMedTypeDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedUnit.designer.cs">
+      <DependentUpon>frmMedUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMedUnitDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMedUnitDetail.designer.cs">
+      <DependentUpon>frmMedUnitDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPackListTemp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackListTemp.designer.cs">
+      <DependentUpon>frmPackListTemp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPackListTempDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackListTempDetail.designer.cs">
+      <DependentUpon>frmPackListTempDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStartup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStartup.Designer.cs">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBodySystem.resx">
+      <DependentUpon>frmBodySystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBodySystemDetail.resx">
+      <DependentUpon>frmBodySystemDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChemName.resx">
+      <DependentUpon>frmChemName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChemNameDetail.resx">
+      <DependentUpon>frmChemNameDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManuFacturer.resx">
+      <DependentUpon>frmManuFacturer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManufacturerDetail.resx">
+      <DependentUpon>frmManufacturerDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedicineDetail.resx">
+      <DependentUpon>frmMedicineDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedicines.resx">
+      <DependentUpon>frmMedicines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedType.resx">
+      <DependentUpon>frmMedType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedTypeDetail.resx">
+      <DependentUpon>frmMedTypeDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedUnit.resx">
+      <DependentUpon>frmMedUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMedUnitDetail.resx">
+      <DependentUpon>frmMedUnitDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPackListTemp.resx">
+      <DependentUpon>frmPackListTemp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPackListTempDetail.resx">
+      <DependentUpon>frmPackListTempDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStartup.resx">
+      <DependentUpon>frmStartup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\exaCore\exaCore.csproj">
+      <Project>{28B9AB6A-8ABF-470B-A10F-643C83DC71FF}</Project>
+      <Name>exaCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebCamWrapper\WebCamWrapper.csproj">
+      <Project>{CC5D5149-0092-4508-AC34-2ABE1468A1C9}</Project>
+      <Name>WebCamWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\booking16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pwd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pwd1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diagnosis32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doctor32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exa_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\examination32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frequency32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\historytitle32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\key_red16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lab32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Modify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new-visit16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\patient32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\position32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\specialize32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stats.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timebydoctor16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timebydoctor32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User group 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webcam.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
