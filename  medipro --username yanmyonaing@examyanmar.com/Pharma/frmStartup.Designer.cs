@@ -379,7 +379,6 @@
             this.tabPageMedicalRecord,
             this.tabPageReport,
             this.tabPageAdministrator});
-            this.tabControlMain.Tag = "";
             this.tabControlMain.SelectedPageChanging += new DevExpress.XtraTab.TabPageChangingEventHandler(this.tabControlMain_SelectedPageChanging);
             // 
             // tabPageHome
@@ -1147,6 +1146,7 @@
             this.tabPageMasterFile.Appearance.PageClient.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPageMasterFile.Appearance.PageClient.Options.UseBackColor = true;
             this.tabPageMasterFile.Controls.Add(this.panelMasterFiles);
+            this.tabPageMasterFile.Image = global::Pharma.Properties.Resources.Settings;
             this.tabPageMasterFile.Name = "tabPageMasterFile";
             this.tabPageMasterFile.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageMasterFile.Size = new System.Drawing.Size(1266, 652);
@@ -1632,7 +1632,6 @@
             this.luePatient.Properties.DropDownRows = 10;
             this.luePatient.Properties.LookAndFeel.SkinName = "Metropolis";
             this.luePatient.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.luePatient.Properties.NullText = "";
             this.luePatient.Properties.PopupWidth = 650;
             this.luePatient.Properties.ValueMember = "RegNo";
             this.luePatient.Size = new System.Drawing.Size(180, 20);
@@ -1785,7 +1784,6 @@
             // 
             // txtAge
             // 
-            this.txtAge.EditValue = "";
             this.txtAge.Location = new System.Drawing.Point(380, 129);
             this.txtAge.Name = "txtAge";
             this.txtAge.Properties.Appearance.BorderColor = System.Drawing.Color.DarkGray;
@@ -1814,7 +1812,6 @@
             // 
             // txtDOB
             // 
-            this.txtDOB.EditValue = "";
             this.txtDOB.Location = new System.Drawing.Point(174, 129);
             this.txtDOB.Name = "txtDOB";
             this.txtDOB.Properties.Appearance.BorderColor = System.Drawing.Color.DarkGray;
@@ -1839,7 +1836,6 @@
             // 
             // txtNRC
             // 
-            this.txtNRC.EditValue = "";
             this.txtNRC.Location = new System.Drawing.Point(174, 102);
             this.txtNRC.Name = "txtNRC";
             this.txtNRC.Properties.Appearance.BorderColor = System.Drawing.Color.DarkGray;
@@ -2359,7 +2355,6 @@
             // 
             // txtBMI
             // 
-            this.txtBMI.EditValue = "";
             this.txtBMI.Location = new System.Drawing.Point(96, 89);
             this.txtBMI.Name = "txtBMI";
             this.txtBMI.Properties.Appearance.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold);
@@ -3620,6 +3615,7 @@
             this.tabPageReport.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabPageReport.Appearance.Header.Options.UseFont = true;
             this.tabPageReport.Controls.Add(this.panelReports);
+            this.tabPageReport.Image = global::Pharma.Properties.Resources.Stats;
             this.tabPageReport.Name = "tabPageReport";
             this.tabPageReport.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageReport.Size = new System.Drawing.Size(1266, 652);
@@ -3643,7 +3639,7 @@
             this.tabPageAdministrator.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabPageAdministrator.Appearance.Header.Options.UseFont = true;
             this.tabPageAdministrator.Controls.Add(this.panelAdmin);
-            this.tabPageAdministrator.Image = ((System.Drawing.Image)(resources.GetObject("tabPageAdministrator.Image")));
+            this.tabPageAdministrator.Image = global::Pharma.Properties.Resources.Security;
             this.tabPageAdministrator.Name = "tabPageAdministrator";
             this.tabPageAdministrator.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageAdministrator.Size = new System.Drawing.Size(1266, 652);

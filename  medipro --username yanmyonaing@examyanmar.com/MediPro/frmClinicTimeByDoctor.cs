@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.Xpo;
 using DevExpress.XtraGrid.Views.Grid;
-using MediPro.Class;
+using exaCore;
 
 namespace MediPro
 {

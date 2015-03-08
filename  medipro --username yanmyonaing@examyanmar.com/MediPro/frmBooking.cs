@@ -11,7 +11,7 @@ using System.Collections;
 using DevExpress.Utils;
 using System.ComponentModel.Design;
 using System.ComponentModel;
-using MediPro.Class;
+using exaCore;
 using System.Data.SqlClient;
 
 namespace MediPro

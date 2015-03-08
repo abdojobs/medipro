@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MediPro.Class;
+using exaCore;
 
 namespace MediPro
 {
     public partial class frmUserLevel : Form
     {
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
 
         DataRow drUserLevel;
         int CurMainMenuID;

@@ -6,15 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MediPro.Class;
 using System.Data.SqlClient;
 using System.IO;
+using exaCore;
 
 namespace MediPro
 {
     public partial class frmStartup : Form
     {
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
         string strSelectedVisit = string.Empty;
 
         public int CurTabPageIndex = 1;

@@ -6,13 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MediPro.Class;
+using exaCore;
 
 namespace MediPro
 {
     public partial class frmTitleSetup : Form
     {
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
 
         DataRow drTitle;
         int curIndex;

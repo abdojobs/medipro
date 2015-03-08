@@ -6,14 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MediPro.Class;
+using exaCore;
 using System.Data.SqlClient;
 
 namespace MediPro
 {
     public partial class frmUserDetail : Form
     {
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
         
         public frmUserDetail()
         {

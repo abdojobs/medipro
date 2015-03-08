@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using MediPro.Class;
+using exaCore;
 
 namespace MediPro
 {

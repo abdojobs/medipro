@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MediPro.Class;
+using exaCore;
 using System.IO;
 using System.Drawing.Imaging;
 using Touchless.Vision.Camera;
@@ -16,7 +16,7 @@ namespace MediPro
 {
     public partial class frmPatientDetail : Form
     {
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
         bool captureStatus = false;
         WebCam webcam;
 

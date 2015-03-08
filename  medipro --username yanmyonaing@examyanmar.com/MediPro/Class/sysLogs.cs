@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MediPro.Class;
+using exaCore;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,7 +10,7 @@ namespace MediPro.Class
 {
     public static class sysLogs
     {
-        public static Class.clsSQL SqlDb = new Class.clsSQL();
+        public static clsSQL SqlDb = new clsSQL();
 
         public static void logs_login()
         {

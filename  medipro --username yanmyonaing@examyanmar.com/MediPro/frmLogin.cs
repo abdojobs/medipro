@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using MediPro.Class;
+using exaCore;
 
 namespace MediPro
 {
     public partial class frmLogin : Form
     {
         private int loginCnt = 0;
-        Class.clsSQL SqlDb = new Class.clsSQL();
+        clsSQL SqlDb = new clsSQL();
 
         public frmLogin()
         {

@@ -102,9 +102,6 @@
     <Reference Include="Touchless.Vision">
       <HintPath>C:\Users\User\Downloads\Compressed\source-vs2010_2\source-vs2010\Demo\bin\Debug\Touchless.Vision.dll</HintPath>
     </Reference>
-    <Reference Include="WebCamLib">
-      <HintPath>C:\Users\User\Downloads\Compressed\source-vs2010_2\source-vs2010\Demo\bin\Debug\WebCamLib.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\AppVariable.cs" />
@@ -137,23 +134,11 @@
     <Compile Include="frmCameraSetup.Designer.cs">
       <DependentUpon>frmCameraSetup.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCase.Designer.cs">
-      <DependentUpon>frmCase.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDailyProgress.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDailyProgress.Designer.cs">
-      <DependentUpon>frmDailyProgress.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDiagnosis.cs">
       <SubType>Form</SubType>
@@ -179,12 +164,6 @@
     <Compile Include="frmDoctorDetail.Designer.cs">
       <DependentUpon>frmDoctorDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmExamination.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmExamination.Designer.cs">
-      <DependentUpon>frmExamination.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmFrequency.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,12 +175,6 @@
     </Compile>
     <Compile Include="frmFrequencyDetail.Designer.cs">
       <DependentUpon>frmFrequencyDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmHistory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHistory.Designer.cs">
-      <DependentUpon>frmHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNewVisitDetail.cs">
       <SubType>Form</SubType>
@@ -227,12 +200,6 @@
     <Compile Include="frmTreatment.Designer.cs">
       <DependentUpon>frmTreatment.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPatientDiagnosis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPatientDiagnosis.Designer.cs">
-      <DependentUpon>frmPatientDiagnosis.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmPatients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,12 +223,6 @@
     </Compile>
     <Compile Include="frmPositions.Designer.cs">
       <DependentUpon>frmPositions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmRequesInvestigation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmRequesInvestigation.Designer.cs">
-      <DependentUpon>frmRequesInvestigation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmResetPassword.cs">
       <SubType>Form</SubType>
@@ -361,14 +322,8 @@
     <EmbeddedResource Include="frmCameraSetup.resx">
       <DependentUpon>frmCameraSetup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCase.resx">
-      <DependentUpon>frmCase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDailyProgress.resx">
-      <DependentUpon>frmDailyProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDiagnosis.resx">
       <DependentUpon>frmDiagnosis.cs</DependentUpon>
@@ -382,26 +337,17 @@
     <EmbeddedResource Include="frmDoctorDetail.resx">
       <DependentUpon>frmDoctorDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmExamination.resx">
-      <DependentUpon>frmExamination.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmFrequency.resx">
       <DependentUpon>frmFrequency.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFrequencyDetail.resx">
       <DependentUpon>frmFrequencyDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHistory.resx">
-      <DependentUpon>frmHistory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmNewVisitDetail.resx">
       <DependentUpon>frmNewVisitDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPatientDetail.resx">
       <DependentUpon>frmPatientDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPatientDiagnosis.resx">
-      <DependentUpon>frmPatientDiagnosis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPatients.resx">
       <DependentUpon>frmPatients.cs</DependentUpon>
@@ -506,10 +452,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="medical.ico" />
+    <None Include="Resources\User group 32.png" />
+    <None Include="Resources\User 32.png" />
+    <None Include="Resources\new-visit16.png" />
+    <None Include="Resources\refresh.png" />
     <None Include="Resources\breast.jpg" />
     <None Include="Resources\timebydoctor16.png" />
     <None Include="Resources\timebydoctor32.png" />
-    <None Include="Resources\new-visit16.png" />
     <None Include="Resources\booking16.png" />
     <None Include="Resources\patient16.png" />
     <None Include="Resources\frequency32.png" />
@@ -520,8 +469,6 @@
     <None Include="Resources\title32.png" />
     <None Include="Resources\position32.png" />
     <None Include="Resources\webcam.png" />
-    <None Include="Resources\User 32.png" />
-    <None Include="Resources\User group 32.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\lab32.png" />
     <None Include="Resources\doctor32.png" />

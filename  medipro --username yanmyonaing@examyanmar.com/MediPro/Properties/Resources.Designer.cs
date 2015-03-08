@@ -215,7 +215,7 @@ namespace MediPro.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap new_visit16 {
             get {
-                object obj = ResourceManager.GetObject("new-visit16", resourceCulture);
+                object obj = ResourceManager.GetObject("new_visit16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -345,7 +345,7 @@ namespace MediPro.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap User_32 {
             get {
-                object obj = ResourceManager.GetObject("User 32", resourceCulture);
+                object obj = ResourceManager.GetObject("User_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -355,7 +355,7 @@ namespace MediPro.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap User_group_32 {
             get {
-                object obj = ResourceManager.GetObject("User group 32", resourceCulture);
+                object obj = ResourceManager.GetObject("User_group_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
