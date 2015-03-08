@@ -3814,6 +3814,7 @@
             this.cmdDoctors.Appearance.Options.UseFont = true;
             this.cmdDoctors.Appearance.Options.UseForeColor = true;
             this.cmdDoctors.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdDoctors.Image = global::Lab.Properties.Resources.doctor32;
             this.cmdDoctors.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.cmdDoctors.Location = new System.Drawing.Point(169, 55);
             this.cmdDoctors.Name = "cmdDoctors";
@@ -3832,6 +3833,7 @@
             this.cmdPatients.Appearance.Options.UseFont = true;
             this.cmdPatients.Appearance.Options.UseForeColor = true;
             this.cmdPatients.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdPatients.Image = global::Lab.Properties.Resources.patient32;
             this.cmdPatients.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.cmdPatients.Location = new System.Drawing.Point(49, 55);
             this.cmdPatients.Name = "cmdPatients";
