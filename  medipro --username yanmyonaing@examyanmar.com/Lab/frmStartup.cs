@@ -39,7 +39,7 @@ namespace Lab
             tabControlMain.Height = AppScreenHeight - 65;
 
             lineShape.X2 = AppScreenWidth - 35;
-            lineShapeMR.X2 = AppScreenWidth - 35;
+            
 
             lineDandP.Width = AppScreenWidth - 300;
             lineLandI.Width = AppScreenWidth - 300;
@@ -47,9 +47,7 @@ namespace Lab
             lineSystem.Width = AppScreenWidth - 300;
 
             //tabMedicalRecord.Width = AppScreenWidth - 655;
-            //tabMedicalRecord.Height = AppScreenHeight - 165;
-
-            tabMedicalRecord.SelectedTabPage = tabPageDetail;
+            //tabMedicalRecord.Height = AppScreenHeight - 165;            
         }
 
         private void frmStartup_Load(object sender, EventArgs e)
@@ -83,16 +81,7 @@ namespace Lab
                     break;
 
                 case "3":
-                    IsView = SqlDb.IsViewMainMenu(tabPageMedicalRecord.Tag.ToString(), AppVariable.CURRENT_USER_LEVEL_ID.ToString());
-                    if (IsView == false)
-                    {
-                        MessageBox.Show("Sorry, Administrator is not allow this action?", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        e.Cancel = true;
-                    }
-                    else
-                    {
-                        LoadLuePatient();
-                    }
+                    
                     break;
 
                 case "4":
@@ -253,140 +242,6 @@ namespace Lab
 
         #endregion Startup Page
 
-        #region Medical Record
-
-        //string curVisitPatientID;
-
-        private void cmdTodayPatients_Click(object sender, EventArgs e)
-        {
-            //frmVisitPatientsbyDoctor VisitPatientsbyDoctorForm = new frmVisitPatientsbyDoctor();
-
-            //VisitPatientsbyDoctorForm.ShowDialog();
-
-            //curVisitPatientID = VisitPatientsbyDoctorForm.selectVisitPatientPK;
-
-            //if (curVisitPatientID.ToString().Length > 0)
-            //{
-            //    RegNo = curVisitPatientID;
-            //    luePatient.EditValue = RegNo;
-            //}
-        }
-
-        #region PatientInfo
-
-        DataSet dsPatient;
-        string RegNo = string.Empty;
-
-        private void LoadLuePatient()
-        {
-            dsPatient = SqlDb.GetDataSet("SELECT RegNo, (TitleName + ' ' + Name) As Name, Convert(varchar,DOB,105) as DOB, FatherName, NRC FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE tblPatient.isDelete = 0");
-            luePatient.Properties.DataSource = dsPatient.Tables[0];
-        }
-
-        private void PatientDataLoadWithRegNo()
-        {
-            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB,105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new SqlParameter("@RegNo", RegNo));
-
-            txtRegNo.Text = dsCurPatient.Tables[0].Rows[0]["RegNo"].ToString();
-            txtFatherName.Text = dsCurPatient.Tables[0].Rows[0]["FatherName"].ToString();
-            txtDOB.Text = dsCurPatient.Tables[0].Rows[0]["DOBDisplay"].ToString();
-            txtSex.Text = dsCurPatient.Tables[0].Rows[0]["Gender"].ToString();
-            txtNRC.Text = dsCurPatient.Tables[0].Rows[0]["NRC"].ToString();
-
-            string dtDOB = dsCurPatient.Tables[0].Rows[0]["DOB"].ToString();
-
-            if (dtDOB.Length > 0)
-                txtAge.Text = Helper.CalAge(DateTime.Parse(dtDOB));
-
-            LoadImage();
-            LoadVisited();
-        }
-
-        private void LoadVisited()
-        {
-            DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, tblVisit.visitDate " +
-                                               "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
-                                               "WHERE tblVisit.RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
-            grdVisited.DataSource = dsVisit.Tables[0];
-        }
-
-        private void luePatient_EditValueChanged(object sender, EventArgs e)
-        {
-            RegNo = luePatient.EditValue.ToString();
-
-            PatientDataLoadWithRegNo();
-        }
-
-        private void LoadImage()
-        {
-            if (txtRegNo.Text.ToString().Length > 0)
-            {
-                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
-                int DataRowCnt = dsPatient.Tables[0].Rows.Count;
-
-                if (DataRowCnt > 0)
-                {
-                    try
-                    {
-                        Byte[] bytePatientData = new Byte[0];
-                        bytePatientData = (Byte[])(dsPatient.Tables[0].Rows[0]["Photo"]);
-                        MemoryStream ms = new MemoryStream(bytePatientData);
-
-                        if (ms.Length > 0)
-                        {
-                            picPatient.Image = Image.FromStream(ms);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-            }
-        }
-
-        
-
-        #region DetailPage
-        #endregion Detail Page
-        #endregion PatientInfo
-
-        #region CaseInfo
-
-        private void simpleButton8_Click(object sender, EventArgs e)
-        {
-           // frmCase CaseForm = new frmCase();
-           //CaseForm.ShowDialog();
-        }
-
-        #endregion CaseInfo
-        
-        #region DailyProgress
-
-        private void simpleButton9_Click(object sender, EventArgs e)
-        {
-            //frmDailyProgress DProgressForm = new frmDailyProgress();
-            //DProgressForm.ShowDialog();
-        }
-
-        #endregion DailyProgress
-
-        #region HistoryPage
-
-        private void simpleButton10_Click(object sender, EventArgs e)
-        {
-            //frmHistory HistoryForm = new frmHistory();
-            //HistoryForm.ShowDialog();
-        }
-
-        #endregion HistoryPage
-
-        private void simpleButton15_Click(object sender, EventArgs e)
-        {
-            //frmExamination ExaminationForm = new frmExamination();
-            //ExaminationForm.ShowDialog();
-        }
-
         private void cmdCategory_Click(object sender, EventArgs e)
         {
             AppVariable.CURRENT_SUB_MENU = "7";
@@ -416,20 +271,6 @@ namespace Lab
             AppVariable.CURRENT_SUB_MENU = "7";
             new frmLabSubTest().ShowDialog();
         }
-
         
-
-        
-
-        
-
-        
-        
-        #region ExaminiationPage
-
-        #endregion
-
-        #endregion Medical Record
-
     }
 }
