@@ -613,6 +613,7 @@ namespace MediPro
 
         DataSet dsPatient;
         string RegNo = string.Empty;
+        string strSelectedVisitPK = string.Empty;
 
         private void LoadLuePatient()
         {
@@ -641,10 +642,27 @@ namespace MediPro
 
         private void LoadVisited()
         {
-            DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, tblVisit.visitDate " +
+            DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, Convert(varchar, tblVisit.visitDate,105) As visitDate " +
                                                "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
                                                "WHERE tblVisit.RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
-            grdVisited.DataSource = dsVisit.Tables[0];
+            lueVisit.Properties.DataSource = dsVisit.Tables[0];
+        }
+
+        private void lueVisit_EditValueChanged(object sender, EventArgs e)
+        {
+            strSelectedVisitPK = lueVisit.EditValue.ToString();
+
+            LoadVisitDetail(strSelectedVisitPK);
+        }
+
+        private void LoadVisitDetail(string visitPK)
+        {
+            DataSet dsCurVisit = SqlDb.GetDataSet("SELECT tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, tblVisit.visitDate " +
+                                               "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
+                                               "WHERE tblVisit.RegNo = @RegNo AND tblVisit.visitPK = @VisitPK", new SqlParameter("@RegNo", RegNo), new SqlParameter("@VisitPK", visitPK));
+
+            txtVisitDesc.Text = dsCurVisit.Tables[0].Rows[0]["visitDescription"].ToString();
+            txtVisitDoctor.Text = dsCurVisit.Tables[0].Rows[0]["doctor"].ToString();
         }
 
         private void luePatient_EditValueChanged(object sender, EventArgs e)
@@ -688,61 +706,7 @@ namespace MediPro
         #endregion Detail Page
         #endregion PatientInfo
 
-        #region CaseInfo
-
-        private void simpleButton8_Click(object sender, EventArgs e)
-        {
-            frmCase CaseForm = new frmCase();
-           CaseForm.ShowDialog();
-        }
-
-        #endregion CaseInfo
         
-        #region DailyProgress
-
-        private void simpleButton9_Click(object sender, EventArgs e)
-        {
-            frmDailyProgress DProgressForm = new frmDailyProgress();
-            DProgressForm.ShowDialog();
-        }
-
-        #endregion DailyProgress
-
-        #region HistoryPage
-
-        private void simpleButton10_Click(object sender, EventArgs e)
-        {
-            frmHistory HistoryForm = new frmHistory();
-            HistoryForm.ShowDialog();
-        }
-
-        #endregion HistoryPage
-
-        private void simpleButton15_Click(object sender, EventArgs e)
-        {
-            frmExamination ExaminationForm = new frmExamination();
-            ExaminationForm.ShowDialog();
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label86_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox57_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void navBarControl1_Click(object sender, EventArgs e)
-        {
-
-        }
         #region Medical History
 
         public bool ValidateMedical()
@@ -872,7 +836,7 @@ namespace MediPro
         {
             if (e.Page.Name == tabPageHistory.Name)
             {
-                LoadMedicalHistory("V20140925CBL01001");
+                //LoadMedicalHistory(strSelectedVisitPK);
             }
         }
 
@@ -978,7 +942,6 @@ namespace MediPro
 
         #region Physical Examination
 
-        string strSelectedVisitPK = string.Empty;
 
         private void initPhysicalExamination()
         {
@@ -1415,5 +1378,8 @@ namespace MediPro
 
         }
         #endregion
+
+        
+
     }
 }
