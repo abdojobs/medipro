@@ -112,7 +112,6 @@
             this.lueVisit = new DevExpress.XtraEditors.LookUpEdit();
             this.cmdTodayPatients = new DevExpress.XtraEditors.SimpleButton();
             this.pnlDailyProgress = new DevExpress.XtraEditors.PanelControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -487,11 +486,13 @@
             this.cmdUser = new DevExpress.XtraEditors.SimpleButton();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.picExaLogo = new System.Windows.Forms.PictureBox();
+            this.pnlUserMenu = new System.Windows.Forms.Panel();
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.backstageViewControl1 = new DevExpress.XtraBars.Ribbon.BackstageViewControl();
+            this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -534,7 +535,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueVisit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDailyProgress)).BeginInit();
             this.pnlDailyProgress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luePatient.Properties)).BeginInit();
@@ -625,8 +625,8 @@
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExaLogo)).BeginInit();
+            this.pnlUserMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -669,7 +669,7 @@
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.tabPageHome.Size = new System.Drawing.Size(1800, 832);
+            this.tabPageHome.Size = new System.Drawing.Size(1292, 832);
             this.tabPageHome.Tag = "1";
             this.tabPageHome.Text = "Home";
             // 
@@ -693,7 +693,7 @@
             this.panelHome.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelHome.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1796, 828);
+            this.panelHome.Size = new System.Drawing.Size(1288, 828);
             this.panelHome.TabIndex = 0;
             this.panelHome.Tag = "1";
             // 
@@ -741,7 +741,7 @@
             this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(930, 767);
+            this.panelControl6.Size = new System.Drawing.Size(422, 767);
             this.panelControl6.TabIndex = 17;
             // 
             // panelControl7
@@ -757,7 +757,7 @@
             this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl7.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(927, 36);
+            this.panelControl7.Size = new System.Drawing.Size(419, 36);
             this.panelControl7.TabIndex = 12;
             // 
             // labelControl17
@@ -785,7 +785,7 @@
             this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl9.MainView = this.gridView10;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(929, 729);
+            this.gridControl9.Size = new System.Drawing.Size(421, 729);
             this.gridControl9.TabIndex = 11;
             this.gridControl9.UseEmbeddedNavigator = true;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1500,7 +1500,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(1790, 822);
+            this.shapeContainer1.Size = new System.Drawing.Size(1282, 822);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1523,7 +1523,7 @@
             this.tabPageMasterFile.Image = global::MediPro.Properties.Resources.Settings;
             this.tabPageMasterFile.Name = "tabPageMasterFile";
             this.tabPageMasterFile.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMasterFile.Size = new System.Drawing.Size(1528, 832);
+            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 832);
             this.tabPageMasterFile.Tag = "2";
             this.tabPageMasterFile.Text = " Master Files";
             // 
@@ -1551,7 +1551,7 @@
             this.panelMasterFiles.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMasterFiles.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMasterFiles.Name = "panelMasterFiles";
-            this.panelMasterFiles.Size = new System.Drawing.Size(1524, 828);
+            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 828);
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
@@ -1999,7 +1999,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlDailyProgress.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlDailyProgress.Appearance.Options.UseBackColor = true;
-            this.pnlDailyProgress.Controls.Add(this.memoEdit1);
+            this.pnlDailyProgress.Controls.Add(this.backstageViewControl1);
             this.pnlDailyProgress.Controls.Add(this.panelControl2);
             this.pnlDailyProgress.Controls.Add(this.simpleButton2);
             this.pnlDailyProgress.Location = new System.Drawing.Point(40, 192);
@@ -2008,13 +2008,6 @@
             this.pnlDailyProgress.Name = "pnlDailyProgress";
             this.pnlDailyProgress.Size = new System.Drawing.Size(558, 492);
             this.pnlDailyProgress.TabIndex = 11;
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Location = new System.Drawing.Point(116, 0);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(441, 450);
-            this.memoEdit1.TabIndex = 13;
             // 
             // panelControl2
             // 
@@ -2059,14 +2052,14 @@
             this.simpleButton2.Appearance.Options.UseTextOptions = true;
             this.simpleButton2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.simpleButton2.Image = global::MediPro.Properties.Resources.patient16;
+            this.simpleButton2.Image = global::MediPro.Properties.Resources.file_add_16;
             this.simpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
             this.simpleButton2.Location = new System.Drawing.Point(2, 2);
             this.simpleButton2.Margin = new System.Windows.Forms.Padding(0);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(114, 23);
             this.simpleButton2.TabIndex = 14;
-            this.simpleButton2.Text = " Add Summary";
+            this.simpleButton2.Text = "Add Summary";
             this.simpleButton2.Click += new System.EventHandler(this.cmdTodayPatients_Click);
             // 
             // luePatient
@@ -2396,12 +2389,15 @@
             this.panel2.Controls.Add(this.navBarHistory);
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(650, 455);
+            this.panel2.Size = new System.Drawing.Size(651, 494);
             this.panel2.TabIndex = 4;
             // 
             // navBarHistory
             // 
             this.navBarHistory.ActiveGroup = this.nbgPastHistory;
+            this.navBarHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.navBarHistory.Appearance.GroupHeader.ForeColor = System.Drawing.Color.Teal;
             this.navBarHistory.Appearance.GroupHeader.Options.UseForeColor = true;
             this.navBarHistory.Appearance.NavigationPaneHeader.ForeColor = System.Drawing.Color.Red;
@@ -2414,7 +2410,6 @@
             this.navBarHistory.Controls.Add(this.nbgPanelObsterics);
             this.navBarHistory.Controls.Add(this.nbgPanelGynaecological);
             this.navBarHistory.Controls.Add(this.nbgPanelOtherMedical);
-            this.navBarHistory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarHistory.DragDropFlags = DevExpress.XtraNavBar.NavBarDragDrop.None;
             this.navBarHistory.ExplorerBarGroupOuterIndent = 20;
             this.navBarHistory.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
@@ -2426,10 +2421,10 @@
             this.nbgObstericsHis,
             this.nbgGynaecological,
             this.nbgOtherMedical});
-            this.navBarHistory.Location = new System.Drawing.Point(0, 0);
+            this.navBarHistory.Location = new System.Drawing.Point(0, -9);
             this.navBarHistory.Name = "navBarHistory";
-            this.navBarHistory.OptionsNavPane.ExpandedWidth = 650;
-            this.navBarHistory.Size = new System.Drawing.Size(650, 455);
+            this.navBarHistory.OptionsNavPane.ExpandedWidth = 648;
+            this.navBarHistory.Size = new System.Drawing.Size(648, 500);
             this.navBarHistory.TabIndex = 8;
             this.navBarHistory.Text = "navBarHistory";
             this.navBarHistory.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Metropolis");
@@ -2440,6 +2435,7 @@
             this.nbgPastHistory.AppearanceBackground.Options.UseFont = true;
             this.nbgPastHistory.Caption = "PAST HISTORY";
             this.nbgPastHistory.ControlContainer = this.nbgPanelPastHistory;
+            this.nbgPastHistory.Expanded = true;
             this.nbgPastHistory.GroupClientHeight = 268;
             this.nbgPastHistory.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.nbgPastHistory.Name = "nbgPastHistory";
@@ -2456,7 +2452,7 @@
             this.nbgPanelPastHistory.Controls.Add(this.labelControl22);
             this.nbgPanelPastHistory.Controls.Add(this.labelControl21);
             this.nbgPanelPastHistory.Name = "nbgPanelPastHistory";
-            this.nbgPanelPastHistory.Size = new System.Drawing.Size(590, 261);
+            this.nbgPanelPastHistory.Size = new System.Drawing.Size(600, 261);
             this.nbgPanelPastHistory.TabIndex = 1;
             // 
             // txtPastHistory_Allergies
@@ -2572,7 +2568,7 @@
             this.nbgPanelHabits.Controls.Add(this.panelHabitsAlcohol);
             this.nbgPanelHabits.Controls.Add(this.panelHabits_Excercise);
             this.nbgPanelHabits.Name = "nbgPanelHabits";
-            this.nbgPanelHabits.Size = new System.Drawing.Size(602, 248);
+            this.nbgPanelHabits.Size = new System.Drawing.Size(600, 248);
             this.nbgPanelHabits.TabIndex = 2;
             // 
             // panelHabits_Smoking
@@ -3545,7 +3541,7 @@
             this.tabPageDetail.Controls.Add(this.groupBMI);
             this.tabPageDetail.Controls.Add(this.picPatient);
             this.tabPageDetail.Name = "tabPageDetail";
-            this.tabPageDetail.Size = new System.Drawing.Size(648, 569);
+            this.tabPageDetail.Size = new System.Drawing.Size(650, 569);
             this.tabPageDetail.Text = "Detail";
             // 
             // simpleButton4
@@ -3558,7 +3554,7 @@
             this.simpleButton4.Appearance.Options.UseBackColor = true;
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.Location = new System.Drawing.Point(366, 490);
+            this.simpleButton4.Location = new System.Drawing.Point(368, 490);
             this.simpleButton4.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton4.Name = "simpleButton4";
@@ -3576,7 +3572,7 @@
             this.simpleButton6.Appearance.Options.UseBackColor = true;
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.Location = new System.Drawing.Point(556, 490);
+            this.simpleButton6.Location = new System.Drawing.Point(558, 490);
             this.simpleButton6.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton6.Name = "simpleButton6";
@@ -3594,7 +3590,7 @@
             this.simpleButton7.Appearance.Options.UseBackColor = true;
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.Appearance.Options.UseForeColor = true;
-            this.simpleButton7.Location = new System.Drawing.Point(478, 490);
+            this.simpleButton7.Location = new System.Drawing.Point(480, 490);
             this.simpleButton7.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton7.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton7.Name = "simpleButton7";
@@ -3630,7 +3626,7 @@
             this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl3.MainView = this.gridView7;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(602, 86);
+            this.gridControl3.Size = new System.Drawing.Size(604, 86);
             this.gridControl3.TabIndex = 11;
             this.gridControl3.UseEmbeddedNavigator = true;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -3719,7 +3715,7 @@
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox7.Location = new System.Drawing.Point(12, 25);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox7.Size = new System.Drawing.Size(594, 1);
             this.pictureBox7.TabIndex = 4;
             this.pictureBox7.TabStop = false;
             // 
@@ -3744,7 +3740,7 @@
             this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox19.Location = new System.Drawing.Point(8, 377);
             this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox19.Size = new System.Drawing.Size(594, 1);
             this.pictureBox19.TabIndex = 4;
             this.pictureBox19.TabStop = false;
             // 
@@ -3769,7 +3765,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(12, 205);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox3.Size = new System.Drawing.Size(594, 1);
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
@@ -3797,7 +3793,7 @@
             this.groupBMI.ForeColor = System.Drawing.Color.Navy;
             this.groupBMI.Location = new System.Drawing.Point(165, 44);
             this.groupBMI.Name = "groupBMI";
-            this.groupBMI.Size = new System.Drawing.Size(462, 136);
+            this.groupBMI.Size = new System.Drawing.Size(464, 136);
             this.groupBMI.TabIndex = 2;
             this.groupBMI.TabStop = false;
             this.groupBMI.Text = " Body Mass Index ";
@@ -4020,7 +4016,7 @@
             this.tabPageExamination.Controls.Add(this.label8);
             this.tabPageExamination.Controls.Add(this.pictureBox9);
             this.tabPageExamination.Name = "tabPageExamination";
-            this.tabPageExamination.Size = new System.Drawing.Size(648, 569);
+            this.tabPageExamination.Size = new System.Drawing.Size(650, 569);
             this.tabPageExamination.Text = "Physical Examination";
             // 
             // panel3
@@ -4032,7 +4028,7 @@
             this.panel3.Controls.Add(this.navBarControl1);
             this.panel3.Location = new System.Drawing.Point(0, 44);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(648, 446);
+            this.panel3.Size = new System.Drawing.Size(650, 446);
             this.panel3.TabIndex = 17;
             // 
             // navBarControl1
@@ -4076,8 +4072,8 @@
             this.navBarGroup22});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
-            this.navBarControl1.OptionsNavPane.ExpandedWidth = 648;
-            this.navBarControl1.Size = new System.Drawing.Size(648, 446);
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 650;
+            this.navBarControl1.Size = new System.Drawing.Size(650, 446);
             this.navBarControl1.TabIndex = 9;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Metropolis");
@@ -5733,7 +5729,7 @@
             this.panelControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl9.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl9.Name = "panelControl9";
-            this.panelControl9.Size = new System.Drawing.Size(648, 39);
+            this.panelControl9.Size = new System.Drawing.Size(650, 39);
             this.panelControl9.TabIndex = 18;
             // 
             // simpleButton1
@@ -5746,7 +5742,7 @@
             this.simpleButton1.Appearance.Options.UseBackColor = true;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(459, 7);
+            this.simpleButton1.Location = new System.Drawing.Point(461, 7);
             this.simpleButton1.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton1.Name = "simpleButton1";
@@ -5775,7 +5771,7 @@
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox9.Location = new System.Drawing.Point(12, 22);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox9.Size = new System.Drawing.Size(594, 1);
             this.pictureBox9.TabIndex = 14;
             this.pictureBox9.TabStop = false;
             // 
@@ -5788,7 +5784,7 @@
             this.tabPageInvestigation.Controls.Add(this.label9);
             this.tabPageInvestigation.Controls.Add(this.pictureBox10);
             this.tabPageInvestigation.Name = "tabPageInvestigation";
-            this.tabPageInvestigation.Size = new System.Drawing.Size(648, 569);
+            this.tabPageInvestigation.Size = new System.Drawing.Size(650, 569);
             this.tabPageInvestigation.Text = "Investigation";
             // 
             // panelControl11
@@ -5805,7 +5801,7 @@
             this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(648, 39);
+            this.panelControl11.Size = new System.Drawing.Size(650, 39);
             this.panelControl11.TabIndex = 22;
             // 
             // simpleButton17
@@ -5818,7 +5814,7 @@
             this.simpleButton17.Appearance.Options.UseBackColor = true;
             this.simpleButton17.Appearance.Options.UseFont = true;
             this.simpleButton17.Appearance.Options.UseForeColor = true;
-            this.simpleButton17.Location = new System.Drawing.Point(545, 7);
+            this.simpleButton17.Location = new System.Drawing.Point(547, 7);
             this.simpleButton17.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton17.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton17.Name = "simpleButton17";
@@ -5836,7 +5832,7 @@
             this.simpleButton16.Appearance.Options.UseBackColor = true;
             this.simpleButton16.Appearance.Options.UseFont = true;
             this.simpleButton16.Appearance.Options.UseForeColor = true;
-            this.simpleButton16.Location = new System.Drawing.Point(338, 7);
+            this.simpleButton16.Location = new System.Drawing.Point(340, 7);
             this.simpleButton16.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton16.Name = "simpleButton16";
@@ -5854,7 +5850,7 @@
             this.simpleButton18.Appearance.Options.UseBackColor = true;
             this.simpleButton18.Appearance.Options.UseFont = true;
             this.simpleButton18.Appearance.Options.UseForeColor = true;
-            this.simpleButton18.Location = new System.Drawing.Point(450, 7);
+            this.simpleButton18.Location = new System.Drawing.Point(452, 7);
             this.simpleButton18.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton18.Name = "simpleButton18";
@@ -5879,7 +5875,7 @@
             this.grdLab.Name = "grdLab";
             this.grdLab.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.resLueLabTest});
-            this.grdLab.Size = new System.Drawing.Size(604, 435);
+            this.grdLab.Size = new System.Drawing.Size(606, 435);
             this.grdLab.TabIndex = 20;
             this.grdLab.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -5982,7 +5978,7 @@
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.Location = new System.Drawing.Point(12, 25);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox10.Size = new System.Drawing.Size(594, 1);
             this.pictureBox10.TabIndex = 4;
             this.pictureBox10.TabStop = false;
             // 
@@ -5997,7 +5993,7 @@
             this.tabPageDiagnosis.Controls.Add(this.pictureBox11);
             this.tabPageDiagnosis.Controls.Add(this.panelControl12);
             this.tabPageDiagnosis.Name = "tabPageDiagnosis";
-            this.tabPageDiagnosis.Size = new System.Drawing.Size(648, 569);
+            this.tabPageDiagnosis.Size = new System.Drawing.Size(650, 569);
             this.tabPageDiagnosis.Text = "Diagnosis";
             // 
             // simpleButton19
@@ -6010,7 +6006,7 @@
             this.simpleButton19.Appearance.Options.UseBackColor = true;
             this.simpleButton19.Appearance.Options.UseFont = true;
             this.simpleButton19.Appearance.Options.UseForeColor = true;
-            this.simpleButton19.Location = new System.Drawing.Point(454, 497);
+            this.simpleButton19.Location = new System.Drawing.Point(456, 497);
             this.simpleButton19.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton19.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton19.Name = "simpleButton19";
@@ -6028,7 +6024,7 @@
             this.simpleButton21.Appearance.Options.UseBackColor = true;
             this.simpleButton21.Appearance.Options.UseFont = true;
             this.simpleButton21.Appearance.Options.UseForeColor = true;
-            this.simpleButton21.Location = new System.Drawing.Point(547, 497);
+            this.simpleButton21.Location = new System.Drawing.Point(549, 497);
             this.simpleButton21.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton21.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton21.Name = "simpleButton21";
@@ -6051,7 +6047,7 @@
             this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(604, 433);
+            this.gridControl4.Size = new System.Drawing.Size(606, 433);
             this.gridControl4.TabIndex = 26;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -6130,7 +6126,7 @@
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox11.Location = new System.Drawing.Point(12, 25);
             this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox11.Size = new System.Drawing.Size(594, 1);
             this.pictureBox11.TabIndex = 22;
             this.pictureBox11.TabStop = false;
             // 
@@ -6145,7 +6141,7 @@
             this.panelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl12.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl12.Name = "panelControl12";
-            this.panelControl12.Size = new System.Drawing.Size(648, 39);
+            this.panelControl12.Size = new System.Drawing.Size(650, 39);
             this.panelControl12.TabIndex = 28;
             // 
             // tabPageTreatment
@@ -6157,7 +6153,7 @@
             this.tabPageTreatment.Controls.Add(this.label11);
             this.tabPageTreatment.Controls.Add(this.pictureBox12);
             this.tabPageTreatment.Name = "tabPageTreatment";
-            this.tabPageTreatment.Size = new System.Drawing.Size(648, 569);
+            this.tabPageTreatment.Size = new System.Drawing.Size(650, 569);
             this.tabPageTreatment.Text = "Treatment";
             // 
             // panelControl10
@@ -6173,7 +6169,7 @@
             this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl10.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl10.Name = "panelControl10";
-            this.panelControl10.Size = new System.Drawing.Size(648, 39);
+            this.panelControl10.Size = new System.Drawing.Size(650, 39);
             this.panelControl10.TabIndex = 33;
             // 
             // simpleButton3
@@ -6186,7 +6182,7 @@
             this.simpleButton3.Appearance.Options.UseBackColor = true;
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.Location = new System.Drawing.Point(451, 7);
+            this.simpleButton3.Location = new System.Drawing.Point(453, 7);
             this.simpleButton3.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton3.Name = "simpleButton3";
@@ -6204,7 +6200,7 @@
             this.simpleButton8.Appearance.Options.UseBackColor = true;
             this.simpleButton8.Appearance.Options.UseFont = true;
             this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.Location = new System.Drawing.Point(544, 7);
+            this.simpleButton8.Location = new System.Drawing.Point(546, 7);
             this.simpleButton8.LookAndFeel.SkinName = "Seven Classic";
             this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
             this.simpleButton8.Name = "simpleButton8";
@@ -6227,7 +6223,7 @@
             this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl5.MainView = this.gridView5;
             this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(605, 473);
+            this.gridControl5.Size = new System.Drawing.Size(607, 473);
             this.gridControl5.TabIndex = 32;
             this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -6350,7 +6346,7 @@
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox12.Location = new System.Drawing.Point(12, 25);
             this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(592, 1);
+            this.pictureBox12.Size = new System.Drawing.Size(594, 1);
             this.pictureBox12.TabIndex = 28;
             this.pictureBox12.TabStop = false;
             // 
@@ -6428,7 +6424,7 @@
             this.tabPageReport.Image = global::MediPro.Properties.Resources.Stats;
             this.tabPageReport.Name = "tabPageReport";
             this.tabPageReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageReport.Size = new System.Drawing.Size(1528, 832);
+            this.tabPageReport.Size = new System.Drawing.Size(1292, 832);
             this.tabPageReport.Tag = "4";
             this.tabPageReport.Text = "  Reports";
             // 
@@ -6441,7 +6437,7 @@
             this.panelReports.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelReports.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(1524, 828);
+            this.panelReports.Size = new System.Drawing.Size(1288, 828);
             this.panelReports.TabIndex = 1;
             // 
             // tabPageAdministrator
@@ -6452,7 +6448,7 @@
             this.tabPageAdministrator.Image = ((System.Drawing.Image)(resources.GetObject("tabPageAdministrator.Image")));
             this.tabPageAdministrator.Name = "tabPageAdministrator";
             this.tabPageAdministrator.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageAdministrator.Size = new System.Drawing.Size(1528, 832);
+            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 832);
             this.tabPageAdministrator.Tag = "5";
             this.tabPageAdministrator.Text = "  Admin";
             // 
@@ -6471,7 +6467,7 @@
             this.panelAdmin.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelAdmin.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(1524, 828);
+            this.panelAdmin.Size = new System.Drawing.Size(1288, 828);
             this.panelAdmin.TabIndex = 1;
             // 
             // label14
@@ -6560,27 +6556,27 @@
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
             // 
-            // pictureBox1
+            // picExaLogo
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::MediPro.Properties.Resources.exa_logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(1179, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 39);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.picExaLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picExaLogo.BackgroundImage = global::MediPro.Properties.Resources.exa_logo;
+            this.picExaLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picExaLogo.Location = new System.Drawing.Point(1179, 4);
+            this.picExaLogo.Name = "picExaLogo";
+            this.picExaLogo.Size = new System.Drawing.Size(118, 39);
+            this.picExaLogo.TabIndex = 1;
+            this.picExaLogo.TabStop = false;
             // 
-            // panel1
+            // pnlUserMenu
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.linkChangePassword);
-            this.panel1.Controls.Add(this.linkLogout);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(880, 23);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 24);
-            this.panel1.TabIndex = 6;
+            this.pnlUserMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlUserMenu.Controls.Add(this.linkChangePassword);
+            this.pnlUserMenu.Controls.Add(this.linkLogout);
+            this.pnlUserMenu.Controls.Add(this.pictureBox2);
+            this.pnlUserMenu.Location = new System.Drawing.Point(880, 23);
+            this.pnlUserMenu.Name = "pnlUserMenu";
+            this.pnlUserMenu.Size = new System.Drawing.Size(295, 24);
+            this.pnlUserMenu.TabIndex = 6;
             // 
             // linkChangePassword
             // 
@@ -6636,14 +6632,36 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // backstageViewControl1
+            // 
+            this.backstageViewControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.backstageViewControl1.ColorScheme = DevExpress.XtraBars.Ribbon.RibbonControlColorScheme.Yellow;
+            this.backstageViewControl1.Items.Add(this.backstageViewButtonItem1);
+            this.backstageViewControl1.Location = new System.Drawing.Point(1, 26);
+            this.backstageViewControl1.Name = "backstageViewControl1";
+            this.backstageViewControl1.SelectedTab = null;
+            this.backstageViewControl1.Size = new System.Drawing.Size(554, 423);
+            this.backstageViewControl1.TabIndex = 15;
+            this.backstageViewControl1.Text = "summary 01";
+            this.backstageViewControl1.UseWaitCursor = true;
+            // 
+            // backstageViewButtonItem1
+            // 
+            this.backstageViewButtonItem1.Appearance.Image = global::MediPro.Properties.Resources.file_add_16;
+            this.backstageViewButtonItem1.Appearance.Options.UseImage = true;
+            this.backstageViewButtonItem1.Caption = "Add Smmary";
+            this.backstageViewButtonItem1.Name = "backstageViewButtonItem1";
+            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(1307, 750);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pnlUserMenu);
+            this.Controls.Add(this.picExaLogo);
             this.Controls.Add(this.tabControlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -6700,7 +6718,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueVisit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDailyProgress)).EndInit();
             this.pnlDailyProgress.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.luePatient.Properties)).EndInit();
@@ -6824,9 +6841,9 @@
             this.panelAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picExaLogo)).EndInit();
+            this.pnlUserMenu.ResumeLayout(false);
+            this.pnlUserMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -6839,7 +6856,7 @@
         private DevExpress.XtraTab.XtraTabPage tabPageMedicalRecord;
         private DevExpress.XtraTab.XtraTabPage tabPageReport;
         private DevExpress.XtraTab.XtraTabPage tabPageAdministrator;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picExaLogo;
         public DevExpress.XtraTab.XtraTabControl tabControlMain;
         private DevExpress.XtraEditors.PanelControl panelHome;
         private DevExpress.XtraEditors.PanelControl panelMasterFiles;
@@ -6930,7 +6947,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox lineSystem;
         private DevExpress.XtraEditors.SimpleButton cmdPosition;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlUserMenu;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel linkLogout;
         private System.Windows.Forms.LinkLabel linkChangePassword;
@@ -7295,8 +7312,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl39;
         private DevExpress.XtraEditors.LabelControl labelControl38;
         private DevExpress.XtraEditors.TextEdit txtVisitDoctor;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraBars.Ribbon.BackstageViewControl backstageViewControl1;
+        private DevExpress.XtraBars.Ribbon.BackstageViewButtonItem backstageViewButtonItem1;
 
     }
 }

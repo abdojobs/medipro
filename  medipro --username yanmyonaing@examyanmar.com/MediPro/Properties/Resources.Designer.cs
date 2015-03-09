@@ -143,6 +143,16 @@ namespace MediPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file_add_16 {
+            get {
+                object obj = ResourceManager.GetObject("file_add-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap frequency32 {
             get {
                 object obj = ResourceManager.GetObject("frequency32", resourceCulture);

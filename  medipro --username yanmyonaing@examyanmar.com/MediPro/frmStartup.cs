@@ -901,20 +901,20 @@ namespace MediPro
             }
         }
 
-        private void grdViewVisited_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (grdViewVisited.RowCount > 0)
-            {
-                DataRow drVisit = grdViewVisited.GetDataRow(grdViewVisited.FocusedRowHandle);
-                strSelectedVisit = drVisit.ItemArray[0].ToString();
+        //private void grdViewVisited_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        //{
+        //    if (grdViewVisited.RowCount > 0)
+        //    {
+        //        DataRow drVisit = grdViewVisited.GetDataRow(grdViewVisited.FocusedRowHandle);
+        //        strSelectedVisit = drVisit.ItemArray[0].ToString();
 
-                LoadMedicalHistory(strSelectedVisit);
-            }
-            else
-            {
-                strSelectedVisit = string.Empty;
-            }
-        }
+        //        LoadMedicalHistory(strSelectedVisit);
+        //    }
+        //    else
+        //    {
+        //        strSelectedVisit = string.Empty;
+        //    }
+        //}
 
         private void rdoHabits_Excercise_CheckedChanged(object sender, EventArgs e)
         {
