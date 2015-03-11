@@ -1379,6 +1379,27 @@ namespace MediPro
         }
         #endregion
 
+        private void backstageViewControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bsvButAddSummary_ItemClick(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+
+        }
+
+        private void backstageViewTabItem2_SelectedChanged(object sender, DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs e)
+        {
+
+        }
+
+        private void backstageViewClientControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
         
 
     }
