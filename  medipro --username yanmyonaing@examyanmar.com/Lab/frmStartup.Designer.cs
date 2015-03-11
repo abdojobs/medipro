@@ -79,11 +79,13 @@
             this.lineShape = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPageMasterFile = new DevExpress.XtraTab.XtraTabPage();
             this.panelMasterFiles = new DevExpress.XtraEditors.PanelControl();
-            this.cmdSubLabTest = new System.Windows.Forms.Button();
-            this.cmdLabTest = new System.Windows.Forms.Button();
-            this.cmdPackage = new System.Windows.Forms.Button();
-            this.cmdLaboratory = new System.Windows.Forms.Button();
-            this.cmdCategory = new System.Windows.Forms.Button();
+            this.cmdDoctors = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdCategory = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSubLabTest = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLabTest = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdPackage = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLaboratory = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdPatients = new DevExpress.XtraEditors.SimpleButton();
             this.label15 = new System.Windows.Forms.Label();
             this.lineSystem = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -107,8 +109,6 @@
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmdDoctors = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdPatients = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -953,12 +953,12 @@
             this.panelMasterFiles.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
             this.panelMasterFiles.Controls.Add(this.cmdDoctors);
-            this.panelMasterFiles.Controls.Add(this.cmdPatients);
+            this.panelMasterFiles.Controls.Add(this.cmdCategory);
             this.panelMasterFiles.Controls.Add(this.cmdSubLabTest);
             this.panelMasterFiles.Controls.Add(this.cmdLabTest);
             this.panelMasterFiles.Controls.Add(this.cmdPackage);
             this.panelMasterFiles.Controls.Add(this.cmdLaboratory);
-            this.panelMasterFiles.Controls.Add(this.cmdCategory);
+            this.panelMasterFiles.Controls.Add(this.cmdPatients);
             this.panelMasterFiles.Controls.Add(this.label15);
             this.panelMasterFiles.Controls.Add(this.lineSystem);
             this.panelMasterFiles.Controls.Add(this.label3);
@@ -976,60 +976,145 @@
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
+            // cmdDoctors
+            // 
+            this.cmdDoctors.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdDoctors.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdDoctors.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdDoctors.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdDoctors.Appearance.Options.UseBackColor = true;
+            this.cmdDoctors.Appearance.Options.UseFont = true;
+            this.cmdDoctors.Appearance.Options.UseForeColor = true;
+            this.cmdDoctors.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdDoctors.Image = global::Lab.Properties.Resources.doctor32;
+            this.cmdDoctors.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdDoctors.Location = new System.Drawing.Point(169, 55);
+            this.cmdDoctors.Name = "cmdDoctors";
+            this.cmdDoctors.Size = new System.Drawing.Size(110, 76);
+            this.cmdDoctors.TabIndex = 7;
+            this.cmdDoctors.Tag = "5";
+            this.cmdDoctors.Text = "Doctors";
+            this.cmdDoctors.Click += new System.EventHandler(this.cmdDoctors_Click);
+            // 
+            // cmdCategory
+            // 
+            this.cmdCategory.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdCategory.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdCategory.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCategory.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdCategory.Appearance.Options.UseBackColor = true;
+            this.cmdCategory.Appearance.Options.UseFont = true;
+            this.cmdCategory.Appearance.Options.UseForeColor = true;
+            this.cmdCategory.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdCategory.Image = global::Lab.Properties.Resources.historytitle32;
+            this.cmdCategory.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdCategory.Location = new System.Drawing.Point(49, 202);
+            this.cmdCategory.Name = "cmdCategory";
+            this.cmdCategory.Size = new System.Drawing.Size(110, 76);
+            this.cmdCategory.TabIndex = 6;
+            this.cmdCategory.Tag = "4";
+            this.cmdCategory.Text = "Category";
+            this.cmdCategory.Click += new System.EventHandler(this.cmdCategory_Click);
+            // 
             // cmdSubLabTest
             // 
-            this.cmdSubLabTest.Location = new System.Drawing.Point(488, 229);
+            this.cmdSubLabTest.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdSubLabTest.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdSubLabTest.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdSubLabTest.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdSubLabTest.Appearance.Options.UseBackColor = true;
+            this.cmdSubLabTest.Appearance.Options.UseFont = true;
+            this.cmdSubLabTest.Appearance.Options.UseForeColor = true;
+            this.cmdSubLabTest.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdSubLabTest.Image = global::Lab.Properties.Resources.sublabtest32;
+            this.cmdSubLabTest.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdSubLabTest.Location = new System.Drawing.Point(529, 202);
             this.cmdSubLabTest.Name = "cmdSubLabTest";
-            this.cmdSubLabTest.Size = new System.Drawing.Size(75, 23);
-            this.cmdSubLabTest.TabIndex = 5;
-            this.cmdSubLabTest.Tag = "17";
+            this.cmdSubLabTest.Size = new System.Drawing.Size(110, 76);
+            this.cmdSubLabTest.TabIndex = 6;
+            this.cmdSubLabTest.Tag = "4";
             this.cmdSubLabTest.Text = "Sub Lab Test";
-            this.cmdSubLabTest.UseVisualStyleBackColor = true;
             this.cmdSubLabTest.Click += new System.EventHandler(this.cmdSubLabTest_Click);
             // 
             // cmdLabTest
             // 
-            this.cmdLabTest.Location = new System.Drawing.Point(397, 229);
+            this.cmdLabTest.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLabTest.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLabTest.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdLabTest.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdLabTest.Appearance.Options.UseBackColor = true;
+            this.cmdLabTest.Appearance.Options.UseFont = true;
+            this.cmdLabTest.Appearance.Options.UseForeColor = true;
+            this.cmdLabTest.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdLabTest.Image = ((System.Drawing.Image)(resources.GetObject("cmdLabTest.Image")));
+            this.cmdLabTest.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdLabTest.Location = new System.Drawing.Point(409, 202);
             this.cmdLabTest.Name = "cmdLabTest";
-            this.cmdLabTest.Size = new System.Drawing.Size(75, 23);
-            this.cmdLabTest.TabIndex = 5;
-            this.cmdLabTest.Tag = "17";
+            this.cmdLabTest.Size = new System.Drawing.Size(110, 76);
+            this.cmdLabTest.TabIndex = 6;
+            this.cmdLabTest.Tag = "4";
             this.cmdLabTest.Text = "Lab Test";
-            this.cmdLabTest.UseVisualStyleBackColor = true;
             this.cmdLabTest.Click += new System.EventHandler(this.cmdLabTest_Click);
             // 
             // cmdPackage
             // 
-            this.cmdPackage.Location = new System.Drawing.Point(304, 229);
+            this.cmdPackage.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPackage.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdPackage.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdPackage.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdPackage.Appearance.Options.UseBackColor = true;
+            this.cmdPackage.Appearance.Options.UseFont = true;
+            this.cmdPackage.Appearance.Options.UseForeColor = true;
+            this.cmdPackage.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdPackage.Image = global::Lab.Properties.Resources.package32;
+            this.cmdPackage.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdPackage.Location = new System.Drawing.Point(289, 202);
             this.cmdPackage.Name = "cmdPackage";
-            this.cmdPackage.Size = new System.Drawing.Size(75, 23);
-            this.cmdPackage.TabIndex = 5;
-            this.cmdPackage.Tag = "17";
+            this.cmdPackage.Size = new System.Drawing.Size(110, 76);
+            this.cmdPackage.TabIndex = 6;
+            this.cmdPackage.Tag = "4";
             this.cmdPackage.Text = "Package";
-            this.cmdPackage.UseVisualStyleBackColor = true;
             this.cmdPackage.Click += new System.EventHandler(this.cmdPackage_Click);
             // 
             // cmdLaboratory
             // 
-            this.cmdLaboratory.Location = new System.Drawing.Point(205, 229);
+            this.cmdLaboratory.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLaboratory.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLaboratory.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdLaboratory.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdLaboratory.Appearance.Options.UseBackColor = true;
+            this.cmdLaboratory.Appearance.Options.UseFont = true;
+            this.cmdLaboratory.Appearance.Options.UseForeColor = true;
+            this.cmdLaboratory.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdLaboratory.Image = global::Lab.Properties.Resources.lab32;
+            this.cmdLaboratory.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdLaboratory.Location = new System.Drawing.Point(169, 202);
             this.cmdLaboratory.Name = "cmdLaboratory";
-            this.cmdLaboratory.Size = new System.Drawing.Size(75, 23);
-            this.cmdLaboratory.TabIndex = 5;
-            this.cmdLaboratory.Tag = "17";
+            this.cmdLaboratory.Size = new System.Drawing.Size(110, 76);
+            this.cmdLaboratory.TabIndex = 6;
+            this.cmdLaboratory.Tag = "4";
             this.cmdLaboratory.Text = "Laboratory";
-            this.cmdLaboratory.UseVisualStyleBackColor = true;
             this.cmdLaboratory.Click += new System.EventHandler(this.cmdLaboratory_Click);
             // 
-            // cmdCategory
+            // cmdPatients
             // 
-            this.cmdCategory.Location = new System.Drawing.Point(103, 229);
-            this.cmdCategory.Name = "cmdCategory";
-            this.cmdCategory.Size = new System.Drawing.Size(75, 23);
-            this.cmdCategory.TabIndex = 5;
-            this.cmdCategory.Tag = "17";
-            this.cmdCategory.Text = "Category";
-            this.cmdCategory.UseVisualStyleBackColor = true;
-            this.cmdCategory.Click += new System.EventHandler(this.cmdCategory_Click);
+            this.cmdPatients.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdPatients.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdPatients.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdPatients.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdPatients.Appearance.Options.UseBackColor = true;
+            this.cmdPatients.Appearance.Options.UseFont = true;
+            this.cmdPatients.Appearance.Options.UseForeColor = true;
+            this.cmdPatients.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdPatients.Image = global::Lab.Properties.Resources.patient32;
+            this.cmdPatients.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdPatients.Location = new System.Drawing.Point(49, 55);
+            this.cmdPatients.Name = "cmdPatients";
+            this.cmdPatients.Size = new System.Drawing.Size(110, 76);
+            this.cmdPatients.TabIndex = 6;
+            this.cmdPatients.Tag = "4";
+            this.cmdPatients.Text = "Patients";
+            this.cmdPatients.Click += new System.EventHandler(this.cmdPatients_Click);
             // 
             // label15
             // 
@@ -1339,44 +1424,6 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // cmdDoctors
-            // 
-            this.cmdDoctors.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdDoctors.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdDoctors.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdDoctors.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.cmdDoctors.Appearance.Options.UseBackColor = true;
-            this.cmdDoctors.Appearance.Options.UseFont = true;
-            this.cmdDoctors.Appearance.Options.UseForeColor = true;
-            this.cmdDoctors.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.cmdDoctors.Image = global::Lab.Properties.Resources.doctor32;
-            this.cmdDoctors.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.cmdDoctors.Location = new System.Drawing.Point(169, 55);
-            this.cmdDoctors.Name = "cmdDoctors";
-            this.cmdDoctors.Size = new System.Drawing.Size(110, 76);
-            this.cmdDoctors.TabIndex = 7;
-            this.cmdDoctors.Tag = "5";
-            this.cmdDoctors.Text = "Doctors";
-            // 
-            // cmdPatients
-            // 
-            this.cmdPatients.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdPatients.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdPatients.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdPatients.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.cmdPatients.Appearance.Options.UseBackColor = true;
-            this.cmdPatients.Appearance.Options.UseFont = true;
-            this.cmdPatients.Appearance.Options.UseForeColor = true;
-            this.cmdPatients.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.cmdPatients.Image = global::Lab.Properties.Resources.patient32;
-            this.cmdPatients.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.cmdPatients.Location = new System.Drawing.Point(49, 55);
-            this.cmdPatients.Name = "cmdPatients";
-            this.cmdPatients.Size = new System.Drawing.Size(110, 76);
-            this.cmdPatients.TabIndex = 6;
-            this.cmdPatients.Tag = "4";
-            this.cmdPatients.Text = "Patients";
-            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1521,13 +1568,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColRegNo;
         private DevExpress.XtraGrid.Columns.GridColumn grdColIsViaited;
         private DevExpress.XtraGrid.Columns.GridColumn grdColVPK;
-        private System.Windows.Forms.Button cmdCategory;
-        private System.Windows.Forms.Button cmdLaboratory;
-        private System.Windows.Forms.Button cmdPackage;
-        private System.Windows.Forms.Button cmdLabTest;
-        private System.Windows.Forms.Button cmdSubLabTest;
         private DevExpress.XtraEditors.SimpleButton cmdDoctors;
         private DevExpress.XtraEditors.SimpleButton cmdPatients;
+        private DevExpress.XtraEditors.SimpleButton cmdCategory;
+        private DevExpress.XtraEditors.SimpleButton cmdPackage;
+        private DevExpress.XtraEditors.SimpleButton cmdLaboratory;
+        private DevExpress.XtraEditors.SimpleButton cmdLabTest;
+        private DevExpress.XtraEditors.SimpleButton cmdSubLabTest;
 
     }
 }

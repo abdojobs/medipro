@@ -242,6 +242,37 @@ namespace Lab
 
         #endregion Startup Page
 
+        //private void cmdCategory_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void cmdLaboratory_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void cmdPackage_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void cmdLabTest_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void cmdSubLabTest_Click(object sender, EventArgs e)
+        //{
+
+        //}
+
+        private void cmdPatients_Click(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmPatients().ShowDialog();
+        }
+
         private void cmdCategory_Click(object sender, EventArgs e)
         {
             AppVariable.CURRENT_SUB_MENU = "7";
@@ -271,6 +302,12 @@ namespace Lab
             AppVariable.CURRENT_SUB_MENU = "7";
             new frmLabSubTest().ShowDialog();
         }
+
+        private void cmdDoctors_Click(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmDoctor().ShowDialog();
+        }      
         
     }
 }

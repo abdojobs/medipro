@@ -66,6 +66,18 @@
     <Compile Include="frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctor.Designer.cs">
+      <DependentUpon>frmDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoctorDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoctorDetail.Designer.cs">
+      <DependentUpon>frmDoctorDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLabCatDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +144,24 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPatientDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPatientDetail.designer.cs">
+      <DependentUpon>frmPatientDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPatients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPatients.Designer.cs">
+      <DependentUpon>frmPatients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPatientSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPatientSearch.Designer.cs">
+      <DependentUpon>frmPatientSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmStartup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +178,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctor.resx">
+      <DependentUpon>frmDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoctorDetail.resx">
+      <DependentUpon>frmDoctorDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLabCatDetail.resx">
       <DependentUpon>frmLabCatDetail.cs</DependentUpon>
@@ -181,6 +217,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPatientDetail.resx">
+      <DependentUpon>frmPatientDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPatients.resx">
+      <DependentUpon>frmPatients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPatientSearch.resx">
+      <DependentUpon>frmPatientSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStartup.resx">
       <DependentUpon>frmStartup.cs</DependentUpon>
@@ -323,6 +368,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\labtest32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sublabtest32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
