@@ -378,7 +378,7 @@
             // 
             // cmdSearch
             // 
-            this.cmdSearch.Image = global::MediPro.Properties.Resources.search;
+            this.cmdSearch.Image = global::Lab.Properties.Resources.search;
             this.cmdSearch.Location = new System.Drawing.Point(294, 8);
             this.cmdSearch.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.cmdSearch.LookAndFeel.UseDefaultLookAndFeel = false;

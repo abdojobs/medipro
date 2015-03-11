@@ -334,7 +334,7 @@
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Image = global::MediPro.Properties.Resources.search;
+            this.simpleButton3.Image = global::Lab.Properties.Resources.search;
             this.simpleButton3.Location = new System.Drawing.Point(294, 8);
             this.simpleButton3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.simpleButton3.LookAndFeel.UseDefaultLookAndFeel = false;
