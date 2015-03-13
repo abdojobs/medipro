@@ -117,6 +117,26 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
+            this.label4.Location = new System.Drawing.Point(222, 509);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 15);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Copies";
+            // 
+            // txtCopies
+            // 
+            this.txtCopies.Location = new System.Drawing.Point(226, 524);
+            this.txtCopies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCopies.Name = "txtCopies";
+            this.txtCopies.Size = new System.Drawing.Size(31, 20);
+            this.txtCopies.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Navy;
             this.label4.Location = new System.Drawing.Point(277, 509);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 15);
@@ -130,7 +150,7 @@
             this.txtCopies.Name = "txtCopies";
             this.txtCopies.Size = new System.Drawing.Size(31, 20);
             this.txtCopies.TabIndex = 28;
-            // 
+            //
             // imgBarcode
             // 
             this.imgBarcode.BackColor = System.Drawing.Color.White;
