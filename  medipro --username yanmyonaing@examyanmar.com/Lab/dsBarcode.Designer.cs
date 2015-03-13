@@ -277,7 +277,7 @@ namespace Lab {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dtBarcodeDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+        public partial class dtBarcodeDataTable : global::System.Data.TypedTableBase<dtBarcodeRow> {
             
             private global::System.Data.DataColumn columnBarcode;
             
@@ -399,12 +399,6 @@ namespace Lab {
                 rowdtBarcodeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtBarcodeRow);
                 return rowdtBarcodeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public virtual global::System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -41,7 +41,7 @@ namespace Lab {
         
         public override string FullResourceName {
             get {
-                return "MediPro.rptBarcode.rpt";
+                return "Lab.rptBarcode.rpt";
             }
             set {
                 // Do nothing
