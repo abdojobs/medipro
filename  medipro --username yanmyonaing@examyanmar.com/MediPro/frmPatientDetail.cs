@@ -417,7 +417,7 @@ namespace MediPro
             //g.DrawString(patientName + " - " + dob, textFont, br, 0, 0);
 
             //Real Barcode
-            g.DrawString(barcode, barcodeFont, br, 0, 5);
+            g.DrawString("*"+barcode+"*", barcodeFont, br, 0, 5);
 
             //Barcode with normal Font
             //g.DrawString(barcode, textFont, br, 0, 28);
