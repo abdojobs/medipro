@@ -19,7 +19,7 @@ namespace Lab
         public frmLogin()
         {
             InitializeComponent();
-            string oops= Crypto.Decrypt("T3l2QbbtnWmqBNVxtTiEiIghsR7YIA+bGcMOi9lGJiQ=");
+            //string oops= Crypto.Decrypt("T3l2QbbtnWmqBNVxtTiEiIghsR7YIA+bGcMOi9lGJiQ=");
         }
 
         private void cmdExit_Click(object sender, EventArgs e)

@@ -278,7 +278,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptBarcode.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="dsBarcode.xsc">
       <DependentUpon>dsBarcode.xsd</DependentUpon>
     </None>
