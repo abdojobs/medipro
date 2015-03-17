@@ -118,7 +118,8 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(222, 509);
+            this.label4.Location = new System.Drawing.Point(248, 510);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 15);
             this.label4.TabIndex = 29;
@@ -126,32 +127,16 @@
             // 
             // txtCopies
             // 
-            this.txtCopies.Location = new System.Drawing.Point(226, 524);
+            this.txtCopies.Location = new System.Drawing.Point(251, 526);
             this.txtCopies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCopies.MaxLength = 2;
+            this.txtCopies.Multiline = true;
             this.txtCopies.Name = "txtCopies";
-            this.txtCopies.Size = new System.Drawing.Size(31, 20);
+            this.txtCopies.Size = new System.Drawing.Size(34, 16);
             this.txtCopies.TabIndex = 28;
+            this.txtCopies.Text = "1";
+            this.txtCopies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(277, 509);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 15);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Copies";
-            // 
-            // txtCopies
-            // 
-            this.txtCopies.Location = new System.Drawing.Point(279, 525);
-            this.txtCopies.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCopies.Name = "txtCopies";
-            this.txtCopies.Size = new System.Drawing.Size(31, 20);
-            this.txtCopies.TabIndex = 28;
-            //
             // imgBarcode
             // 
             this.imgBarcode.BackColor = System.Drawing.Color.White;
@@ -671,9 +656,9 @@
             this.cmdPrint.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cmdPrint.Appearance.Options.UseFont = true;
             this.cmdPrint.Appearance.Options.UseForeColor = true;
-            this.cmdPrint.Location = new System.Drawing.Point(319, 514);
+            this.cmdPrint.Location = new System.Drawing.Point(290, 517);
             this.cmdPrint.Name = "cmdPrint";
-            this.cmdPrint.Size = new System.Drawing.Size(75, 29);
+            this.cmdPrint.Size = new System.Drawing.Size(75, 26);
             this.cmdPrint.TabIndex = 10;
             this.cmdPrint.Text = "Print";
             this.cmdPrint.Click += new System.EventHandler(this.cmdPrint_Click);
@@ -685,7 +670,7 @@
             this.cmdSave.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cmdSave.Appearance.Options.UseFont = true;
             this.cmdSave.Appearance.Options.UseForeColor = true;
-            this.cmdSave.Location = new System.Drawing.Point(400, 517);
+            this.cmdSave.Location = new System.Drawing.Point(399, 517);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 26);
             this.cmdSave.TabIndex = 10;
@@ -714,7 +699,7 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(11, 19);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(111, 18);
+            this.lbl1.Size = new System.Drawing.Size(112, 18);
             this.lbl1.TabIndex = 6;
             this.lbl1.Text = "Patient Detail";
             // 
@@ -730,7 +715,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "frmPatientDetail";
-            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

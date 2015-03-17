@@ -397,6 +397,7 @@ namespace MediPro
                 dr.DOB = dteDOB.Text;
                 dr.Name = txtName.Text;
                 dr.RegNo = txtRegNo.Text;
+                dr.BarcodeText = "*" + txtRegNo.Text + "*";
 
                 ds.dtBarcode.Rows.Add(dr);
             }
