@@ -277,7 +277,7 @@ namespace MediPro {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dtBarcodeDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+        public partial class dtBarcodeDataTable : global::System.Data.TypedTableBase<dtBarcodeRow> {
             
             private global::System.Data.DataColumn columnBarcode;
             
@@ -286,6 +286,8 @@ namespace MediPro {
             private global::System.Data.DataColumn columnRegNo;
             
             private global::System.Data.DataColumn columnDOB;
+            
+            private global::System.Data.DataColumn columnBarcodeText;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -354,6 +356,14 @@ namespace MediPro {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BarcodeTextColumn {
+                get {
+                    return this.columnBarcodeText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,22 +399,17 @@ namespace MediPro {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public dtBarcodeRow AdddtBarcodeRow(byte[] Barcode, string Name, string RegNo, string DOB) {
+            public dtBarcodeRow AdddtBarcodeRow(byte[] Barcode, string Name, string RegNo, string DOB, string BarcodeText) {
                 dtBarcodeRow rowdtBarcodeRow = ((dtBarcodeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Barcode,
                         Name,
                         RegNo,
-                        DOB};
+                        DOB,
+                        BarcodeText};
                 rowdtBarcodeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdtBarcodeRow);
                 return rowdtBarcodeRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public virtual global::System.Collections.IEnumerator GetEnumerator() {
-                return this.Rows.GetEnumerator();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -428,6 +433,7 @@ namespace MediPro {
                 this.columnName = base.Columns["Name"];
                 this.columnRegNo = base.Columns["RegNo"];
                 this.columnDOB = base.Columns["DOB"];
+                this.columnBarcodeText = base.Columns["BarcodeText"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -441,6 +447,8 @@ namespace MediPro {
                 base.Columns.Add(this.columnRegNo);
                 this.columnDOB = new global::System.Data.DataColumn("DOB", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDOB);
+                this.columnBarcodeText = new global::System.Data.DataColumn("BarcodeText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBarcodeText);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -647,6 +655,22 @@ namespace MediPro {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BarcodeText {
+                get {
+                    try {
+                        return ((string)(this[this.tabledtBarcode.BarcodeTextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BarcodeText\' in table \'dtBarcode\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledtBarcode.BarcodeTextColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsBarcodeNull() {
                 return this.IsNull(this.tabledtBarcode.BarcodeColumn);
             }
@@ -691,6 +715,18 @@ namespace MediPro {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDOBNull() {
                 this[this.tabledtBarcode.DOBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBarcodeTextNull() {
+                return this.IsNull(this.tabledtBarcode.BarcodeTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBarcodeTextNull() {
+                this[this.tabledtBarcode.BarcodeTextColumn] = global::System.Convert.DBNull;
             }
         }
         

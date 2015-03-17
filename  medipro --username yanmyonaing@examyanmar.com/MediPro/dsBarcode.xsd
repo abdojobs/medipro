@@ -12,13 +12,14 @@
   <xs:element name="dsBarcode" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsBarcode" msprop:Generator_UserDSName="dsBarcode">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="dtBarcode" msprop:Generator_TableClassName="dtBarcodeDataTable" msprop:Generator_TableVarName="tabledtBarcode" msprop:Generator_RowChangedName="dtBarcodeRowChanged" msprop:Generator_TablePropName="dtBarcode" msprop:Generator_RowDeletingName="dtBarcodeRowDeleting" msprop:Generator_RowChangingName="dtBarcodeRowChanging" msprop:Generator_RowEvHandlerName="dtBarcodeRowChangeEventHandler" msprop:Generator_RowDeletedName="dtBarcodeRowDeleted" msprop:Generator_RowClassName="dtBarcodeRow" msprop:Generator_UserTableName="dtBarcode" msprop:Generator_RowEvArgName="dtBarcodeRowChangeEvent">
+        <xs:element name="dtBarcode" msprop:Generator_TableClassName="dtBarcodeDataTable" msprop:Generator_TableVarName="tabledtBarcode" msprop:Generator_TablePropName="dtBarcode" msprop:Generator_RowDeletingName="dtBarcodeRowDeleting" msprop:Generator_RowChangingName="dtBarcodeRowChanging" msprop:Generator_RowEvHandlerName="dtBarcodeRowChangeEventHandler" msprop:Generator_RowDeletedName="dtBarcodeRowDeleted" msprop:Generator_UserTableName="dtBarcode" msprop:Generator_RowChangedName="dtBarcodeRowChanged" msprop:Generator_RowEvArgName="dtBarcodeRowChangeEvent" msprop:Generator_RowClassName="dtBarcodeRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
               <xs:element name="RegNo" msprop:Generator_ColumnVarNameInTable="columnRegNo" msprop:Generator_ColumnPropNameInRow="RegNo" msprop:Generator_ColumnPropNameInTable="RegNoColumn" msprop:Generator_UserColumnName="RegNo" type="xs:string" minOccurs="0" />
               <xs:element name="DOB" msprop:Generator_ColumnVarNameInTable="columnDOB" msprop:Generator_ColumnPropNameInRow="DOB" msprop:Generator_ColumnPropNameInTable="DOBColumn" msprop:Generator_UserColumnName="DOB" type="xs:string" minOccurs="0" />
+              <xs:element name="BarcodeText" msprop:Generator_ColumnVarNameInTable="columnBarcodeText" msprop:Generator_ColumnPropNameInRow="BarcodeText" msprop:Generator_ColumnPropNameInTable="BarcodeTextColumn" msprop:Generator_UserColumnName="BarcodeText" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
