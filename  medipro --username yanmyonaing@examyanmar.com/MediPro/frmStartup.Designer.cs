@@ -8374,11 +8374,9 @@
             // 
             // grdColmedDiagnosisPK
             // 
-
             this.grdColmedDiagnosisPK.Caption = "Med Diagnosis PK";
             this.grdColmedDiagnosisPK.FieldName = "medDiagnosisPK";
             this.grdColmedDiagnosisPK.Name = "grdColmedDiagnosisPK";
-
             // 
             // grdColVisit
             // 
@@ -8559,6 +8557,7 @@
             this.cmdTreatment.Size = new System.Drawing.Size(86, 25);
             this.cmdTreatment.TabIndex = 28;
             this.cmdTreatment.Text = "Save";
+            this.cmdTreatment.Click += new System.EventHandler(this.cmdTreatmentSave_Click);
             // 
             // grdTreatment
             // 
@@ -8582,7 +8581,6 @@
             this.grdTreatment.TabIndex = 32;
             this.grdTreatment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewTreatment});
-
             // 
             // grdViewTreatment
             // 

@@ -663,6 +663,7 @@ namespace MediPro
             LoadVisitDetail(strSelectedVisitPK);
             LoadLabTestRequests(strSelectedVisitPK);
             LoadMedDiagnosis(strSelectedVisitPK);
+            LoadTreatment(strSelectedVisitPK);
         }
 
         private void LoadVisitDetail(string visitPK)
@@ -1543,7 +1544,7 @@ namespace MediPro
         private void cmdTreatmentSave_Click(object sender, EventArgs e)
         {
             tabPageTreatment.Tag = 6;
-            if (ValidateMedical() == true)
+            if (true)//Validate Here
             {
                 for (int i = 0; i < grdTreatment.DefaultView.RowCount; i++)
                 {
@@ -1553,47 +1554,43 @@ namespace MediPro
                         int treatmentCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTreatment WHERE treatmentPK=@treatmentPK", new SqlParameter("@treatmentPK",((DataRowView) grdTreatment.DefaultView.GetRow(i))["treatmentPK"].ToString()));
                         if (treatmentCnt > 0)
                         {
-                            string treatmentPK = "";
-                            string medPK = "";
-                            string dosage = "";
-                            string frequencyPK = "";
-                            string duration = "";
-                            string treatmentRemark = "";
-                            string visitPK = "";
-                            SqlDb.ExecuteQuery("UPDATE [tblTreatment] SET [visitPK] = @visitPK, [medPK] = @medPK,dosage=@dosage,frequencyPK=frequencyPK,duration=@duration,treatmentRemark=@treatmentRemark ,[updatePK] = @updatePK, [updateDate] = @updateDate WHERE [treatmentPK] = @treatmentPK",
+                            string treatmentPK = grdViewTreatment.GetDataRow(i)["treatmentPK"].ToString();
+                            string medPK = grdViewTreatment.GetDataRow(i)["medPK"].ToString(); ;
+                            string dosage = grdViewTreatment.GetDataRow(i)["dosage"].ToString(); ;
+                            string frequencyPK = grdViewTreatment.GetDataRow(i)["frequencyPK"].ToString(); ;
+                            string duration = grdViewTreatment.GetDataRow(i)["duration"].ToString(); ;
+                            string treatmentRemark = grdViewTreatment.GetDataRow(i)["treatmentRemarks"].ToString(); 
+                            string visitPK = lueVisit.EditValue.ToString();
+                            SqlDb.ExecuteQuery("UPDATE [tblTreatment] SET [visitPK] = @visitPK, [medPK] = @medPK,dosage=@dosage,frequencyPK=frequencyPK,duration=@duration,treatmentRemarks=@treatmentRemarks ,[updatePK] = @updatePK, [updateDate] = @updateDate WHERE [treatmentPK] = @treatmentPK",
                                             new SqlParameter("@treatmentPK", treatmentPK),
                                             new SqlParameter("@medPK", medPK),
                                             new SqlParameter("@dosage", dosage),
                                             new SqlParameter("@frequencyPK", frequencyPK),
                                             new SqlParameter("@visitPK", visitPK),
                                             new SqlParameter("@duration", duration),
-                                            new SqlParameter("@treatmentRemark", treatmentRemark),
+                                            new SqlParameter("@treatmentRemarks", treatmentRemark),
                                             new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
                                             new SqlParameter("@updateDate", DateTime.Now)
                                             );
                         }
                         else
                         {
-                            int labTestRequestID = SqlDb.ExecuteScalar<int>("getID tblTreatment");
-                            int labRequestCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTreatment WHERE treatmentPK=@treatmentPK", new SqlParameter("@treatmentPK", tabPageInvestigation.Tag.ToString()));
-                            if (labRequestCnt < 1)
-                            {
-                                string treatmentPK = "";
-                                string medPK = "";
-                                string dosage = "";
-                                string frequencyPK = "";
-                                string duration = "";
-                                string treatmentRemark = "";
-                                string visitPK = "";
-                                SqlDb.ExecuteQuery("INSERT INTO ([treatmentPK],[visitPK],[medPK],[dosage],[frequencyPK],[duration],[treatmentRemarks],[createPK],[createDate],[updatePK],[updateDate]" +
-                                    "VALUES (@treatmentPK, @visitPK, @medPK, @dosage,@frequencyPK,@duration,@treatmentRemarks,@cretaePK,@createDate, ,@updatePK, @createPK, @createDate)",
+                            int treatmentPK = SqlDb.ExecuteScalar<int>("getID tblTreatment");
+                            string medPK = grdViewTreatment.GetDataRow(i)["medPK"].ToString(); ;
+                            string dosage = grdViewTreatment.GetDataRow(i)["dosage"].ToString(); ;
+                            string frequencyPK = grdViewTreatment.GetDataRow(i)["frequencyPK"].ToString(); ;
+                            string duration = grdViewTreatment.GetDataRow(i)["duration"].ToString(); ;
+                            string treatmentRemark = grdViewTreatment.GetDataRow(i)["treatmentRemarks"].ToString();
+                            string visitPK = lueVisit.EditValue.ToString();
+                            SqlDb.ExecuteQuery("INSERT INTO tblTreatment([treatmentPK],[visitPK],[medPK],[dosage],[frequencyPK],[duration],[treatmentRemarks],[createPK],[createDate],[updatePK],[updateDate])" +
+                                    "VALUES (@treatmentPK, @visitPK, @medPK, @dosage,@frequencyPK,@duration,@treatmentRemarks,@createPK,@createDate ,@updatePK, @updateDate)",
                                                 new SqlParameter("@treatmentPK", treatmentPK),
                                                 new SqlParameter("@medPK", medPK),
                                                 new SqlParameter("@dosage", dosage),
                                                 new SqlParameter("@frequencyPK", frequencyPK),
                                                 new SqlParameter("@visitPK", visitPK),
                                                 new SqlParameter("@duration", duration),
-                                                new SqlParameter("@treatmentRemark", treatmentRemark),
+                                                new SqlParameter("@treatmentRemarks", treatmentRemark),
                                                 new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
                                                 new SqlParameter("@createDate", DateTime.Now),
                                                 new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
@@ -1601,15 +1598,19 @@ namespace MediPro
                                                 );
 
                                 //sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Medical History .");
-                                MessageBox.Show("Saving Medical History is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            }
+                                
                         }
+                        MessageBox.Show("Saving Treatments is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 skip: ;
 
                 }
             }
+        }
+
+        private void LoadTreatment(string visitPK)
+        {
+            grdTreatment.DataSource = SqlDb.GetDataSet("Select * from tblTreatment where visitPK=@visitPK",new SqlParameter("@visitPK",visitPK)).Tables[0];
         }
 
         #endregion
