@@ -366,7 +366,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtNRC = new DevExpress.XtraEditors.TextEdit();
             this.txtRegNo = new DevExpress.XtraEditors.TextEdit();
-            this.tabMedicalRecord = new DevExpress.XtraTab.XtraTabControl();
+            this.tabRemarks = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageHistory = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
             this.cmdSaveMedical = new DevExpress.XtraEditors.SimpleButton();
@@ -736,6 +736,10 @@
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
             this.insertPageBreakItem2 = new DevExpress.XtraRichEdit.UI.InsertPageBreakItem();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.tabPageRemarks = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.cmdRemarksSave = new DevExpress.XtraEditors.SimpleButton();
+            this.txtRemarks = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -797,8 +801,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDOB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNRC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRegNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabMedicalRecord)).BeginInit();
-            this.tabMedicalRecord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tabRemarks)).BeginInit();
+            this.tabRemarks.SuspendLayout();
             this.tabPageHistory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
             this.panelControl8.SuspendLayout();
@@ -888,6 +892,9 @@
             this.pnlUserMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
+            this.tabPageRemarks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -2114,7 +2121,7 @@
             this.panelMedicalRecord.Controls.Add(this.labelControl1);
             this.panelMedicalRecord.Controls.Add(this.txtNRC);
             this.panelMedicalRecord.Controls.Add(this.txtRegNo);
-            this.panelMedicalRecord.Controls.Add(this.tabMedicalRecord);
+            this.panelMedicalRecord.Controls.Add(this.tabRemarks);
             this.panelMedicalRecord.Controls.Add(this.label5);
             this.panelMedicalRecord.Controls.Add(this.pictureBox6);
             this.panelMedicalRecord.Controls.Add(this.label4);
@@ -4599,26 +4606,27 @@
             this.txtRegNo.Size = new System.Drawing.Size(167, 20);
             this.txtRegNo.TabIndex = 1;
             // 
-            // tabMedicalRecord
+            // tabRemarks
             // 
-            this.tabMedicalRecord.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.tabRemarks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabMedicalRecord.Location = new System.Drawing.Point(618, 89);
-            this.tabMedicalRecord.LookAndFeel.SkinName = "Metropolis";
-            this.tabMedicalRecord.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.tabMedicalRecord.Name = "tabMedicalRecord";
-            this.tabMedicalRecord.SelectedTabPage = this.tabPageHistory;
-            this.tabMedicalRecord.Size = new System.Drawing.Size(652, 587);
-            this.tabMedicalRecord.TabIndex = 4;
-            this.tabMedicalRecord.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabRemarks.Location = new System.Drawing.Point(618, 89);
+            this.tabRemarks.LookAndFeel.SkinName = "Metropolis";
+            this.tabRemarks.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tabRemarks.Name = "tabRemarks";
+            this.tabRemarks.SelectedTabPage = this.tabPageHistory;
+            this.tabRemarks.Size = new System.Drawing.Size(652, 587);
+            this.tabRemarks.TabIndex = 4;
+            this.tabRemarks.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageDetail,
             this.tabPageHistory,
             this.tabPageExamination,
             this.tabPageInvestigation,
             this.tabPageDiagnosis,
-            this.tabPageTreatment});
-            this.tabMedicalRecord.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tabMedicalRecord_SelectedPageChanged);
+            this.tabPageTreatment,
+            this.tabPageRemarks});
+            this.tabRemarks.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tabMedicalRecord_SelectedPageChanged);
             // 
             // tabPageHistory
             // 
@@ -9294,6 +9302,57 @@
             this.simpleButton2.Text = " Visit Patients";
             this.simpleButton2.Click += new System.EventHandler(this.cmdTodayPatients_Click);
             // 
+            // tabPageRemarks
+            // 
+            this.tabPageRemarks.Controls.Add(this.txtRemarks);
+            this.tabPageRemarks.Controls.Add(this.panelControl13);
+            this.tabPageRemarks.Name = "tabPageRemarks";
+            this.tabPageRemarks.Size = new System.Drawing.Size(650, 562);
+            this.tabPageRemarks.Text = "Remarks";
+            // 
+            // panelControl13
+            // 
+            this.panelControl13.Appearance.BackColor = System.Drawing.Color.OldLace;
+            this.panelControl13.Appearance.Options.UseBackColor = true;
+            this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl13.Controls.Add(this.cmdRemarksSave);
+            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl13.Location = new System.Drawing.Point(0, 523);
+            this.panelControl13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelControl13.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl13.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(650, 39);
+            this.panelControl13.TabIndex = 34;
+            // 
+            // cmdRemarksSave
+            // 
+            this.cmdRemarksSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdRemarksSave.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdRemarksSave.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdRemarksSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRemarksSave.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdRemarksSave.Appearance.Options.UseBackColor = true;
+            this.cmdRemarksSave.Appearance.Options.UseFont = true;
+            this.cmdRemarksSave.Appearance.Options.UseForeColor = true;
+            this.cmdRemarksSave.Location = new System.Drawing.Point(546, 7);
+            this.cmdRemarksSave.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdRemarksSave.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdRemarksSave.Name = "cmdRemarksSave";
+            this.cmdRemarksSave.Size = new System.Drawing.Size(86, 25);
+            this.cmdRemarksSave.TabIndex = 28;
+            this.cmdRemarksSave.Text = "Save";
+            this.cmdRemarksSave.Click += new System.EventHandler(this.cmdRemarksSave_Click);
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRemarks.Location = new System.Drawing.Point(0, 0);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(650, 523);
+            this.txtRemarks.TabIndex = 35;
+            this.txtRemarks.Text = "";
+            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9381,8 +9440,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDOB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNRC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtRegNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabMedicalRecord)).EndInit();
-            this.tabMedicalRecord.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tabRemarks)).EndInit();
+            this.tabRemarks.ResumeLayout(false);
             this.tabPageHistory.ResumeLayout(false);
             this.tabPageHistory.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
@@ -9506,6 +9565,9 @@
             this.pnlUserMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
+            this.tabPageRemarks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -9535,7 +9597,7 @@
         private DevExpress.XtraEditors.SimpleButton cmdTitleSetup;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private DevExpress.XtraTab.XtraTabControl tabMedicalRecord;
+        private DevExpress.XtraTab.XtraTabControl tabRemarks;
         private DevExpress.XtraTab.XtraTabPage tabPageHistory;
         private DevExpress.XtraTab.XtraTabPage tabPageExamination;
         private DevExpress.XtraEditors.LookUpEdit luePatient;
@@ -10218,6 +10280,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentPK;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueMedicine;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueFreq;
+        private DevExpress.XtraTab.XtraTabPage tabPageRemarks;
+        private System.Windows.Forms.RichTextBox txtRemarks;
+        private DevExpress.XtraEditors.PanelControl panelControl13;
+        private DevExpress.XtraEditors.SimpleButton cmdRemarksSave;
 
     }
 }

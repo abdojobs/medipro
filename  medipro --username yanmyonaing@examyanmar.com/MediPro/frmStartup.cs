@@ -59,7 +59,7 @@ namespace MediPro
             //tabMedicalRecord.Width = AppScreenWidth - 655;
             //tabMedicalRecord.Height = AppScreenHeight - 165;
 
-            tabMedicalRecord.SelectedTabPage = tabPageDetail;
+            tabRemarks.SelectedTabPage = tabPageDetail;
         }
 
         private void frmStartup_Load(object sender, EventArgs e)
@@ -664,6 +664,7 @@ namespace MediPro
             LoadLabTestRequests(strSelectedVisitPK);
             LoadMedDiagnosis(strSelectedVisitPK);
             LoadTreatment(strSelectedVisitPK);
+            LoadRemarks(strSelectedVisitPK);
         }
 
         private void LoadVisitDetail(string visitPK)
@@ -1615,6 +1616,30 @@ namespace MediPro
 
         #endregion
 
+        #region Remarks
+        private void cmdRemarksSave_Click(object sender, EventArgs e)
+        {
+            if (lueVisit.EditValue != null)
+            {
+                SqlDb.ExecuteNonQuery("Update tblVisit set Remarks=@Remarks,updatePK=@updatePK,updateDate=@updateDate where visitPK=@visitPK",
+                    new SqlParameter("@visitPK", lueVisit.EditValue.ToString()),
+                    new SqlParameter("@Remarks", txtRemarks.Text),
+                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                    new SqlParameter("@updateDate",DateTime.Now)
+                    );
+
+
+            }
+            MessageBox.Show("Saving Remarks successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void LoadRemarks(string visitPK)
+        {
+            txtRemarks.Text= SqlDb.ExecuteScalar<string>("Select remarks from tblVisit where visitPK=@visitPK", new SqlParameter("@visitPK", visitPK));
+        }
+
+
+        #endregion
+
         private void backstageViewControl1_Click(object sender, EventArgs e)
         {
 
@@ -1634,6 +1659,8 @@ namespace MediPro
         {
 
         }
+
+
 
 
 
