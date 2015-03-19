@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStartup));
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageHome = new DevExpress.XtraTab.XtraTabPage();
@@ -113,7 +114,7 @@
             this.cmdTodayPatients = new DevExpress.XtraEditors.SimpleButton();
             this.pnlDailyProgress = new DevExpress.XtraEditors.PanelControl();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -668,10 +669,10 @@
             this.tabPageInvestigation = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLabTestDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLabTestRequest = new DevExpress.XtraEditors.SimpleButton();
             this.grdLab = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdViewLab = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColVisitPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColLabTestRequestPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColLabTest = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -679,27 +680,32 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.tabPageDiagnosis = new DevExpress.XtraTab.XtraTabPage();
-            this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton21 = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdDiagnosis = new DevExpress.XtraGrid.GridControl();
+            this.grdViewDiagnosis = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdColmedDiagnosisPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColVisit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColDiagnosis = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reslueDiagnosis = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panelControl12 = new DevExpress.XtraEditors.PanelControl();
+            this.cmdDiagnosisDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdDiagnosisSave = new DevExpress.XtraEditors.SimpleButton();
             this.tabPageTreatment = new DevExpress.XtraTab.XtraTabPage();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
-            this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdTreatment = new DevExpress.XtraEditors.SimpleButton();
+            this.grdTreatment = new DevExpress.XtraGrid.GridControl();
+            this.grdViewTreatment = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdColTreatmentPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdTreatmentVisitPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColTreatmentPrescriptions = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reslueMedicine = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.grdColTreatmentDose = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColTreatmentFreq = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.reslueFreq = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.grdColTreatmentDuration = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColTreatmentRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -851,19 +857,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
             this.panelControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdLab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewLab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resLueLabTest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.tabPageDiagnosis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDiagnosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewDiagnosis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueDiagnosis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).BeginInit();
+            this.panelControl12.SuspendLayout();
             this.tabPageTreatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTreatment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewTreatment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueMedicine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueFreq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -895,7 +905,7 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.Padding = new System.Windows.Forms.Padding(5);
             this.tabControlMain.SelectedTabPage = this.tabPageHome;
-            this.tabControlMain.Size = new System.Drawing.Size(1294, 876);
+            this.tabControlMain.Size = new System.Drawing.Size(1294, 869);
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageHome,
@@ -919,7 +929,7 @@
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.tabPageHome.Size = new System.Drawing.Size(1292, 832);
+            this.tabPageHome.Size = new System.Drawing.Size(1292, 825);
             this.tabPageHome.Tag = "1";
             this.tabPageHome.Text = "Home";
             // 
@@ -943,7 +953,7 @@
             this.panelHome.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelHome.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1288, 828);
+            this.panelHome.Size = new System.Drawing.Size(1288, 821);
             this.panelHome.TabIndex = 0;
             this.panelHome.Tag = "1";
             // 
@@ -991,7 +1001,7 @@
             this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(422, 767);
+            this.panelControl6.Size = new System.Drawing.Size(422, 760);
             this.panelControl6.TabIndex = 17;
             // 
             // panelControl7
@@ -1035,7 +1045,7 @@
             this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl9.MainView = this.gridView10;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(421, 729);
+            this.gridControl9.Size = new System.Drawing.Size(421, 722);
             this.gridControl9.TabIndex = 11;
             this.gridControl9.UseEmbeddedNavigator = true;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1137,7 +1147,7 @@
             this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(819, 466);
+            this.panelControl4.Size = new System.Drawing.Size(819, 459);
             this.panelControl4.TabIndex = 17;
             // 
             // panelControl5
@@ -1183,7 +1193,7 @@
             this.grdBooking.Name = "grdBooking";
             this.grdBooking.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemchkIsRegistered});
-            this.grdBooking.Size = new System.Drawing.Size(818, 429);
+            this.grdBooking.Size = new System.Drawing.Size(818, 422);
             this.grdBooking.TabIndex = 11;
             this.grdBooking.UseEmbeddedNavigator = true;
             this.grdBooking.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1750,7 +1760,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(1282, 822);
+            this.shapeContainer1.Size = new System.Drawing.Size(1282, 815);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1773,7 +1783,7 @@
             this.tabPageMasterFile.Image = global::MediPro.Properties.Resources.Settings;
             this.tabPageMasterFile.Name = "tabPageMasterFile";
             this.tabPageMasterFile.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 832);
+            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 825);
             this.tabPageMasterFile.Tag = "2";
             this.tabPageMasterFile.Text = " Master Files";
             // 
@@ -1801,7 +1811,7 @@
             this.panelMasterFiles.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMasterFiles.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMasterFiles.Name = "panelMasterFiles";
-            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 828);
+            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 821);
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
@@ -2065,7 +2075,7 @@
             this.tabPageMedicalRecord.Image = global::MediPro.Properties.Resources.Modify;
             this.tabPageMedicalRecord.Name = "tabPageMedicalRecord";
             this.tabPageMedicalRecord.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 832);
+            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 825);
             this.tabPageMedicalRecord.Tag = "3";
             this.tabPageMedicalRecord.Text = " Medical Record";
             // 
@@ -2115,7 +2125,7 @@
             this.panelMedicalRecord.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMedicalRecord.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMedicalRecord.Name = "panelMedicalRecord";
-            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 828);
+            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 821);
             this.panelMedicalRecord.TabIndex = 1;
             // 
             // txtVisitDoctor
@@ -2257,7 +2267,7 @@
             this.pnlDailyProgress.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnlDailyProgress.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlDailyProgress.Name = "pnlDailyProgress";
-            this.pnlDailyProgress.Size = new System.Drawing.Size(558, 492);
+            this.pnlDailyProgress.Size = new System.Drawing.Size(558, 485);
             this.pnlDailyProgress.TabIndex = 11;
             // 
             // memoEdit1
@@ -2509,7 +2519,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 750);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 743);
             this.barDockControlBottom.Size = new System.Drawing.Size(1307, 0);
             // 
             // barDockControlLeft
@@ -2517,14 +2527,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 750);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 743);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1307, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 750);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 743);
             // 
             // fileNewItem1
             // 
@@ -4192,7 +4202,7 @@
             this.grdSummaryHead.MainView = this.grdViewUserLevel;
             this.grdSummaryHead.Margin = new System.Windows.Forms.Padding(6);
             this.grdSummaryHead.Name = "grdSummaryHead";
-            this.grdSummaryHead.Size = new System.Drawing.Size(157, 424);
+            this.grdSummaryHead.Size = new System.Drawing.Size(157, 417);
             this.grdSummaryHead.TabIndex = 15;
             this.grdSummaryHead.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewUserLevel});
@@ -4293,7 +4303,7 @@
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.simpleButton5);
-            this.panelControl2.Location = new System.Drawing.Point(1, 451);
+            this.panelControl2.Location = new System.Drawing.Point(1, 444);
             this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
@@ -4599,7 +4609,7 @@
             this.tabMedicalRecord.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tabMedicalRecord.Name = "tabMedicalRecord";
             this.tabMedicalRecord.SelectedTabPage = this.tabPageHistory;
-            this.tabMedicalRecord.Size = new System.Drawing.Size(652, 594);
+            this.tabMedicalRecord.Size = new System.Drawing.Size(652, 587);
             this.tabMedicalRecord.TabIndex = 4;
             this.tabMedicalRecord.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageDetail,
@@ -4620,7 +4630,7 @@
             this.tabPageHistory.Controls.Add(this.pictureBox8);
             this.tabPageHistory.Name = "tabPageHistory";
             this.tabPageHistory.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
-            this.tabPageHistory.Size = new System.Drawing.Size(650, 569);
+            this.tabPageHistory.Size = new System.Drawing.Size(650, 562);
             this.tabPageHistory.Text = "Medical History";
             // 
             // panelControl8
@@ -4630,7 +4640,7 @@
             this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl8.Controls.Add(this.cmdSaveMedical);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl8.Location = new System.Drawing.Point(0, 530);
+            this.panelControl8.Location = new System.Drawing.Point(0, 523);
             this.panelControl8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl8.Margin = new System.Windows.Forms.Padding(0);
@@ -5816,7 +5826,7 @@
             this.tabPageDetail.Controls.Add(this.groupBMI);
             this.tabPageDetail.Controls.Add(this.picPatient);
             this.tabPageDetail.Name = "tabPageDetail";
-            this.tabPageDetail.Size = new System.Drawing.Size(650, 569);
+            this.tabPageDetail.Size = new System.Drawing.Size(650, 562);
             this.tabPageDetail.Text = "Detail";
             // 
             // label23
@@ -5847,7 +5857,7 @@
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(604, 123);
+            this.gridControl1.Size = new System.Drawing.Size(604, 116);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -5942,7 +5952,7 @@
             this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl3.MainView = this.gridView7;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(604, 123);
+            this.gridControl3.Size = new System.Drawing.Size(604, 116);
             this.gridControl3.TabIndex = 11;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -6331,7 +6341,7 @@
             this.tabPageExamination.Controls.Add(this.label8);
             this.tabPageExamination.Controls.Add(this.pictureBox9);
             this.tabPageExamination.Name = "tabPageExamination";
-            this.tabPageExamination.Size = new System.Drawing.Size(650, 569);
+            this.tabPageExamination.Size = new System.Drawing.Size(650, 562);
             this.tabPageExamination.Text = "Physical Examination";
             // 
             // panel3
@@ -6343,7 +6353,7 @@
             this.panel3.Controls.Add(this.navBarControl1);
             this.panel3.Location = new System.Drawing.Point(0, 44);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(650, 446);
+            this.panel3.Size = new System.Drawing.Size(650, 439);
             this.panel3.TabIndex = 17;
             // 
             // navBarControl1
@@ -6388,7 +6398,7 @@
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 650;
-            this.navBarControl1.Size = new System.Drawing.Size(650, 446);
+            this.navBarControl1.Size = new System.Drawing.Size(650, 439);
             this.navBarControl1.TabIndex = 9;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Metropolis");
@@ -8039,7 +8049,7 @@
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl9.Controls.Add(this.simpleButton1);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl9.Location = new System.Drawing.Point(0, 530);
+            this.panelControl9.Location = new System.Drawing.Point(0, 523);
             this.panelControl9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl9.Margin = new System.Windows.Forms.Padding(0);
@@ -8099,7 +8109,7 @@
             this.tabPageInvestigation.Controls.Add(this.label9);
             this.tabPageInvestigation.Controls.Add(this.pictureBox10);
             this.tabPageInvestigation.Name = "tabPageInvestigation";
-            this.tabPageInvestigation.Size = new System.Drawing.Size(650, 569);
+            this.tabPageInvestigation.Size = new System.Drawing.Size(650, 562);
             this.tabPageInvestigation.Text = "Investigation";
             // 
             // panelControl11
@@ -8108,10 +8118,10 @@
             this.panelControl11.Appearance.Options.UseBackColor = true;
             this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl11.Controls.Add(this.simpleButton17);
-            this.panelControl11.Controls.Add(this.simpleButton16);
-            this.panelControl11.Controls.Add(this.simpleButton18);
+            this.panelControl11.Controls.Add(this.cmdLabTestDelete);
+            this.panelControl11.Controls.Add(this.cmdLabTestRequest);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl11.Location = new System.Drawing.Point(0, 530);
+            this.panelControl11.Location = new System.Drawing.Point(0, 523);
             this.panelControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
@@ -8137,41 +8147,43 @@
             this.simpleButton17.TabIndex = 18;
             this.simpleButton17.Text = "View Result";
             // 
-            // simpleButton16
+            // cmdLabTestDelete
             // 
-            this.simpleButton16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton16.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton16.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton16.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton16.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.simpleButton16.Appearance.Options.UseBackColor = true;
-            this.simpleButton16.Appearance.Options.UseFont = true;
-            this.simpleButton16.Appearance.Options.UseForeColor = true;
-            this.simpleButton16.Location = new System.Drawing.Point(340, 7);
-            this.simpleButton16.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton16.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton16.Name = "simpleButton16";
-            this.simpleButton16.Size = new System.Drawing.Size(86, 25);
-            this.simpleButton16.TabIndex = 21;
-            this.simpleButton16.Text = "Delete";
+            this.cmdLabTestDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdLabTestDelete.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLabTestDelete.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLabTestDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdLabTestDelete.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmdLabTestDelete.Appearance.Options.UseBackColor = true;
+            this.cmdLabTestDelete.Appearance.Options.UseFont = true;
+            this.cmdLabTestDelete.Appearance.Options.UseForeColor = true;
+            this.cmdLabTestDelete.Location = new System.Drawing.Point(340, 7);
+            this.cmdLabTestDelete.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdLabTestDelete.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdLabTestDelete.Name = "cmdLabTestDelete";
+            this.cmdLabTestDelete.Size = new System.Drawing.Size(86, 25);
+            this.cmdLabTestDelete.TabIndex = 21;
+            this.cmdLabTestDelete.Text = "Delete";
+            this.cmdLabTestDelete.Click += new System.EventHandler(this.cmdLabTestDelete_Click);
             // 
-            // simpleButton18
+            // cmdLabTestRequest
             // 
-            this.simpleButton18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton18.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton18.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton18.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton18.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton18.Appearance.Options.UseBackColor = true;
-            this.simpleButton18.Appearance.Options.UseFont = true;
-            this.simpleButton18.Appearance.Options.UseForeColor = true;
-            this.simpleButton18.Location = new System.Drawing.Point(452, 7);
-            this.simpleButton18.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton18.Name = "simpleButton18";
-            this.simpleButton18.Size = new System.Drawing.Size(86, 25);
-            this.simpleButton18.TabIndex = 19;
-            this.simpleButton18.Text = "Request";
+            this.cmdLabTestRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdLabTestRequest.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLabTestRequest.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLabTestRequest.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdLabTestRequest.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdLabTestRequest.Appearance.Options.UseBackColor = true;
+            this.cmdLabTestRequest.Appearance.Options.UseFont = true;
+            this.cmdLabTestRequest.Appearance.Options.UseForeColor = true;
+            this.cmdLabTestRequest.Location = new System.Drawing.Point(452, 7);
+            this.cmdLabTestRequest.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdLabTestRequest.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdLabTestRequest.Name = "cmdLabTestRequest";
+            this.cmdLabTestRequest.Size = new System.Drawing.Size(86, 25);
+            this.cmdLabTestRequest.TabIndex = 19;
+            this.cmdLabTestRequest.Text = "Request";
+            this.cmdLabTestRequest.Click += new System.EventHandler(this.cmdLabTestRequest_Click);
             // 
             // grdLab
             // 
@@ -8186,46 +8198,46 @@
             this.grdLab.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.grdLab.Location = new System.Drawing.Point(27, 40);
             this.grdLab.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.grdLab.MainView = this.gridView3;
+            this.grdLab.MainView = this.grdViewLab;
             this.grdLab.Name = "grdLab";
             this.grdLab.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.resLueLabTest});
-            this.grdLab.Size = new System.Drawing.Size(606, 435);
+            this.grdLab.Size = new System.Drawing.Size(606, 428);
             this.grdLab.TabIndex = 20;
             this.grdLab.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.grdViewLab});
             // 
-            // gridView3
+            // grdViewLab
             // 
-            this.gridView3.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
-            this.gridView3.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gridView3.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView3.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView3.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView3.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView3.ColumnPanelRowHeight = 30;
-            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdViewLab.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
+            this.grdViewLab.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grdViewLab.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewLab.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewLab.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewLab.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grdViewLab.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewLab.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grdViewLab.ColumnPanelRowHeight = 30;
+            this.grdViewLab.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grdColVisitPK,
             this.grdColLabTestRequestPK,
             this.grdColLabTest});
-            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView3.GridControl = this.grdLab;
-            this.gridView3.Name = "gridView3";
-            this.gridView3.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridView3.OptionsView.EnableAppearanceEvenRow = true;
-            this.gridView3.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.gridView3.OptionsView.ShowDetailButtons = false;
-            this.gridView3.OptionsView.ShowGroupExpandCollapseButtons = false;
-            this.gridView3.OptionsView.ShowGroupPanel = false;
-            this.gridView3.OptionsView.ShowIndicator = false;
-            this.gridView3.RowHeight = 25;
-            this.gridView3.ViewCaptionHeight = 30;
+            this.grdViewLab.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grdViewLab.GridControl = this.grdLab;
+            this.grdViewLab.Name = "grdViewLab";
+            this.grdViewLab.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grdViewLab.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.grdViewLab.OptionsView.ShowDetailButtons = false;
+            this.grdViewLab.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grdViewLab.OptionsView.ShowGroupPanel = false;
+            this.grdViewLab.OptionsView.ShowIndicator = false;
+            this.grdViewLab.RowHeight = 25;
+            this.grdViewLab.ViewCaptionHeight = 30;
             // 
             // grdColVisitPK
             // 
             this.grdColVisitPK.Caption = "VisitPK";
+            this.grdColVisitPK.FieldName = "visitPK";
             this.grdColVisitPK.Name = "grdColVisitPK";
             this.grdColVisitPK.OptionsColumn.AllowEdit = false;
             this.grdColVisitPK.OptionsColumn.AllowMove = false;
@@ -8236,6 +8248,7 @@
             // grdColLabTestRequestPK
             // 
             this.grdColLabTestRequestPK.Caption = "labTestRequestPK";
+            this.grdColLabTestRequestPK.FieldName = "labTestRequestPK";
             this.grdColLabTestRequestPK.Name = "grdColLabTestRequestPK";
             // 
             // grdColLabTest
@@ -8269,6 +8282,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("labTestDescription", "Description")});
             this.resLueLabTest.DisplayMember = "labTestName";
             this.resLueLabTest.Name = "resLueLabTest";
+            this.resLueLabTest.NullText = "";
             this.resLueLabTest.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.resLueLabTest.ValueMember = "labTestPK";
             // 
@@ -8301,124 +8315,107 @@
             // 
             this.tabPageDiagnosis.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabPageDiagnosis.Appearance.Header.Options.UseFont = true;
-            this.tabPageDiagnosis.Controls.Add(this.simpleButton19);
-            this.tabPageDiagnosis.Controls.Add(this.simpleButton21);
-            this.tabPageDiagnosis.Controls.Add(this.gridControl4);
+            this.tabPageDiagnosis.Controls.Add(this.grdDiagnosis);
             this.tabPageDiagnosis.Controls.Add(this.label10);
             this.tabPageDiagnosis.Controls.Add(this.pictureBox11);
             this.tabPageDiagnosis.Controls.Add(this.panelControl12);
             this.tabPageDiagnosis.Name = "tabPageDiagnosis";
-            this.tabPageDiagnosis.Size = new System.Drawing.Size(650, 569);
+            this.tabPageDiagnosis.Size = new System.Drawing.Size(650, 562);
             this.tabPageDiagnosis.Text = "Diagnosis";
             // 
-            // simpleButton19
+            // grdDiagnosis
             // 
-            this.simpleButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton19.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton19.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton19.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton19.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.simpleButton19.Appearance.Options.UseBackColor = true;
-            this.simpleButton19.Appearance.Options.UseFont = true;
-            this.simpleButton19.Appearance.Options.UseForeColor = true;
-            this.simpleButton19.Location = new System.Drawing.Point(456, 497);
-            this.simpleButton19.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton19.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton19.Name = "simpleButton19";
-            this.simpleButton19.Size = new System.Drawing.Size(86, 25);
-            this.simpleButton19.TabIndex = 27;
-            this.simpleButton19.Text = "Delete";
-            // 
-            // simpleButton21
-            // 
-            this.simpleButton21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton21.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton21.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton21.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton21.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton21.Appearance.Options.UseBackColor = true;
-            this.simpleButton21.Appearance.Options.UseFont = true;
-            this.simpleButton21.Appearance.Options.UseForeColor = true;
-            this.simpleButton21.Location = new System.Drawing.Point(549, 497);
-            this.simpleButton21.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton21.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton21.Name = "simpleButton21";
-            this.simpleButton21.Size = new System.Drawing.Size(86, 25);
-            this.simpleButton21.TabIndex = 25;
-            this.simpleButton21.Text = "Save";
-            // 
-            // gridControl4
-            // 
-            this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.grdDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl4.EmbeddedNavigator.Buttons.Append.Visible = false;
-            this.gridControl4.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
-            this.gridControl4.EmbeddedNavigator.Buttons.Edit.Visible = false;
-            this.gridControl4.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
-            this.gridControl4.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gridControl4.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.gridControl4.Location = new System.Drawing.Point(29, 40);
-            this.gridControl4.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl4.MainView = this.gridView4;
-            this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(606, 433);
-            this.gridControl4.TabIndex = 26;
-            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
+            this.grdDiagnosis.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.grdDiagnosis.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.grdDiagnosis.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.grdDiagnosis.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.grdDiagnosis.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.grdDiagnosis.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.grdDiagnosis.Location = new System.Drawing.Point(29, 40);
+            this.grdDiagnosis.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.grdDiagnosis.MainView = this.grdViewDiagnosis;
+            this.grdDiagnosis.Name = "grdDiagnosis";
+            this.grdDiagnosis.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.reslueDiagnosis});
+            this.grdDiagnosis.Size = new System.Drawing.Size(606, 426);
+            this.grdDiagnosis.TabIndex = 26;
+            this.grdDiagnosis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewDiagnosis});
             // 
-            // gridView4
+            // grdViewDiagnosis
             // 
-            this.gridView4.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
-            this.gridView4.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gridView4.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView4.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView4.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView4.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView4.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView4.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView4.ColumnPanelRowHeight = 30;
-            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn9,
-            this.gridColumn10});
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.GridControl = this.gridControl4;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsView.EnableAppearanceEvenRow = true;
-            this.gridView4.OptionsView.ShowDetailButtons = false;
-            this.gridView4.OptionsView.ShowGroupExpandCollapseButtons = false;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
-            this.gridView4.OptionsView.ShowIndicator = false;
-            this.gridView4.RowHeight = 25;
-            this.gridView4.ViewCaptionHeight = 30;
+            this.grdViewDiagnosis.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
+            this.grdViewDiagnosis.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grdViewDiagnosis.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewDiagnosis.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewDiagnosis.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewDiagnosis.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grdViewDiagnosis.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewDiagnosis.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grdViewDiagnosis.ColumnPanelRowHeight = 30;
+            this.grdViewDiagnosis.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdColmedDiagnosisPK,
+            this.grdColVisit,
+            this.grdColDiagnosis});
+            this.grdViewDiagnosis.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grdViewDiagnosis.GridControl = this.grdDiagnosis;
+            this.grdViewDiagnosis.Name = "grdViewDiagnosis";
+            this.grdViewDiagnosis.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grdViewDiagnosis.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.grdViewDiagnosis.OptionsView.ShowDetailButtons = false;
+            this.grdViewDiagnosis.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grdViewDiagnosis.OptionsView.ShowGroupPanel = false;
+            this.grdViewDiagnosis.OptionsView.ShowIndicator = false;
+            this.grdViewDiagnosis.RowHeight = 25;
+            this.grdViewDiagnosis.ViewCaptionHeight = 30;
             // 
-            // gridColumn9
+            // grdColmedDiagnosisPK
             // 
-            this.gridColumn9.Caption = "HistoryID";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.OptionsColumn.AllowEdit = false;
-            this.gridColumn9.OptionsColumn.AllowMove = false;
-            this.gridColumn9.OptionsColumn.AllowShowHide = false;
-            this.gridColumn9.OptionsColumn.AllowSize = false;
-            this.gridColumn9.OptionsColumn.ReadOnly = true;
+
+            this.grdColmedDiagnosisPK.Caption = "Med Diagnosis PK";
+            this.grdColmedDiagnosisPK.FieldName = "medDiagnosisPK";
+            this.grdColmedDiagnosisPK.Name = "grdColmedDiagnosisPK";
+
             // 
-            // gridColumn10
+            // grdColVisit
             // 
-            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn10.Caption = "Diagnosis";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.OptionsColumn.AllowEdit = false;
-            this.gridColumn10.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn10.OptionsColumn.AllowMove = false;
-            this.gridColumn10.OptionsColumn.AllowShowHide = false;
-            this.gridColumn10.OptionsColumn.AllowSize = false;
-            this.gridColumn10.OptionsColumn.ReadOnly = true;
-            this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn10.OptionsFilter.AllowFilter = false;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 0;
-            this.gridColumn10.Width = 250;
+            this.grdColVisit.Caption = "visitPK";
+            this.grdColVisit.FieldName = "visitPK";
+            this.grdColVisit.Name = "grdColVisit";
+            // 
+            // grdColDiagnosis
+            // 
+            this.grdColDiagnosis.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColDiagnosis.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColDiagnosis.Caption = "Diagnosis";
+            this.grdColDiagnosis.ColumnEdit = this.reslueDiagnosis;
+            this.grdColDiagnosis.FieldName = "diagnosisPK";
+            this.grdColDiagnosis.Name = "grdColDiagnosis";
+            this.grdColDiagnosis.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.grdColDiagnosis.OptionsColumn.AllowMove = false;
+            this.grdColDiagnosis.OptionsColumn.AllowShowHide = false;
+            this.grdColDiagnosis.OptionsColumn.AllowSize = false;
+            this.grdColDiagnosis.OptionsFilter.AllowAutoFilter = false;
+            this.grdColDiagnosis.OptionsFilter.AllowFilter = false;
+            this.grdColDiagnosis.Visible = true;
+            this.grdColDiagnosis.VisibleIndex = 0;
+            this.grdColDiagnosis.Width = 250;
+            // 
+            // reslueDiagnosis
+            // 
+            this.reslueDiagnosis.AutoHeight = false;
+            this.reslueDiagnosis.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.reslueDiagnosis.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("diagnosisPK", "diagnosisPK"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("diagnosis", "diagnosis")});
+            this.reslueDiagnosis.DisplayMember = "diagnosis";
+            this.reslueDiagnosis.Name = "reslueDiagnosis";
+            this.reslueDiagnosis.NullText = "";
+            this.reslueDiagnosis.ValueMember = "diagnosisPK";
             // 
             // label10
             // 
@@ -8450,8 +8447,10 @@
             this.panelControl12.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl12.Appearance.Options.UseBackColor = true;
             this.panelControl12.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl12.Controls.Add(this.cmdDiagnosisDelete);
+            this.panelControl12.Controls.Add(this.cmdDiagnosisSave);
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl12.Location = new System.Drawing.Point(0, 530);
+            this.panelControl12.Location = new System.Drawing.Point(0, 523);
             this.panelControl12.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl12.Margin = new System.Windows.Forms.Padding(0);
@@ -8459,16 +8458,54 @@
             this.panelControl12.Size = new System.Drawing.Size(650, 39);
             this.panelControl12.TabIndex = 28;
             // 
+            // cmdDiagnosisDelete
+            // 
+            this.cmdDiagnosisDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdDiagnosisDelete.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdDiagnosisDelete.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdDiagnosisDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDiagnosisDelete.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmdDiagnosisDelete.Appearance.Options.UseBackColor = true;
+            this.cmdDiagnosisDelete.Appearance.Options.UseFont = true;
+            this.cmdDiagnosisDelete.Appearance.Options.UseForeColor = true;
+            this.cmdDiagnosisDelete.Location = new System.Drawing.Point(451, 7);
+            this.cmdDiagnosisDelete.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdDiagnosisDelete.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdDiagnosisDelete.Name = "cmdDiagnosisDelete";
+            this.cmdDiagnosisDelete.Size = new System.Drawing.Size(86, 25);
+            this.cmdDiagnosisDelete.TabIndex = 27;
+            this.cmdDiagnosisDelete.Text = "Delete";
+            this.cmdDiagnosisDelete.Click += new System.EventHandler(this.cmdDiagnosisDelete_Click);
+            // 
+            // cmdDiagnosisSave
+            // 
+            this.cmdDiagnosisSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdDiagnosisSave.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdDiagnosisSave.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdDiagnosisSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDiagnosisSave.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdDiagnosisSave.Appearance.Options.UseBackColor = true;
+            this.cmdDiagnosisSave.Appearance.Options.UseFont = true;
+            this.cmdDiagnosisSave.Appearance.Options.UseForeColor = true;
+            this.cmdDiagnosisSave.Location = new System.Drawing.Point(549, 7);
+            this.cmdDiagnosisSave.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdDiagnosisSave.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdDiagnosisSave.Name = "cmdDiagnosisSave";
+            this.cmdDiagnosisSave.Size = new System.Drawing.Size(86, 25);
+            this.cmdDiagnosisSave.TabIndex = 25;
+            this.cmdDiagnosisSave.Text = "Save";
+            this.cmdDiagnosisSave.Click += new System.EventHandler(this.cmdDiagnosisSave_Click);
+            // 
             // tabPageTreatment
             // 
             this.tabPageTreatment.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tabPageTreatment.Appearance.Header.Options.UseFont = true;
             this.tabPageTreatment.Controls.Add(this.panelControl10);
-            this.tabPageTreatment.Controls.Add(this.gridControl5);
+            this.tabPageTreatment.Controls.Add(this.grdTreatment);
             this.tabPageTreatment.Controls.Add(this.label11);
             this.tabPageTreatment.Controls.Add(this.pictureBox12);
             this.tabPageTreatment.Name = "tabPageTreatment";
-            this.tabPageTreatment.Size = new System.Drawing.Size(650, 569);
+            this.tabPageTreatment.Size = new System.Drawing.Size(650, 562);
             this.tabPageTreatment.Text = "Treatment";
             // 
             // panelControl10
@@ -8477,9 +8514,9 @@
             this.panelControl10.Appearance.Options.UseBackColor = true;
             this.panelControl10.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl10.Controls.Add(this.simpleButton3);
-            this.panelControl10.Controls.Add(this.simpleButton8);
+            this.panelControl10.Controls.Add(this.cmdTreatment);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl10.Location = new System.Drawing.Point(0, 530);
+            this.panelControl10.Location = new System.Drawing.Point(0, 523);
             this.panelControl10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl10.Margin = new System.Windows.Forms.Padding(0);
@@ -8505,140 +8542,178 @@
             this.simpleButton3.TabIndex = 29;
             this.simpleButton3.Text = "Delete";
             // 
-            // simpleButton8
+            // cmdTreatment
             // 
-            this.simpleButton8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton8.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton8.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton8.Appearance.Options.UseBackColor = true;
-            this.simpleButton8.Appearance.Options.UseFont = true;
-            this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.Location = new System.Drawing.Point(546, 7);
-            this.simpleButton8.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton8.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton8.Name = "simpleButton8";
-            this.simpleButton8.Size = new System.Drawing.Size(86, 25);
-            this.simpleButton8.TabIndex = 28;
-            this.simpleButton8.Text = "Save";
+            this.cmdTreatment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdTreatment.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdTreatment.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdTreatment.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdTreatment.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdTreatment.Appearance.Options.UseBackColor = true;
+            this.cmdTreatment.Appearance.Options.UseFont = true;
+            this.cmdTreatment.Appearance.Options.UseForeColor = true;
+            this.cmdTreatment.Location = new System.Drawing.Point(546, 7);
+            this.cmdTreatment.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdTreatment.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdTreatment.Name = "cmdTreatment";
+            this.cmdTreatment.Size = new System.Drawing.Size(86, 25);
+            this.cmdTreatment.TabIndex = 28;
+            this.cmdTreatment.Text = "Save";
             // 
-            // gridControl5
+            // grdTreatment
             // 
-            this.gridControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.grdTreatment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl5.EmbeddedNavigator.Buttons.Append.Visible = false;
-            this.gridControl5.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
-            this.gridControl5.EmbeddedNavigator.Buttons.Edit.Visible = false;
-            this.gridControl5.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
-            this.gridControl5.EmbeddedNavigator.Buttons.Remove.Visible = false;
-            this.gridControl5.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.gridControl5.Location = new System.Drawing.Point(25, 44);
-            this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.gridControl5.MainView = this.gridView5;
-            this.gridControl5.Name = "gridControl5";
-            this.gridControl5.Size = new System.Drawing.Size(607, 473);
-            this.gridControl5.TabIndex = 32;
-            this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
+            this.grdTreatment.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.grdTreatment.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.grdTreatment.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.grdTreatment.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.grdTreatment.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.grdTreatment.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.grdTreatment.Location = new System.Drawing.Point(25, 44);
+            this.grdTreatment.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.grdTreatment.MainView = this.grdViewTreatment;
+            this.grdTreatment.Name = "grdTreatment";
+            this.grdTreatment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.reslueMedicine,
+            this.reslueFreq});
+            this.grdTreatment.Size = new System.Drawing.Size(607, 466);
+            this.grdTreatment.TabIndex = 32;
+            this.grdTreatment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewTreatment});
+
             // 
-            // gridView5
+            // grdViewTreatment
             // 
-            this.gridView5.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
-            this.gridView5.Appearance.EvenRow.Options.UseBackColor = true;
-            this.gridView5.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView5.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView5.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridView5.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView5.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
-            this.gridView5.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.gridView5.ColumnPanelRowHeight = 30;
-            this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn11,
-            this.gridColumn12,
-            this.gridColumn13,
-            this.gridColumn14,
-            this.gridColumn15,
-            this.gridColumn16});
-            this.gridView5.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView5.GridControl = this.gridControl5;
-            this.gridView5.Name = "gridView5";
-            this.gridView5.OptionsView.EnableAppearanceEvenRow = true;
-            this.gridView5.OptionsView.ShowDetailButtons = false;
-            this.gridView5.OptionsView.ShowGroupExpandCollapseButtons = false;
-            this.gridView5.OptionsView.ShowGroupPanel = false;
-            this.gridView5.OptionsView.ShowIndicator = false;
-            this.gridView5.RowHeight = 25;
-            this.gridView5.ViewCaptionHeight = 30;
+            this.grdViewTreatment.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
+            this.grdViewTreatment.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grdViewTreatment.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewTreatment.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewTreatment.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewTreatment.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grdViewTreatment.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewTreatment.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grdViewTreatment.ColumnPanelRowHeight = 30;
+            this.grdViewTreatment.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdColTreatmentPK,
+            this.grdTreatmentVisitPK,
+            this.grdColTreatmentPrescriptions,
+            this.grdColTreatmentDose,
+            this.grdColTreatmentFreq,
+            this.grdColTreatmentDuration,
+            this.grdColTreatmentRemark});
+            this.grdViewTreatment.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grdViewTreatment.GridControl = this.grdTreatment;
+            this.grdViewTreatment.Name = "grdViewTreatment";
+            this.grdViewTreatment.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grdViewTreatment.OptionsView.EnableAppearanceEvenRow = true;
+            this.grdViewTreatment.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.grdViewTreatment.OptionsView.ShowDetailButtons = false;
+            this.grdViewTreatment.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grdViewTreatment.OptionsView.ShowGroupPanel = false;
+            this.grdViewTreatment.OptionsView.ShowIndicator = false;
+            this.grdViewTreatment.RowHeight = 25;
+            this.grdViewTreatment.ViewCaptionHeight = 30;
             // 
-            // gridColumn11
+            // grdColTreatmentPK
             // 
-            this.gridColumn11.Caption = "HistoryID";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.OptionsColumn.AllowEdit = false;
-            this.gridColumn11.OptionsColumn.AllowMove = false;
-            this.gridColumn11.OptionsColumn.AllowShowHide = false;
-            this.gridColumn11.OptionsColumn.AllowSize = false;
-            this.gridColumn11.OptionsColumn.ReadOnly = true;
+            this.grdColTreatmentPK.Caption = "TreatmentPK";
+            this.grdColTreatmentPK.Name = "grdColTreatmentPK";
             // 
-            // gridColumn12
+            // grdTreatmentVisitPK
             // 
-            this.gridColumn12.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn12.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn12.Caption = "Prescriptions";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.OptionsColumn.AllowEdit = false;
-            this.gridColumn12.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gridColumn12.OptionsColumn.AllowMove = false;
-            this.gridColumn12.OptionsColumn.AllowShowHide = false;
-            this.gridColumn12.OptionsColumn.AllowSize = false;
-            this.gridColumn12.OptionsColumn.ReadOnly = true;
-            this.gridColumn12.OptionsFilter.AllowAutoFilter = false;
-            this.gridColumn12.OptionsFilter.AllowFilter = false;
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 0;
-            this.gridColumn12.Width = 261;
+            this.grdTreatmentVisitPK.Caption = "visitPK";
+            this.grdTreatmentVisitPK.FieldName = "visitPK";
+            this.grdTreatmentVisitPK.Name = "grdTreatmentVisitPK";
             // 
-            // gridColumn13
+            // grdColTreatmentPrescriptions
             // 
-            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn13.Caption = "Dose";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 1;
-            this.gridColumn13.Width = 50;
+            this.grdColTreatmentPrescriptions.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColTreatmentPrescriptions.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColTreatmentPrescriptions.Caption = "Prescriptions";
+            this.grdColTreatmentPrescriptions.ColumnEdit = this.reslueMedicine;
+            this.grdColTreatmentPrescriptions.FieldName = "medPK";
+            this.grdColTreatmentPrescriptions.Name = "grdColTreatmentPrescriptions";
+            this.grdColTreatmentPrescriptions.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.grdColTreatmentPrescriptions.OptionsColumn.AllowMove = false;
+            this.grdColTreatmentPrescriptions.OptionsColumn.AllowShowHide = false;
+            this.grdColTreatmentPrescriptions.OptionsFilter.AllowAutoFilter = false;
+            this.grdColTreatmentPrescriptions.OptionsFilter.AllowFilter = false;
+            this.grdColTreatmentPrescriptions.Visible = true;
+            this.grdColTreatmentPrescriptions.VisibleIndex = 0;
+            this.grdColTreatmentPrescriptions.Width = 261;
             // 
-            // gridColumn14
+            // reslueMedicine
             // 
-            this.gridColumn14.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn14.Caption = "Freq";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 2;
-            this.gridColumn14.Width = 70;
+            this.reslueMedicine.AutoHeight = false;
+            this.reslueMedicine.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.reslueMedicine.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("medPK", "medPK"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("medName", "Name"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("medTypeName", "Type"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("chemName", "Chemical Name")});
+            this.reslueMedicine.DisplayMember = "medName";
+            this.reslueMedicine.Name = "reslueMedicine";
+            this.reslueMedicine.ValueMember = "medPK";
             // 
-            // gridColumn15
+            // grdColTreatmentDose
             // 
-            this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn15.Caption = "Duration";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 3;
-            this.gridColumn15.Width = 95;
+            this.grdColTreatmentDose.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColTreatmentDose.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColTreatmentDose.Caption = "Dose";
+            this.grdColTreatmentDose.FieldName = "dosage";
+            this.grdColTreatmentDose.Name = "grdColTreatmentDose";
+            this.grdColTreatmentDose.Visible = true;
+            this.grdColTreatmentDose.VisibleIndex = 1;
+            this.grdColTreatmentDose.Width = 50;
             // 
-            // gridColumn16
+            // grdColTreatmentFreq
             // 
-            this.gridColumn16.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn16.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn16.Caption = "Remark";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 4;
-            this.gridColumn16.Width = 150;
+            this.grdColTreatmentFreq.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColTreatmentFreq.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColTreatmentFreq.Caption = "Freq";
+            this.grdColTreatmentFreq.ColumnEdit = this.reslueFreq;
+            this.grdColTreatmentFreq.FieldName = "frequencyPK";
+            this.grdColTreatmentFreq.Name = "grdColTreatmentFreq";
+            this.grdColTreatmentFreq.Visible = true;
+            this.grdColTreatmentFreq.VisibleIndex = 2;
+            this.grdColTreatmentFreq.Width = 70;
+            // 
+            // reslueFreq
+            // 
+            this.reslueFreq.AutoHeight = false;
+            this.reslueFreq.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.reslueFreq.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("frequencyPK", "frequencyPK", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("frequency", "Frequency")});
+            this.reslueFreq.DisplayMember = "frequency";
+            this.reslueFreq.Name = "reslueFreq";
+            this.reslueFreq.ValueMember = "frequencyPK";
+            // 
+            // grdColTreatmentDuration
+            // 
+            this.grdColTreatmentDuration.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColTreatmentDuration.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColTreatmentDuration.Caption = "Duration";
+            this.grdColTreatmentDuration.FieldName = "duration";
+            this.grdColTreatmentDuration.Name = "grdColTreatmentDuration";
+            this.grdColTreatmentDuration.Visible = true;
+            this.grdColTreatmentDuration.VisibleIndex = 3;
+            this.grdColTreatmentDuration.Width = 95;
+            // 
+            // grdColTreatmentRemark
+            // 
+            this.grdColTreatmentRemark.AppearanceHeader.Options.UseTextOptions = true;
+            this.grdColTreatmentRemark.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.grdColTreatmentRemark.Caption = "Remark";
+            this.grdColTreatmentRemark.FieldName = "treatmentRemarks";
+            this.grdColTreatmentRemark.Name = "grdColTreatmentRemark";
+            this.grdColTreatmentRemark.Visible = true;
+            this.grdColTreatmentRemark.VisibleIndex = 4;
+            this.grdColTreatmentRemark.Width = 150;
             // 
             // label11
             // 
@@ -8718,7 +8793,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShapeMR});
-            this.shapeContainer2.Size = new System.Drawing.Size(1282, 822);
+            this.shapeContainer2.Size = new System.Drawing.Size(1282, 815);
             this.shapeContainer2.TabIndex = 13;
             this.shapeContainer2.TabStop = false;
             // 
@@ -8739,7 +8814,7 @@
             this.tabPageReport.Image = global::MediPro.Properties.Resources.Stats;
             this.tabPageReport.Name = "tabPageReport";
             this.tabPageReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageReport.Size = new System.Drawing.Size(1292, 832);
+            this.tabPageReport.Size = new System.Drawing.Size(1292, 825);
             this.tabPageReport.Tag = "4";
             this.tabPageReport.Text = "  Reports";
             // 
@@ -8752,7 +8827,7 @@
             this.panelReports.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelReports.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(1288, 828);
+            this.panelReports.Size = new System.Drawing.Size(1288, 821);
             this.panelReports.TabIndex = 1;
             // 
             // tabPageAdministrator
@@ -8763,7 +8838,7 @@
             this.tabPageAdministrator.Image = ((System.Drawing.Image)(resources.GetObject("tabPageAdministrator.Image")));
             this.tabPageAdministrator.Name = "tabPageAdministrator";
             this.tabPageAdministrator.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 832);
+            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 825);
             this.tabPageAdministrator.Tag = "5";
             this.tabPageAdministrator.Text = "  Admin";
             // 
@@ -8782,7 +8857,7 @@
             this.panelAdmin.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelAdmin.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(1288, 828);
+            this.panelAdmin.Size = new System.Drawing.Size(1288, 821);
             this.panelAdmin.TabIndex = 1;
             // 
             // label14
@@ -9226,7 +9301,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1307, 750);
+            this.ClientSize = new System.Drawing.Size(1307, 743);
             this.Controls.Add(this.pnlUserMenu);
             this.Controls.Add(this.picExaLogo);
             this.Controls.Add(this.tabControlMain);
@@ -9398,21 +9473,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
             this.panelControl11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdLab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewLab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resLueLabTest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.tabPageDiagnosis.ResumeLayout(false);
             this.tabPageDiagnosis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDiagnosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewDiagnosis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueDiagnosis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl12)).EndInit();
+            this.panelControl12.ResumeLayout(false);
             this.tabPageTreatment.ResumeLayout(false);
             this.tabPageTreatment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdTreatment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewTreatment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueMedicine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reslueFreq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -9494,32 +9573,30 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private DevExpress.XtraEditors.SimpleButton simpleButton16;
+        private DevExpress.XtraEditors.SimpleButton cmdLabTestDelete;
         private DevExpress.XtraEditors.SimpleButton simpleButton17;
-        private DevExpress.XtraEditors.SimpleButton simpleButton18;
+        private DevExpress.XtraEditors.SimpleButton cmdLabTestRequest;
         private DevExpress.XtraGrid.GridControl grdLab;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewLab;
         private DevExpress.XtraGrid.Columns.GridColumn grdColVisitPK;
         private DevExpress.XtraGrid.Columns.GridColumn grdColLabTest;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox10;
-        private DevExpress.XtraEditors.SimpleButton simpleButton19;
-        private DevExpress.XtraEditors.SimpleButton simpleButton21;
-        private DevExpress.XtraGrid.GridControl gridControl4;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.SimpleButton cmdDiagnosisDelete;
+        private DevExpress.XtraEditors.SimpleButton cmdDiagnosisSave;
+        private DevExpress.XtraGrid.GridControl grdDiagnosis;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewDiagnosis;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColDiagnosis;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private DevExpress.XtraGrid.GridControl gridControl5;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraGrid.GridControl grdTreatment;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewTreatment;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentPrescriptions;
         private System.Windows.Forms.PictureBox pictureBox12;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentDose;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentFreq;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentDuration;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentRemark;
         private DevExpress.XtraEditors.SimpleButton cmdUserLevel;
         private DevExpress.XtraEditors.SimpleButton cmdUser;
         private System.Windows.Forms.Label label13;
@@ -9729,7 +9806,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.PanelControl panelControl12;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton8;
+        private DevExpress.XtraEditors.SimpleButton cmdTreatment;
         private DevExpress.XtraEditors.LabelControl labelControl36;
         private DevExpress.XtraEditors.LabelControl labelControl37;
         private DevExpress.XtraEditors.LookUpEdit lueVisit;
@@ -10136,6 +10213,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueDiagnosis;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColVisit;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColmedDiagnosisPK;
+        private DevExpress.XtraGrid.Columns.GridColumn grdTreatmentVisitPK;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColTreatmentPK;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueMedicine;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueFreq;
 
     }
 }
