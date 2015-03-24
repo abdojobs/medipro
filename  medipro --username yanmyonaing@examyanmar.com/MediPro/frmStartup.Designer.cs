@@ -113,7 +113,7 @@
             this.lueVisit = new DevExpress.XtraEditors.LookUpEdit();
             this.cmdTodayPatients = new DevExpress.XtraEditors.SimpleButton();
             this.pnlDailyProgress = new DevExpress.XtraEditors.PanelControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.txtSummary = new DevExpress.XtraEditors.MemoEdit();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
@@ -338,13 +338,13 @@
             this.showAllFieldResultsItem1 = new DevExpress.XtraRichEdit.UI.ShowAllFieldResultsItem();
             this.toggleViewMergedDataItem1 = new DevExpress.XtraRichEdit.UI.ToggleViewMergedDataItem();
             this.grdSummaryHead = new DevExpress.XtraGrid.GridControl();
-            this.grdViewUserLevel = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.grdColUserLevelID = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColUserLevelName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdViewSummary = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.grdColSummaryPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColSummaryTitle = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColSummary = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdAddSummary = new DevExpress.XtraEditors.SimpleButton();
             this.luePatient = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
@@ -708,6 +708,10 @@
             this.grdColTreatmentRemark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.tabPageRemarks = new DevExpress.XtraTab.XtraTabPage();
+            this.txtRemarks = new System.Windows.Forms.RichTextBox();
+            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
+            this.cmdRemarksSave = new DevExpress.XtraEditors.SimpleButton();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -736,10 +740,6 @@
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
             this.insertPageBreakItem2 = new DevExpress.XtraRichEdit.UI.InsertPageBreakItem();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.tabPageRemarks = new DevExpress.XtraTab.XtraTabPage();
-            this.panelControl13 = new DevExpress.XtraEditors.PanelControl();
-            this.cmdRemarksSave = new DevExpress.XtraEditors.SimpleButton();
-            this.txtRemarks = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -782,7 +782,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueVisit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDailyProgress)).BeginInit();
             this.pnlDailyProgress.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSummary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemBorderLineStyle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemBorderLineWeight1)).BeginInit();
@@ -791,7 +791,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSummaryHead)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdViewUserLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewSummary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.luePatient.Properties)).BeginInit();
@@ -879,6 +879,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.reslueMedicine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reslueFreq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.tabPageRemarks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
+            this.panelControl13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tabPageReport.SuspendLayout();
@@ -892,9 +895,6 @@
             this.pnlUserMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
-            this.tabPageRemarks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).BeginInit();
-            this.panelControl13.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -2266,10 +2266,10 @@
                         | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlDailyProgress.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlDailyProgress.Appearance.Options.UseBackColor = true;
-            this.pnlDailyProgress.Controls.Add(this.memoEdit1);
+            this.pnlDailyProgress.Controls.Add(this.txtSummary);
             this.pnlDailyProgress.Controls.Add(this.grdSummaryHead);
             this.pnlDailyProgress.Controls.Add(this.panelControl2);
-            this.pnlDailyProgress.Controls.Add(this.simpleButton4);
+            this.pnlDailyProgress.Controls.Add(this.cmdAddSummary);
             this.pnlDailyProgress.Location = new System.Drawing.Point(40, 192);
             this.pnlDailyProgress.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnlDailyProgress.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2277,14 +2277,15 @@
             this.pnlDailyProgress.Size = new System.Drawing.Size(558, 485);
             this.pnlDailyProgress.TabIndex = 11;
             // 
-            // memoEdit1
+            // txtSummary
             // 
-            this.memoEdit1.Location = new System.Drawing.Point(161, 26);
-            this.memoEdit1.MenuManager = this.barManager1;
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.memoEdit1.Size = new System.Drawing.Size(395, 426);
-            this.memoEdit1.TabIndex = 16;
+            this.txtSummary.Location = new System.Drawing.Point(161, 26);
+            this.txtSummary.MenuManager = this.barManager1;
+            this.txtSummary.Name = "txtSummary";
+            this.txtSummary.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtSummary.Size = new System.Drawing.Size(395, 426);
+            this.txtSummary.TabIndex = 16;
+            this.txtSummary.Validated += new System.EventHandler(this.txtSummary_Validated);
             // 
             // barManager1
             // 
@@ -4206,101 +4207,88 @@
             this.grdSummaryHead.Location = new System.Drawing.Point(1, 26);
             this.grdSummaryHead.LookAndFeel.SkinName = "Metropolis";
             this.grdSummaryHead.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.grdSummaryHead.MainView = this.grdViewUserLevel;
+            this.grdSummaryHead.MainView = this.grdViewSummary;
             this.grdSummaryHead.Margin = new System.Windows.Forms.Padding(6);
             this.grdSummaryHead.Name = "grdSummaryHead";
             this.grdSummaryHead.Size = new System.Drawing.Size(157, 417);
             this.grdSummaryHead.TabIndex = 15;
             this.grdSummaryHead.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grdViewUserLevel});
+            this.grdViewSummary});
             // 
-            // grdViewUserLevel
+            // grdViewSummary
             // 
-            this.grdViewUserLevel.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
-            this.grdViewUserLevel.Appearance.Empty.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.EvenRow.BackColor = System.Drawing.Color.Transparent;
-            this.grdViewUserLevel.Appearance.EvenRow.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
-            this.grdViewUserLevel.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdViewUserLevel.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
-            this.grdViewUserLevel.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.FocusedCell.Options.UseFont = true;
-            this.grdViewUserLevel.Appearance.FocusedCell.Options.UseForeColor = true;
-            this.grdViewUserLevel.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
-            this.grdViewUserLevel.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdViewUserLevel.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
-            this.grdViewUserLevel.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.FocusedRow.Options.UseFont = true;
-            this.grdViewUserLevel.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.grdViewUserLevel.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdViewUserLevel.Appearance.HeaderPanel.Options.UseFont = true;
-            this.grdViewUserLevel.Appearance.Row.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.grdViewUserLevel.Appearance.Row.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.RowSeparator.BackColor = System.Drawing.Color.Transparent;
-            this.grdViewUserLevel.Appearance.RowSeparator.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.SelectedRow.BackColor = System.Drawing.Color.White;
-            this.grdViewUserLevel.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdViewUserLevel.Appearance.SelectedRow.ForeColor = System.Drawing.Color.Black;
-            this.grdViewUserLevel.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.grdViewUserLevel.Appearance.SelectedRow.Options.UseFont = true;
-            this.grdViewUserLevel.Appearance.SelectedRow.Options.UseForeColor = true;
-            this.grdViewUserLevel.Appearance.TopNewRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grdViewUserLevel.Appearance.TopNewRow.Options.UseFont = true;
-            this.grdViewUserLevel.Appearance.VertLine.BackColor = System.Drawing.Color.Transparent;
-            this.grdViewUserLevel.Appearance.VertLine.Options.UseBackColor = true;
-            this.grdViewUserLevel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.grdViewUserLevel.ColumnPanelRowHeight = 30;
-            this.grdViewUserLevel.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.grdColUserLevelID,
-            this.grdColUserLevelName,
-            this.grdColIsActive});
-            this.grdViewUserLevel.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.grdViewUserLevel.GridControl = this.grdSummaryHead;
-            this.grdViewUserLevel.Name = "grdViewUserLevel";
-            this.grdViewUserLevel.OptionsView.EnableAppearanceEvenRow = true;
-            this.grdViewUserLevel.OptionsView.ShowColumnHeaders = false;
-            this.grdViewUserLevel.OptionsView.ShowDetailButtons = false;
-            this.grdViewUserLevel.OptionsView.ShowGroupExpandCollapseButtons = false;
-            this.grdViewUserLevel.OptionsView.ShowGroupPanel = false;
-            this.grdViewUserLevel.OptionsView.ShowIndicator = false;
-            this.grdViewUserLevel.RowHeight = 25;
-            this.grdViewUserLevel.ViewCaptionHeight = 30;
+            this.grdViewSummary.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
+            this.grdViewSummary.Appearance.Empty.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.EvenRow.BackColor = System.Drawing.Color.Transparent;
+            this.grdViewSummary.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.grdViewSummary.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdViewSummary.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.grdViewSummary.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.FocusedCell.Options.UseFont = true;
+            this.grdViewSummary.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.grdViewSummary.Appearance.FocusedRow.BackColor = System.Drawing.Color.White;
+            this.grdViewSummary.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdViewSummary.Appearance.FocusedRow.ForeColor = System.Drawing.Color.Black;
+            this.grdViewSummary.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.FocusedRow.Options.UseFont = true;
+            this.grdViewSummary.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.grdViewSummary.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewSummary.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grdViewSummary.Appearance.Row.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.grdViewSummary.Appearance.Row.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.RowSeparator.BackColor = System.Drawing.Color.Transparent;
+            this.grdViewSummary.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.SelectedRow.BackColor = System.Drawing.Color.White;
+            this.grdViewSummary.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdViewSummary.Appearance.SelectedRow.ForeColor = System.Drawing.Color.Black;
+            this.grdViewSummary.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grdViewSummary.Appearance.SelectedRow.Options.UseFont = true;
+            this.grdViewSummary.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grdViewSummary.Appearance.TopNewRow.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewSummary.Appearance.TopNewRow.Options.UseFont = true;
+            this.grdViewSummary.Appearance.VertLine.BackColor = System.Drawing.Color.Transparent;
+            this.grdViewSummary.Appearance.VertLine.Options.UseBackColor = true;
+            this.grdViewSummary.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.grdViewSummary.ColumnPanelRowHeight = 30;
+            this.grdViewSummary.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.grdColSummaryPK,
+            this.grdColSummaryTitle,
+            this.grdColSummary});
+            this.grdViewSummary.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grdViewSummary.GridControl = this.grdSummaryHead;
+            this.grdViewSummary.Name = "grdViewSummary";
+            this.grdViewSummary.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grdViewSummary.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.grdViewSummary.OptionsView.EnableAppearanceEvenRow = true;
+            this.grdViewSummary.OptionsView.ShowColumnHeaders = false;
+            this.grdViewSummary.OptionsView.ShowDetailButtons = false;
+            this.grdViewSummary.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grdViewSummary.OptionsView.ShowGroupPanel = false;
+            this.grdViewSummary.OptionsView.ShowIndicator = false;
+            this.grdViewSummary.RowHeight = 25;
+            this.grdViewSummary.ViewCaptionHeight = 30;
+            this.grdViewSummary.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grdViewSummary_FocusedRowChanged);
+            this.grdViewSummary.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.grdViewSummary_ValidateRow);
             // 
-            // grdColUserLevelID
+            // grdColSummaryPK
             // 
-            this.grdColUserLevelID.Caption = "UserLevelID";
-            this.grdColUserLevelID.FieldName = "levelPK";
-            this.grdColUserLevelID.Name = "grdColUserLevelID";
-            this.grdColUserLevelID.OptionsColumn.AllowEdit = false;
-            this.grdColUserLevelID.OptionsColumn.AllowMove = false;
-            this.grdColUserLevelID.OptionsColumn.AllowShowHide = false;
-            this.grdColUserLevelID.OptionsColumn.AllowSize = false;
-            this.grdColUserLevelID.OptionsColumn.ReadOnly = true;
+            this.grdColSummaryPK.Caption = "SummaryPK";
+            this.grdColSummaryPK.FieldName = "medSummaryPK";
+            this.grdColSummaryPK.Name = "grdColSummaryPK";
             // 
-            // grdColUserLevelName
+            // grdColSummaryTitle
             // 
-            this.grdColUserLevelName.AppearanceHeader.Options.UseTextOptions = true;
-            this.grdColUserLevelName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.grdColUserLevelName.Caption = "User Level";
-            this.grdColUserLevelName.FieldName = "UserLevel";
-            this.grdColUserLevelName.Name = "grdColUserLevelName";
-            this.grdColUserLevelName.OptionsColumn.AllowEdit = false;
-            this.grdColUserLevelName.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColUserLevelName.OptionsColumn.AllowMove = false;
-            this.grdColUserLevelName.OptionsColumn.AllowShowHide = false;
-            this.grdColUserLevelName.OptionsColumn.AllowSize = false;
-            this.grdColUserLevelName.OptionsColumn.ReadOnly = true;
-            this.grdColUserLevelName.OptionsFilter.AllowAutoFilter = false;
-            this.grdColUserLevelName.OptionsFilter.AllowFilter = false;
-            this.grdColUserLevelName.Visible = true;
-            this.grdColUserLevelName.VisibleIndex = 0;
-            this.grdColUserLevelName.Width = 250;
+            this.grdColSummaryTitle.Caption = "Title";
+            this.grdColSummaryTitle.FieldName = "title";
+            this.grdColSummaryTitle.Name = "grdColSummaryTitle";
+            this.grdColSummaryTitle.Visible = true;
+            this.grdColSummaryTitle.VisibleIndex = 0;
             // 
-            // grdColIsActive
+            // grdColSummary
             // 
-            this.grdColIsActive.Caption = "IsActive";
-            this.grdColIsActive.FieldName = "isActive";
-            this.grdColIsActive.Name = "grdColIsActive";
+            this.grdColSummary.Caption = "Summary";
+            this.grdColSummary.Name = "grdColSummary";
             // 
             // panelControl2
             // 
@@ -4335,26 +4323,26 @@
             this.simpleButton5.TabIndex = 14;
             this.simpleButton5.Text = "Print Summary";
             // 
-            // simpleButton4
+            // cmdAddSummary
             // 
-            this.simpleButton4.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.Teal;
-            this.simpleButton4.Appearance.Options.UseBackColor = true;
-            this.simpleButton4.Appearance.Options.UseFont = true;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.Appearance.Options.UseTextOptions = true;
-            this.simpleButton4.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.simpleButton4.Image = global::MediPro.Properties.Resources.file_add_16;
-            this.simpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.simpleButton4.Location = new System.Drawing.Point(3, 2);
-            this.simpleButton4.Margin = new System.Windows.Forms.Padding(0);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(116, 23);
-            this.simpleButton4.TabIndex = 14;
-            this.simpleButton4.Text = "Add Summary";
-            this.simpleButton4.Click += new System.EventHandler(this.cmdTodayPatients_Click);
+            this.cmdAddSummary.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAddSummary.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdAddSummary.Appearance.ForeColor = System.Drawing.Color.Teal;
+            this.cmdAddSummary.Appearance.Options.UseBackColor = true;
+            this.cmdAddSummary.Appearance.Options.UseFont = true;
+            this.cmdAddSummary.Appearance.Options.UseForeColor = true;
+            this.cmdAddSummary.Appearance.Options.UseTextOptions = true;
+            this.cmdAddSummary.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.cmdAddSummary.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdAddSummary.Image = global::MediPro.Properties.Resources.file_add_16;
+            this.cmdAddSummary.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.cmdAddSummary.Location = new System.Drawing.Point(3, 2);
+            this.cmdAddSummary.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdAddSummary.Name = "cmdAddSummary";
+            this.cmdAddSummary.Size = new System.Drawing.Size(116, 23);
+            this.cmdAddSummary.TabIndex = 14;
+            this.cmdAddSummary.Text = "Add Summary";
+            this.cmdAddSummary.Click += new System.EventHandler(this.cmdAddSummary_Click);
             // 
             // luePatient
             // 
@@ -8746,6 +8734,57 @@
             this.pictureBox12.TabIndex = 28;
             this.pictureBox12.TabStop = false;
             // 
+            // tabPageRemarks
+            // 
+            this.tabPageRemarks.Controls.Add(this.txtRemarks);
+            this.tabPageRemarks.Controls.Add(this.panelControl13);
+            this.tabPageRemarks.Name = "tabPageRemarks";
+            this.tabPageRemarks.Size = new System.Drawing.Size(650, 562);
+            this.tabPageRemarks.Text = "Remarks";
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRemarks.Location = new System.Drawing.Point(0, 0);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(650, 523);
+            this.txtRemarks.TabIndex = 35;
+            this.txtRemarks.Text = "";
+            // 
+            // panelControl13
+            // 
+            this.panelControl13.Appearance.BackColor = System.Drawing.Color.OldLace;
+            this.panelControl13.Appearance.Options.UseBackColor = true;
+            this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl13.Controls.Add(this.cmdRemarksSave);
+            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl13.Location = new System.Drawing.Point(0, 523);
+            this.panelControl13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelControl13.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl13.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl13.Name = "panelControl13";
+            this.panelControl13.Size = new System.Drawing.Size(650, 39);
+            this.panelControl13.TabIndex = 34;
+            // 
+            // cmdRemarksSave
+            // 
+            this.cmdRemarksSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdRemarksSave.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdRemarksSave.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdRemarksSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRemarksSave.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdRemarksSave.Appearance.Options.UseBackColor = true;
+            this.cmdRemarksSave.Appearance.Options.UseFont = true;
+            this.cmdRemarksSave.Appearance.Options.UseForeColor = true;
+            this.cmdRemarksSave.Location = new System.Drawing.Point(546, 7);
+            this.cmdRemarksSave.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdRemarksSave.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdRemarksSave.Name = "cmdRemarksSave";
+            this.cmdRemarksSave.Size = new System.Drawing.Size(86, 25);
+            this.cmdRemarksSave.TabIndex = 28;
+            this.cmdRemarksSave.Text = "Save";
+            this.cmdRemarksSave.Click += new System.EventHandler(this.cmdRemarksSave_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -9302,57 +9341,6 @@
             this.simpleButton2.Text = " Visit Patients";
             this.simpleButton2.Click += new System.EventHandler(this.cmdTodayPatients_Click);
             // 
-            // tabPageRemarks
-            // 
-            this.tabPageRemarks.Controls.Add(this.txtRemarks);
-            this.tabPageRemarks.Controls.Add(this.panelControl13);
-            this.tabPageRemarks.Name = "tabPageRemarks";
-            this.tabPageRemarks.Size = new System.Drawing.Size(650, 562);
-            this.tabPageRemarks.Text = "Remarks";
-            // 
-            // panelControl13
-            // 
-            this.panelControl13.Appearance.BackColor = System.Drawing.Color.OldLace;
-            this.panelControl13.Appearance.Options.UseBackColor = true;
-            this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl13.Controls.Add(this.cmdRemarksSave);
-            this.panelControl13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl13.Location = new System.Drawing.Point(0, 523);
-            this.panelControl13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-            this.panelControl13.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.panelControl13.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl13.Name = "panelControl13";
-            this.panelControl13.Size = new System.Drawing.Size(650, 39);
-            this.panelControl13.TabIndex = 34;
-            // 
-            // cmdRemarksSave
-            // 
-            this.cmdRemarksSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdRemarksSave.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdRemarksSave.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdRemarksSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRemarksSave.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.cmdRemarksSave.Appearance.Options.UseBackColor = true;
-            this.cmdRemarksSave.Appearance.Options.UseFont = true;
-            this.cmdRemarksSave.Appearance.Options.UseForeColor = true;
-            this.cmdRemarksSave.Location = new System.Drawing.Point(546, 7);
-            this.cmdRemarksSave.LookAndFeel.SkinName = "Seven Classic";
-            this.cmdRemarksSave.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdRemarksSave.Name = "cmdRemarksSave";
-            this.cmdRemarksSave.Size = new System.Drawing.Size(86, 25);
-            this.cmdRemarksSave.TabIndex = 28;
-            this.cmdRemarksSave.Text = "Save";
-            this.cmdRemarksSave.Click += new System.EventHandler(this.cmdRemarksSave_Click);
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRemarks.Location = new System.Drawing.Point(0, 0);
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(650, 523);
-            this.txtRemarks.TabIndex = 35;
-            this.txtRemarks.Text = "";
-            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9421,7 +9409,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueVisit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDailyProgress)).EndInit();
             this.pnlDailyProgress.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSummary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemBorderLineStyle1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemBorderLineWeight1)).EndInit();
@@ -9430,7 +9418,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditFontSizeEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemRichEditStyleEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSummaryHead)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grdViewUserLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewSummary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.luePatient.Properties)).EndInit();
@@ -9550,6 +9538,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.reslueMedicine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.reslueFreq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.tabPageRemarks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
+            this.panelControl13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tabPageReport.ResumeLayout(false);
@@ -9565,9 +9556,6 @@
             this.pnlUserMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
-            this.tabPageRemarks.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl13)).EndInit();
-            this.panelControl13.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -10260,11 +10248,8 @@
         private DevExpress.XtraRichEdit.UI.RichEditBarController richEditBarController1;
         private DevExpress.XtraRichEdit.UI.InsertPageBreakItem insertPageBreakItem2;
         private DevExpress.XtraGrid.GridControl grdSummaryHead;
-        private DevExpress.XtraGrid.Views.Grid.GridView grdViewUserLevel;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColUserLevelID;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColUserLevelName;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColIsActive;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewSummary;
+        private DevExpress.XtraEditors.MemoEdit txtSummary;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
@@ -10272,7 +10257,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
-        private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton cmdAddSummary;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit reslueDiagnosis;
         private DevExpress.XtraGrid.Columns.GridColumn grdColVisit;
         private DevExpress.XtraGrid.Columns.GridColumn grdColmedDiagnosisPK;
@@ -10284,6 +10269,9 @@
         private System.Windows.Forms.RichTextBox txtRemarks;
         private DevExpress.XtraEditors.PanelControl panelControl13;
         private DevExpress.XtraEditors.SimpleButton cmdRemarksSave;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColSummaryPK;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColSummaryTitle;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColSummary;
 
     }
 }

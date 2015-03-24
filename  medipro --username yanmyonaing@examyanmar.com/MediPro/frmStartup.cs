@@ -32,6 +32,8 @@ namespace MediPro
             reslueMedicine.DataSource = SqlDb.GetDataSet("SELECT tblMedicine.medPK, tblMedicine.medName, tblMedType.medTypeName, tblChemName.chemName, tblBodySystem.systemName, tblManufacturer.manuName FROM         tblMedicine INNER JOIN tblMedType ON tblMedicine.medTypePK = tblMedType.medTypePK INNER JOIN tblChemName ON tblMedicine.chemNamePK = tblChemName.chemNamePK INNER JOIN tblBodySystem ON tblMedicine.systemPK = tblBodySystem.systemPK INNER JOIN tblManufacturer ON tblMedicine.manuPK = tblManufacturer.manuPK").Tables[0];
             grdTreatment.DataSource = SqlDb.GetDataSet("Select * from tblTreatment").Tables[0];
 
+            grdSummaryHead.DataSource = SqlDb.GetDataSet("Select * from tblMedSummary where medSummaryPK is null").Tables[0];
+
             DefineScreen();
         }
 
@@ -682,6 +684,7 @@ namespace MediPro
             RegNo = luePatient.EditValue.ToString();
 
             PatientDataLoadWithRegNo();
+            LoadMedSummary(RegNo);
         }
 
         private void LoadImage()
@@ -1659,6 +1662,81 @@ namespace MediPro
         {
 
         }
+
+        private void cmdAddSummary_Click(object sender, EventArgs e)
+        {
+            grdViewSummary.AddNewRow();
+            //MessageBox.Show(((DataView)grdViewSummary.DataSource).Count.ToString());
+        }
+
+        private void txtSummary_Validated(object sender, EventArgs e)
+        {
+            if (grdViewSummary.GetFocusedDataRow() != null)
+            {
+                object medSummaryPK = grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
+                object summary = txtSummary.Text;
+                SqlDb.ExecuteNonQuery("Update tblMedSummary set Summary=@summary, updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
+                         new SqlParameter("@medSummaryPK", medSummaryPK),
+                         new SqlParameter("@summary", summary),
+                         new SqlParameter("@updateDate", DateTime.Now),
+                         new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+
+                LoadMedSummary(luePatient.EditValue.ToString());
+            }
+            
+
+        }
+
+        private void grdViewSummary_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            object medSummaryPK=grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
+            object title = grdViewSummary.GetFocusedDataRow()["title"];
+            if ( medSummaryPK.ToString()== "")
+            {
+                medSummaryPK = SqlDb.ExecuteScalar<int>("getID tblMedSummary");
+                SqlDb.ExecuteNonQuery("Insert into tblMedSummary(medSummaryPK,doctorPK,patientPK,title,summary,createPK,createDate,updatePK,updateDate)" +
+                   " values(@medSummaryPK,@doctorPK,@patientPK,@title,@summary,@createPK,@createDate,@updatePK,@updateDate)",
+                   new SqlParameter("@medSummaryPk", medSummaryPK),
+                   new SqlParameter("@patientPK", luePatient.EditValue),
+                   new SqlParameter("@doctorPK", AppVariable.CURRENT_USER_PK),
+                   new SqlParameter("@title", title),
+                   new SqlParameter("@summary", DBNull.Value),
+                   new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
+                   new SqlParameter("@createDate", DateTime.Now),
+                   new SqlParameter("@updateDate", DateTime.Now),
+                   new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                   );
+                grdViewSummary.SetFocusedRowCellValue("medSummaryPK", medSummaryPK);
+            }
+            else
+            {
+                
+                SqlDb.ExecuteNonQuery("Update tblMedSummary set title=@title,updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
+                    new SqlParameter("@medSummaryPK", medSummaryPK),
+                    new SqlParameter("@title",title),
+                    new SqlParameter("@updateDate", DateTime.Now),
+                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                    );
+            }
+            
+        }
+
+        public void LoadMedSummary(string patientPK)
+        {
+            txtSummary.Text = "";
+            grdSummaryHead.DataSource = SqlDb.GetDataSet("Select * from tblMedSummary where patientPK=@patientPK",
+                new SqlParameter("@patientPK", patientPK)).Tables[0];
+        }
+
+        private void grdViewSummary_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (grdViewSummary.GetFocusedDataRow() != null)
+            {
+                txtSummary.Text = grdViewSummary.GetFocusedDataRow()["summary"].ToString();
+            }
+        }
+
+
 
 
 
