@@ -32,6 +32,8 @@
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageHome = new DevExpress.XtraTab.XtraTabPage();
             this.panelHome = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
@@ -114,6 +116,7 @@
             this.tabPageHome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelHome)).BeginInit();
             this.panelHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
             this.panelControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
@@ -198,6 +201,8 @@
             // 
             this.panelHome.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelHome.Appearance.Options.UseBackColor = true;
+            this.panelHome.Controls.Add(this.pictureBox16);
+            this.panelHome.Controls.Add(this.cmdInvoice);
             this.panelHome.Controls.Add(this.panelControl6);
             this.panelHome.Controls.Add(this.panelControl4);
             this.panelHome.Controls.Add(this.panelControl1);
@@ -211,6 +216,35 @@
             this.panelHome.Size = new System.Drawing.Size(1262, 648);
             this.panelHome.TabIndex = 0;
             this.panelHome.Tag = "1";
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Location = new System.Drawing.Point(93, 7);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(2, 15);
+            this.pictureBox16.TabIndex = 18;
+            this.pictureBox16.TabStop = false;
+            // 
+            // cmdInvoice
+            // 
+            this.cmdInvoice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdInvoice.Appearance.ForeColor = System.Drawing.Color.Teal;
+            this.cmdInvoice.Appearance.Options.UseBackColor = true;
+            this.cmdInvoice.Appearance.Options.UseFont = true;
+            this.cmdInvoice.Appearance.Options.UseForeColor = true;
+            this.cmdInvoice.Appearance.Options.UseTextOptions = true;
+            this.cmdInvoice.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.cmdInvoice.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdInvoice.Image = global::Lab.Properties.Resources.invoice_16;
+            this.cmdInvoice.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.cmdInvoice.Location = new System.Drawing.Point(100, 3);
+            this.cmdInvoice.Margin = new System.Windows.Forms.Padding(0);
+            this.cmdInvoice.Name = "cmdInvoice";
+            this.cmdInvoice.Size = new System.Drawing.Size(102, 23);
+            this.cmdInvoice.TabIndex = 15;
+            this.cmdInvoice.Text = " Invoice";
+            this.cmdInvoice.Click += new System.EventHandler(this.cmdRefresh_Click);
             // 
             // panelControl6
             // 
@@ -250,9 +284,9 @@
             this.labelControl17.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.labelControl17.Location = new System.Drawing.Point(11, 12);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(155, 19);
+            this.labelControl17.Size = new System.Drawing.Size(149, 19);
             this.labelControl17.TabIndex = 0;
-            this.labelControl17.Text = "Today Voucher List";
+            this.labelControl17.Text = "Today Invoice List";
             // 
             // gridControl9
             // 
@@ -396,9 +430,9 @@
             this.labelControl16.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.labelControl16.Location = new System.Drawing.Point(11, 12);
             this.labelControl16.Name = "labelControl16";
-            this.labelControl16.Size = new System.Drawing.Size(100, 19);
+            this.labelControl16.Size = new System.Drawing.Size(163, 19);
             this.labelControl16.TabIndex = 0;
-            this.labelControl16.Text = "Booking List";
+            this.labelControl16.Text = "Result List from Lab";
             // 
             // grdBooking
             // 
@@ -665,9 +699,9 @@
             this.labelControl15.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.labelControl15.Location = new System.Drawing.Point(11, 12);
             this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(164, 19);
+            this.labelControl15.Size = new System.Drawing.Size(176, 19);
             this.labelControl15.TabIndex = 0;
-            this.labelControl15.Text = "Today Visit Patients";
+            this.labelControl15.Text = "Request Lab Test List";
             // 
             // grdTodayVisitPatients
             // 
@@ -1446,6 +1480,7 @@
             this.tabPageHome.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelHome)).EndInit();
             this.panelHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
             this.panelControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
@@ -1575,6 +1610,8 @@
         private DevExpress.XtraEditors.SimpleButton cmdLaboratory;
         private DevExpress.XtraEditors.SimpleButton cmdLabTest;
         private DevExpress.XtraEditors.SimpleButton cmdSubLabTest;
+        private DevExpress.XtraEditors.SimpleButton cmdInvoice;
+        private System.Windows.Forms.PictureBox pictureBox16;
 
     }
 }

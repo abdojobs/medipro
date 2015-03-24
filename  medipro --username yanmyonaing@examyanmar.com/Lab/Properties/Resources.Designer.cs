@@ -183,6 +183,16 @@ namespace Lab.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap invoice_16 {
+            get {
+                object obj = ResourceManager.GetObject("invoice-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap key_red16 {
             get {
                 object obj = ResourceManager.GetObject("key_red16", resourceCulture);
