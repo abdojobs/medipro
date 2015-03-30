@@ -663,6 +663,8 @@ namespace MediPro
             strSelectedVisitPK = lueVisit.EditValue.ToString();
 
             LoadVisitDetail(strSelectedVisitPK);
+            LoadMedicalHistory(strSelectedVisitPK);
+            loadPhysicalExamination();
             LoadLabTestRequests(strSelectedVisitPK);
             LoadMedDiagnosis(strSelectedVisitPK);
             LoadTreatment(strSelectedVisitPK);
@@ -730,12 +732,10 @@ namespace MediPro
         }
         private void cmdSaveMedical_Click(object sender, EventArgs e)
         {
-            tabPageHistory.Tag = 6;
             if (ValidateMedical() == true)
             {
-                if (tabPageHistory.Tag !=null)
-                {
-                    int medHistoryCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblHistory WHERE historyPK=@historyPK", new SqlParameter("@historyPK", tabPageHistory.Tag.ToString()));
+
+                    int medHistoryCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblHistory WHERE visitPK=@visitPK", new SqlParameter("@visitPK", strSelectedVisitPK));
 
                     if (medHistoryCnt > 0)
                     {
@@ -748,9 +748,9 @@ namespace MediPro
                         maritalStaus=rdoObsterics_Married_Single.Checked?"Single":maritalStaus;
                         maritalStaus=rdoObsterics_Married_Married.Checked?"Married":maritalStaus;
 
-                        SqlDb.ExecuteQuery("UPDATE [tblHistory] SET [visitPK] = @visitPK, [medicalHistory] = @medicalHistory, [surgicalHistory] = @surgicalHistory, [allergies] = @allergies, [medications] = @medications, [exercise] = @exercise, [typeOfExcercise] = @typeOfExcercise, [frequencyPerWeek] = @frequencyPerWeek, [smoking] = @smoking, [numberOfSticksPerDay] = @numberOfSticksPerDay, [sinceAge] = @sinceAge, [alcohol] = @alcohol, [avgDrinksPerWk] = @avgDrinksPerWk, [father] = @father, [mother] = @mother, [brother] = @brother, [sister] = @sister, [others] = @others, [occupational_travel_his] = @occupational_travel_his, [maritalStatus] = @maritalStatus, [children] = @children, [miscarriage_abortion] = @miscarriage_abortion, [contraception] = @contraception, [lmp] = @lmp, [lastPap] = @lastPap, [gynaecologicalHis_Other] = @gynaecologicalHis_Other, [otherMedHistory] = @otherMedHistory, [updatePK] = @updatePK, [updateDate] = @updateDate WHERE [historyPK] = @historyPK",
-                                        new SqlParameter("@historyPK", int.Parse(tabPageHistory.Tag.ToString())),
-                                        new SqlParameter("@visitPK", "V20140925CBL01001"),
+                        SqlDb.ExecuteQuery("UPDATE [tblHistory] SET  [medicalHistory] = @medicalHistory, [surgicalHistory] = @surgicalHistory, [allergies] = @allergies, [medications] = @medications, [exercise] = @exercise, [typeOfExcercise] = @typeOfExcercise, [frequencyPerWeek] = @frequencyPerWeek, [smoking] = @smoking, [numberOfSticksPerDay] = @numberOfSticksPerDay, [sinceAge] = @sinceAge, [alcohol] = @alcohol, [avgDrinksPerWk] = @avgDrinksPerWk, [father] = @father, [mother] = @mother, [brother] = @brother, [sister] = @sister, [others] = @others, [occupational_travel_his] = @occupational_travel_his, [maritalStatus] = @maritalStatus, [children] = @children, [miscarriage_abortion] = @miscarriage_abortion, [contraception] = @contraception, [lmp] = @lmp, [lastPap] = @lastPap, [gynaecologicalHis_Other] = @gynaecologicalHis_Other, [otherMedHistory] = @otherMedHistory, [updatePK] = @updatePK, [updateDate] = @updateDate WHERE [visitPK] = @visitPK",
+                                        
+                                        new SqlParameter("@visitPK", strSelectedVisitPK),
                                         new SqlParameter("@medicalHistory",txtPastHistory_MedicalHistory.Text.Trim()),
                                         new SqlParameter("@surgicalHistory",txtPastHistory_SurgicalHistory.Text.Trim()),
                                         new SqlParameter("@allergies",txtPastHistory_Allergies.Text.Trim()),
@@ -785,15 +785,8 @@ namespace MediPro
 
                         MessageBox.Show("Saving Medical History is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
                 else
                 {
-                    int medHistoryID = SqlDb.ExecuteScalar<int>("getID tblHistory");
-
-                    int medHistoryIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblHistory WHERE historyPK=@historyPK", new SqlParameter("@historyPK", medHistoryID));
-
-                    if (medHistoryIDCnt < 1)
-                    {
                         string smoking = "";
                         smoking = rdoHabits_Smoking_No.Checked ? "No" : smoking;
                         smoking = rdoHabits_Smoking_Yes.Checked ? "Yes" : smoking;
@@ -803,9 +796,8 @@ namespace MediPro
                         maritalStaus = rdoObsterics_Married_Single.Checked ? "Single" : maritalStaus;
                         maritalStaus = rdoObsterics_Married_Married.Checked ? "Married" : maritalStaus;
 
-                        SqlDb.ExecuteQuery("INSERT INTO [tblHistory] ([historyPK], [visitPK], [medicalHistory], [surgicalHistory], [allergies], [medications], [exercise], [typeOfExcercise], [frequencyPerWeek], [smoking], [numberOfSticksPerDay], [sinceAge], [alcohol], [avgDrinksPerWk], [father], [mother], [brother], [sister], [others], [occupational_travel_his], [maritalStatus], [children], [miscarriage_abortion], [contraception], [lmp], [lastPap], [gynaecologicalHis_Other], [otherMedHistory], [updatePK], [updateDate], [createPK], [createDate]) VALUES (@historyPK, @visitPK, @medicalHistory, @surgicalHistory, @allergies, @medications, @exercise, @typeOfExcercise, @frequencyPerWeek, @smoking, @numberOfSticksPerDay, @sinceAge, @alcohol, @avgDrinksPerWk, @father, @mother, @brother, @sister, @others, @occupational_travel_his, @maritalStatus, @children, @miscarriage_abortion, @contraception, @lmp, @lastPap, @gynaecologicalHis_Other, @otherMedHistory, @updatePK, @updateDate, @createPK, @createDate)",
-                                        new SqlParameter("@historyPK", medHistoryID),
-                                        new SqlParameter("@visitPK", "V20140925CBL01001"),
+                        SqlDb.ExecuteQuery("INSERT INTO [tblHistory] ([visitPK], [medicalHistory], [surgicalHistory], [allergies], [medications], [exercise], [typeOfExcercise], [frequencyPerWeek], [smoking], [numberOfSticksPerDay], [sinceAge], [alcohol], [avgDrinksPerWk], [father], [mother], [brother], [sister], [others], [occupational_travel_his], [maritalStatus], [children], [miscarriage_abortion], [contraception], [lmp], [lastPap], [gynaecologicalHis_Other], [otherMedHistory], [updatePK], [updateDate], [createPK], [createDate]) VALUES (@visitPK, @medicalHistory, @surgicalHistory, @allergies, @medications, @exercise, @typeOfExcercise, @frequencyPerWeek, @smoking, @numberOfSticksPerDay, @sinceAge, @alcohol, @avgDrinksPerWk, @father, @mother, @brother, @sister, @others, @occupational_travel_his, @maritalStatus, @children, @miscarriage_abortion, @contraception, @lmp, @lastPap, @gynaecologicalHis_Other, @otherMedHistory, @updatePK, @updateDate, @createPK, @createDate)",
+                                        new SqlParameter("@visitPK", strSelectedVisitPK),
                                         new SqlParameter("@medicalHistory", txtPastHistory_MedicalHistory.Text.Trim()),
                                         new SqlParameter("@surgicalHistory", txtPastHistory_SurgicalHistory.Text.Trim()),
                                         new SqlParameter("@allergies", txtPastHistory_Allergies.Text.Trim()),
@@ -841,7 +833,7 @@ namespace MediPro
                         //sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Medical History .");
                         MessageBox.Show("Saving Medical History is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             
-                    }
+                    
                 }
             }
         }
@@ -1167,7 +1159,7 @@ namespace MediPro
                                          "[musculoskeletalRemarks] = @musculoskeletalRemarks,  " +
                                          "[examComment] = @examComment,  " +
                                          "[updatePK] = @updatePK ,[updateDate] = SYSDATETIME() WHERE visitPK = @visitPK ",
-                                        new SqlParameter(" @skin", txtPhySkin.Text.Trim()),
+                                        new SqlParameter("@skin", txtPhySkin.Text.Trim()),
                                         new SqlParameter("@vision", txtPhyVision.Text),
                                         new SqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
                                         new SqlParameter("@glasses", optPhyGlassesYes.Checked),
@@ -1224,14 +1216,13 @@ namespace MediPro
                 }
                 else
                 {
-                    int PosiID = SqlDb.ExecuteScalar<int>("getID tblPosition");
 
-                    int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new SqlParameter("@PositionPK", PosiID));
+                    int rowCount = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblExamination WHERE visitPK=@visitPK AND isDelete=0", new SqlParameter("@visitPK", strSelectedVisitPK));
 
-                    if (PosiIDCnt < 1)
+                    if (rowCount < 1)
                     {
-                        SqlDb.ExecuteQuery("INSERT INTO [tblExamination]" +
-                                             " ,[skin]" +
+                        SqlDb.ExecuteQuery("INSERT INTO [tblExamination](" +
+                                             " [skin]" +
                                              " ,[vision]" +
                                              " ,[visualAcuity]" +
                                              " ,[glasses]" +
@@ -1334,7 +1325,7 @@ namespace MediPro
                                              " ,@updatePK" +
                                              " ,SYSDATETIME()" +
                                              " ,@visitPK)",
-                                        new SqlParameter(" @skin", txtPhySkin.Text.Trim()),
+                                        new SqlParameter("@skin", txtPhySkin.Text.Trim()),
                                         new SqlParameter("@vision", txtPhyVision.Text),
                                         new SqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
                                         new SqlParameter("@glasses", optPhyGlassesYes.Checked),
@@ -1671,17 +1662,20 @@ namespace MediPro
 
         private void txtSummary_Validated(object sender, EventArgs e)
         {
-            if (grdViewSummary.GetFocusedDataRow() != null)
+            if (luePatient.EditValue != null)
             {
-                object medSummaryPK = grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
-                object summary = txtSummary.Text;
-                SqlDb.ExecuteNonQuery("Update tblMedSummary set Summary=@summary, updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
-                         new SqlParameter("@medSummaryPK", medSummaryPK),
-                         new SqlParameter("@summary", summary),
-                         new SqlParameter("@updateDate", DateTime.Now),
-                         new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                if (grdViewSummary.GetFocusedDataRow() != null)
+                {
+                    object medSummaryPK = grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
+                    object summary = txtSummary.Text;
+                    SqlDb.ExecuteNonQuery("Update tblMedSummary set Summary=@summary, updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
+                             new SqlParameter("@medSummaryPK", medSummaryPK),
+                             new SqlParameter("@summary", summary),
+                             new SqlParameter("@updateDate", DateTime.Now),
+                             new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
-                LoadMedSummary(luePatient.EditValue.ToString());
+                    LoadMedSummary(luePatient.EditValue.ToString());
+                }
             }
             
 
@@ -1689,41 +1683,44 @@ namespace MediPro
 
         private void grdViewSummary_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
-            object medSummaryPK=grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
-            object title = grdViewSummary.GetFocusedDataRow()["title"];
-            if ( medSummaryPK.ToString()== "")
+            if (luePatient.EditValue != null)
             {
-                medSummaryPK = SqlDb.ExecuteScalar<int>("getID tblMedSummary");
-                SqlDb.ExecuteNonQuery("Insert into tblMedSummary(medSummaryPK,doctorPK,patientPK,title,summary,createPK,createDate,updatePK,updateDate)" +
-                   " values(@medSummaryPK,@doctorPK,@patientPK,@title,@summary,@createPK,@createDate,@updatePK,@updateDate)",
-                   new SqlParameter("@medSummaryPk", medSummaryPK),
-                   new SqlParameter("@patientPK", luePatient.EditValue),
-                   new SqlParameter("@doctorPK", AppVariable.CURRENT_USER_PK),
-                   new SqlParameter("@title", title),
-                   new SqlParameter("@summary", DBNull.Value),
-                   new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
-                   new SqlParameter("@createDate", DateTime.Now),
-                   new SqlParameter("@updateDate", DateTime.Now),
-                   new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
-                   );
-                grdViewSummary.SetFocusedRowCellValue("medSummaryPK", medSummaryPK);
-            }
-            else
-            {
-                
-                SqlDb.ExecuteNonQuery("Update tblMedSummary set title=@title,updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
-                    new SqlParameter("@medSummaryPK", medSummaryPK),
-                    new SqlParameter("@title",title),
-                    new SqlParameter("@updateDate", DateTime.Now),
-                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
-                    );
+                object medSummaryPK = grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
+                object title = grdViewSummary.GetFocusedDataRow()["title"];
+                if (medSummaryPK.ToString() == "")
+                {
+                    medSummaryPK = SqlDb.ExecuteScalar<int>("getID tblMedSummary");
+                    SqlDb.ExecuteNonQuery("Insert into tblMedSummary(medSummaryPK,doctorPK,patientPK,title,summary,createPK,createDate,updatePK,updateDate)" +
+                       " values(@medSummaryPK,@doctorPK,@patientPK,@title,@summary,@createPK,@createDate,@updatePK,@updateDate)",
+                       new SqlParameter("@medSummaryPk", medSummaryPK),
+                       new SqlParameter("@patientPK", luePatient.EditValue),
+                       new SqlParameter("@doctorPK", AppVariable.CURRENT_USER_PK),
+                       new SqlParameter("@title", title),
+                       new SqlParameter("@summary", DBNull.Value),
+                       new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
+                       new SqlParameter("@createDate", DateTime.Now),
+                       new SqlParameter("@updateDate", DateTime.Now),
+                       new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                       );
+                    grdViewSummary.SetFocusedRowCellValue("medSummaryPK", medSummaryPK);
+                }
+                else
+                {
+
+                    SqlDb.ExecuteNonQuery("Update tblMedSummary set title=@title,updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
+                        new SqlParameter("@medSummaryPK", medSummaryPK),
+                        new SqlParameter("@title", title),
+                        new SqlParameter("@updateDate", DateTime.Now),
+                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                        );
+                }
             }
             
         }
 
         public void LoadMedSummary(string patientPK)
         {
-            txtSummary.Text = "";
+            //txtSummary.Text = "";
             grdSummaryHead.DataSource = SqlDb.GetDataSet("Select * from tblMedSummary where patientPK=@patientPK",
                 new SqlParameter("@patientPK", patientPK)).Tables[0];
         }
@@ -1734,6 +1731,11 @@ namespace MediPro
             {
                 txtSummary.Text = grdViewSummary.GetFocusedDataRow()["summary"].ToString();
             }
+        }
+
+        private void cmdSavePhysical_Click(object sender, EventArgs e)
+        {
+            savePhysicalExamination();
         }
 
 

@@ -663,7 +663,7 @@
             this.navBarGroup21 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarGroup22 = new DevExpress.XtraNavBar.NavBarGroup();
             this.panelControl9 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSavePhysical = new DevExpress.XtraEditors.SimpleButton();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tabPageInvestigation = new DevExpress.XtraTab.XtraTabPage();
@@ -4728,7 +4728,6 @@
             this.nbgPastHistory.AppearanceBackground.Options.UseFont = true;
             this.nbgPastHistory.Caption = "PAST HISTORY";
             this.nbgPastHistory.ControlContainer = this.nbgPanelPastHistory;
-            this.nbgPastHistory.Expanded = true;
             this.nbgPastHistory.GroupClientHeight = 268;
             this.nbgPastHistory.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.nbgPastHistory.Name = "nbgPastHistory";
@@ -5747,7 +5746,6 @@
             // 
             this.nbgHabits.Caption = "HABITS";
             this.nbgHabits.ControlContainer = this.nbgPanelHabits;
-            this.nbgHabits.Expanded = true;
             this.nbgHabits.GroupClientHeight = 255;
             this.nbgHabits.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.ControlContainer;
             this.nbgHabits.Name = "nbgHabits";
@@ -6423,7 +6421,7 @@
             // 
             this.navBarGroupControlContainer9.Controls.Add(this.txtPhySkin);
             this.navBarGroupControlContainer9.Name = "navBarGroupControlContainer9";
-            this.navBarGroupControlContainer9.Size = new System.Drawing.Size(578, 104);
+            this.navBarGroupControlContainer9.Size = new System.Drawing.Size(602, 104);
             this.navBarGroupControlContainer9.TabIndex = 1;
             // 
             // txtPhySkin
@@ -6451,7 +6449,7 @@
             this.navBarGroupControlContainer10.Controls.Add(this.txtPhyVisualAcuity);
             this.navBarGroupControlContainer10.Controls.Add(this.txtPhyVision);
             this.navBarGroupControlContainer10.Name = "navBarGroupControlContainer10";
-            this.navBarGroupControlContainer10.Size = new System.Drawing.Size(578, 186);
+            this.navBarGroupControlContainer10.Size = new System.Drawing.Size(602, 186);
             this.navBarGroupControlContainer10.TabIndex = 0;
             // 
             // label97
@@ -6600,7 +6598,7 @@
             this.navBarGroupControlContainer11.Controls.Add(this.txtPhyTM);
             this.navBarGroupControlContainer11.Controls.Add(this.txtPhyEAC);
             this.navBarGroupControlContainer11.Name = "navBarGroupControlContainer11";
-            this.navBarGroupControlContainer11.Size = new System.Drawing.Size(578, 134);
+            this.navBarGroupControlContainer11.Size = new System.Drawing.Size(602, 134);
             this.navBarGroupControlContainer11.TabIndex = 2;
             // 
             // label66
@@ -6725,7 +6723,7 @@
             // 
             this.navBarGroupControlContainer12.Controls.Add(this.txtPhyNose);
             this.navBarGroupControlContainer12.Name = "navBarGroupControlContainer12";
-            this.navBarGroupControlContainer12.Size = new System.Drawing.Size(578, 90);
+            this.navBarGroupControlContainer12.Size = new System.Drawing.Size(602, 90);
             this.navBarGroupControlContainer12.TabIndex = 3;
             // 
             // txtPhyNose
@@ -8053,7 +8051,7 @@
             this.panelControl9.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl9.Appearance.Options.UseBackColor = true;
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl9.Controls.Add(this.simpleButton1);
+            this.panelControl9.Controls.Add(this.cmdSavePhysical);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl9.Location = new System.Drawing.Point(0, 523);
             this.panelControl9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -8063,23 +8061,24 @@
             this.panelControl9.Size = new System.Drawing.Size(650, 39);
             this.panelControl9.TabIndex = 18;
             // 
-            // simpleButton1
+            // cmdSavePhysical
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.simpleButton1.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.simpleButton1.Appearance.Options.UseBackColor = true;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(461, 7);
-            this.simpleButton1.LookAndFeel.SkinName = "Seven Classic";
-            this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(175, 25);
-            this.simpleButton1.TabIndex = 26;
-            this.simpleButton1.Text = "Save Physical Examination";
+            this.cmdSavePhysical.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdSavePhysical.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdSavePhysical.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdSavePhysical.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSavePhysical.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdSavePhysical.Appearance.Options.UseBackColor = true;
+            this.cmdSavePhysical.Appearance.Options.UseFont = true;
+            this.cmdSavePhysical.Appearance.Options.UseForeColor = true;
+            this.cmdSavePhysical.Location = new System.Drawing.Point(461, 7);
+            this.cmdSavePhysical.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdSavePhysical.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdSavePhysical.Name = "cmdSavePhysical";
+            this.cmdSavePhysical.Size = new System.Drawing.Size(175, 25);
+            this.cmdSavePhysical.TabIndex = 26;
+            this.cmdSavePhysical.Text = "Save Physical Examination";
+            this.cmdSavePhysical.Click += new System.EventHandler(this.cmdSavePhysical_Click);
             // 
             // label8
             // 
@@ -9861,7 +9860,7 @@
         private System.Windows.Forms.Panel panel3;
         private DevExpress.XtraEditors.PanelControl panelControl9;
         private DevExpress.XtraEditors.SimpleButton cmdSaveMedical;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton cmdSavePhysical;
         private DevExpress.XtraEditors.PanelControl panelControl12;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton cmdTreatment;
