@@ -6,11 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 using System.IO;
 using System.Drawing.Imaging;
 using Touchless.Vision.Camera;
+using MySql.Data.MySqlClient;
+
 
 namespace Pharma
 {
@@ -163,21 +165,21 @@ namespace Pharma
                                        ",updatePK,updateDate,createPK,createDate,[image]) " +
                                        "VALUES(@medPK,@medName,@medTypePK,@chemNamePK,@systemPK " +
                                        ",@manuPK,@indicationEng,@indicationMyan,@dosageEng,@dosageMyan,@isActive " +
-                                       ",@updatePK,SYSDATETIME(),@createPK,SYSDATETIME(),@image)",
-                                                new SqlParameter("@medPK", intMedPK),
-                                                new SqlParameter("@medName", txtMedName.Text.Trim()),
-                                                new SqlParameter("@medTypePK", cboMedTypePK.SelectedValue),
-                                                new SqlParameter("@chemNamePK", cboChemPK.SelectedValue),
-                                                new SqlParameter("@systemPK", cboSystemPK.SelectedValue),
-                                                new SqlParameter("@manuPK", cboManuPK.SelectedValue),
-                                                new SqlParameter("@indicationEng", txtIndicationEng.Text.Trim()),
-                                                new SqlParameter("@indicationMyan", txtIndicationMyan.Text.Trim()),
-                                                new SqlParameter("@dosageEng", txtDosageEng.Text.Trim()),
-                                                new SqlParameter("@dosageMyan", txtDosageMyan.Text.Trim()),
-                                                new SqlParameter("@isActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@image", SqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
+                                       ",@updatePK,NOW(),@createPK,NOW(),@image)",
+                                                new MySqlParameter("@medPK", intMedPK),
+                                                new MySqlParameter("@medName", txtMedName.Text.Trim()),
+                                                new MySqlParameter("@medTypePK", cboMedTypePK.SelectedValue),
+                                                new MySqlParameter("@chemNamePK", cboChemPK.SelectedValue),
+                                                new MySqlParameter("@systemPK", cboSystemPK.SelectedValue),
+                                                new MySqlParameter("@manuPK", cboManuPK.SelectedValue),
+                                                new MySqlParameter("@indicationEng", txtIndicationEng.Text.Trim()),
+                                                new MySqlParameter("@indicationMyan", txtIndicationMyan.Text.Trim()),
+                                                new MySqlParameter("@dosageEng", txtDosageEng.Text.Trim()),
+                                                new MySqlParameter("@dosageMyan", txtDosageMyan.Text.Trim()),
+                                                new MySqlParameter("@isActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@image", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
 
 
                     
@@ -201,20 +203,20 @@ namespace Pharma
 
                     SqlDb.ExecuteQuery("UPDATE tblMedicine SET medName=@medName, medTypePK=@medTypePK, chemNamePK=@chemNamePK, systemPK=@systemPK " +
                                        ",manuPK=@manuPK, indicationEng=@indicationEng, indicationMyan=@indicationMyan, dosageEng=@dosageEng " +
-                                       ",dosageMyan=@dosageMyan, isActive=@isActive, updatePK=@updatePK,updateDate=SYSDATETIME(),[image]=@image " ,
-                                                new SqlParameter("@medPK", intMedPK),
-                                                new SqlParameter("@medName", txtMedName.Text.Trim()),
-                                                new SqlParameter("@medTypePK", cboMedTypePK.SelectedValue),
-                                                new SqlParameter("@chemNamePK", cboChemPK.SelectedValue),
-                                                new SqlParameter("@systemPK", cboSystemPK.SelectedValue),
-                                                new SqlParameter("@manuPK", cboManuPK.SelectedValue),
-                                                new SqlParameter("@indicationEng", txtIndicationEng.Text.Trim()),
-                                                new SqlParameter("@indicationMyan", txtIndicationMyan.Text.Trim()),
-                                                new SqlParameter("@dosageEng", txtDosageEng.Text.Trim()),
-                                                new SqlParameter("@dosageMyan", txtDosageMyan.Text.Trim()),
-                                                new SqlParameter("@isActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@image", SqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
+                                       ",dosageMyan=@dosageMyan, isActive=@isActive, updatePK=@updatePK,updateDate=NOW(),[image]=@image " ,
+                                                new MySqlParameter("@medPK", intMedPK),
+                                                new MySqlParameter("@medName", txtMedName.Text.Trim()),
+                                                new MySqlParameter("@medTypePK", cboMedTypePK.SelectedValue),
+                                                new MySqlParameter("@chemNamePK", cboChemPK.SelectedValue),
+                                                new MySqlParameter("@systemPK", cboSystemPK.SelectedValue),
+                                                new MySqlParameter("@manuPK", cboManuPK.SelectedValue),
+                                                new MySqlParameter("@indicationEng", txtIndicationEng.Text.Trim()),
+                                                new MySqlParameter("@indicationMyan", txtIndicationMyan.Text.Trim()),
+                                                new MySqlParameter("@dosageEng", txtDosageEng.Text.Trim()),
+                                                new MySqlParameter("@dosageMyan", txtDosageMyan.Text.Trim()),
+                                                new MySqlParameter("@isActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@image", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
 
 
                     MessageBox.Show("The medicine has been saved successfully.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -254,7 +256,7 @@ namespace Pharma
         {
             if (intMedPK > 0)
             {
-                DataSet dsMedicine = SqlDb.GetDataSet("SELECT * FROM tblMedicine WHERE medPK = @medPK", new SqlParameter("@medPK", intMedPK));
+                DataSet dsMedicine = SqlDb.GetDataSet("SELECT * FROM tblMedicine WHERE medPK = @medPK", new MySqlParameter("@medPK", intMedPK));
                 int DataRowCnt = dsMedicine.Tables[0].Rows.Count;
 
                 if (DataRowCnt > 0)

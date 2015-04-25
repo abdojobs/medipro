@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Pharma
@@ -29,7 +29,7 @@ namespace Pharma
         {
             if (ValidateForm() == true)
             {
-                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemName=@systemName AND isDelete=0", new SqlParameter("@systemName", txtName.Text.Trim()));
+                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemName=@systemName AND isDelete=0", new MySqlParameter("@systemName", txtName.Text.Trim()));
 
                 if (Cnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -41,15 +41,15 @@ namespace Pharma
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemPK=@systemPK AND isDelete=0", new SqlParameter("@systemPK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemPK=@systemPK AND isDelete=0", new MySqlParameter("@systemPK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblBodySystem SET systemName=@systemName,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE systemPK=@systemPK",
-                                            new SqlParameter("@systemPK", int.Parse(txtName.Tag.ToString())),
-                                            new SqlParameter("@systemName", txtName.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblBodySystem SET systemName=@systemName,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE systemPK=@systemPK",
+                                            new MySqlParameter("@systemPK", int.Parse(txtName.Tag.ToString())),
+                                            new MySqlParameter("@systemName", txtName.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
 
@@ -60,17 +60,17 @@ namespace Pharma
                     {
                         int LabID = SqlDb.ExecuteScalar<int>("getID tblBodySystem");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemPK=@systemPK AND isDelete=0", new SqlParameter("@systemPK", LabID));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBodySystem WHERE systemPK=@systemPK AND isDelete=0", new MySqlParameter("@systemPK", LabID));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblBodySystem(systemPK,systemName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@systemPK,@systemName,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@systemPK", LabID),
-                                                new SqlParameter("@systemName", txtName.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@systemPK,@systemName,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@systemPK", LabID),
+                                                new MySqlParameter("@systemName", txtName.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Body System.");
 

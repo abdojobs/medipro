@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 using System.Globalization;
 
@@ -52,7 +52,7 @@ namespace Pharma
         {
             if (ValidateForm() == true)
             {
-                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuName=@manuName AND isDelete=0", new SqlParameter("@manuName", txtName.Text.Trim()));
+                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuName=@manuName AND isDelete=0", new MySqlParameter("@manuName", txtName.Text.Trim()));
 
                 if (Cnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -64,19 +64,19 @@ namespace Pharma
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuPK=@manuPK AND isDelete=0", new SqlParameter("@manuPK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuPK=@manuPK AND isDelete=0", new MySqlParameter("@manuPK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblManufacturer SET manuName=@manuName, manuContact=@manuContact,manuAddress=@manuAddress,manuEmail=@manuEmail,manuCountry=@manuCountry,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE manuPK=@manuPK",
-                                            new SqlParameter("@manuPK", int.Parse(txtName.Tag.ToString())),
-                                            new SqlParameter("@manuName", txtName.Text.Trim()),
-                                            new SqlParameter("@manuContact",txtContact.Text.Trim()),
-                                            new SqlParameter("@manuAddress",txtAddress.Text.Trim()),
-                                            new SqlParameter("@manuEmail",txtEmail.Text.Trim()),
-                                            new SqlParameter("@manuCountry",cboCountry.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblManufacturer SET manuName=@manuName, manuContact=@manuContact,manuAddress=@manuAddress,manuEmail=@manuEmail,manuCountry=@manuCountry,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE manuPK=@manuPK",
+                                            new MySqlParameter("@manuPK", int.Parse(txtName.Tag.ToString())),
+                                            new MySqlParameter("@manuName", txtName.Text.Trim()),
+                                            new MySqlParameter("@manuContact",txtContact.Text.Trim()),
+                                            new MySqlParameter("@manuAddress",txtAddress.Text.Trim()),
+                                            new MySqlParameter("@manuEmail",txtEmail.Text.Trim()),
+                                            new MySqlParameter("@manuCountry",cboCountry.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
 
@@ -87,21 +87,21 @@ namespace Pharma
                     {
                         int LabID = SqlDb.ExecuteScalar<int>("getID tblManufacturer");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuPK=@manuPK AND isDelete=0", new SqlParameter("@manuPK", LabID));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblManufacturer WHERE manuPK=@manuPK AND isDelete=0", new MySqlParameter("@manuPK", LabID));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblManufacturer(manuPK,manuName,manuContact,manuAddress,manuEmail,manuCountry,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@manuPK,@manuName,@manuContact,@manuAddress,@manuEmail,@manuCountry, @IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@manuPK", LabID),
-                                                new SqlParameter("@manuName", txtName.Text.Trim()),
-                                                new SqlParameter("@manuContact", txtContact.Text.Trim()),
-                                                new SqlParameter("@manuAddress", txtAddress.Text.Trim()),
-                                                new SqlParameter("@manuEmail", txtEmail.Text.Trim()),
-                                                new SqlParameter("@manuCountry", cboCountry.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@manuPK,@manuName,@manuContact,@manuAddress,@manuEmail,@manuCountry, @IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@manuPK", LabID),
+                                                new MySqlParameter("@manuName", txtName.Text.Trim()),
+                                                new MySqlParameter("@manuContact", txtContact.Text.Trim()),
+                                                new MySqlParameter("@manuAddress", txtAddress.Text.Trim()),
+                                                new MySqlParameter("@manuEmail", txtEmail.Text.Trim()),
+                                                new MySqlParameter("@manuCountry", cboCountry.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Manufacturer.");
 

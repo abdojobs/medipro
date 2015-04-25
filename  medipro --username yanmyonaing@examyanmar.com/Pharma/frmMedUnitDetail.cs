@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Pharma
@@ -29,7 +29,7 @@ namespace Pharma
         {
             if (ValidateForm() == true)
             {
-                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitName=@MedUnitName AND isDelete=0 AND medUnitPK <>@medUnitPK", new SqlParameter("@MedUnitName", txtName.Text.Trim()), new SqlParameter("@medUnitPK", txtName.Tag.ToString()));
+                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitName=@MedUnitName AND isDelete=0 AND medUnitPK <>@medUnitPK", new MySqlParameter("@MedUnitName", txtName.Text.Trim()), new MySqlParameter("@medUnitPK", txtName.Tag.ToString()));
 
                 if (Cnt > 0 )
                 {
@@ -41,15 +41,15 @@ namespace Pharma
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitPK=@MedUnitPK AND isDelete=0", new SqlParameter("@MedUnitPK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitPK=@MedUnitPK AND isDelete=0", new MySqlParameter("@MedUnitPK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblMedUnit SET medUnitName=@MedUnitName,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE medUnitPK=@MedUnitPK",
-                                            new SqlParameter("@MedUnitPK", int.Parse(txtName.Tag.ToString())),
-                                            new SqlParameter("@medUnitName", txtName.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblMedUnit SET medUnitName=@MedUnitName,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE medUnitPK=@MedUnitPK",
+                                            new MySqlParameter("@MedUnitPK", int.Parse(txtName.Tag.ToString())),
+                                            new MySqlParameter("@medUnitName", txtName.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
 
@@ -60,17 +60,17 @@ namespace Pharma
                     {
                         int LabID = SqlDb.ExecuteScalar<int>("getID tblMedUnit");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitPK=@MedUnitPK AND isDelete=0", new SqlParameter("@MedUnitPK", LabID));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitPK=@MedUnitPK AND isDelete=0", new MySqlParameter("@MedUnitPK", LabID));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblMedUnit(medUnitPK,medUnitName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@MedUnitPK,@MedUnitName,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@MedUnitPK", LabID),
-                                                new SqlParameter("@MedUnitName", txtName.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@MedUnitPK,@MedUnitName,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@MedUnitPK", LabID),
+                                                new MySqlParameter("@MedUnitName", txtName.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Medicine Unit Name.");
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Pharma
@@ -52,27 +52,27 @@ namespace Pharma
             else if (ValidateForm() == true)
             {
                 //string Login = SqlDb.ExecuteScalar<string>("SELECT login FROM sysUser WHERE login=@Login AND passw=@PWD AND levelPK=@LevelPK AND isDelete=@isDelete AND isActive=@isActive",
-                //                                        new SqlParameter("@login", txtLogin.Text.Trim()),
-                //                                        new SqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
-                //                                        new SqlParameter("@LevelPK", cboUserLevel.SelectedValue),
-                //                                        new SqlParameter("@isDelete", false),
-                //                                        new SqlParameter("@isActive", true));
+                //                                        new MySqlParameter("@login", txtLogin.Text.Trim()),
+                //                                        new MySqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
+                //                                        new MySqlParameter("@LevelPK", cboUserLevel.SelectedValue),
+                //                                        new MySqlParameter("@isDelete", false),
+                //                                        new MySqlParameter("@isActive", true));
 
                 string Login = SqlDb.ExecuteScalar<string>("SELECT login FROM sysUser WHERE login=@Login AND passw=@PWD AND isDelete=@isDelete AND isActive=@isActive",
-                                                        new SqlParameter("@login", txtLogin.Text.Trim()),
-                                                        new SqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
-                                                        new SqlParameter("@isDelete", false),
-                                                        new SqlParameter("@isActive", true));
+                                                        new MySqlParameter("@login", txtLogin.Text.Trim()),
+                                                        new MySqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
+                                                        new MySqlParameter("@isDelete", false),
+                                                        new MySqlParameter("@isActive", true));
 
                 int AuthCnt = (Login == txtLogin.Text.Trim()) ? 1 : 0;                
                 
                 if (AuthCnt > 0)
                 {
                     DataSet dsUser = SqlDb.GetDataSet("SELECT PK, name, login, levelPK FROM sysUser WHERE login=@Login AND passw=@PWD AND isDelete=@isDelete AND isActive=@isActive",
-                                                     new SqlParameter("@login", txtLogin.Text.Trim()),
-                                                        new SqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
-                                                        new SqlParameter("@isDelete", false),
-                                                        new SqlParameter("@isActive", true));
+                                                     new MySqlParameter("@login", txtLogin.Text.Trim()),
+                                                        new MySqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
+                                                        new MySqlParameter("@isDelete", false),
+                                                        new MySqlParameter("@isActive", true));
 
                     AppVariable.CURRENT_USER_PK = int.Parse(dsUser.Tables[0].Rows[0]["PK"].ToString());
                     AppVariable.CURRENT_USER_FULLNAME = dsUser.Tables[0].Rows[0]["name"].ToString();

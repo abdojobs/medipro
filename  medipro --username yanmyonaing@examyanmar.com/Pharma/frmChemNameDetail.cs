@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Pharma
@@ -29,7 +29,7 @@ namespace Pharma
         {
             if (ValidateForm() == true)
             {
-                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemName=@chemName AND isDelete=0", new SqlParameter("@chemName", txtName.Text.Trim()));
+                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemName=@chemName AND isDelete=0", new MySqlParameter("@chemName", txtName.Text.Trim()));
 
                 if (Cnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -41,15 +41,15 @@ namespace Pharma
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new SqlParameter("@chemNamePK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new MySqlParameter("@chemNamePK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblChemName SET chemName=@chemName,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE chemNamePK=@chemNamePK",
-                                            new SqlParameter("@chemNamePK", int.Parse(txtName.Tag.ToString())),
-                                            new SqlParameter("@chemName", txtName.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblChemName SET chemName=@chemName,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE chemNamePK=@chemNamePK",
+                                            new MySqlParameter("@chemNamePK", int.Parse(txtName.Tag.ToString())),
+                                            new MySqlParameter("@chemName", txtName.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
 
@@ -60,17 +60,17 @@ namespace Pharma
                     {
                         int LabID = SqlDb.ExecuteScalar<int>("getID tblChemName");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new SqlParameter("@chemNamePK", LabID));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new MySqlParameter("@chemNamePK", LabID));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblChemName(chemNamePK,chemName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@chemNamePK,@chemName,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@chemNamePK", LabID),
-                                                new SqlParameter("@chemName", txtName.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@chemNamePK,@chemName,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@chemNamePK", LabID),
+                                                new MySqlParameter("@chemName", txtName.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Chemical Name.");
 

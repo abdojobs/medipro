@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.IO;
 
 namespace Pharma
@@ -224,7 +224,7 @@ namespace Pharma
             DataSet dsBookging = SqlDb.GetDataSet("SELECT PK, patientName, RegNo, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctorName, " +
                                                 "abdate, tokenNo, abTime, abType, isVisited, isNew, (tblBooking.doctorPK) As doctorPK FROM tblDoctor INNER JOIN tblBooking ON tblDoctor.doctorPK = tblBooking.doctorPK INNER JOIN tblTitle " +
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE tblBooking.isVisited = 0 AND abdate > @abDate",
-                                                new SqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
+                                                new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
 
             grdBooking.DataSource = dsBookging.Tables[0];
            
@@ -238,7 +238,7 @@ namespace Pharma
             DataSet dsVisiting = SqlDb.GetDataSet("SELECT PK, patientName, RegNo, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctorName, " +
                                                 "abdate, tokenNo, abTime, abType, isVisited, isNew, (tblBooking.doctorPK) As doctorPK, visitPK FROM tblDoctor INNER JOIN tblBooking ON tblDoctor.doctorPK = tblBooking.doctorPK INNER JOIN tblTitle " +
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE abdate = @abDate",
-                                                new SqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
+                                                new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
 
             grdTodayVisitPatients.DataSource = dsVisiting.Tables[0];
 

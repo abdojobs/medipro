@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Pharma
 {
@@ -59,12 +59,12 @@ namespace Pharma
                     intPackListID = SqlDb.ExecuteScalar<int>("getID 'tblPackListTemp'");
 
                     SqlDb.ExecuteQuery("INSERT INTO tblPackListTemp(packListPK,packListName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@packListPK,@packListName,@isActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@packListPK", intPackListID),
-                                                new SqlParameter("@packListName", txtPackListTempName.Text.Trim()),
-                                                new SqlParameter("@isActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@packListPK,@packListName,@isActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@packListPK", intPackListID),
+                                                new MySqlParameter("@packListName", txtPackListTempName.Text.Trim()),
+                                                new MySqlParameter("@isActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
 
 
@@ -85,11 +85,11 @@ namespace Pharma
                 }
                 else
                 {
-                    SqlDb.ExecuteQuery("UPDATE tblPackListTemp SET packListName=@packListName,isActive=@isActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE packListPK=@packListPK",
-                                            new SqlParameter("@packListPK", intPackListID.ToString()),
-                                            new SqlParameter("@packListName", txtPackListTempName.Text.Trim()),
-                                            new SqlParameter("@isActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                    SqlDb.ExecuteQuery("UPDATE tblPackListTemp SET packListName=@packListName,isActive=@isActive,updateDate=NOW(),updatePK=@UpdatePK WHERE packListPK=@packListPK",
+                                            new MySqlParameter("@packListPK", intPackListID.ToString()),
+                                            new MySqlParameter("@packListName", txtPackListTempName.Text.Trim()),
+                                            new MySqlParameter("@isActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                     MessageBox.Show("The template has been saved successfully.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
