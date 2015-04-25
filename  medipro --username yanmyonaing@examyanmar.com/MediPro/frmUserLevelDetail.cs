@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -29,7 +29,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int UserLevelCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE user_level=@UserLevel AND isDeleted=0", new SqlParameter("@UserLevel", txtUserLevel.Text.Trim()));
+                int UserLevelCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE user_level=@UserLevel AND isDeleted=0", new MySqlParameter("@UserLevel", txtUserLevel.Text.Trim()));
 
                 if (UserLevelCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -40,15 +40,15 @@ namespace MediPro
                 {
                     if (txtUserLevel.Tag.ToString().Length > 0)
                     {
-                        int UserLevelIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE levelPK=@LevelPK AND isDeleted=0", new SqlParameter("@LevelPK", txtUserLevel.Tag.ToString()));
+                        int UserLevelIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE levelPK=@LevelPK AND isDeleted=0", new MySqlParameter("@LevelPK", txtUserLevel.Tag.ToString()));
 
                         if (UserLevelIDCnt > 0 )
                         {
                             SqlDb.ExecuteQuery("UPDATE sysUserLevel SET UserLevel=@UserLevel,IsActive=@IsActive,updatedDate=@updatedDate WHERE levelPK=@LevelPK",
-                                            new SqlParameter("@LevelPK", int.Parse(Convert.ToString(txtUserLevel.Tag))),
-                                            new SqlParameter("@UserLevel", txtUserLevel.Text),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatedDate", DateTime.Now));
+                                            new MySqlParameter("@LevelPK", int.Parse(Convert.ToString(txtUserLevel.Tag))),
+                                            new MySqlParameter("@UserLevel", txtUserLevel.Text),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatedDate", DateTime.Now));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update User Level.");
 
@@ -59,17 +59,17 @@ namespace MediPro
                     {
                         int CurUserLevelID = SqlDb.ExecuteScalar<int>("getID sysUserLevel");
 
-                        int UserLevelIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE levelPK=@LevelPK AND isDeleted=0", new SqlParameter("@LevelPK", CurUserLevelID));
+                        int UserLevelIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE levelPK=@LevelPK AND isDeleted=0", new MySqlParameter("@LevelPK", CurUserLevelID));
 
                         if (UserLevelIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO sysUserLevel(levelPK,UserLevel,IsActive,updatedDate,createdDate) " +
                                                 "VALUES(@LevelPK,@UserLevel,@IsActive,@updatedDate,@createdDate)",
-                                                new SqlParameter("@LevelPK", CurUserLevelID),
-                                                new SqlParameter("@UserLevel", txtUserLevel.Text),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatedDate", DateTime.Now),
-                                                new SqlParameter("@createdDate", DateTime.Now));
+                                                new MySqlParameter("@LevelPK", CurUserLevelID),
+                                                new MySqlParameter("@UserLevel", txtUserLevel.Text),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatedDate", DateTime.Now),
+                                                new MySqlParameter("@createdDate", DateTime.Now));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New User Level.");
 
@@ -78,25 +78,25 @@ namespace MediPro
                             for (int i = 0; i < dsMainMenu.Tables[0].Rows.Count; i++)
                             {
                                 SqlDb.ExecuteQuery("INSERT INTO sysMainMenuDefine(mainmenuPK,levelPK,IsView) VALUES(@MainMenuPK,@LevelPK,@IsView)",
-                                                    new SqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())),
-                                                    new SqlParameter("@LevelPK", CurUserLevelID),
-                                                    new SqlParameter("@IsView", true));
+                                                    new MySqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())),
+                                                    new MySqlParameter("@LevelPK", CurUserLevelID),
+                                                    new MySqlParameter("@IsView", true));
 
                                 DataSet dsSubMenu = SqlDb.GetDataSet("SELECT PK FROM sysSubMenu WHERE mainPK = @MainMenuPK", 
-                                                    new SqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())));
+                                                    new MySqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())));
 
                                 for (int s = 0; s < dsSubMenu.Tables[0].Rows.Count; s++)
                                 {
                                     SqlDb.ExecuteQuery("INSERT INTO sysLevelDefine(levelPK,mainmenuPK,submenuPK,dataView,dataInsert,dataEdit,dataDelete,dataPrint) " +
                                                         "VALUES(@LevelPK,@MainMenuPK,@SubMenuPK,@DataView,@DataInsert,@DataEdit,@DataDelete,@DataPrint)",
-                                                        new SqlParameter("@LevelPK", CurUserLevelID),
-                                                        new SqlParameter("@SubMenuPK", int.Parse(dsSubMenu.Tables[0].Rows[s]["PK"].ToString())),
-                                                        new SqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())),
-                                                        new SqlParameter("@DataView", true),
-                                                        new SqlParameter("@DataInsert", true),
-                                                        new SqlParameter("@DataEdit", true),
-                                                        new SqlParameter("@DataDelete", true),
-                                                        new SqlParameter("@DataPrint", true));
+                                                        new MySqlParameter("@LevelPK", CurUserLevelID),
+                                                        new MySqlParameter("@SubMenuPK", int.Parse(dsSubMenu.Tables[0].Rows[s]["PK"].ToString())),
+                                                        new MySqlParameter("@MainMenuPK", int.Parse(dsMainMenu.Tables[0].Rows[i]["PK"].ToString())),
+                                                        new MySqlParameter("@DataView", true),
+                                                        new MySqlParameter("@DataInsert", true),
+                                                        new MySqlParameter("@DataEdit", true),
+                                                        new MySqlParameter("@DataDelete", true),
+                                                        new MySqlParameter("@DataPrint", true));
                                 }
                             }                             
 

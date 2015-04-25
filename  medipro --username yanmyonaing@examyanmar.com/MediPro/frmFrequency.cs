@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace MediPro
 {

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -149,26 +149,26 @@ namespace MediPro
                                                 "FROM sysLevelDefine INNER JOIN sysMainMenu ON sysLevelDefine.mainmenuPK = sysMainMenu.PK INNER JOIN " +
                                                 "sysSubMenu ON sysLevelDefine.submenuPK = sysSubMenu.PK INNER JOIN sysUserLevel ON sysLevelDefine.levelPK = sysUserLevel.levelPK " +
                                                 "WHERE sysLevelDefine.levelPK = @LevelPK AND sysLevelDefine.mainmenuPK = @MainMenuPK",
-                                                new SqlParameter("@LevelPK", CurLevelID),
-                                                new SqlParameter("@MainMenuPK", CurMainMenuID));
+                                                new MySqlParameter("@LevelPK", CurLevelID),
+                                                new MySqlParameter("@MainMenuPK", CurMainMenuID));
             grdSubMenu.DataSource = dsULDefine.Tables[0];
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
         {
             SqlDb.ExecuteQuery("UPDATE sysMainMenuDefine SET IsView=@IsView WHERE mainmenuPK = @MainMenuPK AND levelPK = @LevelPK",
-                                new SqlParameter("@MainMenuPK", CurMainMenuID),
-                                new SqlParameter("@LevelPK", CurLevelID),
-                                new SqlParameter("@IsView", chkMainMenuView.EditValue));
+                                new MySqlParameter("@MainMenuPK", CurMainMenuID),
+                                new MySqlParameter("@LevelPK", CurLevelID),
+                                new MySqlParameter("@IsView", chkMainMenuView.EditValue));
 
             for (int i = 0; i < grdViewSubMenu.RowCount; i++)
             {
                 SqlDb.ExecuteQuery("UPDATE sysLevelDefine SET dataView = @DataView , dataInsert = @DataInsert , dataEdit = @DataEdit , dataDelete = @DataDelete WHERE PK = @PK",
-                                new SqlParameter("@DataView", (grdViewSubMenu.GetRowCellDisplayText(i, "dataView").ToString() == "Checked") ? true : false),
-                                new SqlParameter("@DataInsert", (grdViewSubMenu.GetRowCellDisplayText(i, "dataInsert").ToString() == "Checked") ? true : false),
-                                new SqlParameter("@DataEdit", (grdViewSubMenu.GetRowCellDisplayText(i, "dataEdit").ToString() == "Checked") ? true : false),
-                                new SqlParameter("@DataDelete", (grdViewSubMenu.GetRowCellDisplayText(i, "dataDelete").ToString() == "Checked") ? true : false),
-                                new SqlParameter("@PK", grdViewSubMenu.GetRowCellDisplayText(i, "PK").ToString()));
+                                new MySqlParameter("@DataView", (grdViewSubMenu.GetRowCellDisplayText(i, "dataView").ToString() == "Checked") ? true : false),
+                                new MySqlParameter("@DataInsert", (grdViewSubMenu.GetRowCellDisplayText(i, "dataInsert").ToString() == "Checked") ? true : false),
+                                new MySqlParameter("@DataEdit", (grdViewSubMenu.GetRowCellDisplayText(i, "dataEdit").ToString() == "Checked") ? true : false),
+                                new MySqlParameter("@DataDelete", (grdViewSubMenu.GetRowCellDisplayText(i, "dataDelete").ToString() == "Checked") ? true : false),
+                                new MySqlParameter("@PK", grdViewSubMenu.GetRowCellDisplayText(i, "PK").ToString()));
             }
 
             DialogResult = MessageBox.Show("Save is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);

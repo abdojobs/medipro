@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -160,7 +160,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int DocCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctor=@Doctor AND isDelete=0", new SqlParameter("@Doctor", txtName.Text.Trim()));
+                int DocCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctor=@Doctor AND isDelete=0", new MySqlParameter("@Doctor", txtName.Text.Trim()));
 
                 if (DocCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -172,7 +172,7 @@ namespace MediPro
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int DocIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctorPK=@DoctorPK AND isDelete=0", new SqlParameter("@DoctorPK", txtName.Tag.ToString()));
+                        int DocIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctorPK=@DoctorPK AND isDelete=0", new MySqlParameter("@DoctorPK", txtName.Tag.ToString()));
 
                         if (DocIDCnt > 0)
                         {
@@ -180,20 +180,20 @@ namespace MediPro
                             {
                                 SqlDb.ExecuteQuery("UPDATE tblDoctor SET doctor=@Doctor,titlePK=@TitlePK,specializePK=@SpecializePK,gender=@Gender,positionPK=@PositionPK," +
                                                 "samaNo=@SamaNo,homePhone=@HomePhone,mobilePhone=@MobilePhone,email=@Email,address=@Address,isActive=@IsActive," +
-                                                "updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE doctorPK=@DoctorPK",
-                                                new SqlParameter("@DoctorPK", int.Parse(txtName.Tag.ToString())),
-                                                new SqlParameter("@Doctor", txtName.Text.Trim()),
-                                                new SqlParameter("@TitlePK", cboTitle.SelectedValue),
-                                                new SqlParameter("@SpecializePK", cboSpecialize.SelectedValue),
-                                                new SqlParameter("@Gender", cboGender.Text),
-                                                new SqlParameter("@PositionPK", cboPosition.SelectedValue),
-                                                new SqlParameter("@SamaNo", txtSAMA.Text.Trim()),
-                                                new SqlParameter("@HomePhone", txtHomePhone.Text.Trim()),
-                                                new SqlParameter("@MobilePhone", txtMobilePhone.Text.Trim()),
-                                                new SqlParameter("@Email", txtEmail.Text.Trim()),
-                                                new SqlParameter("@Address", txtAddress.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue), 
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                                                "updateDate=NOW(),updatePK=@UpdatePK WHERE doctorPK=@DoctorPK",
+                                                new MySqlParameter("@DoctorPK", int.Parse(txtName.Tag.ToString())),
+                                                new MySqlParameter("@Doctor", txtName.Text.Trim()),
+                                                new MySqlParameter("@TitlePK", cboTitle.SelectedValue),
+                                                new MySqlParameter("@SpecializePK", cboSpecialize.SelectedValue),
+                                                new MySqlParameter("@Gender", cboGender.Text),
+                                                new MySqlParameter("@PositionPK", cboPosition.SelectedValue),
+                                                new MySqlParameter("@SamaNo", txtSAMA.Text.Trim()),
+                                                new MySqlParameter("@HomePhone", txtHomePhone.Text.Trim()),
+                                                new MySqlParameter("@MobilePhone", txtMobilePhone.Text.Trim()),
+                                                new MySqlParameter("@Email", txtEmail.Text.Trim()),
+                                                new MySqlParameter("@Address", txtAddress.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue), 
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
                                 sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Doctor.");
 
@@ -207,32 +207,32 @@ namespace MediPro
                         {
                             int DocID = SqlDb.ExecuteScalar<int>("getID tblDoctor");
 
-                            int DcoIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctorPK=@DoctorPK AND isDelete=0", new SqlParameter("@DoctorPK", DocID));
+                            int DcoIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctorPK=@DoctorPK AND isDelete=0", new MySqlParameter("@DoctorPK", DocID));
 
                             if (DcoIDCnt < 1)
                             {
                                 SqlDb.ExecuteQuery("INSERT INTO tblDoctor(doctorPK,doctor,titlePK,specializePK,gender,positionPK,samaNo,homePhone,mobilePhone,email,address,isActive,createPK,createDate,updatePK,updateDate) " +
-                                                    "VALUES(@DoctorPK,@Doctor,@TitlePK,@SpecializePK,@Gender,@PositionPK,@SamaNo,@HomePhone,@MobilePhone,@Email,@Address,@IsActive,@CreatePK,SYSDATETIME(),@UpdatePK,SYSDATETIME())",
-                                                    new SqlParameter("@DoctorPK", DocID),
-                                                    new SqlParameter("@Doctor", txtName.Text.Trim()),
-                                                    new SqlParameter("@TitlePK", cboTitle.SelectedValue),
-                                                    new SqlParameter("@SpecializePK", cboSpecialize.SelectedValue),
-                                                    new SqlParameter("@Gender", cboGender.Text),
-                                                    new SqlParameter("@PositionPK", cboPosition.SelectedValue),
-                                                    new SqlParameter("@SamaNo", txtSAMA.Text.Trim()),
-                                                    new SqlParameter("@HomePhone", txtHomePhone.Text.Trim()),
-                                                    new SqlParameter("@MobilePhone", txtMobilePhone.Text.Trim()),
-                                                    new SqlParameter("@Email", txtEmail.Text.Trim()),
-                                                    new SqlParameter("@Address", txtAddress.Text.Trim()),
-                                                    new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                    new SqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK),
-                                                    new SqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
+                                                    "VALUES(@DoctorPK,@Doctor,@TitlePK,@SpecializePK,@Gender,@PositionPK,@SamaNo,@HomePhone,@MobilePhone,@Email,@Address,@IsActive,@CreatePK,NOW(),@UpdatePK,NOW())",
+                                                    new MySqlParameter("@DoctorPK", DocID),
+                                                    new MySqlParameter("@Doctor", txtName.Text.Trim()),
+                                                    new MySqlParameter("@TitlePK", cboTitle.SelectedValue),
+                                                    new MySqlParameter("@SpecializePK", cboSpecialize.SelectedValue),
+                                                    new MySqlParameter("@Gender", cboGender.Text),
+                                                    new MySqlParameter("@PositionPK", cboPosition.SelectedValue),
+                                                    new MySqlParameter("@SamaNo", txtSAMA.Text.Trim()),
+                                                    new MySqlParameter("@HomePhone", txtHomePhone.Text.Trim()),
+                                                    new MySqlParameter("@MobilePhone", txtMobilePhone.Text.Trim()),
+                                                    new MySqlParameter("@Email", txtEmail.Text.Trim()),
+                                                    new MySqlParameter("@Address", txtAddress.Text.Trim()),
+                                                    new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                    new MySqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK),
+                                                    new MySqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
 
                                 CreateUser();
 
                                 SqlDb.ExecuteQuery("UPDATE tblDoctor SET userPK=@UserPK WHERE doctorPK=@DoctorPK",
-                                                new SqlParameter("@DoctorPK", DocID),
-                                                new SqlParameter("@UserPK", CurUserID));
+                                                new MySqlParameter("@DoctorPK", DocID),
+                                                new MySqlParameter("@UserPK", CurUserID));
 
                                 sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Doctor.");
 
@@ -263,14 +263,14 @@ namespace MediPro
             loginID = txtName.Text.ToLower().Trim();
             loginID = loginID.Replace(" ", "");
 
-            int UIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE login=@Login AND isDelete=0", new SqlParameter("@Login", loginID));
+            int UIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE login=@Login AND isDelete=0", new MySqlParameter("@Login", loginID));
             
             if (UIDCnt > 0)
             {
                 int n = 1;
                 while (n < 999)
                 {
-                    UIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE login=@Login AND isDelete=0", new SqlParameter("@Login", loginID + n));
+                    UIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE login=@Login AND isDelete=0", new MySqlParameter("@Login", loginID + n));
 
                     if (UIDCnt > 0)
                         n++;
@@ -285,20 +285,20 @@ namespace MediPro
 
             CurUserID = SqlDb.ExecuteScalar<int>("getID sysUser");
 
-            int UserIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK=@UserID AND isDelete=0", new SqlParameter("@UserID", CurUserID));
+            int UserIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK=@UserID AND isDelete=0", new MySqlParameter("@UserID", CurUserID));
 
             if (UserIDCnt < 1)
             {
                 string pwd = Crypto.Encrypt("passw0rd");
 
                 SqlDb.ExecuteQuery("INSERT INTO sysUser(PK,name,login,passw,levelPK,IsActive,updateDate,createDate) " +
-                                    "VALUES(@UserID,@FullName,@LoginID,@PSW,@LevelPK,@IsActive,SYSDATETIME(),SYSDATETIME())",
-                                    new SqlParameter("@UserID", CurUserID),
-                                    new SqlParameter("@FullName", txtName.Text.Trim()),
-                                    new SqlParameter("@LoginID", loginID),
-                                    new SqlParameter("@LevelPK", 5),
-                                    new SqlParameter("@PSW", pwd),
-                                    new SqlParameter("@IsActive", chkIsActive.EditValue));
+                                    "VALUES(@UserID,@FullName,@LoginID,@PSW,@LevelPK,@IsActive,NOW(),NOW())",
+                                    new MySqlParameter("@UserID", CurUserID),
+                                    new MySqlParameter("@FullName", txtName.Text.Trim()),
+                                    new MySqlParameter("@LoginID", loginID),
+                                    new MySqlParameter("@LevelPK", 5),
+                                    new MySqlParameter("@PSW", pwd),
+                                    new MySqlParameter("@IsActive", chkIsActive.EditValue));
 
                 sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New User");
             }
@@ -308,8 +308,8 @@ namespace MediPro
         {
             bool value = true;
             int SAMACnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE samaNo=@SamaNo AND doctorPK<>@DoctorPK AND isDelete=0", 
-                                                new SqlParameter("@SamaNo", txtSAMA.Text.Trim()),
-                                                new SqlParameter("@DoctorPK",txtName.Tag.ToString()));
+                                                new MySqlParameter("@SamaNo", txtSAMA.Text.Trim()),
+                                                new MySqlParameter("@DoctorPK",txtName.Tag.ToString()));
 
             if (SAMACnt > 0)
             {

@@ -12,7 +12,7 @@ using DevExpress.Utils;
 using System.ComponentModel.Design;
 using System.ComponentModel;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace MediPro
 {
@@ -43,16 +43,16 @@ namespace MediPro
                 if (radioNewPatient.Checked == true)
                 {
                     patientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE patientName=@PatientName AND doctorPK=@DoctorPK AND abdate=@ABDate",
-                                                            new SqlParameter("@PatientName", txtPatientName.Text),
-                                                            new SqlParameter("@DoctorPK", doctorPK),
-                                                            new SqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                                                            new MySqlParameter("@PatientName", txtPatientName.Text),
+                                                            new MySqlParameter("@DoctorPK", doctorPK),
+                                                            new MySqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
                 }
                 else
                 {
                     patientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE patientName=@PatientName AND doctorPK=@DoctorPK AND abdate=@ABDate",
-                                                            new SqlParameter("@PatientName", luePatient.Text),
-                                                            new SqlParameter("@DoctorPK", doctorPK),
-                                                            new SqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                                                            new MySqlParameter("@PatientName", luePatient.Text),
+                                                            new MySqlParameter("@DoctorPK", doctorPK),
+                                                            new MySqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
                 }
 
                 if (patientCnt > 0)
@@ -78,26 +78,26 @@ namespace MediPro
             string BookingID = SqlDb.ExecuteScalar<string>("getBookingPK N'tblBooking','" + dtBoooking.ToString("yyyy-MM-dd") + "'");
 
             int bookingCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE bookingPK = @BookingPK",
-                                                    new SqlParameter("@BookingPK", BookingID));
+                                                    new MySqlParameter("@BookingPK", BookingID));
 
             if (bookingCnt < 1)
             {
                 SqlDb.ExecuteQuery("UPDATE tblBooking SET isLast = 0 WHERE doctorPK = @DoctorPK AND isLast = 1 AND abdate = @abDate",
-                                    new SqlParameter("@DoctorPK", doctorPK),
-                                    new SqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                    new MySqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
 
                 SqlDb.ExecuteQuery("INSERT INTO tblBooking(PK,patientName,RegNo,abdate,doctorPK,tokenNo,abTime,abType,isNew,isLast) " +
                                     "VALUES(@PK,@PatientName,@RegNo,@ABDate,@DoctorPK,@TokenNo,@ABTime,@ABType,@IsNew,@IsLast)",
-                                    new SqlParameter("@PK", BookingID),
-                                    new SqlParameter("@PatientName", (radioNewPatient.Checked == true) ? txtPatientName.Text.Trim() : luePatient.Text.ToString()),
-                                    new SqlParameter("@RegNo", (radioNewPatient.Checked == true) ? string.Empty : txtRegNo.Text.ToString()),
-                                    new SqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")),
-                                    new SqlParameter("@DoctorPK", doctorPK),
-                                    new SqlParameter("@TokenNo", lblTokenNo.Text),
-                                    new SqlParameter("@ABTime", lblLastBookingTime.Text),
-                                    new SqlParameter("@ABType", "Booking"),
-                                    new SqlParameter("@IsNew", (radioNewPatient.Checked == true) ? 0 : 1),
-                                    new SqlParameter("@IsLast", 1));
+                                    new MySqlParameter("@PK", BookingID),
+                                    new MySqlParameter("@PatientName", (radioNewPatient.Checked == true) ? txtPatientName.Text.Trim() : luePatient.Text.ToString()),
+                                    new MySqlParameter("@RegNo", (radioNewPatient.Checked == true) ? string.Empty : txtRegNo.Text.ToString()),
+                                    new MySqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")),
+                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                    new MySqlParameter("@TokenNo", lblTokenNo.Text),
+                                    new MySqlParameter("@ABTime", lblLastBookingTime.Text),
+                                    new MySqlParameter("@ABType", "Booking"),
+                                    new MySqlParameter("@IsNew", (radioNewPatient.Checked == true) ? 0 : 1),
+                                    new MySqlParameter("@IsLast", 1));
 
                 MessageBox.Show("Booking is Successfull." + System.Environment.NewLine + "Token No. is : " + lblTokenNo.Text + System.Environment.NewLine + "Time is : " + lblLastBookingTime.Text, "MediPro::Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -209,7 +209,7 @@ namespace MediPro
 
                 DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK, (clinicDay + ' (' + ctdOption + ')') AS clinicDay, toTime, fromTime FROM tblClinicTimeByDoctor " +
                                         "WHERE isDelete = 0 AND doctorPK = @DoctorPK",
-                                        new SqlParameter("@DoctorPK", doctorPK));
+                                        new MySqlParameter("@DoctorPK", doctorPK));
 
                 grdCTbyDoctor.DataSource = dsCTD.Tables[0];
             }
@@ -220,14 +220,14 @@ namespace MediPro
                 if (lueDoctor.Text.ToString().Length > 0 && dteBookingDate.Text.ToString().Length > 0)
                 {
                     int cntLast = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE doctorPK = @DoctorPK AND isLast = 1 AND abdate = @abDate",
-                                                        new SqlParameter("@DoctorPK", doctorPK),
-                                                        new SqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                                                        new MySqlParameter("@DoctorPK", doctorPK),
+                                                        new MySqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
 
                     if (cntLast > 0)
                     {
                         DataSet dsLastData = SqlDb.GetDataSet("SELECT tokenNo, abTime FROM tblBooking WHERE doctorPK = @DoctorPK AND isLast = 1 AND abdate = @abDate",
-                                                            new SqlParameter("@DoctorPK", doctorPK),
-                                                            new SqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                                                            new MySqlParameter("@DoctorPK", doctorPK),
+                                                            new MySqlParameter("@abDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
 
                         lblTokenNo.Text = dsLastData.Tables[0].Rows[0]["tokenNo"].ToString();
                         lastTokenNo = int.Parse(dsLastData.Tables[0].Rows[0]["tokenNo"].ToString());
@@ -241,9 +241,9 @@ namespace MediPro
                         lastTokenNo = 0;
 
                         string ClinicTime = SqlDb.ExecuteScalar<string>("SELECT fromTime FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
-                                                                        new SqlParameter("@DoctorPK", doctorPK),
-                                                                        new SqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                                        new SqlParameter("CTDOption", cboOption.Text.ToString()));
+                                                                        new MySqlParameter("@DoctorPK", doctorPK),
+                                                                        new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
+                                                                        new MySqlParameter("CTDOption", cboOption.Text.ToString()));
 
                         lblLastBookingTime.Text = ClinicTime;
                         lastCTime = string.Empty;
@@ -271,7 +271,7 @@ namespace MediPro
                 string m = clinicTime[2].ToString();
 
                 int addMin = SqlDb.ExecuteScalar<int>("SELECT takeTime FROM tblDoctor WHERE doctorPK=@DoctorPK AND isActive = 1 AND isDelete = 0",
-                                                    new SqlParameter("@DoctorPK", doctorPK));
+                                                    new MySqlParameter("@DoctorPK", doctorPK));
 
                 Min = Min + addMin;
 
@@ -319,9 +319,9 @@ namespace MediPro
             if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
                 int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
-                                                    new SqlParameter("@DoctorPK", doctorPK),
-                                                    new SqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                    new SqlParameter("@CTDOption", cboOption.Text));
+                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
+                                                    new MySqlParameter("@CTDOption", cboOption.Text));
 
                 if (ctdCnt < 1)
                 {
@@ -346,9 +346,9 @@ namespace MediPro
             if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
                 int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
-                                                    new SqlParameter("@DoctorPK", doctorPK),
-                                                    new SqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                    new SqlParameter("@CTDOption", cboOption.Text));
+                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
+                                                    new MySqlParameter("@CTDOption", cboOption.Text));
 
                 if (ctdCnt < 1)
                 {
@@ -409,9 +409,9 @@ namespace MediPro
             if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
                 int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
-                                                    new SqlParameter("@DoctorPK", doctorPK),
-                                                    new SqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                    new SqlParameter("@CTDOption", cboOption.Text));
+                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
+                                                    new MySqlParameter("@CTDOption", cboOption.Text));
 
                 if (ctdCnt < 1)
                 {

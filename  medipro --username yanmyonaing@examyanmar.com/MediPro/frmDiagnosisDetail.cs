@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace MediPro
 {
@@ -29,7 +29,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int DiagCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosis=@Diagnosis AND isDelete=0", new SqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()));
+                int DiagCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosis=@Diagnosis AND isDelete=0", new MySqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()));
 
                 if (DiagCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -41,15 +41,15 @@ namespace MediPro
                 {
                     if (txtDiagnosis.Tag.ToString().Length > 0)
                     {
-                        int DiagIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosisPK=@DiagnosisPK AND isDelete=0", new SqlParameter("@DiagnosisPK", txtDiagnosis.Tag.ToString()));
+                        int DiagIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosisPK=@DiagnosisPK AND isDelete=0", new MySqlParameter("@DiagnosisPK", txtDiagnosis.Tag.ToString()));
 
                         if (DiagIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblDiagnosis SET diagnosis=@Diagnosis,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE diagnosisPK=@DiagnosisPK",
-                                            new SqlParameter("@DiagnosisPK", txtDiagnosis.Tag.ToString()),
-                                            new SqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblDiagnosis SET diagnosis=@Diagnosis,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE diagnosisPK=@DiagnosisPK",
+                                            new MySqlParameter("@DiagnosisPK", txtDiagnosis.Tag.ToString()),
+                                            new MySqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update diagnosis.");
 
@@ -60,17 +60,17 @@ namespace MediPro
                     {
                         int DiagID = SqlDb.ExecuteScalar<int>("getID tblDiagnosis");
 
-                        int DiagIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosisPK=@DiagnosisPK AND isDelete=0", new SqlParameter("@DiagnosisPK", DiagID));
+                        int DiagIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosisPK=@DiagnosisPK AND isDelete=0", new MySqlParameter("@DiagnosisPK", DiagID));
 
                         if (DiagIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblDiagnosis(diagnosisPK,diagnosis,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@DiagnosisPK,@Diagnosis,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@DiagnosisPK", DiagID),
-                                                new SqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@DiagnosisPK,@Diagnosis,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@DiagnosisPK", DiagID),
+                                                new MySqlParameter("@Diagnosis", txtDiagnosis.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New diagnosis.");
 

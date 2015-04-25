@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using exaCore;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
 using Touchless.Vision.Camera;
@@ -49,13 +49,13 @@ namespace MediPro
             DateTime curDate = SqlDb.ExecuteScalar<DateTime>("SELECT GETDATE()");
 
             int curDoctorPK = SqlDb.ExecuteScalar<int>("SELECT doctorPK FROM tblDoctor WHERE userPK = @UserPK",
-                                                        new SqlParameter("@UserPK", AppVariable.CURRENT_USER_PK));
+                                                        new MySqlParameter("@UserPK", AppVariable.CURRENT_USER_PK));
 
             DataSet dsVisiting = SqlDb.GetDataSet("SELECT PK, patientName, RegNo, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctorName, " +
                                                 "abdate, tokenNo, abTime, abType, isVisited, isNew, (tblBooking.doctorPK) As doctorPK, visitPK FROM tblDoctor INNER JOIN tblBooking ON tblDoctor.doctorPK = tblBooking.doctorPK INNER JOIN tblTitle " +
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE abdate = @abDate AND tblBooking.doctorPK=@DoctorPK",
-                                                new SqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")),
-                                                new SqlParameter("@DoctorPK", curDoctorPK));
+                                                new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")),
+                                                new MySqlParameter("@DoctorPK", curDoctorPK));
 
             grdTodayVisitPatients.DataSource = dsVisiting.Tables[0];
         }
@@ -72,7 +72,7 @@ namespace MediPro
         {
             if (regNo.Length > 0)
             {
-                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new SqlParameter("@RegNo", regNo));
+                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new MySqlParameter("@RegNo", regNo));
                 int DataRowCnt = dsPatient.Tables[0].Rows.Count;
 
                 if (DataRowCnt > 0)

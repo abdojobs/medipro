@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.IO;
 using exaCore;
 
@@ -571,7 +571,7 @@ namespace MediPro
             DataSet dsBookging = SqlDb.GetDataSet("SELECT PK, patientName, RegNo, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctorName, " +
                                                 "abdate, tokenNo, abTime, abType, isVisited, isNew, (tblBooking.doctorPK) As doctorPK FROM tblDoctor INNER JOIN tblBooking ON tblDoctor.doctorPK = tblBooking.doctorPK INNER JOIN tblTitle " +
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE tblBooking.isVisited = 0 AND abdate > @abDate",
-                                                new SqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
+                                                new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
 
             grdBooking.DataSource = dsBookging.Tables[0];
            
@@ -585,7 +585,7 @@ namespace MediPro
             DataSet dsVisiting = SqlDb.GetDataSet("SELECT PK, patientName, RegNo, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctorName, " +
                                                 "abdate, tokenNo, abTime, abType, isVisited, isNew, (tblBooking.doctorPK) As doctorPK, visitPK FROM tblDoctor INNER JOIN tblBooking ON tblDoctor.doctorPK = tblBooking.doctorPK INNER JOIN tblTitle " +
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE abdate = @abDate",
-                                                new SqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
+                                                new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
 
             grdTodayVisitPatients.DataSource = dsVisiting.Tables[0];
 
@@ -633,7 +633,7 @@ namespace MediPro
 
         private void PatientDataLoadWithRegNo()
         {
-            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB,105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new SqlParameter("@RegNo", RegNo));
+            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB,105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new MySqlParameter("@RegNo", RegNo));
 
             txtRegNo.Text = dsCurPatient.Tables[0].Rows[0]["RegNo"].ToString();
             txtFatherName.Text = dsCurPatient.Tables[0].Rows[0]["FatherName"].ToString();
@@ -654,7 +654,7 @@ namespace MediPro
         {
             DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, Convert(varchar, tblVisit.visitDate,105) As visitDate " +
                                                "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
-                                               "WHERE tblVisit.RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
+                                               "WHERE tblVisit.RegNo = @RegNo", new MySqlParameter("@RegNo", RegNo));
             lueVisit.Properties.DataSource = dsVisit.Tables[0];
         }
 
@@ -675,7 +675,7 @@ namespace MediPro
         {
             DataSet dsCurVisit = SqlDb.GetDataSet("SELECT tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, tblVisit.visitDate " +
                                                "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
-                                               "WHERE tblVisit.RegNo = @RegNo AND tblVisit.visitPK = @VisitPK", new SqlParameter("@RegNo", RegNo), new SqlParameter("@VisitPK", visitPK));
+                                               "WHERE tblVisit.RegNo = @RegNo AND tblVisit.visitPK = @VisitPK", new MySqlParameter("@RegNo", RegNo), new MySqlParameter("@VisitPK", visitPK));
 
             txtVisitDesc.Text = dsCurVisit.Tables[0].Rows[0]["visitDescription"].ToString();
             txtVisitDoctor.Text = dsCurVisit.Tables[0].Rows[0]["doctor"].ToString();
@@ -693,7 +693,7 @@ namespace MediPro
         {
             if (txtRegNo.Text.ToString().Length > 0)
             {
-                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
+                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new MySqlParameter("@RegNo", RegNo));
                 int DataRowCnt = dsPatient.Tables[0].Rows.Count;
 
                 if (DataRowCnt > 0)
@@ -735,7 +735,7 @@ namespace MediPro
             if (ValidateMedical() == true)
             {
 
-                    int medHistoryCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblHistory WHERE visitPK=@visitPK", new SqlParameter("@visitPK", strSelectedVisitPK));
+                    int medHistoryCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblHistory WHERE visitPK=@visitPK", new MySqlParameter("@visitPK", strSelectedVisitPK));
 
                     if (medHistoryCnt > 0)
                     {
@@ -750,35 +750,35 @@ namespace MediPro
 
                         SqlDb.ExecuteQuery("UPDATE [tblHistory] SET  [medicalHistory] = @medicalHistory, [surgicalHistory] = @surgicalHistory, [allergies] = @allergies, [medications] = @medications, [exercise] = @exercise, [typeOfExcercise] = @typeOfExcercise, [frequencyPerWeek] = @frequencyPerWeek, [smoking] = @smoking, [numberOfSticksPerDay] = @numberOfSticksPerDay, [sinceAge] = @sinceAge, [alcohol] = @alcohol, [avgDrinksPerWk] = @avgDrinksPerWk, [father] = @father, [mother] = @mother, [brother] = @brother, [sister] = @sister, [others] = @others, [occupational_travel_his] = @occupational_travel_his, [maritalStatus] = @maritalStatus, [children] = @children, [miscarriage_abortion] = @miscarriage_abortion, [contraception] = @contraception, [lmp] = @lmp, [lastPap] = @lastPap, [gynaecologicalHis_Other] = @gynaecologicalHis_Other, [otherMedHistory] = @otherMedHistory, [updatePK] = @updatePK, [updateDate] = @updateDate WHERE [visitPK] = @visitPK",
                                         
-                                        new SqlParameter("@visitPK", strSelectedVisitPK),
-                                        new SqlParameter("@medicalHistory",txtPastHistory_MedicalHistory.Text.Trim()),
-                                        new SqlParameter("@surgicalHistory",txtPastHistory_SurgicalHistory.Text.Trim()),
-                                        new SqlParameter("@allergies",txtPastHistory_Allergies.Text.Trim()),
-                                        new SqlParameter("@medications",txtMedications.Text.Trim()),
-                                        new SqlParameter("@exercise", rdoHabits_Excercise_Yes.Checked),
-                                        new SqlParameter("@typeOfExcercise",txtHabits_TypeofExcercise.Text.Trim()),
-                                        new SqlParameter("@frequencyPerWeek",txtHabits_Frequency.Text.Trim()),
-                                        new SqlParameter("@smoking",smoking),
-                                        new SqlParameter("@numberOfSticksPerDay",txtHabits_No_Sticks.Text.Trim()),
-                                        new SqlParameter("@sinceAge",txtHabits_SmokingYear.Text.Trim()),
-                                        new SqlParameter("@alcohol",rdoHabits_Alcohol_Yes.Checked),
-                                        new SqlParameter("@avgDrinksPerWk",txtHabits_AvgDrinks.Text.Trim()),
-                                        new SqlParameter("@father",txtFamilyFather.Text.Trim()),
-                                        new SqlParameter("@mother",txtFamilyMother.Text.Trim()),
-                                        new SqlParameter("@brother",txtFamilyBrother.Text.Trim()),
-                                        new SqlParameter("@sister",txtFamilySister.Text.Trim()),
-                                        new SqlParameter("@others",txtFamilyOthers.Text.Trim()),
-                                        new SqlParameter("@occupational_travel_his",txtOccupational.Text.Trim()),
-                                        new SqlParameter("@maritalStatus", maritalStaus),
-                                        new SqlParameter("@children",txtObsterics_Children.Text.Trim()),
-                                        new SqlParameter("@miscarriage_abortion",txtObstericMiscarriage.Text.Trim()),
-                                        new SqlParameter("@contraception",txtObsterics_Contraception.Text.Trim()),
-                                        new SqlParameter("@lmp",txtGynaeco_LMP.Text.Trim()),
-                                        new SqlParameter("@lastPap",txtGynaeco_LastPap.Text.Trim()),
-                                        new SqlParameter("@gynaecologicalHis_Other",txtGynaeco_Other.Text.Trim()),
-                                        new SqlParameter("@otherMedHistory",txtOtherMedicalHistory.Text.Trim()),
-                                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                        new SqlParameter("@updateDate",DateTime.Now)
+                                        new MySqlParameter("@visitPK", strSelectedVisitPK),
+                                        new MySqlParameter("@medicalHistory",txtPastHistory_MedicalHistory.Text.Trim()),
+                                        new MySqlParameter("@surgicalHistory",txtPastHistory_SurgicalHistory.Text.Trim()),
+                                        new MySqlParameter("@allergies",txtPastHistory_Allergies.Text.Trim()),
+                                        new MySqlParameter("@medications",txtMedications.Text.Trim()),
+                                        new MySqlParameter("@exercise", rdoHabits_Excercise_Yes.Checked),
+                                        new MySqlParameter("@typeOfExcercise",txtHabits_TypeofExcercise.Text.Trim()),
+                                        new MySqlParameter("@frequencyPerWeek",txtHabits_Frequency.Text.Trim()),
+                                        new MySqlParameter("@smoking",smoking),
+                                        new MySqlParameter("@numberOfSticksPerDay",txtHabits_No_Sticks.Text.Trim()),
+                                        new MySqlParameter("@sinceAge",txtHabits_SmokingYear.Text.Trim()),
+                                        new MySqlParameter("@alcohol",rdoHabits_Alcohol_Yes.Checked),
+                                        new MySqlParameter("@avgDrinksPerWk",txtHabits_AvgDrinks.Text.Trim()),
+                                        new MySqlParameter("@father",txtFamilyFather.Text.Trim()),
+                                        new MySqlParameter("@mother",txtFamilyMother.Text.Trim()),
+                                        new MySqlParameter("@brother",txtFamilyBrother.Text.Trim()),
+                                        new MySqlParameter("@sister",txtFamilySister.Text.Trim()),
+                                        new MySqlParameter("@others",txtFamilyOthers.Text.Trim()),
+                                        new MySqlParameter("@occupational_travel_his",txtOccupational.Text.Trim()),
+                                        new MySqlParameter("@maritalStatus", maritalStaus),
+                                        new MySqlParameter("@children",txtObsterics_Children.Text.Trim()),
+                                        new MySqlParameter("@miscarriage_abortion",txtObstericMiscarriage.Text.Trim()),
+                                        new MySqlParameter("@contraception",txtObsterics_Contraception.Text.Trim()),
+                                        new MySqlParameter("@lmp",txtGynaeco_LMP.Text.Trim()),
+                                        new MySqlParameter("@lastPap",txtGynaeco_LastPap.Text.Trim()),
+                                        new MySqlParameter("@gynaecologicalHis_Other",txtGynaeco_Other.Text.Trim()),
+                                        new MySqlParameter("@otherMedHistory",txtOtherMedicalHistory.Text.Trim()),
+                                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                        new MySqlParameter("@updateDate",DateTime.Now)
                                         );
 
                         //sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Medical History.");
@@ -797,37 +797,37 @@ namespace MediPro
                         maritalStaus = rdoObsterics_Married_Married.Checked ? "Married" : maritalStaus;
 
                         SqlDb.ExecuteQuery("INSERT INTO [tblHistory] ([visitPK], [medicalHistory], [surgicalHistory], [allergies], [medications], [exercise], [typeOfExcercise], [frequencyPerWeek], [smoking], [numberOfSticksPerDay], [sinceAge], [alcohol], [avgDrinksPerWk], [father], [mother], [brother], [sister], [others], [occupational_travel_his], [maritalStatus], [children], [miscarriage_abortion], [contraception], [lmp], [lastPap], [gynaecologicalHis_Other], [otherMedHistory], [updatePK], [updateDate], [createPK], [createDate]) VALUES (@visitPK, @medicalHistory, @surgicalHistory, @allergies, @medications, @exercise, @typeOfExcercise, @frequencyPerWeek, @smoking, @numberOfSticksPerDay, @sinceAge, @alcohol, @avgDrinksPerWk, @father, @mother, @brother, @sister, @others, @occupational_travel_his, @maritalStatus, @children, @miscarriage_abortion, @contraception, @lmp, @lastPap, @gynaecologicalHis_Other, @otherMedHistory, @updatePK, @updateDate, @createPK, @createDate)",
-                                        new SqlParameter("@visitPK", strSelectedVisitPK),
-                                        new SqlParameter("@medicalHistory", txtPastHistory_MedicalHistory.Text.Trim()),
-                                        new SqlParameter("@surgicalHistory", txtPastHistory_SurgicalHistory.Text.Trim()),
-                                        new SqlParameter("@allergies", txtPastHistory_Allergies.Text.Trim()),
-                                        new SqlParameter("@medications", txtMedications.Text.Trim()),
-                                        new SqlParameter("@exercise", rdoHabits_Excercise_Yes.Checked),
-                                        new SqlParameter("@typeOfExcercise", txtHabits_TypeofExcercise.Text.Trim()),
-                                        new SqlParameter("@frequencyPerWeek", txtHabits_Frequency.Text.Trim()),
-                                        new SqlParameter("@smoking", smoking),
-                                        new SqlParameter("@numberOfSticksPerDay", txtHabits_No_Sticks.Text.Trim()),
-                                        new SqlParameter("@sinceAge", txtHabits_SmokingYear.Text.Trim()),
-                                        new SqlParameter("@alcohol", rdoHabits_Alcohol_Yes.Checked),
-                                        new SqlParameter("@avgDrinksPerWk", txtHabits_AvgDrinks.Text.Trim()),
-                                        new SqlParameter("@father", txtFamilyFather.Text.Trim()),
-                                        new SqlParameter("@mother", txtFamilyMother.Text.Trim()),
-                                        new SqlParameter("@brother", txtFamilyBrother.Text.Trim()),
-                                        new SqlParameter("@sister", txtFamilySister.Text.Trim()),
-                                        new SqlParameter("@others", txtFamilyOthers.Text.Trim()),
-                                        new SqlParameter("@occupational_travel_his", txtOccupational.Text.Trim()),
-                                        new SqlParameter("@maritalStatus", maritalStaus),
-                                        new SqlParameter("@children", txtObsterics_Children.Text.Trim()),
-                                        new SqlParameter("@miscarriage_abortion", txtObstericMiscarriage.Text.Trim()),
-                                        new SqlParameter("@contraception", txtObsterics_Contraception.Text.Trim()),
-                                        new SqlParameter("@lmp", txtGynaeco_LMP.Text.Trim()),
-                                        new SqlParameter("@lastPap", txtGynaeco_LastPap.Text.Trim()),
-                                        new SqlParameter("@gynaecologicalHis_Other", txtGynaeco_Other.Text.Trim()),
-                                        new SqlParameter("@otherMedHistory", txtOtherMedicalHistory.Text.Trim()),
-                                        new SqlParameter("@createPK",AppVariable.CURRENT_USER_PK.ToString()),
-                                        new SqlParameter("@createDate",DateTime.Now),
-                                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                        new SqlParameter("@updateDate", DateTime.Now)
+                                        new MySqlParameter("@visitPK", strSelectedVisitPK),
+                                        new MySqlParameter("@medicalHistory", txtPastHistory_MedicalHistory.Text.Trim()),
+                                        new MySqlParameter("@surgicalHistory", txtPastHistory_SurgicalHistory.Text.Trim()),
+                                        new MySqlParameter("@allergies", txtPastHistory_Allergies.Text.Trim()),
+                                        new MySqlParameter("@medications", txtMedications.Text.Trim()),
+                                        new MySqlParameter("@exercise", rdoHabits_Excercise_Yes.Checked),
+                                        new MySqlParameter("@typeOfExcercise", txtHabits_TypeofExcercise.Text.Trim()),
+                                        new MySqlParameter("@frequencyPerWeek", txtHabits_Frequency.Text.Trim()),
+                                        new MySqlParameter("@smoking", smoking),
+                                        new MySqlParameter("@numberOfSticksPerDay", txtHabits_No_Sticks.Text.Trim()),
+                                        new MySqlParameter("@sinceAge", txtHabits_SmokingYear.Text.Trim()),
+                                        new MySqlParameter("@alcohol", rdoHabits_Alcohol_Yes.Checked),
+                                        new MySqlParameter("@avgDrinksPerWk", txtHabits_AvgDrinks.Text.Trim()),
+                                        new MySqlParameter("@father", txtFamilyFather.Text.Trim()),
+                                        new MySqlParameter("@mother", txtFamilyMother.Text.Trim()),
+                                        new MySqlParameter("@brother", txtFamilyBrother.Text.Trim()),
+                                        new MySqlParameter("@sister", txtFamilySister.Text.Trim()),
+                                        new MySqlParameter("@others", txtFamilyOthers.Text.Trim()),
+                                        new MySqlParameter("@occupational_travel_his", txtOccupational.Text.Trim()),
+                                        new MySqlParameter("@maritalStatus", maritalStaus),
+                                        new MySqlParameter("@children", txtObsterics_Children.Text.Trim()),
+                                        new MySqlParameter("@miscarriage_abortion", txtObstericMiscarriage.Text.Trim()),
+                                        new MySqlParameter("@contraception", txtObsterics_Contraception.Text.Trim()),
+                                        new MySqlParameter("@lmp", txtGynaeco_LMP.Text.Trim()),
+                                        new MySqlParameter("@lastPap", txtGynaeco_LastPap.Text.Trim()),
+                                        new MySqlParameter("@gynaecologicalHis_Other", txtGynaeco_Other.Text.Trim()),
+                                        new MySqlParameter("@otherMedHistory", txtOtherMedicalHistory.Text.Trim()),
+                                        new MySqlParameter("@createPK",AppVariable.CURRENT_USER_PK.ToString()),
+                                        new MySqlParameter("@createDate",DateTime.Now),
+                                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                        new MySqlParameter("@updateDate", DateTime.Now)
                                         );
 
                         //sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Medical History .");
@@ -850,7 +850,7 @@ namespace MediPro
         public void LoadMedicalHistory(string visitPK)
         { 
             DataSet ds = SqlDb.GetDataSet("Select * from tblHistory where visitPK=@visitPK",
-            new SqlParameter("@visitPK", visitPK));
+            new MySqlParameter("@visitPK", visitPK));
             if(ds.Tables[0].Rows.Count>0)
             {
                 DataRow dr = ds.Tables[0].Rows[0];
@@ -1158,66 +1158,66 @@ namespace MediPro
                                          "[externalGenitaliaRemarks] = @externalGenitaliaRemarks,  " +
                                          "[musculoskeletalRemarks] = @musculoskeletalRemarks,  " +
                                          "[examComment] = @examComment,  " +
-                                         "[updatePK] = @updatePK ,[updateDate] = SYSDATETIME() WHERE visitPK = @visitPK ",
-                                        new SqlParameter("@skin", txtPhySkin.Text.Trim()),
-                                        new SqlParameter("@vision", txtPhyVision.Text),
-                                        new SqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
-                                        new SqlParameter("@glasses", optPhyGlassesYes.Checked),
-                                        new SqlParameter("@eac", txtPhyEAC.Text),
-                                        new SqlParameter("@tm", txtPhyTM.Text),
-                                        new SqlParameter("@hearing", txtPhyHearing.Text),
-                                        new SqlParameter("@nose", txtPhyNose.Text),
-                                        new SqlParameter("@gum", txtPhyGum.Text),
-                                        new SqlParameter("@tongue", txtPhyTongue.Text),
-                                        new SqlParameter("@tonsils", txtPhyTonsils.Text),
-                                        new SqlParameter("@teeth", txtPhyTeeth.Text),
-                                        new SqlParameter("@thyroid", txtPhyThyroid.Text),
-                                        new SqlParameter("@cervicalln", txtPhyCervicalLN.Text),
-                                        new SqlParameter("@neckOthers", txtPhyNeckOthers.Text),
-                                        new SqlParameter("@axillary", txtPhyAxillary.Text),
-                                        new SqlParameter("@breastNormal_Lump", optPhyBreastNormal.Checked),
-                                        new SqlParameter("@airway", txtPhyAirWay.Text),
-                                        new SqlParameter("@breathSound", txtPhyBreathSound.Text),
-                                        new SqlParameter("@respiratoryOthers", txtPhyRespiratoryOthers.Text),
-                                        new SqlParameter("@rate", txtPhyRate.Text),
-                                        new SqlParameter("@rhythm", txtPhyRhythm.Text),
-                                        new SqlParameter("@heartSound", txtPhyHeartSounds.Text),
-                                        new SqlParameter("@addedSound", txtPhyAddedSounds.Text),
-                                        new SqlParameter("@abdomenGeneral", txtPhyGeneral.Text),
-                                        new SqlParameter("@liver", txtPhyLiver.Text),
-                                        new SqlParameter("@spleen", txtPhySpleen.Text),
-                                        new SqlParameter("@kidney", txtPhyKidney.Text),
-                                        new SqlParameter("@herniaOrifices", txtPhyHerniaOrifices.Text),
-                                        new SqlParameter("@abdomenOther", txtPhyAbdomenOthers.Text),
-                                        new SqlParameter("@externalGenitaliaPap", optPhyPapYes.Checked),
-                                        new SqlParameter("@gcs", txtPhyGCS.Text),
-                                        new SqlParameter("@pupils", txtPhyPupils.Text),
-                                        new SqlParameter("@focalNeuroDeficits", txtPhyFocalNeuro.Text),
-                                        new SqlParameter("@cn", txtPhyCN.Text),
+                                         "[updatePK] = @updatePK ,[updateDate] = NOW() WHERE visitPK = @visitPK ",
+                                        new MySqlParameter("@skin", txtPhySkin.Text.Trim()),
+                                        new MySqlParameter("@vision", txtPhyVision.Text),
+                                        new MySqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
+                                        new MySqlParameter("@glasses", optPhyGlassesYes.Checked),
+                                        new MySqlParameter("@eac", txtPhyEAC.Text),
+                                        new MySqlParameter("@tm", txtPhyTM.Text),
+                                        new MySqlParameter("@hearing", txtPhyHearing.Text),
+                                        new MySqlParameter("@nose", txtPhyNose.Text),
+                                        new MySqlParameter("@gum", txtPhyGum.Text),
+                                        new MySqlParameter("@tongue", txtPhyTongue.Text),
+                                        new MySqlParameter("@tonsils", txtPhyTonsils.Text),
+                                        new MySqlParameter("@teeth", txtPhyTeeth.Text),
+                                        new MySqlParameter("@thyroid", txtPhyThyroid.Text),
+                                        new MySqlParameter("@cervicalln", txtPhyCervicalLN.Text),
+                                        new MySqlParameter("@neckOthers", txtPhyNeckOthers.Text),
+                                        new MySqlParameter("@axillary", txtPhyAxillary.Text),
+                                        new MySqlParameter("@breastNormal_Lump", optPhyBreastNormal.Checked),
+                                        new MySqlParameter("@airway", txtPhyAirWay.Text),
+                                        new MySqlParameter("@breathSound", txtPhyBreathSound.Text),
+                                        new MySqlParameter("@respiratoryOthers", txtPhyRespiratoryOthers.Text),
+                                        new MySqlParameter("@rate", txtPhyRate.Text),
+                                        new MySqlParameter("@rhythm", txtPhyRhythm.Text),
+                                        new MySqlParameter("@heartSound", txtPhyHeartSounds.Text),
+                                        new MySqlParameter("@addedSound", txtPhyAddedSounds.Text),
+                                        new MySqlParameter("@abdomenGeneral", txtPhyGeneral.Text),
+                                        new MySqlParameter("@liver", txtPhyLiver.Text),
+                                        new MySqlParameter("@spleen", txtPhySpleen.Text),
+                                        new MySqlParameter("@kidney", txtPhyKidney.Text),
+                                        new MySqlParameter("@herniaOrifices", txtPhyHerniaOrifices.Text),
+                                        new MySqlParameter("@abdomenOther", txtPhyAbdomenOthers.Text),
+                                        new MySqlParameter("@externalGenitaliaPap", optPhyPapYes.Checked),
+                                        new MySqlParameter("@gcs", txtPhyGCS.Text),
+                                        new MySqlParameter("@pupils", txtPhyPupils.Text),
+                                        new MySqlParameter("@focalNeuroDeficits", txtPhyFocalNeuro.Text),
+                                        new MySqlParameter("@cn", txtPhyCN.Text),
 
 
-                                        new SqlParameter("@eyeRemarks", txtPhyEyeRemarks.Text),
-                                        new SqlParameter("@earRemarks", txtPhyEarsRemarks.Text),
+                                        new MySqlParameter("@eyeRemarks", txtPhyEyeRemarks.Text),
+                                        new MySqlParameter("@earRemarks", txtPhyEarsRemarks.Text),
 
-                                        new SqlParameter("@throatRemarks", txtPhyThroatRemarks.Text),
-                                        new SqlParameter("@neckRemarks", txtPhyNeckRemarks.Text),
-                                        new SqlParameter("@breastRemarks", txtPhyBreastRemarks.Text),
-                                        new SqlParameter("@respiratoryRemarks", txtPhyRespiratoryRemarks.Text),
-                                        new SqlParameter("@abdomenRemarks", txtPhyAbdomenRemarks.Text),
-                                        new SqlParameter("@caridovascularRemarks", txtPhyCardiovacularRemarks.Text),
-                                        new SqlParameter("@externalGenitaliaRemarks", txtPhyExternalGen.Text),
-                                        new SqlParameter("@musculoskeletalRemarks", txtPhyMusculoskeletal.Text),
+                                        new MySqlParameter("@throatRemarks", txtPhyThroatRemarks.Text),
+                                        new MySqlParameter("@neckRemarks", txtPhyNeckRemarks.Text),
+                                        new MySqlParameter("@breastRemarks", txtPhyBreastRemarks.Text),
+                                        new MySqlParameter("@respiratoryRemarks", txtPhyRespiratoryRemarks.Text),
+                                        new MySqlParameter("@abdomenRemarks", txtPhyAbdomenRemarks.Text),
+                                        new MySqlParameter("@caridovascularRemarks", txtPhyCardiovacularRemarks.Text),
+                                        new MySqlParameter("@externalGenitaliaRemarks", txtPhyExternalGen.Text),
+                                        new MySqlParameter("@musculoskeletalRemarks", txtPhyMusculoskeletal.Text),
 
-                                        new SqlParameter("@examComment", txtPhyComment.Text),
-                                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                        new SqlParameter("@visitPK", strSelectedVisitPK));
+                                        new MySqlParameter("@examComment", txtPhyComment.Text),
+                                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                        new MySqlParameter("@visitPK", strSelectedVisitPK));
 
                     MessageBox.Show("Update is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
 
-                    int rowCount = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblExamination WHERE visitPK=@visitPK AND isDelete=0", new SqlParameter("@visitPK", strSelectedVisitPK));
+                    int rowCount = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblExamination WHERE visitPK=@visitPK AND isDelete=0", new MySqlParameter("@visitPK", strSelectedVisitPK));
 
                     if (rowCount < 1)
                     {
@@ -1321,63 +1321,63 @@ namespace MediPro
                                              " ,@musculoskeletalRemarks" +
                                              " ,@examComment" +
                                              " ,@createPK" +
-                                             " ,SYSDATETIME()" +
+                                             " ,NOW()" +
                                              " ,@updatePK" +
-                                             " ,SYSDATETIME()" +
+                                             " ,NOW()" +
                                              " ,@visitPK)",
-                                        new SqlParameter("@skin", txtPhySkin.Text.Trim()),
-                                        new SqlParameter("@vision", txtPhyVision.Text),
-                                        new SqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
-                                        new SqlParameter("@glasses", optPhyGlassesYes.Checked),
-                                        new SqlParameter("@eac", txtPhyEAC.Text),
-                                        new SqlParameter("@tm", txtPhyTM.Text),
-                                        new SqlParameter("@hearing", txtPhyHearing.Text),
-                                        new SqlParameter("@nose", txtPhyNose.Text),
-                                        new SqlParameter("@gum", txtPhyGum.Text),
-                                        new SqlParameter("@tongue", txtPhyTongue.Text),
-                                        new SqlParameter("@tonsils", txtPhyTonsils.Text),
-                                        new SqlParameter("@teeth", txtPhyTeeth.Text),
-                                        new SqlParameter("@thyroid", txtPhyThyroid.Text),
-                                        new SqlParameter("@cervicalln", txtPhyCervicalLN.Text),
-                                        new SqlParameter("@neckOthers", txtPhyNeckOthers.Text),
-                                        new SqlParameter("@axillary", txtPhyAxillary.Text),
-                                        new SqlParameter("@breastNormal_Lump", optPhyBreastNormal.Checked),
-                                        new SqlParameter("@airway", txtPhyAirWay.Text),
-                                        new SqlParameter("@breathSound", txtPhyBreathSound.Text),
-                                        new SqlParameter("@respiratoryOthers", txtPhyRespiratoryOthers.Text),
-                                        new SqlParameter("@rate", txtPhyRate.Text),
-                                        new SqlParameter("@rhythm", txtPhyRhythm.Text),
-                                        new SqlParameter("@heartSound", txtPhyHeartSounds.Text),
-                                        new SqlParameter("@addedSound", txtPhyAddedSounds.Text),
-                                        new SqlParameter("@abdomenGeneral", txtPhyGeneral.Text),
-                                        new SqlParameter("@liver", txtPhyLiver.Text),
-                                        new SqlParameter("@spleen", txtPhySpleen.Text),
-                                        new SqlParameter("@kidney", txtPhyKidney.Text),
-                                        new SqlParameter("@herniaOrifices", txtPhyHerniaOrifices.Text),
-                                        new SqlParameter("@abdomenOther", txtPhyAbdomenOthers.Text),
-                                        new SqlParameter("@externalGenitaliaPap", optPhyPapYes.Checked),
-                                        new SqlParameter("@gcs", txtPhyGCS.Text),
-                                        new SqlParameter("@pupils", txtPhyPupils.Text),
-                                        new SqlParameter("@focalNeuroDeficits", txtPhyFocalNeuro.Text),
-                                        new SqlParameter("@cn", txtPhyCN.Text),
+                                        new MySqlParameter("@skin", txtPhySkin.Text.Trim()),
+                                        new MySqlParameter("@vision", txtPhyVision.Text),
+                                        new MySqlParameter("@visualAcuity", txtPhyVisualAcuity.Text),
+                                        new MySqlParameter("@glasses", optPhyGlassesYes.Checked),
+                                        new MySqlParameter("@eac", txtPhyEAC.Text),
+                                        new MySqlParameter("@tm", txtPhyTM.Text),
+                                        new MySqlParameter("@hearing", txtPhyHearing.Text),
+                                        new MySqlParameter("@nose", txtPhyNose.Text),
+                                        new MySqlParameter("@gum", txtPhyGum.Text),
+                                        new MySqlParameter("@tongue", txtPhyTongue.Text),
+                                        new MySqlParameter("@tonsils", txtPhyTonsils.Text),
+                                        new MySqlParameter("@teeth", txtPhyTeeth.Text),
+                                        new MySqlParameter("@thyroid", txtPhyThyroid.Text),
+                                        new MySqlParameter("@cervicalln", txtPhyCervicalLN.Text),
+                                        new MySqlParameter("@neckOthers", txtPhyNeckOthers.Text),
+                                        new MySqlParameter("@axillary", txtPhyAxillary.Text),
+                                        new MySqlParameter("@breastNormal_Lump", optPhyBreastNormal.Checked),
+                                        new MySqlParameter("@airway", txtPhyAirWay.Text),
+                                        new MySqlParameter("@breathSound", txtPhyBreathSound.Text),
+                                        new MySqlParameter("@respiratoryOthers", txtPhyRespiratoryOthers.Text),
+                                        new MySqlParameter("@rate", txtPhyRate.Text),
+                                        new MySqlParameter("@rhythm", txtPhyRhythm.Text),
+                                        new MySqlParameter("@heartSound", txtPhyHeartSounds.Text),
+                                        new MySqlParameter("@addedSound", txtPhyAddedSounds.Text),
+                                        new MySqlParameter("@abdomenGeneral", txtPhyGeneral.Text),
+                                        new MySqlParameter("@liver", txtPhyLiver.Text),
+                                        new MySqlParameter("@spleen", txtPhySpleen.Text),
+                                        new MySqlParameter("@kidney", txtPhyKidney.Text),
+                                        new MySqlParameter("@herniaOrifices", txtPhyHerniaOrifices.Text),
+                                        new MySqlParameter("@abdomenOther", txtPhyAbdomenOthers.Text),
+                                        new MySqlParameter("@externalGenitaliaPap", optPhyPapYes.Checked),
+                                        new MySqlParameter("@gcs", txtPhyGCS.Text),
+                                        new MySqlParameter("@pupils", txtPhyPupils.Text),
+                                        new MySqlParameter("@focalNeuroDeficits", txtPhyFocalNeuro.Text),
+                                        new MySqlParameter("@cn", txtPhyCN.Text),
 
 
-                                        new SqlParameter("@eyeRemarks", txtPhyEyeRemarks.Text),
-                                        new SqlParameter("@earRemarks", txtPhyEarsRemarks.Text),
+                                        new MySqlParameter("@eyeRemarks", txtPhyEyeRemarks.Text),
+                                        new MySqlParameter("@earRemarks", txtPhyEarsRemarks.Text),
 
-                                        new SqlParameter("@throatRemarks", txtPhyThroatRemarks.Text),
-                                        new SqlParameter("@neckRemarks", txtPhyNeckRemarks.Text),
-                                        new SqlParameter("@breastRemarks", txtPhyBreastRemarks.Text),
-                                        new SqlParameter("@respiratoryRemarks", txtPhyRespiratoryRemarks.Text),
-                                        new SqlParameter("@abdomenRemarks", txtPhyAbdomenRemarks.Text),
-                                        new SqlParameter("@caridovascularRemarks", txtPhyCardiovacularRemarks.Text),
-                                        new SqlParameter("@externalGenitaliaRemarks", txtPhyExternalGen.Text),
-                                        new SqlParameter("@musculoskeletalRemarks", txtPhyMusculoskeletal.Text),
+                                        new MySqlParameter("@throatRemarks", txtPhyThroatRemarks.Text),
+                                        new MySqlParameter("@neckRemarks", txtPhyNeckRemarks.Text),
+                                        new MySqlParameter("@breastRemarks", txtPhyBreastRemarks.Text),
+                                        new MySqlParameter("@respiratoryRemarks", txtPhyRespiratoryRemarks.Text),
+                                        new MySqlParameter("@abdomenRemarks", txtPhyAbdomenRemarks.Text),
+                                        new MySqlParameter("@caridovascularRemarks", txtPhyCardiovacularRemarks.Text),
+                                        new MySqlParameter("@externalGenitaliaRemarks", txtPhyExternalGen.Text),
+                                        new MySqlParameter("@musculoskeletalRemarks", txtPhyMusculoskeletal.Text),
 
-                                        new SqlParameter("@examComment", txtPhyComment.Text),
-                                        new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
-                                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                        new SqlParameter("@visitPK", strSelectedVisitPK));
+                                        new MySqlParameter("@examComment", txtPhyComment.Text),
+                                        new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
+                                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                        new MySqlParameter("@visitPK", strSelectedVisitPK));
                     }
                 }
             }
@@ -1397,7 +1397,7 @@ namespace MediPro
                     if (grdLab.DefaultView.GetRow(i) == null) { goto skip; }
                     if (lueVisit.EditValue != null)
                     {
-                        int labRequestCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabTestRequest WHERE labTestRequestPK=@labTestRequestPK", new SqlParameter("@labTestRequestPK", ((DataRowView)grdLab.DefaultView.GetRow(i))[0].ToString()));
+                        int labRequestCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabTestRequest WHERE labTestRequestPK=@labTestRequestPK", new MySqlParameter("@labTestRequestPK", ((DataRowView)grdLab.DefaultView.GetRow(i))[0].ToString()));
                         
                         if (labRequestCnt > 0)
                         {
@@ -1405,11 +1405,11 @@ namespace MediPro
                             string labTestRequestPK = "";
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("UPDATE [tblLabTestRequest] SET [visitPK] = @visitPK, [labTestPK] = @labTestPK, [updatePK] = @updatePK, [updateDate] = @updateDate WHERE [labTestRequestPK] = @labTestRequestPK",
-                                            new SqlParameter("@labTestRequestPK", labTestRequestPK),
-                                            new SqlParameter("@visitPK", visitPK),
-                                            new SqlParameter("@labTestpK", labTestPK),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@updateDate", DateTime.Now)
+                                            new MySqlParameter("@labTestRequestPK", labTestRequestPK),
+                                            new MySqlParameter("@visitPK", visitPK),
+                                            new MySqlParameter("@labTestpK", labTestPK),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@updateDate", DateTime.Now)
                                             );
                         }
                         else
@@ -1418,13 +1418,13 @@ namespace MediPro
                             string labTestPK = ((DataRowView)grdLab.DefaultView.GetRow(i))["labTestPK"].ToString();
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("INSERT INTO [tblLabTestRequest] ([labTestRequestPK], [visitPK], [labTestPK],updatePK,updateDate, [createPK], [createDate]) VALUES (@labTestRequestPK, @visitPK, @labTestPK, @updatePK, @updateDate, @createPK, @createDate)",
-                                            new SqlParameter("@labTestRequestPK", labTestRequestPK),
-                                            new SqlParameter("@visitPK", visitPK),
-                                            new SqlParameter("@labTestpK", labTestPK),
-                                            new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@createDate", DateTime.Now),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@updateDate", DateTime.Now)
+                                            new MySqlParameter("@labTestRequestPK", labTestRequestPK),
+                                            new MySqlParameter("@visitPK", visitPK),
+                                            new MySqlParameter("@labTestpK", labTestPK),
+                                            new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@createDate", DateTime.Now),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@updateDate", DateTime.Now)
                                             );
 
                         }
@@ -1446,7 +1446,7 @@ namespace MediPro
                 DialogResult dr = MessageBox.Show("Are you sure to delete this request?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    SqlDb.ExecuteNonQuery("Delete from tblLabTestRequest where labTestRequestPK=@labTestRequestPK", new SqlParameter("@labTestRequestPK", labTestRequestPK));
+                    SqlDb.ExecuteNonQuery("Delete from tblLabTestRequest where labTestRequestPK=@labTestRequestPK", new MySqlParameter("@labTestRequestPK", labTestRequestPK));
                 }
             }
             LoadLabTestRequests(lueVisit.EditValue.ToString());
@@ -1455,7 +1455,7 @@ namespace MediPro
 
         private void LoadLabTestRequests(string visitPK)
         {
-            grdLab.DataSource = SqlDb.GetDataSet("Select * from tblLabTestRequest where visitPK=@visitPK", new SqlParameter("@visitPK", visitPK)).Tables[0];
+            grdLab.DataSource = SqlDb.GetDataSet("Select * from tblLabTestRequest where visitPK=@visitPK", new MySqlParameter("@visitPK", visitPK)).Tables[0];
         }
         #endregion
 
@@ -1471,7 +1471,7 @@ namespace MediPro
                     if (grdDiagnosis.DefaultView.GetRow(i) == null) { goto skip; }
                     if (lueVisit.EditValue != null)
                     {
-                        int rowCount = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedDiagnosis WHERE medDiagnosisPK=@medDiagnosisPK", new SqlParameter("@medDiagnosisPK", ((DataRowView)grdDiagnosis.DefaultView.GetRow(i))["medDiagnosisPK"].ToString()));
+                        int rowCount = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedDiagnosis WHERE medDiagnosisPK=@medDiagnosisPK", new MySqlParameter("@medDiagnosisPK", ((DataRowView)grdDiagnosis.DefaultView.GetRow(i))["medDiagnosisPK"].ToString()));
 
                         if (rowCount > 0)
                         {
@@ -1479,11 +1479,11 @@ namespace MediPro
                             string medDiagnosisPK = ((DataRowView)grdDiagnosis.DefaultView.GetRow(i))["medDiagnosisPK"].ToString();
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("UPDATE [tblMedDiagnosis] SET [visitPK] = @visitPK, [diagnosisPK] = @diagnosisPK, [updatePK] = @updatePK, [updateDate] = @updateDate WHERE [medDiagnosisPK] = @medDiagnosisPK",
-                                            new SqlParameter("@medDiagnosisPK", medDiagnosisPK),
-                                            new SqlParameter("@visitPK", visitPK),
-                                            new SqlParameter("@diagnosisPK", diagnosisPK),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@updateDate", DateTime.Now)
+                                            new MySqlParameter("@medDiagnosisPK", medDiagnosisPK),
+                                            new MySqlParameter("@visitPK", visitPK),
+                                            new MySqlParameter("@diagnosisPK", diagnosisPK),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@updateDate", DateTime.Now)
                                             );
                         }
                         else
@@ -1492,13 +1492,13 @@ namespace MediPro
                             string diagnosisPK = ((DataRowView)grdDiagnosis.DefaultView.GetRow(i))["diagnosisPK"].ToString();
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("INSERT INTO [tblMedDiagnosis] ([medDiagnosisPK], [visitPK], [diagnosisPK],updatePK,updateDate, [createPK], [createDate]) VALUES (@medDiagnosisPK, @visitPK, @diagnosisPK, @updatePK, @updateDate, @createPK, @createDate)",
-                                            new SqlParameter("@medDiagnosisPK", medDiagnosisPK),
-                                            new SqlParameter("@visitPK", visitPK),
-                                            new SqlParameter("@diagnosisPK", diagnosisPK),
-                                            new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@createDate", DateTime.Now),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@updateDate", DateTime.Now)
+                                            new MySqlParameter("@medDiagnosisPK", medDiagnosisPK),
+                                            new MySqlParameter("@visitPK", visitPK),
+                                            new MySqlParameter("@diagnosisPK", diagnosisPK),
+                                            new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@createDate", DateTime.Now),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@updateDate", DateTime.Now)
                                             );
 
                         }
@@ -1520,7 +1520,7 @@ namespace MediPro
                 DialogResult dr = MessageBox.Show("Are you sure to delete this request?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    SqlDb.ExecuteNonQuery("Delete from tblMedDiagnosis where medDiagnosisPK=@medDiagnosisPK", new SqlParameter("@medDiagnosisPK", medDiagnosisPK));
+                    SqlDb.ExecuteNonQuery("Delete from tblMedDiagnosis where medDiagnosisPK=@medDiagnosisPK", new MySqlParameter("@medDiagnosisPK", medDiagnosisPK));
                 }
             }
             LoadMedDiagnosis(lueVisit.EditValue.ToString());
@@ -1529,7 +1529,7 @@ namespace MediPro
 
         private void LoadMedDiagnosis(string visitPK)
         {
-            grdDiagnosis.DataSource = SqlDb.GetDataSet("Select * from tblMedDiagnosis where visitPK=@visitPK", new SqlParameter("@visitPK", visitPK)).Tables[0];
+            grdDiagnosis.DataSource = SqlDb.GetDataSet("Select * from tblMedDiagnosis where visitPK=@visitPK", new MySqlParameter("@visitPK", visitPK)).Tables[0];
         }
 
         #endregion
@@ -1546,7 +1546,7 @@ namespace MediPro
                     if (grdTreatment.DefaultView.GetRow(i) == null) { goto skip; }
                     if (lueVisit.EditValue != null)
                     {
-                        int treatmentCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTreatment WHERE treatmentPK=@treatmentPK", new SqlParameter("@treatmentPK",((DataRowView) grdTreatment.DefaultView.GetRow(i))["treatmentPK"].ToString()));
+                        int treatmentCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTreatment WHERE treatmentPK=@treatmentPK", new MySqlParameter("@treatmentPK",((DataRowView) grdTreatment.DefaultView.GetRow(i))["treatmentPK"].ToString()));
                         if (treatmentCnt > 0)
                         {
                             string treatmentPK = grdViewTreatment.GetDataRow(i)["treatmentPK"].ToString();
@@ -1557,15 +1557,15 @@ namespace MediPro
                             string treatmentRemark = grdViewTreatment.GetDataRow(i)["treatmentRemarks"].ToString(); 
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("UPDATE [tblTreatment] SET [visitPK] = @visitPK, [medPK] = @medPK,dosage=@dosage,frequencyPK=frequencyPK,duration=@duration,treatmentRemarks=@treatmentRemarks ,[updatePK] = @updatePK, [updateDate] = @updateDate WHERE [treatmentPK] = @treatmentPK",
-                                            new SqlParameter("@treatmentPK", treatmentPK),
-                                            new SqlParameter("@medPK", medPK),
-                                            new SqlParameter("@dosage", dosage),
-                                            new SqlParameter("@frequencyPK", frequencyPK),
-                                            new SqlParameter("@visitPK", visitPK),
-                                            new SqlParameter("@duration", duration),
-                                            new SqlParameter("@treatmentRemarks", treatmentRemark),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                            new SqlParameter("@updateDate", DateTime.Now)
+                                            new MySqlParameter("@treatmentPK", treatmentPK),
+                                            new MySqlParameter("@medPK", medPK),
+                                            new MySqlParameter("@dosage", dosage),
+                                            new MySqlParameter("@frequencyPK", frequencyPK),
+                                            new MySqlParameter("@visitPK", visitPK),
+                                            new MySqlParameter("@duration", duration),
+                                            new MySqlParameter("@treatmentRemarks", treatmentRemark),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                            new MySqlParameter("@updateDate", DateTime.Now)
                                             );
                         }
                         else
@@ -1579,17 +1579,17 @@ namespace MediPro
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("INSERT INTO tblTreatment([treatmentPK],[visitPK],[medPK],[dosage],[frequencyPK],[duration],[treatmentRemarks],[createPK],[createDate],[updatePK],[updateDate])" +
                                     "VALUES (@treatmentPK, @visitPK, @medPK, @dosage,@frequencyPK,@duration,@treatmentRemarks,@createPK,@createDate ,@updatePK, @updateDate)",
-                                                new SqlParameter("@treatmentPK", treatmentPK),
-                                                new SqlParameter("@medPK", medPK),
-                                                new SqlParameter("@dosage", dosage),
-                                                new SqlParameter("@frequencyPK", frequencyPK),
-                                                new SqlParameter("@visitPK", visitPK),
-                                                new SqlParameter("@duration", duration),
-                                                new SqlParameter("@treatmentRemarks", treatmentRemark),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
-                                                new SqlParameter("@createDate", DateTime.Now),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                                new SqlParameter("@updateDate", DateTime.Now)
+                                                new MySqlParameter("@treatmentPK", treatmentPK),
+                                                new MySqlParameter("@medPK", medPK),
+                                                new MySqlParameter("@dosage", dosage),
+                                                new MySqlParameter("@frequencyPK", frequencyPK),
+                                                new MySqlParameter("@visitPK", visitPK),
+                                                new MySqlParameter("@duration", duration),
+                                                new MySqlParameter("@treatmentRemarks", treatmentRemark),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK.ToString()),
+                                                new MySqlParameter("@createDate", DateTime.Now),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                                new MySqlParameter("@updateDate", DateTime.Now)
                                                 );
 
                                 //sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Medical History .");
@@ -1605,7 +1605,7 @@ namespace MediPro
 
         private void LoadTreatment(string visitPK)
         {
-            grdTreatment.DataSource = SqlDb.GetDataSet("Select * from tblTreatment where visitPK=@visitPK",new SqlParameter("@visitPK",visitPK)).Tables[0];
+            grdTreatment.DataSource = SqlDb.GetDataSet("Select * from tblTreatment where visitPK=@visitPK",new MySqlParameter("@visitPK",visitPK)).Tables[0];
         }
 
         #endregion
@@ -1616,10 +1616,10 @@ namespace MediPro
             if (lueVisit.EditValue != null)
             {
                 SqlDb.ExecuteNonQuery("Update tblVisit set Remarks=@Remarks,updatePK=@updatePK,updateDate=@updateDate where visitPK=@visitPK",
-                    new SqlParameter("@visitPK", lueVisit.EditValue.ToString()),
-                    new SqlParameter("@Remarks", txtRemarks.Text),
-                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                    new SqlParameter("@updateDate",DateTime.Now)
+                    new MySqlParameter("@visitPK", lueVisit.EditValue.ToString()),
+                    new MySqlParameter("@Remarks", txtRemarks.Text),
+                    new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                    new MySqlParameter("@updateDate",DateTime.Now)
                     );
 
 
@@ -1628,7 +1628,7 @@ namespace MediPro
         }
         private void LoadRemarks(string visitPK)
         {
-            txtRemarks.Text= SqlDb.ExecuteScalar<string>("Select remarks from tblVisit where visitPK=@visitPK", new SqlParameter("@visitPK", visitPK));
+            txtRemarks.Text= SqlDb.ExecuteScalar<string>("Select remarks from tblVisit where visitPK=@visitPK", new MySqlParameter("@visitPK", visitPK));
         }
 
 
@@ -1669,10 +1669,10 @@ namespace MediPro
                     object medSummaryPK = grdViewSummary.GetFocusedDataRow()["medSummaryPK"];
                     object summary = txtSummary.Text;
                     SqlDb.ExecuteNonQuery("Update tblMedSummary set Summary=@summary, updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
-                             new SqlParameter("@medSummaryPK", medSummaryPK),
-                             new SqlParameter("@summary", summary),
-                             new SqlParameter("@updateDate", DateTime.Now),
-                             new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                             new MySqlParameter("@medSummaryPK", medSummaryPK),
+                             new MySqlParameter("@summary", summary),
+                             new MySqlParameter("@updateDate", DateTime.Now),
+                             new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
                     LoadMedSummary(luePatient.EditValue.ToString());
                 }
@@ -1692,15 +1692,15 @@ namespace MediPro
                     medSummaryPK = SqlDb.ExecuteScalar<int>("getID tblMedSummary");
                     SqlDb.ExecuteNonQuery("Insert into tblMedSummary(medSummaryPK,doctorPK,patientPK,title,summary,createPK,createDate,updatePK,updateDate)" +
                        " values(@medSummaryPK,@doctorPK,@patientPK,@title,@summary,@createPK,@createDate,@updatePK,@updateDate)",
-                       new SqlParameter("@medSummaryPk", medSummaryPK),
-                       new SqlParameter("@patientPK", luePatient.EditValue),
-                       new SqlParameter("@doctorPK", AppVariable.CURRENT_USER_PK),
-                       new SqlParameter("@title", title),
-                       new SqlParameter("@summary", DBNull.Value),
-                       new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
-                       new SqlParameter("@createDate", DateTime.Now),
-                       new SqlParameter("@updateDate", DateTime.Now),
-                       new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                       new MySqlParameter("@medSummaryPk", medSummaryPK),
+                       new MySqlParameter("@patientPK", luePatient.EditValue),
+                       new MySqlParameter("@doctorPK", AppVariable.CURRENT_USER_PK),
+                       new MySqlParameter("@title", title),
+                       new MySqlParameter("@summary", DBNull.Value),
+                       new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
+                       new MySqlParameter("@createDate", DateTime.Now),
+                       new MySqlParameter("@updateDate", DateTime.Now),
+                       new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
                        );
                     grdViewSummary.SetFocusedRowCellValue("medSummaryPK", medSummaryPK);
                 }
@@ -1708,10 +1708,10 @@ namespace MediPro
                 {
 
                     SqlDb.ExecuteNonQuery("Update tblMedSummary set title=@title,updatePK=@updatePK,updateDate=@updateDate where medSummaryPK=@medSummaryPK",
-                        new SqlParameter("@medSummaryPK", medSummaryPK),
-                        new SqlParameter("@title", title),
-                        new SqlParameter("@updateDate", DateTime.Now),
-                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
+                        new MySqlParameter("@medSummaryPK", medSummaryPK),
+                        new MySqlParameter("@title", title),
+                        new MySqlParameter("@updateDate", DateTime.Now),
+                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK)
                         );
                 }
             }
@@ -1722,7 +1722,7 @@ namespace MediPro
         {
             //txtSummary.Text = "";
             grdSummaryHead.DataSource = SqlDb.GetDataSet("Select * from tblMedSummary where patientPK=@patientPK",
-                new SqlParameter("@patientPK", patientPK)).Tables[0];
+                new MySqlParameter("@patientPK", patientPK)).Tables[0];
         }
 
         private void grdViewSummary_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)

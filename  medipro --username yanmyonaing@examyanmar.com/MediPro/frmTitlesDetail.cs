@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -29,7 +29,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int TitleCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE TitleName=@TitleName AND isDelete=0", new SqlParameter("@TitleName", txtTitle.Text.Trim()));
+                int TitleCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE TitleName=@TitleName AND isDelete=0", new MySqlParameter("@TitleName", txtTitle.Text.Trim()));
 
                 if (TitleCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -41,15 +41,15 @@ namespace MediPro
                 {
                     if (txtTitle.Tag.ToString().Length > 0)
                     {
-                        int TitleIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE titlePK=@TitlePK AND isDelete=0", new SqlParameter("@TitlePK", txtTitle.Tag.ToString()));
+                        int TitleIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE titlePK=@TitlePK AND isDelete=0", new MySqlParameter("@TitlePK", txtTitle.Tag.ToString()));
 
                         if (TitleIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblTitle SET TitleName=@TitleName,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE titlePK=@TitlePK",
-                                            new SqlParameter("@TitlePK", int.Parse(Convert.ToString(txtTitle.Tag))),
-                                            new SqlParameter("@TitleName", txtTitle.Text),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                            SqlDb.ExecuteQuery("UPDATE tblTitle SET TitleName=@TitleName,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE titlePK=@TitlePK",
+                                            new MySqlParameter("@TitlePK", int.Parse(Convert.ToString(txtTitle.Tag))),
+                                            new MySqlParameter("@TitleName", txtTitle.Text),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Title.");
 
@@ -60,17 +60,17 @@ namespace MediPro
                     {
                         int TitleID = SqlDb.ExecuteScalar<int>("getID tblTitle");
 
-                        int TitleIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE titlePK=@TitlePK AND isDeleted=0", new SqlParameter("@TitlePK", TitleID));
+                        int TitleIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblTitle WHERE titlePK=@TitlePK AND isDeleted=0", new MySqlParameter("@TitlePK", TitleID));
 
                         if (TitleIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblTitle(titlePK,TitleName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@TitlePK,@TitleName,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@TitlePK", TitleID),
-                                                new SqlParameter("@TitleName", txtTitle.Text),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@TitlePK,@TitleName,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@TitlePK", TitleID),
+                                                new MySqlParameter("@TitleName", txtTitle.Text),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Title.");
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 using System.IO;
 using System.Drawing.Imaging;
@@ -220,7 +220,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int PatientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new SqlParameter("@RegNo", txtRegNo.Text.Trim()));
+                int PatientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new MySqlParameter("@RegNo", txtRegNo.Text.Trim()));
                                 
                     //Save image from PictureBox into MemoryStream object.
                     MemoryStream ms = new MemoryStream();
@@ -240,24 +240,24 @@ namespace MediPro
                 {
                     if (txtRegNo.Text.ToString().Length > 0)
                     {
-                        int RegNoCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new SqlParameter("@RegNo", txtRegNo.Text.ToString()));
+                        int RegNoCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new MySqlParameter("@RegNo", txtRegNo.Text.ToString()));
 
                         if (RegNoCnt > 0)
                         {
                             SqlDb.ExecuteQuery("UPDATE tblPatient SET name=@Name,NRC=@NRC,titlePK=@TitlePK,FatherName=@FatherName,DOB=@DOB,Gender=@Gender,Photo=@Photo, " +
-                                            "Phone=@Phone,email=@Email,Address=@Address,updateDate=SYSDATETIME() WHERE RegNo=@RegNo",
-                                            new SqlParameter("@RegNo", txtRegNo.Text.Trim()),
-                                            new SqlParameter("@titlePK", cboTitle.SelectedValue),
-                                            new SqlParameter("@name", txtName.Text.Trim()),
-                                            new SqlParameter("@NRC", txtNRC.Text.Trim()),
-                                            new SqlParameter("@Gender", cboGender.Text.Trim()),
-                                            new SqlParameter("@FatherName", txtFatherName.Text.Trim()),
-                                            new SqlParameter("@DOB", dteDOB.EditValue),
-                                            new SqlParameter("@Phone", txtContactNo.Text.Trim()),
-                                            new SqlParameter("@Email", txtEmail.Text.Trim()),
-                                            new SqlParameter("@Address", txtAddress.Text.Trim()),
-                                            new SqlParameter("@Photo", SqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                                            "Phone=@Phone,email=@Email,Address=@Address,updateDate=NOW() WHERE RegNo=@RegNo",
+                                            new MySqlParameter("@RegNo", txtRegNo.Text.Trim()),
+                                            new MySqlParameter("@titlePK", cboTitle.SelectedValue),
+                                            new MySqlParameter("@name", txtName.Text.Trim()),
+                                            new MySqlParameter("@NRC", txtNRC.Text.Trim()),
+                                            new MySqlParameter("@Gender", cboGender.Text.Trim()),
+                                            new MySqlParameter("@FatherName", txtFatherName.Text.Trim()),
+                                            new MySqlParameter("@DOB", dteDOB.EditValue),
+                                            new MySqlParameter("@Phone", txtContactNo.Text.Trim()),
+                                            new MySqlParameter("@Email", txtEmail.Text.Trim()),
+                                            new MySqlParameter("@Address", txtAddress.Text.Trim()),
+                                            new MySqlParameter("@Photo", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Patient Info");
 
@@ -273,34 +273,34 @@ namespace MediPro
 
                     //int CurUserID = SqlDb.ExecuteScalar<int>("getRegNo tblPatient N'");
 
-                    int RegNoCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new SqlParameter("@RegNo", txtRegNo.Text.Trim()));
+                    int RegNoCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE RegNo=@RegNo AND isDelete=0", new MySqlParameter("@RegNo", txtRegNo.Text.Trim()));
 
                     if (RegNoCnt < 1)
                     {
                         SqlDb.ExecuteQuery("INSERT INTO tblPatient(RegNo,RegDate,name,Photo,NRC,titlePK,FatherName,DOB,Gender,Phone,email,Address,createPK,createDate)" +
-                                            "VALUES(@RegNo,@RegDate,@Name,@Photo,@NRC,@TitlePK,@FatherName,@DOB,@Gender,@Phone,@Email,@Address,@CreatePK,SYSDATETIME())",
-                                            new SqlParameter("@RegDate", dteRegDate.EditValue),
-                                            new SqlParameter("@RegNo", txtRegNo.Text.Trim()),
-                                            new SqlParameter("@name", txtName.Text.Trim()),
-                                            new SqlParameter("@Photo", SqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData),
-                                            new SqlParameter("@NRC", txtNRC.Text.Trim()),
-                                            new SqlParameter("@titlePK", cboTitle.SelectedValue),
-                                            new SqlParameter("@FatherName", txtFatherName.Text.Trim()),
-                                            new SqlParameter("@DOB", dteDOB.EditValue),
-                                            new SqlParameter("@Gender", cboGender.Text.Trim()),
-                                            new SqlParameter("@Phone", txtContactNo.Text.Trim()),
-                                            new SqlParameter("@Email", txtEmail.Text.Trim()),
-                                            new SqlParameter("@Address", txtAddress.Text.Trim()),
-                                            new SqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
+                                            "VALUES(@RegNo,@RegDate,@Name,@Photo,@NRC,@TitlePK,@FatherName,@DOB,@Gender,@Phone,@Email,@Address,@CreatePK,NOW())",
+                                            new MySqlParameter("@RegDate", dteRegDate.EditValue),
+                                            new MySqlParameter("@RegNo", txtRegNo.Text.Trim()),
+                                            new MySqlParameter("@name", txtName.Text.Trim()),
+                                            new MySqlParameter("@Photo", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData),
+                                            new MySqlParameter("@NRC", txtNRC.Text.Trim()),
+                                            new MySqlParameter("@titlePK", cboTitle.SelectedValue),
+                                            new MySqlParameter("@FatherName", txtFatherName.Text.Trim()),
+                                            new MySqlParameter("@DOB", dteDOB.EditValue),
+                                            new MySqlParameter("@Gender", cboGender.Text.Trim()),
+                                            new MySqlParameter("@Phone", txtContactNo.Text.Trim()),
+                                            new MySqlParameter("@Email", txtEmail.Text.Trim()),
+                                            new MySqlParameter("@Address", txtAddress.Text.Trim()),
+                                            new MySqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
 
                         sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Register New Patient");
 
                         if (cmdSave.Tag.ToString() == "Booked")
                         {
                             SqlDb.ExecuteQuery("UPDATE tblBooking SET RegNo=@RegNo,patientName=@PatientName,isNew=1 WHERE PK=@BookingPK",
-                                            new SqlParameter("@RegNo", txtRegNo.Text.Trim()),
-                                            new SqlParameter("@PatientName", txtName.Text.Trim()),
-                                            new SqlParameter("@BookingPK", txtName.Tag.ToString()));
+                                            new MySqlParameter("@RegNo", txtRegNo.Text.Trim()),
+                                            new MySqlParameter("@PatientName", txtName.Text.Trim()),
+                                            new MySqlParameter("@BookingPK", txtName.Tag.ToString()));
                         }
 
                         DialogResult dr = MessageBox.Show("Save is successful. Do you want to register new patient?", "MediPro :: Clinic System", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -325,7 +325,7 @@ namespace MediPro
         {
             if (txtRegNo.Text.ToString().Length > 0)
             {
-                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new SqlParameter("@RegNo", txtRegNo.Text.Trim()));
+                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new MySqlParameter("@RegNo", txtRegNo.Text.Trim()));
                 int DataRowCnt = dsPatient.Tables[0].Rows.Count;
 
                 if (DataRowCnt > 0)
@@ -366,7 +366,7 @@ namespace MediPro
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            int nameCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE Name=@Name AND isDelete=0", new SqlParameter("@Name", txtName.Text.Trim()));
+            int nameCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE Name=@Name AND isDelete=0", new MySqlParameter("@Name", txtName.Text.Trim()));
 
             if (nameCnt > 0)
             {

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -29,7 +29,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int FreCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequency=@Frequency AND isDelete=0", new SqlParameter("@Frequency", txtFrequency.Text.Trim()));
+                int FreCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequency=@Frequency AND isDelete=0", new MySqlParameter("@Frequency", txtFrequency.Text.Trim()));
 
                 if (FreCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -41,16 +41,16 @@ namespace MediPro
                 {
                     if (txtFrequency.Tag.ToString().Length > 0)
                     {
-                        int FreIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequencyPK=@FrequencyPK AND isDelete=0", new SqlParameter("@FrequencyPK", txtFrequency.Tag.ToString()));
+                        int FreIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequencyPK=@FrequencyPK AND isDelete=0", new MySqlParameter("@FrequencyPK", txtFrequency.Tag.ToString()));
 
                         if (FreIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblFrequency SET frequency=@Frequency,treatmentPK=@TreatmentPK,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE frequencyPK=@FrequencyPK",
-                                            new SqlParameter("@FrequencyPK", txtFrequency.Tag.ToString()),
-                                            new SqlParameter("@Frequency", txtFrequency.Text.Trim()),
-                                            new SqlParameter("@TreatmentPK", cboTreatmentType.SelectedValue),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblFrequency SET frequency=@Frequency,treatmentPK=@TreatmentPK,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE frequencyPK=@FrequencyPK",
+                                            new MySqlParameter("@FrequencyPK", txtFrequency.Tag.ToString()),
+                                            new MySqlParameter("@Frequency", txtFrequency.Text.Trim()),
+                                            new MySqlParameter("@TreatmentPK", cboTreatmentType.SelectedValue),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Frequency.");
 
@@ -61,18 +61,18 @@ namespace MediPro
                     {
                         int FreID = SqlDb.ExecuteScalar<int>("getID tblFrequency");
 
-                        int FreIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequencyPK=@FrequencyPK AND isDelete=0", new SqlParameter("@FrequencyPK", FreID));
+                        int FreIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequencyPK=@FrequencyPK AND isDelete=0", new MySqlParameter("@FrequencyPK", FreID));
 
                         if (FreIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblFrequency(frequencyPK,frequency,treatmentPK,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@FrequencyPK,@Frequency,@TreatmentPK,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@FrequencyPK", FreID),
-                                                new SqlParameter("@Frequency", txtFrequency.Text.Trim()),
-                                                new SqlParameter("@TreatmentPK", cboTreatmentType.SelectedValue),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@FrequencyPK,@Frequency,@TreatmentPK,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@FrequencyPK", FreID),
+                                                new MySqlParameter("@Frequency", txtFrequency.Text.Trim()),
+                                                new MySqlParameter("@TreatmentPK", cboTreatmentType.SelectedValue),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Frequency.");
 

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.IO;
 using exaCore;
 
@@ -45,7 +45,7 @@ namespace MediPro
 
         private void PatientDataLoadWithRegNo()
         {
-            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB, 105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new SqlParameter("@RegNo", RegNo));
+            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB, 105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new MySqlParameter("@RegNo", RegNo));
 
             txtRegNo.Text = dsCurPatient.Tables[0].Rows[0]["RegNo"].ToString();
             txtFatherName.Text = dsCurPatient.Tables[0].Rows[0]["FatherName"].ToString();
@@ -63,7 +63,7 @@ namespace MediPro
 
         void VisitDataLoadWithVisitPK()
         {
-            DataSet dsCurVisit = SqlDb.GetDataSet("SELECT Convert(varchar,visitDate, 111) As visitDate, visitDescription, doctorPK, visitWeight, visitFeet, inch, bloodType FROM tblVisit WHERE visitPK=@VisitPK", new SqlParameter("@VisitPK", dteVisitDate.Tag.ToString()));
+            DataSet dsCurVisit = SqlDb.GetDataSet("SELECT Convert(varchar,visitDate, 111) As visitDate, visitDescription, doctorPK, visitWeight, visitFeet, inch, bloodType FROM tblVisit WHERE visitPK=@VisitPK", new MySqlParameter("@VisitPK", dteVisitDate.Tag.ToString()));
 
             dteVisitDate.EditValue = dsCurVisit.Tables[0].Rows[0]["visitDate"].ToString();
             lueDoctor.EditValue = dsCurVisit.Tables[0].Rows[0]["doctorPK"].ToString();
@@ -80,7 +80,7 @@ namespace MediPro
         {
             if (txtRegNo.Text.ToString().Length > 0)
             {
-                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new SqlParameter("@RegNo", RegNo));
+                DataSet dsPatient = SqlDb.GetDataSet("SELECT * FROM tblPatient WHERE RegNo = @RegNo", new MySqlParameter("@RegNo", RegNo));
                 int DataRowCnt = dsPatient.Tables[0].Rows.Count;
 
                 if (DataRowCnt > 0)
@@ -189,7 +189,7 @@ namespace MediPro
                 if (cmdSave.Tag.ToString().Length > 0)
                 {
                     visitCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblVisit WHERE visitPK=@VisitPK",
-                                                            new SqlParameter("@VisitPK", dteVisitDate.Tag.ToString()));
+                                                            new MySqlParameter("@VisitPK", dteVisitDate.Tag.ToString()));
                 }
 
                 if (visitCnt < 1)
@@ -197,23 +197,23 @@ namespace MediPro
                     string VisitPK = SqlDb.ExecuteScalar<string>("getVisitNo N'tblVisit','" + dtVisit.ToString("yyyy-MM-dd") + "'");
 
                     SqlDb.ExecuteQuery("INSERT INTO tblVisit(visitPK,RegNo,visitDate,visitDescription,doctorPK,visitWeight,visitFeet,inch,bmi,bloodType,createPK,createDate) " +
-                                                    "VALUES(@VisitPK,@RegNo,@VisitDate,@VisitDescription,@DoctorPK,@VisitWeight,@VisitFeet,@Inch,@BMI,@BloodType,@CreatePK,SYSDATETIME())",
-                                                    new SqlParameter("@VisitPK", VisitPK),
-                                                    new SqlParameter("@RegNo", txtRegNo.Text.Trim()),
-                                                    new SqlParameter("@VisitDate", dtVisit.ToString("yyyy-MM-dd")),
-                                                    new SqlParameter("@VisitDescription", txtDescription.Text),
-                                                    new SqlParameter("@DoctorPK", lueDoctor.EditValue),
-                                                    new SqlParameter("@VisitWeight", txtWeight.Text),
-                                                    new SqlParameter("@VisitFeet", txtft.Text),
-                                                    new SqlParameter("@Inch", txtin.Text),
-                                                    new SqlParameter("@BMI", txtBMI.Text),
-                                                    new SqlParameter("@BloodType", cboBloodType.Text),
-                                                    new SqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
+                                                    "VALUES(@VisitPK,@RegNo,@VisitDate,@VisitDescription,@DoctorPK,@VisitWeight,@VisitFeet,@Inch,@BMI,@BloodType,@CreatePK,NOW())",
+                                                    new MySqlParameter("@VisitPK", VisitPK),
+                                                    new MySqlParameter("@RegNo", txtRegNo.Text.Trim()),
+                                                    new MySqlParameter("@VisitDate", dtVisit.ToString("yyyy-MM-dd")),
+                                                    new MySqlParameter("@VisitDescription", txtDescription.Text),
+                                                    new MySqlParameter("@DoctorPK", lueDoctor.EditValue),
+                                                    new MySqlParameter("@VisitWeight", txtWeight.Text),
+                                                    new MySqlParameter("@VisitFeet", txtft.Text),
+                                                    new MySqlParameter("@Inch", txtin.Text),
+                                                    new MySqlParameter("@BMI", txtBMI.Text),
+                                                    new MySqlParameter("@BloodType", cboBloodType.Text),
+                                                    new MySqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
 
                     SqlDb.ExecuteQuery("UPDATE tblBooking SET doctorPK=@DoctorPK,visitPK=@VisitPK, isVisited=1 WHERE PK=@PK", 
-                                        new SqlParameter("@PK", cmdSave.Tag.ToString()),
-                                        new SqlParameter("@DoctorPK", lueDoctor.EditValue),
-                                        new SqlParameter("@VisitPK", VisitPK));
+                                        new MySqlParameter("@PK", cmdSave.Tag.ToString()),
+                                        new MySqlParameter("@DoctorPK", lueDoctor.EditValue),
+                                        new MySqlParameter("@VisitPK", VisitPK));
 
                     sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Visit.");
 
@@ -223,18 +223,18 @@ namespace MediPro
                 {
                     SqlDb.ExecuteQuery("UPDATE tblVisit SET RegNo=@RegNo,visitDate=@VisitDate,visitDescription=@VisitDescription,"+
                                         "doctorPK=@DoctorPK,visitWeight=@VisitWeight,visitFeet=@VisitFeet,inch=@Inch,bmi=@BMI,bloodType=@BloodType," +
-                                        "updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE visitPK=@VisitPK",
-                                        new SqlParameter("@VisitPK", dteVisitDate.Tag.ToString()),
-                                        new SqlParameter("@RegNo", txtRegNo.Text.Trim()),
-                                        new SqlParameter("@VisitDate", dtVisit.ToString("yyyy-MM-dd")),
-                                        new SqlParameter("@VisitDescription", txtDescription.Text),
-                                        new SqlParameter("@DoctorPK", lueDoctor.EditValue),
-                                        new SqlParameter("@VisitWeight", txtWeight.Text),
-                                        new SqlParameter("@VisitFeet", txtft.Text),
-                                        new SqlParameter("@Inch", txtin.Text),
-                                        new SqlParameter("@BMI", txtBMI.Text),
-                                        new SqlParameter("@BloodType", cboBloodType.Text),
-                                        new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
+                                        "updateDate=NOW(),updatePK=@UpdatePK WHERE visitPK=@VisitPK",
+                                        new MySqlParameter("@VisitPK", dteVisitDate.Tag.ToString()),
+                                        new MySqlParameter("@RegNo", txtRegNo.Text.Trim()),
+                                        new MySqlParameter("@VisitDate", dtVisit.ToString("yyyy-MM-dd")),
+                                        new MySqlParameter("@VisitDescription", txtDescription.Text),
+                                        new MySqlParameter("@DoctorPK", lueDoctor.EditValue),
+                                        new MySqlParameter("@VisitWeight", txtWeight.Text),
+                                        new MySqlParameter("@VisitFeet", txtft.Text),
+                                        new MySqlParameter("@Inch", txtin.Text),
+                                        new MySqlParameter("@BMI", txtBMI.Text),
+                                        new MySqlParameter("@BloodType", cboBloodType.Text),
+                                        new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK));
 
                     sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Visit.");
 

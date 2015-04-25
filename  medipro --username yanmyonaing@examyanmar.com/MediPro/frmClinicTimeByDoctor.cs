@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.Xpo;
 using DevExpress.XtraGrid.Views.Grid;
@@ -43,8 +43,8 @@ namespace MediPro
 
                 DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK, clinicDay, ctdOption, toTime, fromTime FROM tblClinicTimeByDoctor " +
                                         "WHERE isDelete = 0 AND doctorPK = @DoctorPK AND clinicDay=@clinicDay",
-                                        new SqlParameter("@clinicDay",cboDay.Text),
-                                        new SqlParameter("@DoctorPK", cboDoctor.SelectedValue));
+                                        new MySqlParameter("@clinicDay",cboDay.Text),
+                                        new MySqlParameter("@DoctorPK", cboDoctor.SelectedValue));
 
                 grdClinicTime.DataSource = dsCTD.Tables[0];
             }
@@ -86,33 +86,33 @@ namespace MediPro
                     if (grdViewClinicTime.GetRowCellDisplayText(i, "fromTime").ToString().Length > 0 && grdViewClinicTime.GetRowCellDisplayText(i, "toTime").ToString().Length > 0 && cboDay.Text.Length>0)
                     {
                         int timeCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK = @DoctorPK AND ctdPK = @CTDPK",
-                                                                new SqlParameter("@DoctorPK", (grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK") != null) ? grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK") : "0"),
-                                                                new SqlParameter("@CTDPK", (grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK") != null) ? grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK") : "0"));
+                                                                new MySqlParameter("@DoctorPK", (grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK") != null) ? grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK") : "0"),
+                                                                new MySqlParameter("@CTDPK", (grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK") != null) ? grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK") : "0"));
 
                         if (timeCnt > 0)
                         {
                             SqlDb.ExecuteQuery("UPDATE tblClinicTimeByDoctor SET ctdPK=@CTDPK, doctorPK=@DoctorPK, clinicDay=@ClinicDay, ctdOption=@CTDOption, fromTime=@FromTime, " +
-                                                "toTime=@ToTime, updatePK=@UpdatePK, updateDate=SYSDATETIME() WHERE ctdPK = @CTDPK AND doctorPK = @DoctorPK",
-                                                new SqlParameter("@CTDPK", grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK").ToString()),
-                                                new SqlParameter("@doctorPK", grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK").ToString()),
-                                                new SqlParameter("@ClinicDay", cboDay.Text),
-                                                new SqlParameter("@CTDOption", grdViewClinicTime.GetRowCellDisplayText(i, "ctdOption").ToString()),
-                                                new SqlParameter("@FromTime", grdViewClinicTime.GetRowCellDisplayText(i, "fromTime").ToString()),
-                                                new SqlParameter("@ToTime", grdViewClinicTime.GetRowCellDisplayText(i, "toTime").ToString()),
-                                                new SqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
+                                                "toTime=@ToTime, updatePK=@UpdatePK, updateDate=NOW() WHERE ctdPK = @CTDPK AND doctorPK = @DoctorPK",
+                                                new MySqlParameter("@CTDPK", grdViewClinicTime.GetRowCellDisplayText(i, "ctdPK").ToString()),
+                                                new MySqlParameter("@doctorPK", grdViewClinicTime.GetRowCellDisplayText(i, "doctorPK").ToString()),
+                                                new MySqlParameter("@ClinicDay", cboDay.Text),
+                                                new MySqlParameter("@CTDOption", grdViewClinicTime.GetRowCellDisplayText(i, "ctdOption").ToString()),
+                                                new MySqlParameter("@FromTime", grdViewClinicTime.GetRowCellDisplayText(i, "fromTime").ToString()),
+                                                new MySqlParameter("@ToTime", grdViewClinicTime.GetRowCellDisplayText(i, "toTime").ToString()),
+                                                new MySqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
                         }
                         else
                         {
                             int CTDPK = SqlDb.ExecuteScalar<int>("getID tblClinicTimeByDoctor");
                             SqlDb.ExecuteQuery("INSERT INTO tblClinicTimeByDoctor(ctdPK, doctorPK, clinicDay, ctdOption, fromTime, toTime, createPK, createDate)" +
-                                                "VALUES(@CTDPK, @DoctorPK, @ClinicDay, @CTDOption, @FromTime, @ToTime, @CreatePK, SYSDATETIME())",
-                                                new SqlParameter("@CTDPK", CTDPK),
-                                                new SqlParameter("@doctorPK", cboDoctor.SelectedValue),
-                                                new SqlParameter("@ClinicDay", cboDay.Text),
-                                                new SqlParameter("@CTDOption", grdViewClinicTime.GetRowCellDisplayText(i, "ctdOption").ToString()),
-                                                new SqlParameter("@FromTime", grdViewClinicTime.GetRowCellDisplayText(i, "fromTime").ToString()),
-                                                new SqlParameter("@ToTime", grdViewClinicTime.GetRowCellDisplayText(i, "toTime").ToString()),
-                                                new SqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@CTDPK, @DoctorPK, @ClinicDay, @CTDOption, @FromTime, @ToTime, @CreatePK, NOW())",
+                                                new MySqlParameter("@CTDPK", CTDPK),
+                                                new MySqlParameter("@doctorPK", cboDoctor.SelectedValue),
+                                                new MySqlParameter("@ClinicDay", cboDay.Text),
+                                                new MySqlParameter("@CTDOption", grdViewClinicTime.GetRowCellDisplayText(i, "ctdOption").ToString()),
+                                                new MySqlParameter("@FromTime", grdViewClinicTime.GetRowCellDisplayText(i, "fromTime").ToString()),
+                                                new MySqlParameter("@ToTime", grdViewClinicTime.GetRowCellDisplayText(i, "toTime").ToString()),
+                                                new MySqlParameter("@CreatePK", AppVariable.CURRENT_USER_PK));
                         }                        
                     }
                 }
@@ -134,15 +134,15 @@ namespace MediPro
                 if (DialogResult == DialogResult.Yes)
                 {
                     int timeCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK = @DoctorPK AND ctdPK = @CTDPK",
-                                                                new SqlParameter("@DoctorPK", drClinicTime.ItemArray[1]),
-                                                                new SqlParameter("@CTDPK", drClinicTime.ItemArray[0]));
+                                                                new MySqlParameter("@DoctorPK", drClinicTime.ItemArray[1]),
+                                                                new MySqlParameter("@CTDPK", drClinicTime.ItemArray[0]));
                     if (timeCnt > 0)
                     {
-                        SqlDb.ExecuteQuery("UPDATE tblClinicTimeByDoctor SET isDelete=@IsDelete, updatePK=@UpdatePK, updateDate=SYSDATETIME() WHERE ctdPK = @CTDPK AND doctorPK = @DoctorPK",
-                                            new SqlParameter("@DoctorPK", drClinicTime.ItemArray[1]),
-                                            new SqlParameter("@CTDPK", drClinicTime.ItemArray[0]),
-                                            new SqlParameter("@IsDelete", 1),
-                                            new SqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
+                        SqlDb.ExecuteQuery("UPDATE tblClinicTimeByDoctor SET isDelete=@IsDelete, updatePK=@UpdatePK, updateDate=NOW() WHERE ctdPK = @CTDPK AND doctorPK = @DoctorPK",
+                                            new MySqlParameter("@DoctorPK", drClinicTime.ItemArray[1]),
+                                            new MySqlParameter("@CTDPK", drClinicTime.ItemArray[0]),
+                                            new MySqlParameter("@IsDelete", 1),
+                                            new MySqlParameter("@UpdatePK", AppVariable.CURRENT_USER_PK));
                     }
 
                     MessageBox.Show("Delete is successful.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);

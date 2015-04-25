@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -29,14 +29,14 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int UserCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK = @PK AND isDelete =0", new SqlParameter("@PK", txtNewPassw.Tag.ToString()));
+                int UserCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK = @PK AND isDelete =0", new MySqlParameter("@PK", txtNewPassw.Tag.ToString()));
 
                 if (UserCnt > 0 && cmdSave.Tag.ToString() == "Edit")
                 {
-                    SqlDb.ExecuteQuery("UPDATE sysUser SET passw=@Passw,updatePK,updateDate=SYSDATETIME() WHERE PK=@UserID",
-                                    new SqlParameter("@UserID", txtNewPassw.Tag.ToString()),
-                                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                    new SqlParameter("@Passw", Crypto.Encrypt(txtNewPassw.Text.Trim())));
+                    SqlDb.ExecuteQuery("UPDATE sysUser SET passw=@Passw,updatePK,updateDate=NOW() WHERE PK=@UserID",
+                                    new MySqlParameter("@UserID", txtNewPassw.Tag.ToString()),
+                                    new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                    new MySqlParameter("@Passw", Crypto.Encrypt(txtNewPassw.Text.Trim())));
 
                     sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Reset Password.");
 

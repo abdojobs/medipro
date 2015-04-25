@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace MediPro
@@ -41,7 +41,7 @@ namespace MediPro
         {
             if (ValidateForm() == true)
             {
-                int SpecCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE position=@Position AND isDelete=0", new SqlParameter("@Position", txtPosition.Text.Trim()));
+                int SpecCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE position=@Position AND isDelete=0", new MySqlParameter("@Position", txtPosition.Text.Trim()));
 
                 if (SpecCnt > 0 && cmdSave.Tag.ToString() == "Add")
                 {
@@ -53,15 +53,15 @@ namespace MediPro
                 {
                     if (txtPosition.Tag.ToString().Length > 0)
                     {
-                        int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new SqlParameter("@PositionPK", txtPosition.Tag.ToString()));
+                        int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new MySqlParameter("@PositionPK", txtPosition.Tag.ToString()));
 
                         if (PosiIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblPosition SET position=@Position,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE positionPK=@PositionPK",
-                                            new SqlParameter("@PositionPK", txtPosition.Tag.ToString()),
-                                            new SqlParameter("@Position", txtPosition.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblPosition SET position=@Position,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE positionPK=@PositionPK",
+                                            new MySqlParameter("@PositionPK", txtPosition.Tag.ToString()),
+                                            new MySqlParameter("@Position", txtPosition.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Position.");
 
@@ -72,17 +72,17 @@ namespace MediPro
                     {
                         int PosiID = SqlDb.ExecuteScalar<int>("getID tblPosition");
 
-                        int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new SqlParameter("@PositionPK", PosiID));
+                        int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new MySqlParameter("@PositionPK", PosiID));
 
                         if (PosiIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblPosition(positionPK,position,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@PositionPK,@Position,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@PositionPK", PosiID),
-                                                new SqlParameter("@Position", txtPosition.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@PositionPK,@Position,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@PositionPK", PosiID),
+                                                new MySqlParameter("@Position", txtPosition.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Position.");
 
