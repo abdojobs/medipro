@@ -3,51 +3,56 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Configuration;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 
 namespace exaCore
 {
     public class clsSQL
     {
+        
         static string connString = "";
-        public SqlConnection con;
-        private SqlTransaction rTran;
+        public MySqlConnection con;
+        private MySqlTransaction rTran;
 
         public clsSQL()
         {
-            connString = ConfigurationManager.ConnectionStrings["CnnpMediPro"].ToString();            
-            con = new SqlConnection(connString);
+            connString = ConfigurationManager.ConnectionStrings["CnnpMediPro"].ToString();
+            con = new MySqlConnection(connString);
         }
 
         public clsSQL(string ConnectionString)
         {
             connString = ConnectionString;
-            con = new SqlConnection(connString);
+            con = new MySqlConnection(connString);
         }
 
         ~clsSQL()
         {
         }
 
-        public SqlTransaction myTrans
+        public MySqlTransaction myTrans
         {
             set { rTran = value; }
             get { return rTran; }
         }
 
-        public DType ExecuteScalar<DType>(string SqlString, params SqlParameter[] parameters)
+
+
+        public DType ExecuteScalar<DType>(string SqlString, params MySqlParameter[] parameters)
         {
 
             DType result = default(DType);
 
             if (!string.IsNullOrEmpty(SqlString))
             {
-                using (SqlCommand command = new SqlCommand(SqlString, con))
+                using (MySqlCommand command = new MySqlCommand(SqlString, con))
                 {
                     if (parameters != null && parameters.Length > 0)
                     {
-                        foreach (SqlParameter parameter in parameters)
+                        foreach (MySqlParameter parameter in parameters)
                         {
 
                             command.Parameters.Add(parameter);
@@ -74,19 +79,19 @@ namespace exaCore
             return result;
         }
 
-        public DType ExecuteScalar<DType>(string SqlString, CommandType type, SqlParameter[] parm)
+        public DType ExecuteScalar<DType>(string SqlString, CommandType type, MySqlParameter[] parm)
         {
 
             DType result = default(DType);
 
             if (!string.IsNullOrEmpty(SqlString))
             {
-                using (SqlCommand command = new SqlCommand(SqlString, con))
+                using (MySqlCommand command = new MySqlCommand(SqlString, con))
                 {
                     command.CommandType = type;
                     if (parm != null && parm.Length > 0)
                     {
-                        foreach (SqlParameter parameter in parm)
+                        foreach (MySqlParameter parameter in parm)
                         {
                             command.Parameters.Add(parameter);
                         }
@@ -111,9 +116,9 @@ namespace exaCore
             return result;
         }
 
-        public bool ExecuteQuery(string commandText, CommandType type, params SqlParameter[] parms)
+        public bool ExecuteQuery(string commandText, CommandType type, params MySqlParameter[] parms)
         {
-            SqlCommand cmd = con.CreateCommand();
+            MySqlCommand cmd = con.CreateCommand();
             cmd.CommandText = commandText;
             cmd.CommandType = type;           
 
@@ -121,7 +126,7 @@ namespace exaCore
 
             if (parms != null && parms.Length > 0)
             {
-                foreach (SqlParameter p in parms)
+                foreach (MySqlParameter p in parms)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -131,7 +136,7 @@ namespace exaCore
             {                
                 if (con.State != ConnectionState.Open)
                     con.Open();
-                SqlTransaction sqlTran;
+                MySqlTransaction sqlTran;
                 sqlTran = con.BeginTransaction();
                 cmd.Transaction = sqlTran;
                 try
@@ -161,7 +166,7 @@ namespace exaCore
             return result;
 
         }
-        public bool ExecuteQuery(SqlCommand oSqlCommand)
+        public bool ExecuteQuery(MySqlCommand oSqlCommand)
         {  
             oSqlCommand.Connection = con;
             bool result = false;
@@ -171,7 +176,7 @@ namespace exaCore
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlTransaction sqlTran;
+                MySqlTransaction sqlTran;
                 sqlTran = con.BeginTransaction();
                 oSqlCommand.Transaction = sqlTran;
                 try
@@ -200,16 +205,16 @@ namespace exaCore
             return result;
         }
 
-        public bool ExecuteQuery(string commandText, params SqlParameter[] parms)
+        public bool ExecuteQuery(string commandText, params MySqlParameter[] parms)
         {
-            SqlCommand cmd = con.CreateCommand();
+            MySqlCommand cmd = con.CreateCommand();
             cmd.CommandText = commandText;
 
             bool result = false;
 
             if (parms != null && parms.Length > 0)
             {
-                foreach (SqlParameter p in parms)
+                foreach (MySqlParameter p in parms)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -220,7 +225,7 @@ namespace exaCore
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlTransaction sqlTran;
+                MySqlTransaction sqlTran;
                 sqlTran = con.BeginTransaction();
                 cmd.Transaction = sqlTran;
                 try
@@ -250,17 +255,17 @@ namespace exaCore
             return result;
         }
 
-        public bool ExecuteNonQuery(string commandText, params SqlParameter[] parms)
+        public bool ExecuteNonQuery(string commandText, params MySqlParameter[] parms)
         {
 
-            SqlCommand cmd = con.CreateCommand();
+            MySqlCommand cmd = con.CreateCommand();
             cmd.CommandText = commandText;
 
             bool result = false;
 
             if (parms != null && parms.Length > 0)
             {
-                foreach (SqlParameter p in parms)
+                foreach (MySqlParameter p in parms)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -296,14 +301,14 @@ namespace exaCore
             return result;
         }
 
-        public DataSet GetDataSet(string tblname, string commandtext, CommandType type, params SqlParameter[] parm)
+        public DataSet GetDataSet(string tblname, string commandtext, CommandType type, params MySqlParameter[] parm)
         {
-            SqlCommand cmd = new SqlCommand(commandtext, con);
+            MySqlCommand cmd = new MySqlCommand(commandtext, con);
             cmd.CommandType = type;
             DataSet result = new DataSet();
             if (parm != null && parm.Length > 0)
             {
-                foreach (SqlParameter p in parm)
+                foreach (MySqlParameter p in parm)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -313,7 +318,7 @@ namespace exaCore
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(result, tblname);                
             }
@@ -331,13 +336,13 @@ namespace exaCore
             return result;
         }
 
-        public DataSet GetDataSet(string tblname, string commandtext, params SqlParameter[] parm)
+        public DataSet GetDataSet(string tblname, string commandtext, params MySqlParameter[] parm)
         {
-            SqlCommand cmd = new SqlCommand(commandtext, con);
+            MySqlCommand cmd = new MySqlCommand(commandtext, con);
             DataSet result = new DataSet();
             if (parm != null && parm.Length > 0)
             {
-                foreach (SqlParameter p in parm)
+                foreach (MySqlParameter p in parm)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -347,7 +352,7 @@ namespace exaCore
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(result, tblname);
             }
@@ -365,13 +370,13 @@ namespace exaCore
             return result;
         }
 
-        public DataSet GetDataSet(string commandtext, params SqlParameter[] parm)
+        public DataSet GetDataSet(string commandtext, params MySqlParameter[] parm)
         {
-            SqlCommand cmd = new SqlCommand(commandtext, con);
+            MySqlCommand cmd = new MySqlCommand(commandtext, con);
             DataSet result = new DataSet();
             if (parm != null && parm.Length > 0)
             {
-                foreach (SqlParameter p in parm)
+                foreach (MySqlParameter p in parm)
                 {
                     cmd.Parameters.Add(p);
                 }
@@ -381,7 +386,7 @@ namespace exaCore
                 if (con.State != ConnectionState.Open)
                     con.Open();
 
-                SqlDataAdapter adapter = new SqlDataAdapter();
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
                 adapter.Fill(result);
             }
@@ -486,7 +491,7 @@ namespace exaCore
                         result = true;
                     }
                 }
-                catch (SqlException ex)
+                catch (MySqlException ex)
                 {
                     throw ex;
                 }

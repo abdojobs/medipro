@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace exaCore
 {
@@ -14,28 +14,28 @@ namespace exaCore
         public static void logs_login()
         {
             SqlDb.ExecuteQuery("INSERT INTO sys_log(LogInID,WhichFunction,Description,LogDateTime) " +
-                               "VALUES(@LogInID,@WhichFunction,@Description,SYSDATETIME())",
-                               new SqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
-                               new SqlParameter("@WhichFunction", "Login"),
-                               new SqlParameter("@Description", "Login"));
+                               "VALUES(@LogInID,@WhichFunction,@Description,NOW())",
+                               new MySqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
+                               new MySqlParameter("@WhichFunction", "Login"),
+                               new MySqlParameter("@Description", "Login"));
         }
 
         public static void logs_logout()
         {
             SqlDb.ExecuteQuery("INSERT INTO sys_log(LogInID,WhichFunction,Description,LogDateTime) " +
-                               "VALUES(@LogInID,@WhichFunction,@Description,SYSDATETIME())",
-                               new SqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
-                               new SqlParameter("@WhichFunction", "Logout"),
-                               new SqlParameter("@Description", "Logout"));
+                               "VALUES(@LogInID,@WhichFunction,@Description,NOW())",
+                               new MySqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
+                               new MySqlParameter("@WhichFunction", "Logout"),
+                               new MySqlParameter("@Description", "Logout"));
         }
 
         public static void logsDetail(int menu_id, string action)
         {
             SqlDb.ExecuteQuery("INSERT INTO sys_log(LogInID,WhichFunction,Description,LogDateTime) " +
-                               "VALUES(@LogInID,@WhichFunction,@Description,SYSDATETIME())",
-                               new SqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
-                               new SqlParameter("@WhichFunction", menu_id),
-                               new SqlParameter("@Description", action));
+                               "VALUES(@LogInID,@WhichFunction,@Description,NOW())",
+                               new MySqlParameter("@LogInID", AppVariable.CURRENT_USER_PK),
+                               new MySqlParameter("@WhichFunction", menu_id),
+                               new MySqlParameter("@Description", action));
         }
 
     //        Public Sub sysLogs_login()
