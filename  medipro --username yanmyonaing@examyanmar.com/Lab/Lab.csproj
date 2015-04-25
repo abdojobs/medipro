@@ -51,6 +51,7 @@
     <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
@@ -97,18 +98,6 @@
     </Compile>
     <Compile Include="frmChangePassword.Designer.cs">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDoctor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDoctor.Designer.cs">
-      <DependentUpon>frmDoctor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDoctorDetail.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDoctorDetail.Designer.cs">
-      <DependentUpon>frmDoctorDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLabCatDetail.cs">
       <SubType>Form</SubType>
@@ -229,12 +218,6 @@
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctor.resx">
-      <DependentUpon>frmDoctor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmDoctorDetail.resx">
-      <DependentUpon>frmDoctorDetail.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmLabCatDetail.resx">
       <DependentUpon>frmLabCatDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,6 +265,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStartup.resx">
       <DependentUpon>frmStartup.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

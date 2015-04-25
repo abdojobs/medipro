@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Lab
@@ -29,7 +29,7 @@ namespace Lab
         {
             if (ValidateForm() == true)
             {
-                int LabCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labName=@labName AND isDelete=0 AND labPK<>@labPK ", new SqlParameter("@labName", txtName.Text.Trim()), new SqlParameter("@labPK",txtName.Tag));
+                int LabCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labName=@labName AND isDelete=0 AND labPK<>@labPK ", new MySqlParameter("@labName", txtName.Text.Trim()), new MySqlParameter("@labPK",txtName.Tag));
 
                 if (LabCnt > 0)
                 {
@@ -41,15 +41,15 @@ namespace Lab
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labPK=@labPK AND isDelete=0", new SqlParameter("@labPK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labPK=@labPK AND isDelete=0", new MySqlParameter("@labPK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
-                            SqlDb.ExecuteQuery("UPDATE tblLaboratory SET labName=@labName,isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE labPK=@labPK",
-                                            new SqlParameter("@labPK", int.Parse(txtName.Tag.ToString())),
-                                            new SqlParameter("@labName", txtName.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                            SqlDb.ExecuteQuery("UPDATE tblLaboratory SET labName=@labName,isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE labPK=@labPK",
+                                            new MySqlParameter("@labPK", int.Parse(txtName.Tag.ToString())),
+                                            new MySqlParameter("@labName", txtName.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
 
@@ -60,17 +60,17 @@ namespace Lab
                     {
                         int LabID = SqlDb.ExecuteScalar<int>("getID tblLaboratory");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labPK=@labPK AND isDelete=0", new SqlParameter("@labPK", LabID));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLaboratory WHERE labPK=@labPK AND isDelete=0", new MySqlParameter("@labPK", LabID));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblLaboratory(labPK,labName,isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@labPK,@labName,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@labPK", LabID),
-                                                new SqlParameter("@labName", txtName.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@labPK,@labName,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@labPK", LabID),
+                                                new MySqlParameter("@labName", txtName.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Test Name.");
 

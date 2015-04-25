@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Lab
@@ -32,7 +32,7 @@ namespace Lab
         {
             if (ValidateForm() == true)
             {
-                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestName=@LabSubTestName AND isDelete=0 AND labSubTestPK<>@labSubTestPK", new SqlParameter("@LabSubTestName", txtCode.Text.Trim()), new SqlParameter("@labSubTestPK", txtCode.Tag.ToString()));
+                int Cnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestName=@LabSubTestName AND isDelete=0 AND labSubTestPK<>@labSubTestPK", new MySqlParameter("@LabSubTestName", txtCode.Text.Trim()), new MySqlParameter("@labSubTestPK", txtCode.Tag.ToString()));
 
                 if (Cnt > 0)
                 {
@@ -44,46 +44,46 @@ namespace Lab
                 {
                     if (txtCode.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestPK=@labSubTestPK AND isDelete=0", new SqlParameter("@labSubTestPK", txtCode.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestPK=@labSubTestPK AND isDelete=0", new MySqlParameter("@labSubTestPK", txtCode.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
                             SqlDb.ExecuteQuery("UPDATE tblLabSubTest SET labTestPK=@labTestPK, labSubTestCode=@labSubTestCode, labSubTestName=@LabSubTestName,labSubTestDescription=@labSubTestDescription,specimen=@specimen,information=@information,reference=@reference,tat=@tat,method=@method,daysSetup=@daysSetup,clinicalUsage=@clinicalUsage,"+
-                                                "isActive=@IsActive,updateDate=SYSDATETIME(),updatePK=@UpdatePK WHERE labSubTestPK=@labSubTestPK",
-                                            new SqlParameter("@labTestPK",cboLabTest.SelectedValue),
-                                            new SqlParameter("@labSubTestPK", int.Parse(txtCode.Tag.ToString())),
-                                            new SqlParameter("@labSubTestCode", txtCode.Text.Trim()),
-                                            new SqlParameter("@labSubTestName", txtName.Text.Trim()),
-                                            new SqlParameter("@labSubTestDescription", txtDescription.Text.Trim()),
-                                            new SqlParameter("@specimen", txtSpecimen.Text.Trim()),
-                                            new SqlParameter("@information", txtInfo.Text.Trim()),
-                                            new SqlParameter("@reference", txtRef.Text.Trim()),
-                                            new SqlParameter("@tat", txtTat.Text.Trim()),
-                                            new SqlParameter("@method", txtMethod.Text.Trim()),
-                                            new SqlParameter("@daysSetup", txtDays.Text.Trim()),
-                                            new SqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
-                                            new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                            new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
+                                                "isActive=@IsActive,updateDate=NOW(),updatePK=@UpdatePK WHERE labSubTestPK=@labSubTestPK",
+                                            new MySqlParameter("@labTestPK",cboLabTest.SelectedValue),
+                                            new MySqlParameter("@labSubTestPK", int.Parse(txtCode.Tag.ToString())),
+                                            new MySqlParameter("@labSubTestCode", txtCode.Text.Trim()),
+                                            new MySqlParameter("@labSubTestName", txtName.Text.Trim()),
+                                            new MySqlParameter("@labSubTestDescription", txtDescription.Text.Trim()),
+                                            new MySqlParameter("@specimen", txtSpecimen.Text.Trim()),
+                                            new MySqlParameter("@information", txtInfo.Text.Trim()),
+                                            new MySqlParameter("@reference", txtRef.Text.Trim()),
+                                            new MySqlParameter("@tat", txtTat.Text.Trim()),
+                                            new MySqlParameter("@method", txtMethod.Text.Trim()),
+                                            new MySqlParameter("@daysSetup", txtDays.Text.Trim()),
+                                            new MySqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
+                                            new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                            new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
-                            //SqlDb.ExecuteNonQuery("Delete from tblLabTestDetail where labTestPK=@labTestPK", new SqlParameter("@labTestPK", txtCode.Tag));
+                            //SqlDb.ExecuteNonQuery("Delete from tblLabTestDetail where labTestPK=@labTestPK", new MySqlParameter("@labTestPK", txtCode.Tag));
 
                             //if (isDetailExist())
                             //{
                             //    int pk = SqlDb.ExecuteScalar<int>("getid tblLabTestDetail");
                             //    SqlDb.ExecuteQuery("INSERT INTO tblLabTestDetail(labTestDetailPK,labTestPK, specimen,information,reference,tat,method,daysSetup,clinicalUsage, isActive,updateDate,updatePK,createDate,createPK) " +
-                            //                    "VALUES(@labTestDetailPK,@labTestPK,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                            //                    new SqlParameter("@labTestDetailPK", pk),
-                            //                    new SqlParameter("@labTestPK", int.Parse(txtCode.Tag.ToString())),
-                            //                    new SqlParameter("@specimen", txtSpecimen.Text.Trim()),
-                            //                    new SqlParameter("@information", txtInfo.Text.Trim()),
-                            //                    new SqlParameter("@reference", txtRef.Text.Trim()),
-                            //                    new SqlParameter("@tat", txtTat.Text.Trim()),
-                            //                    new SqlParameter("@method", txtMethod.Text.Trim()),
-                            //                    new SqlParameter("@daysSetup", txtDays.Text.Trim()),
-                            //                    new SqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
-                            //                    new SqlParameter("@IsActive", chkIsActive.EditValue),
-                            //                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                            //                    new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                            //                    "VALUES(@labTestDetailPK,@labTestPK,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                            //                    new MySqlParameter("@labTestDetailPK", pk),
+                            //                    new MySqlParameter("@labTestPK", int.Parse(txtCode.Tag.ToString())),
+                            //                    new MySqlParameter("@specimen", txtSpecimen.Text.Trim()),
+                            //                    new MySqlParameter("@information", txtInfo.Text.Trim()),
+                            //                    new MySqlParameter("@reference", txtRef.Text.Trim()),
+                            //                    new MySqlParameter("@tat", txtTat.Text.Trim()),
+                            //                    new MySqlParameter("@method", txtMethod.Text.Trim()),
+                            //                    new MySqlParameter("@daysSetup", txtDays.Text.Trim()),
+                            //                    new MySqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
+                            //                    new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                            //                    new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                            //                    new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
                             //}
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Update Test Name.");
@@ -96,45 +96,45 @@ namespace Lab
 
                         int labTestPK = SqlDb.ExecuteScalar<int>("getID tblLabSubTest");
 
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestPK=@labSubTestPK AND isDelete=0", new SqlParameter("@labSubTestPK", labTestPK));
+                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabSubTest WHERE labSubTestPK=@labSubTestPK AND isDelete=0", new MySqlParameter("@labSubTestPK", labTestPK));
 
                         if (LabIDCnt < 1)
                         {
                             SqlDb.ExecuteQuery("INSERT INTO tblLabSubTest(labSubTestPK,labSubTestCode,labSubTestName,labSubTestDescription,specimen,information,reference,tat,method,daysSetup,clinicalUsage,labTestPK, isActive,updateDate,updatePK,createDate,createPK) " +
-                                                "VALUES(@labSubTestPK,@labSubTestCode,@LabSubTestName,@labSubTestDescription,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@labTestPK, @IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                                                new SqlParameter("@labTestPK", cboLabTest.SelectedValue),
-                                                new SqlParameter("@labSubTestPK", labTestPK),
-                                                new SqlParameter("@labSubTestCode",txtCode.Text.Trim()),
-                                                new SqlParameter("@labSubTestName", txtName.Text.Trim()),
-                                                new SqlParameter("@labSubTestDescription", txtDescription.Text.Trim()),
-                                                new SqlParameter("@specimen", txtSpecimen.Text.Trim()),
-                                                new SqlParameter("@information", txtInfo.Text.Trim()),
-                                                new SqlParameter("@reference", txtRef.Text.Trim()),
-                                                new SqlParameter("@tat", txtTat.Text.Trim()),
-                                                new SqlParameter("@method", txtMethod.Text.Trim()),
-                                                new SqlParameter("@daysSetup", txtDays.Text.Trim()),
-                                                new SqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
-                                                new SqlParameter("@IsActive", chkIsActive.EditValue),
-                                                new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                                                new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                                                "VALUES(@labSubTestPK,@labSubTestCode,@LabSubTestName,@labSubTestDescription,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@labTestPK, @IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                                                new MySqlParameter("@labTestPK", cboLabTest.SelectedValue),
+                                                new MySqlParameter("@labSubTestPK", labTestPK),
+                                                new MySqlParameter("@labSubTestCode",txtCode.Text.Trim()),
+                                                new MySqlParameter("@labSubTestName", txtName.Text.Trim()),
+                                                new MySqlParameter("@labSubTestDescription", txtDescription.Text.Trim()),
+                                                new MySqlParameter("@specimen", txtSpecimen.Text.Trim()),
+                                                new MySqlParameter("@information", txtInfo.Text.Trim()),
+                                                new MySqlParameter("@reference", txtRef.Text.Trim()),
+                                                new MySqlParameter("@tat", txtTat.Text.Trim()),
+                                                new MySqlParameter("@method", txtMethod.Text.Trim()),
+                                                new MySqlParameter("@daysSetup", txtDays.Text.Trim()),
+                                                new MySqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
+                                                new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                                                new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                                                new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
                             //if (isDetailExist())
                             //{
                             //    int pk = SqlDb.ExecuteScalar<int>("getid tblLabTestDetail");
                             //    SqlDb.ExecuteQuery("INSERT INTO tblLabTestDetail(labTestDetailPK,labTestPK, specimen,information,reference,tat,method,daysSetup,clinicalUsage, isActive,updateDate,updatePK,createDate,createPK) " +
-                            //                    "VALUES(@labTestDetailPK,@labTestPK,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@IsActive,SYSDATETIME(),@updatePK,SYSDATETIME(),@createPK)",
-                            //                    new SqlParameter("@labTestDetailPK", pk),
-                            //                    new SqlParameter("@labTestPK", labTestPK),
-                            //                    new SqlParameter("@specimen", txtSpecimen.Text.Trim()),
-                            //                    new SqlParameter("@information", txtInfo.Text.Trim()),
-                            //                    new SqlParameter("@reference", txtRef.Text.Trim()),
-                            //                    new SqlParameter("@tat", txtTat.Text.Trim()),
-                            //                    new SqlParameter("@method", txtMethod.Text.Trim()),
-                            //                    new SqlParameter("@daysSetup", txtDays.Text.Trim()),
-                            //                    new SqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
-                            //                    new SqlParameter("@IsActive", chkIsActive.EditValue),
-                            //                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
-                            //                    new SqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
+                            //                    "VALUES(@labTestDetailPK,@labTestPK,@specimen,@information,@reference,@tat,@method,@daysSetup,@clinicalUsage,@IsActive,NOW(),@updatePK,NOW(),@createPK)",
+                            //                    new MySqlParameter("@labTestDetailPK", pk),
+                            //                    new MySqlParameter("@labTestPK", labTestPK),
+                            //                    new MySqlParameter("@specimen", txtSpecimen.Text.Trim()),
+                            //                    new MySqlParameter("@information", txtInfo.Text.Trim()),
+                            //                    new MySqlParameter("@reference", txtRef.Text.Trim()),
+                            //                    new MySqlParameter("@tat", txtTat.Text.Trim()),
+                            //                    new MySqlParameter("@method", txtMethod.Text.Trim()),
+                            //                    new MySqlParameter("@daysSetup", txtDays.Text.Trim()),
+                            //                    new MySqlParameter("@clinicalUsage", txtUsage.Text.Trim()),
+                            //                    new MySqlParameter("@IsActive", chkIsActive.EditValue),
+                            //                    new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()),
+                            //                    new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
                             //}
 
                             sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU.ToString()), "Add New Lab Sub Test Name.");
@@ -184,7 +184,7 @@ namespace Lab
         {
             if (txtCode.Tag != null)
             {
-                DataTable dt = SqlDb.GetDataSet("Select * from tblLabSubTest where labSubTestPK=@labSubTestPK", new SqlParameter("@labSubTestPK", txtCode.Tag)).Tables[0];
+                DataTable dt = SqlDb.GetDataSet("Select * from tblLabSubTest where labSubTestPK=@labSubTestPK", new MySqlParameter("@labSubTestPK", txtCode.Tag)).Tables[0];
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];

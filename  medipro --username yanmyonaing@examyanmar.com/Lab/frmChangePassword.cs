@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using exaCore;
 
 namespace Lab
@@ -25,8 +25,8 @@ namespace Lab
             if (ValidateForm() == true)
             {
                 int UserCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK = @PK AND passw = @PWD AND isDelete = 0", 
-                                                        new SqlParameter("@PK", AppVariable.CURRENT_USER_PK),
-                                                        new SqlParameter("@PWD", Crypto.Encrypt(txtCurPassw.Text.Trim())));
+                                                        new MySqlParameter("@PK", AppVariable.CURRENT_USER_PK),
+                                                        new MySqlParameter("@PWD", Crypto.Encrypt(txtCurPassw.Text.Trim())));
 
                 if (UserCnt < 1)
                 {
@@ -36,10 +36,10 @@ namespace Lab
                 }
                 else
                 {
-                    SqlDb.ExecuteQuery("UPDATE sysUser SET passw=@PWD,updatePK=@updatePK,updateDate=SYSDATETIME() WHERE PK=@PK",
-                                    new SqlParameter("@PK", AppVariable.CURRENT_USER_PK),
-                                    new SqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
-                                    new SqlParameter("@PWD", Crypto.Encrypt(txtNewPassw.Text.Trim())));
+                    SqlDb.ExecuteQuery("UPDATE sysUser SET passw=@PWD,updatePK=@updatePK,updateDate=NOW() WHERE PK=@PK",
+                                    new MySqlParameter("@PK", AppVariable.CURRENT_USER_PK),
+                                    new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
+                                    new MySqlParameter("@PWD", Crypto.Encrypt(txtNewPassw.Text.Trim())));
 
                     sysLogs.logsDetail(1, "Change Password.");
 
