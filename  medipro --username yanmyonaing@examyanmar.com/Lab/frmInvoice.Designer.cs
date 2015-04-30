@@ -1,6 +1,6 @@
 ﻿namespace Lab
 {
-    partial class frmDoctor
+    partial class frmInvoice
     {
         /// <summary>
         /// Required designer variable.
