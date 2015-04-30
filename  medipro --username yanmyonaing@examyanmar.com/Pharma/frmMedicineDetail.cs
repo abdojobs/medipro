@@ -158,7 +158,7 @@ namespace Pharma
 
                 if (intMedPK == 0)
                 {
-                    intMedPK = SqlDb.ExecuteScalar<int>("getID 'tblMedicine'");
+                    intMedPK = SqlDb.ExecuteScalar<int>("Call getID ('tblMedicine')");
 
                     SqlDb.ExecuteQuery("INSERT INTO tblMedicine(medPK,medName,medTypePK,chemNamePK,systemPK " +
                                        ",manuPK,indicationEng,indicationMyan,dosageEng,dosageMyan,isActive " +

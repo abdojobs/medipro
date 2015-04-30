@@ -58,7 +58,7 @@ namespace Pharma
                     }
                     else
                     {
-                        int LabID = SqlDb.ExecuteScalar<int>("getID tblMedUnit");
+                        int LabID = SqlDb.ExecuteScalar<int>("Call getID ('tblMedUnit')");
 
                         int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblMedUnit WHERE medUnitPK=@MedUnitPK AND isDelete=0", new MySqlParameter("@MedUnitPK", LabID));
 

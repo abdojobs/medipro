@@ -56,7 +56,7 @@ namespace Pharma
             {
                 if (intPackListID == 0)
                 {
-                    intPackListID = SqlDb.ExecuteScalar<int>("getID 'tblPackListTemp'");
+                    intPackListID = SqlDb.ExecuteScalar<int>("Call getID ('tblPackListTemp')");
 
                     SqlDb.ExecuteQuery("INSERT INTO tblPackListTemp(packListPK,packListName,isActive,updateDate,updatePK,createDate,createPK) " +
                                                 "VALUES(@packListPK,@packListName,@isActive,NOW(),@updatePK,NOW(),@createPK)",

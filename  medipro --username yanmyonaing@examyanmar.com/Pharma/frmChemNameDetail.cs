@@ -41,7 +41,7 @@ namespace Pharma
                 {
                     if (txtName.Tag.ToString().Length > 0)
                     {
-                        int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new MySqlParameter("@chemNamePK", txtName.Tag.ToString()));
+                        int LabIDCnt = SqlDb.ExecuteScalar<Int32>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new MySqlParameter("@chemNamePK", txtName.Tag.ToString()));
 
                         if (LabIDCnt > 0)
                         {
@@ -58,7 +58,7 @@ namespace Pharma
                     }
                     else
                     {
-                        int LabID = SqlDb.ExecuteScalar<int>("getID tblChemName");
+                        int LabID = SqlDb.ExecuteScalar<int>("Call getID ('tblChemName')");
 
                         int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblChemName WHERE chemNamePK=@chemNamePK AND isDelete=0", new MySqlParameter("@chemNamePK", LabID));
 
