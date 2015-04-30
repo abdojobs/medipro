@@ -177,7 +177,7 @@ namespace Lab
 
         private void frmLabPackageDetail_Load(object sender, EventArgs e)
         {
-            if (txtName.Tag != null)
+            if (txtName.Tag.ToString().Length > 0)
             {
                 DataTable dt= new DataTable();
                 dt= SqlDb.GetDataSet("select labTestPK,labTestName from tblLabTest except select tblLabPackageDetail.labTestPK,tblLabTest.labTestName from tblLabPackageDetail inner join tblLabTest on tblLabPackageDetail.labTestPK=tblLabTest.labTestPK where tblLabPackageDetail.labPackPK=@labPackPK", new MySqlParameter("@labPackPK", txtName.Tag)).Tables[0];
