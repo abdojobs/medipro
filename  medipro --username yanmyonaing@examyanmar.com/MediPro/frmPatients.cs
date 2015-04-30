@@ -70,7 +70,7 @@ namespace MediPro
         private void BindingPatient()
         {
 
-            DataSet dsPatients = SqlDb.GetDataSet("SELECT tblPatient.RegNo, Concat(tblTitle.TitleName, ' ', tblPatient.Name) AS FullName, tblPatient.NRC, tblPatient.Gender, " +
+            DataSet dsPatients = SqlDb.GetDataSet("SELECT tblPatient.RegNo, CONCAT(tblTitle.TitleName, ' ', tblPatient.Name) AS FullName, tblPatient.NRC, tblPatient.Gender, " +
                                                     "tblPatient.FatherName, tblPatient.DOB, tblPatient.Phone, tblPatient.Address, tblPatient.email, tblPatient.RegDate, tblPatient.Name, tblPatient.titlePK, tblPatient.isDelete " +
                                                     "FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE (tblPatient.isDelete = 0)");
 
