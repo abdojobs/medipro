@@ -57,7 +57,7 @@ namespace MediPro
                     }
                     else
                     {
-                        int CurUserLevelID = SqlDb.ExecuteScalar<int>("getID sysUserLevel");
+                        int CurUserLevelID = SqlDb.ExecuteScalar<int>("Call getID ('sysUserLevel')");
 
                         int UserLevelIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUserLevel WHERE levelPK=@LevelPK AND isDeleted=0", new MySqlParameter("@LevelPK", CurUserLevelID));
 

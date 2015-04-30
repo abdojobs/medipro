@@ -87,7 +87,7 @@ namespace MediPro
                     }
                     else
                     {
-                        int CurUserID = SqlDb.ExecuteScalar<int>("getID sysUser");
+                        int CurUserID = SqlDb.ExecuteScalar<int>("Call getID ('sysUser')");
 
                         int UserIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK=@UserID AND isDelete=0", new MySqlParameter("@UserID", CurUserID));
 

@@ -912,7 +912,7 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.Padding = new System.Windows.Forms.Padding(5);
             this.tabControlMain.SelectedTabPage = this.tabPageHome;
-            this.tabControlMain.Size = new System.Drawing.Size(1294, 869);
+            this.tabControlMain.Size = new System.Drawing.Size(1294, 868);
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageHome,
@@ -936,7 +936,7 @@
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.tabPageHome.Size = new System.Drawing.Size(1292, 825);
+            this.tabPageHome.Size = new System.Drawing.Size(1292, 824);
             this.tabPageHome.Tag = "1";
             this.tabPageHome.Text = "Home";
             // 
@@ -960,7 +960,7 @@
             this.panelHome.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelHome.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1288, 821);
+            this.panelHome.Size = new System.Drawing.Size(1288, 820);
             this.panelHome.TabIndex = 0;
             this.panelHome.Tag = "1";
             // 
@@ -1008,7 +1008,7 @@
             this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(422, 760);
+            this.panelControl6.Size = new System.Drawing.Size(422, 759);
             this.panelControl6.TabIndex = 17;
             // 
             // panelControl7
@@ -1052,7 +1052,7 @@
             this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl9.MainView = this.gridView10;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(421, 722);
+            this.gridControl9.Size = new System.Drawing.Size(421, 721);
             this.gridControl9.TabIndex = 11;
             this.gridControl9.UseEmbeddedNavigator = true;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1154,7 +1154,7 @@
             this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(819, 459);
+            this.panelControl4.Size = new System.Drawing.Size(819, 458);
             this.panelControl4.TabIndex = 17;
             // 
             // panelControl5
@@ -1200,7 +1200,7 @@
             this.grdBooking.Name = "grdBooking";
             this.grdBooking.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemchkIsRegistered});
-            this.grdBooking.Size = new System.Drawing.Size(818, 422);
+            this.grdBooking.Size = new System.Drawing.Size(818, 421);
             this.grdBooking.TabIndex = 11;
             this.grdBooking.UseEmbeddedNavigator = true;
             this.grdBooking.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1767,7 +1767,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(1282, 815);
+            this.shapeContainer1.Size = new System.Drawing.Size(1282, 814);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1790,7 +1790,7 @@
             this.tabPageMasterFile.Image = global::MediPro.Properties.Resources.Settings;
             this.tabPageMasterFile.Name = "tabPageMasterFile";
             this.tabPageMasterFile.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 825);
+            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 824);
             this.tabPageMasterFile.Tag = "2";
             this.tabPageMasterFile.Text = " Master Files";
             // 
@@ -1818,7 +1818,7 @@
             this.panelMasterFiles.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMasterFiles.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMasterFiles.Name = "panelMasterFiles";
-            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 821);
+            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 820);
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
@@ -2082,7 +2082,7 @@
             this.tabPageMedicalRecord.Image = global::MediPro.Properties.Resources.Modify;
             this.tabPageMedicalRecord.Name = "tabPageMedicalRecord";
             this.tabPageMedicalRecord.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 825);
+            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 824);
             this.tabPageMedicalRecord.Tag = "3";
             this.tabPageMedicalRecord.Text = " Medical Record";
             // 
@@ -2132,7 +2132,7 @@
             this.panelMedicalRecord.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMedicalRecord.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMedicalRecord.Name = "panelMedicalRecord";
-            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 821);
+            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 820);
             this.panelMedicalRecord.TabIndex = 1;
             // 
             // txtVisitDoctor
@@ -2274,7 +2274,7 @@
             this.pnlDailyProgress.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnlDailyProgress.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlDailyProgress.Name = "pnlDailyProgress";
-            this.pnlDailyProgress.Size = new System.Drawing.Size(558, 485);
+            this.pnlDailyProgress.Size = new System.Drawing.Size(558, 484);
             this.pnlDailyProgress.TabIndex = 11;
             // 
             // txtSummary
@@ -2527,7 +2527,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 743);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 742);
             this.barDockControlBottom.Size = new System.Drawing.Size(1307, 0);
             // 
             // barDockControlLeft
@@ -2535,14 +2535,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 743);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 742);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1307, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 743);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 742);
             // 
             // fileNewItem1
             // 
@@ -4210,7 +4210,7 @@
             this.grdSummaryHead.MainView = this.grdViewSummary;
             this.grdSummaryHead.Margin = new System.Windows.Forms.Padding(6);
             this.grdSummaryHead.Name = "grdSummaryHead";
-            this.grdSummaryHead.Size = new System.Drawing.Size(160, 417);
+            this.grdSummaryHead.Size = new System.Drawing.Size(160, 416);
             this.grdSummaryHead.TabIndex = 15;
             this.grdSummaryHead.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewSummary});
@@ -4308,7 +4308,7 @@
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl2.Controls.Add(this.simpleButton5);
-            this.panelControl2.Location = new System.Drawing.Point(1, 444);
+            this.panelControl2.Location = new System.Drawing.Point(1, 443);
             this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
@@ -4609,12 +4609,12 @@
             this.tabRemarks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabRemarks.Location = new System.Drawing.Point(618, 89);
+            this.tabRemarks.Location = new System.Drawing.Point(616, 90);
             this.tabRemarks.LookAndFeel.SkinName = "Metropolis";
             this.tabRemarks.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tabRemarks.Name = "tabRemarks";
             this.tabRemarks.SelectedTabPage = this.tabPageHistory;
-            this.tabRemarks.Size = new System.Drawing.Size(652, 587);
+            this.tabRemarks.Size = new System.Drawing.Size(652, 586);
             this.tabRemarks.TabIndex = 4;
             this.tabRemarks.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageDetail,
@@ -4636,7 +4636,7 @@
             this.tabPageHistory.Controls.Add(this.pictureBox8);
             this.tabPageHistory.Name = "tabPageHistory";
             this.tabPageHistory.Padding = new System.Windows.Forms.Padding(0, 40, 0, 0);
-            this.tabPageHistory.Size = new System.Drawing.Size(650, 562);
+            this.tabPageHistory.Size = new System.Drawing.Size(650, 561);
             this.tabPageHistory.Text = "Medical History";
             // 
             // panelControl8
@@ -4646,7 +4646,7 @@
             this.panelControl8.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl8.Controls.Add(this.cmdSaveMedical);
             this.panelControl8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl8.Location = new System.Drawing.Point(0, 523);
+            this.panelControl8.Location = new System.Drawing.Point(0, 522);
             this.panelControl8.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl8.Margin = new System.Windows.Forms.Padding(0);
@@ -5830,7 +5830,7 @@
             this.tabPageDetail.Controls.Add(this.groupBMI);
             this.tabPageDetail.Controls.Add(this.picPatient);
             this.tabPageDetail.Name = "tabPageDetail";
-            this.tabPageDetail.Size = new System.Drawing.Size(650, 562);
+            this.tabPageDetail.Size = new System.Drawing.Size(650, 561);
             this.tabPageDetail.Text = "Detail";
             // 
             // label23
@@ -5861,7 +5861,7 @@
             this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(604, 116);
+            this.gridControl1.Size = new System.Drawing.Size(604, 115);
             this.gridControl1.TabIndex = 11;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -5956,7 +5956,7 @@
             this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl3.MainView = this.gridView7;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(604, 116);
+            this.gridControl3.Size = new System.Drawing.Size(604, 115);
             this.gridControl3.TabIndex = 11;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -6345,7 +6345,7 @@
             this.tabPageExamination.Controls.Add(this.label8);
             this.tabPageExamination.Controls.Add(this.pictureBox9);
             this.tabPageExamination.Name = "tabPageExamination";
-            this.tabPageExamination.Size = new System.Drawing.Size(650, 562);
+            this.tabPageExamination.Size = new System.Drawing.Size(650, 561);
             this.tabPageExamination.Text = "Physical Examination";
             // 
             // panel3
@@ -6357,7 +6357,7 @@
             this.panel3.Controls.Add(this.navBarControl1);
             this.panel3.Location = new System.Drawing.Point(0, 44);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(650, 439);
+            this.panel3.Size = new System.Drawing.Size(650, 438);
             this.panel3.TabIndex = 17;
             // 
             // navBarControl1
@@ -6402,7 +6402,7 @@
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 650;
-            this.navBarControl1.Size = new System.Drawing.Size(650, 439);
+            this.navBarControl1.Size = new System.Drawing.Size(650, 438);
             this.navBarControl1.TabIndex = 9;
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Metropolis");
@@ -8053,7 +8053,7 @@
             this.panelControl9.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl9.Controls.Add(this.cmdSavePhysical);
             this.panelControl9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl9.Location = new System.Drawing.Point(0, 523);
+            this.panelControl9.Location = new System.Drawing.Point(0, 522);
             this.panelControl9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl9.Margin = new System.Windows.Forms.Padding(0);
@@ -8114,7 +8114,7 @@
             this.tabPageInvestigation.Controls.Add(this.label9);
             this.tabPageInvestigation.Controls.Add(this.pictureBox10);
             this.tabPageInvestigation.Name = "tabPageInvestigation";
-            this.tabPageInvestigation.Size = new System.Drawing.Size(650, 562);
+            this.tabPageInvestigation.Size = new System.Drawing.Size(650, 561);
             this.tabPageInvestigation.Text = "Investigation";
             // 
             // panelControl11
@@ -8126,7 +8126,7 @@
             this.panelControl11.Controls.Add(this.cmdLabTestDelete);
             this.panelControl11.Controls.Add(this.cmdLabTestRequest);
             this.panelControl11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl11.Location = new System.Drawing.Point(0, 523);
+            this.panelControl11.Location = new System.Drawing.Point(0, 522);
             this.panelControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
@@ -8207,7 +8207,7 @@
             this.grdLab.Name = "grdLab";
             this.grdLab.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.resLueLabTest});
-            this.grdLab.Size = new System.Drawing.Size(606, 428);
+            this.grdLab.Size = new System.Drawing.Size(606, 427);
             this.grdLab.TabIndex = 20;
             this.grdLab.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewLab});
@@ -8325,7 +8325,7 @@
             this.tabPageDiagnosis.Controls.Add(this.pictureBox11);
             this.tabPageDiagnosis.Controls.Add(this.panelControl12);
             this.tabPageDiagnosis.Name = "tabPageDiagnosis";
-            this.tabPageDiagnosis.Size = new System.Drawing.Size(650, 562);
+            this.tabPageDiagnosis.Size = new System.Drawing.Size(650, 561);
             this.tabPageDiagnosis.Text = "Diagnosis";
             // 
             // grdDiagnosis
@@ -8345,7 +8345,7 @@
             this.grdDiagnosis.Name = "grdDiagnosis";
             this.grdDiagnosis.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reslueDiagnosis});
-            this.grdDiagnosis.Size = new System.Drawing.Size(606, 426);
+            this.grdDiagnosis.Size = new System.Drawing.Size(606, 425);
             this.grdDiagnosis.TabIndex = 26;
             this.grdDiagnosis.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewDiagnosis});
@@ -8453,7 +8453,7 @@
             this.panelControl12.Controls.Add(this.cmdDiagnosisDelete);
             this.panelControl12.Controls.Add(this.cmdDiagnosisSave);
             this.panelControl12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl12.Location = new System.Drawing.Point(0, 523);
+            this.panelControl12.Location = new System.Drawing.Point(0, 522);
             this.panelControl12.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl12.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl12.Margin = new System.Windows.Forms.Padding(0);
@@ -8508,7 +8508,7 @@
             this.tabPageTreatment.Controls.Add(this.label11);
             this.tabPageTreatment.Controls.Add(this.pictureBox12);
             this.tabPageTreatment.Name = "tabPageTreatment";
-            this.tabPageTreatment.Size = new System.Drawing.Size(650, 562);
+            this.tabPageTreatment.Size = new System.Drawing.Size(650, 561);
             this.tabPageTreatment.Text = "Treatment";
             // 
             // panelControl10
@@ -8519,7 +8519,7 @@
             this.panelControl10.Controls.Add(this.simpleButton3);
             this.panelControl10.Controls.Add(this.cmdTreatment);
             this.panelControl10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl10.Location = new System.Drawing.Point(0, 523);
+            this.panelControl10.Location = new System.Drawing.Point(0, 522);
             this.panelControl10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl10.Margin = new System.Windows.Forms.Padding(0);
@@ -8582,7 +8582,7 @@
             this.grdTreatment.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.reslueMedicine,
             this.reslueFreq});
-            this.grdTreatment.Size = new System.Drawing.Size(607, 466);
+            this.grdTreatment.Size = new System.Drawing.Size(607, 465);
             this.grdTreatment.TabIndex = 32;
             this.grdTreatment.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewTreatment});
@@ -8748,7 +8748,7 @@
             this.tabPageRemarks.Controls.Add(this.txtRemarks);
             this.tabPageRemarks.Controls.Add(this.panelControl13);
             this.tabPageRemarks.Name = "tabPageRemarks";
-            this.tabPageRemarks.Size = new System.Drawing.Size(650, 562);
+            this.tabPageRemarks.Size = new System.Drawing.Size(650, 561);
             this.tabPageRemarks.Text = "Remarks";
             // 
             // txtRemarks
@@ -8756,7 +8756,7 @@
             this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtRemarks.Location = new System.Drawing.Point(0, 0);
             this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(650, 523);
+            this.txtRemarks.Size = new System.Drawing.Size(650, 522);
             this.txtRemarks.TabIndex = 35;
             this.txtRemarks.Text = "";
             // 
@@ -8767,7 +8767,7 @@
             this.panelControl13.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl13.Controls.Add(this.cmdRemarksSave);
             this.panelControl13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl13.Location = new System.Drawing.Point(0, 523);
+            this.panelControl13.Location = new System.Drawing.Point(0, 522);
             this.panelControl13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl13.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl13.Margin = new System.Windows.Forms.Padding(0);
@@ -8847,7 +8847,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShapeMR});
-            this.shapeContainer2.Size = new System.Drawing.Size(1282, 815);
+            this.shapeContainer2.Size = new System.Drawing.Size(1282, 814);
             this.shapeContainer2.TabIndex = 13;
             this.shapeContainer2.TabStop = false;
             // 
@@ -8868,7 +8868,7 @@
             this.tabPageReport.Image = global::MediPro.Properties.Resources.Stats;
             this.tabPageReport.Name = "tabPageReport";
             this.tabPageReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageReport.Size = new System.Drawing.Size(1292, 825);
+            this.tabPageReport.Size = new System.Drawing.Size(1292, 824);
             this.tabPageReport.Tag = "4";
             this.tabPageReport.Text = "  Reports";
             // 
@@ -8881,7 +8881,7 @@
             this.panelReports.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelReports.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(1288, 821);
+            this.panelReports.Size = new System.Drawing.Size(1288, 820);
             this.panelReports.TabIndex = 1;
             // 
             // tabPageAdministrator
@@ -8892,7 +8892,7 @@
             this.tabPageAdministrator.Image = ((System.Drawing.Image)(resources.GetObject("tabPageAdministrator.Image")));
             this.tabPageAdministrator.Name = "tabPageAdministrator";
             this.tabPageAdministrator.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 825);
+            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 824);
             this.tabPageAdministrator.Tag = "5";
             this.tabPageAdministrator.Text = "  Admin";
             // 
@@ -8911,7 +8911,7 @@
             this.panelAdmin.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelAdmin.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(1288, 821);
+            this.panelAdmin.Size = new System.Drawing.Size(1288, 820);
             this.panelAdmin.TabIndex = 1;
             // 
             // label14
@@ -9355,7 +9355,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1307, 743);
+            this.ClientSize = new System.Drawing.Size(1307, 742);
             this.Controls.Add(this.pnlUserMenu);
             this.Controls.Add(this.picExaLogo);
             this.Controls.Add(this.tabControlMain);

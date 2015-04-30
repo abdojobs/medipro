@@ -59,7 +59,7 @@ namespace MediPro
                     }
                     else
                     {
-                        int FreID = SqlDb.ExecuteScalar<int>("getID tblFrequency");
+                        int FreID = SqlDb.ExecuteScalar<int>("Call getID ('tblFrequency')");
 
                         int FreIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblFrequency WHERE frequencyPK=@FrequencyPK AND isDelete=0", new MySqlParameter("@FrequencyPK", FreID));
 

@@ -1414,7 +1414,7 @@ namespace MediPro
                         }
                         else
                         {
-                            int labTestRequestPK = SqlDb.ExecuteScalar<int>("getID tblLabTestRequest");
+                            int labTestRequestPK = SqlDb.ExecuteScalar<int>("Call getID ('tblLabTestRequest')");
                             string labTestPK = ((DataRowView)grdLab.DefaultView.GetRow(i))["labTestPK"].ToString();
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("INSERT INTO [tblLabTestRequest] ([labTestRequestPK], [visitPK], [labTestPK],updatePK,updateDate, [createPK], [createDate]) VALUES (@labTestRequestPK, @visitPK, @labTestPK, @updatePK, @updateDate, @createPK, @createDate)",
@@ -1488,7 +1488,7 @@ namespace MediPro
                         }
                         else
                         {
-                            int medDiagnosisPK = SqlDb.ExecuteScalar<int>("getID tblMedDiagnosis");
+                            int medDiagnosisPK = SqlDb.ExecuteScalar<int>("Call getID ('tblMedDiagnosis')");
                             string diagnosisPK = ((DataRowView)grdDiagnosis.DefaultView.GetRow(i))["diagnosisPK"].ToString();
                             string visitPK = lueVisit.EditValue.ToString();
                             SqlDb.ExecuteQuery("INSERT INTO [tblMedDiagnosis] ([medDiagnosisPK], [visitPK], [diagnosisPK],updatePK,updateDate, [createPK], [createDate]) VALUES (@medDiagnosisPK, @visitPK, @diagnosisPK, @updatePK, @updateDate, @createPK, @createDate)",
@@ -1570,7 +1570,7 @@ namespace MediPro
                         }
                         else
                         {
-                            int treatmentPK = SqlDb.ExecuteScalar<int>("getID tblTreatment");
+                            int treatmentPK = SqlDb.ExecuteScalar<int>("Call getID ('tblTreatment')");
                             string medPK = grdViewTreatment.GetDataRow(i)["medPK"].ToString(); ;
                             string dosage = grdViewTreatment.GetDataRow(i)["dosage"].ToString(); ;
                             string frequencyPK = grdViewTreatment.GetDataRow(i)["frequencyPK"].ToString(); ;
@@ -1689,7 +1689,7 @@ namespace MediPro
                 object title = grdViewSummary.GetFocusedDataRow()["title"];
                 if (medSummaryPK.ToString() == "")
                 {
-                    medSummaryPK = SqlDb.ExecuteScalar<int>("getID tblMedSummary");
+                    medSummaryPK = SqlDb.ExecuteScalar<int>("Call getID ('tblMedSummary')");
                     SqlDb.ExecuteNonQuery("Insert into tblMedSummary(medSummaryPK,doctorPK,patientPK,title,summary,createPK,createDate,updatePK,updateDate)" +
                        " values(@medSummaryPK,@doctorPK,@patientPK,@title,@summary,@createPK,@createDate,@updatePK,@updateDate)",
                        new MySqlParameter("@medSummaryPk", medSummaryPK),

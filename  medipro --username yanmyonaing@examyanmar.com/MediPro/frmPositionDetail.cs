@@ -70,7 +70,7 @@ namespace MediPro
                     }
                     else
                     {
-                        int PosiID = SqlDb.ExecuteScalar<int>("getID tblPosition");
+                        int PosiID = SqlDb.ExecuteScalar<int>("Call getID ('tblPosition')");
 
                         int PosiIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPosition WHERE positionPK=@PositionPK AND isDelete=0", new MySqlParameter("@PositionPK", PosiID));
 

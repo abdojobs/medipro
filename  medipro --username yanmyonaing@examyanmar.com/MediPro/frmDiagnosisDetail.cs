@@ -58,7 +58,7 @@ namespace MediPro
                     }
                     else
                     {
-                        int DiagID = SqlDb.ExecuteScalar<int>("getID tblDiagnosis");
+                        int DiagID = SqlDb.ExecuteScalar<int>("Call getID ('tblDiagnosis')");
 
                         int DiagIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDiagnosis WHERE diagnosisPK=@DiagnosisPK AND isDelete=0", new MySqlParameter("@DiagnosisPK", DiagID));
 

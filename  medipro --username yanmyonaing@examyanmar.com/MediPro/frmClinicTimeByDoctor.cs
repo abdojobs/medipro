@@ -103,7 +103,7 @@ namespace MediPro
                         }
                         else
                         {
-                            int CTDPK = SqlDb.ExecuteScalar<int>("getID tblClinicTimeByDoctor");
+                            int CTDPK = SqlDb.ExecuteScalar<int>("Call getID ('tblClinicTimeByDoctor')");
                             SqlDb.ExecuteQuery("INSERT INTO tblClinicTimeByDoctor(ctdPK, doctorPK, clinicDay, ctdOption, fromTime, toTime, createPK, createDate)" +
                                                 "VALUES(@CTDPK, @DoctorPK, @ClinicDay, @CTDOption, @FromTime, @ToTime, @CreatePK, NOW())",
                                                 new MySqlParameter("@CTDPK", CTDPK),
