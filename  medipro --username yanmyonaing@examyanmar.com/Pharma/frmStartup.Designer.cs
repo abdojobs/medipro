@@ -79,8 +79,8 @@
             this.lineShape = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPageMasterFile = new DevExpress.XtraTab.XtraTabPage();
             this.panelMasterFiles = new DevExpress.XtraEditors.PanelControl();
+            this.cmdMedType = new DevExpress.XtraEditors.SimpleButton();
             this.cmdUnit = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.cmdMedicines = new System.Windows.Forms.Button();
             this.cmdBodySystem = new System.Windows.Forms.Button();
             this.cmdManufacturer = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmdMedType = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdMedTemp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -155,8 +155,8 @@
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControlMain.Appearance.BackColor = System.Drawing.Color.Cornsilk;
             this.tabControlMain.Appearance.Options.UseBackColor = true;
             this.tabControlMain.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
@@ -214,9 +214,9 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.Controls.Add(this.panelControl7);
@@ -230,8 +230,8 @@
             // 
             // panelControl7
             // 
-            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl7.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl7.Appearance.Options.UseBackColor = true;
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -256,9 +256,9 @@
             // 
             // gridControl9
             // 
-            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl9.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -361,8 +361,8 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Controls.Add(this.panelControl5);
@@ -376,8 +376,8 @@
             // 
             // panelControl5
             // 
-            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -402,9 +402,9 @@
             // 
             // grdBooking
             // 
-            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdBooking.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -645,8 +645,8 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -671,8 +671,8 @@
             // 
             // grdTodayVisitPatients
             // 
-            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -954,7 +954,7 @@
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
             this.panelMasterFiles.Controls.Add(this.cmdMedType);
             this.panelMasterFiles.Controls.Add(this.cmdUnit);
-            this.panelMasterFiles.Controls.Add(this.button1);
+            this.panelMasterFiles.Controls.Add(this.cmdMedTemp);
             this.panelMasterFiles.Controls.Add(this.cmdMedicines);
             this.panelMasterFiles.Controls.Add(this.cmdBodySystem);
             this.panelMasterFiles.Controls.Add(this.cmdManufacturer);
@@ -976,9 +976,27 @@
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
+            // cmdMedType
+            // 
+            this.cmdMedType.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdMedType.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdMedType.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdMedType.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdMedType.Appearance.Options.UseBackColor = true;
+            this.cmdMedType.Appearance.Options.UseFont = true;
+            this.cmdMedType.Appearance.Options.UseForeColor = true;
+            this.cmdMedType.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdMedType.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdMedType.Location = new System.Drawing.Point(36, 201);
+            this.cmdMedType.Name = "cmdMedType";
+            this.cmdMedType.Size = new System.Drawing.Size(110, 76);
+            this.cmdMedType.TabIndex = 7;
+            this.cmdMedType.Tag = "4";
+            this.cmdMedType.Text = "Medicine Type";
+            // 
             // cmdUnit
             // 
-            this.cmdUnit.Location = new System.Drawing.Point(671, 229);
+            this.cmdUnit.Location = new System.Drawing.Point(709, 229);
             this.cmdUnit.Name = "cmdUnit";
             this.cmdUnit.Size = new System.Drawing.Size(75, 23);
             this.cmdUnit.TabIndex = 5;
@@ -986,17 +1004,6 @@
             this.cmdUnit.Text = "Unit";
             this.cmdUnit.UseVisualStyleBackColor = true;
             this.cmdUnit.Click += new System.EventHandler(this.cmdUnit_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(635, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Tag = "17";
-            this.button1.Text = "Medicines";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.cmdMedicines_Click);
             // 
             // cmdMedicines
             // 
@@ -1350,23 +1357,16 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // cmdMedType
+            // cmdMedTemp
             // 
-            this.cmdMedType.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdMedType.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdMedType.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdMedType.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.cmdMedType.Appearance.Options.UseBackColor = true;
-            this.cmdMedType.Appearance.Options.UseFont = true;
-            this.cmdMedType.Appearance.Options.UseForeColor = true;
-            this.cmdMedType.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.cmdMedType.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.cmdMedType.Location = new System.Drawing.Point(36, 201);
-            this.cmdMedType.Name = "cmdMedType";
-            this.cmdMedType.Size = new System.Drawing.Size(110, 76);
-            this.cmdMedType.TabIndex = 7;
-            this.cmdMedType.Tag = "4";
-            this.cmdMedType.Text = "Medicine Type";
+            this.cmdMedTemp.Location = new System.Drawing.Point(590, 229);
+            this.cmdMedTemp.Name = "cmdMedTemp";
+            this.cmdMedTemp.Size = new System.Drawing.Size(113, 23);
+            this.cmdMedTemp.TabIndex = 5;
+            this.cmdMedTemp.Tag = "17";
+            this.cmdMedTemp.Text = "Medicine Template";
+            this.cmdMedTemp.UseVisualStyleBackColor = true;
+            this.cmdMedTemp.Click += new System.EventHandler(this.cmdMedTemp_Click);
             // 
             // frmStartup
             // 
@@ -1516,9 +1516,9 @@
         private System.Windows.Forms.Button cmdManufacturer;
         private System.Windows.Forms.Button cmdBodySystem;
         private System.Windows.Forms.Button cmdMedicines;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button cmdUnit;
         private DevExpress.XtraEditors.SimpleButton cmdMedType;
+        private System.Windows.Forms.Button cmdMedTemp;
 
     }
 }

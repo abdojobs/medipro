@@ -149,8 +149,9 @@ namespace Pharma
                 if (null != imgImage.Image)
                 {
                     imgImage.Image.Save(ms, ImageFormat.Jpeg);
+                    
                 }
-
+                
                 //Read from MemoryStream into Byte array.
                 Byte[] bytImgData = new Byte[ms.Length];
                 ms.Position = 0;
@@ -162,7 +163,7 @@ namespace Pharma
 
                     SqlDb.ExecuteQuery("INSERT INTO tblMedicine(medPK,medName,medTypePK,chemNamePK,systemPK " +
                                        ",manuPK,indicationEng,indicationMyan,dosageEng,dosageMyan,isActive " +
-                                       ",updatePK,updateDate,createPK,createDate,[image]) " +
+                                       ",updatePK,updateDate,createPK,createDate,image) " +
                                        "VALUES(@medPK,@medName,@medTypePK,@chemNamePK,@systemPK " +
                                        ",@manuPK,@indicationEng,@indicationMyan,@dosageEng,@dosageMyan,@isActive " +
                                        ",@updatePK,NOW(),@createPK,NOW(),@image)",
@@ -203,7 +204,7 @@ namespace Pharma
 
                     SqlDb.ExecuteQuery("UPDATE tblMedicine SET medName=@medName, medTypePK=@medTypePK, chemNamePK=@chemNamePK, systemPK=@systemPK " +
                                        ",manuPK=@manuPK, indicationEng=@indicationEng, indicationMyan=@indicationMyan, dosageEng=@dosageEng " +
-                                       ",dosageMyan=@dosageMyan, isActive=@isActive, updatePK=@updatePK,updateDate=NOW(),[image]=@image " ,
+                                       ",dosageMyan=@dosageMyan, isActive=@isActive, updatePK=@updatePK,updateDate=NOW(),image=@image where medPK=@medPK" ,
                                                 new MySqlParameter("@medPK", intMedPK),
                                                 new MySqlParameter("@medName", txtMedName.Text.Trim()),
                                                 new MySqlParameter("@medTypePK", cboMedTypePK.SelectedValue),
@@ -270,7 +271,7 @@ namespace Pharma
                         cboManuPK.SelectedValue = dsMedicine.Tables[0].Rows[0]["manuPK"];
 
                         txtIndicationEng.Text = dsMedicine.Tables[0].Rows[0]["indicationEng"].ToString();
-                        txtIndicationMyan.Text = dsMedicine.Tables[0].Rows[0]["indicationEng"].ToString();
+                        txtIndicationMyan.Text = dsMedicine.Tables[0].Rows[0]["indicationMyan"].ToString();
 
                         txtDosageEng.Text = dsMedicine.Tables[0].Rows[0]["dosageEng"].ToString();
                         txtDosageMyan.Text = dsMedicine.Tables[0].Rows[0]["dosageMyan"].ToString();

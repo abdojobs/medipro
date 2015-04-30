@@ -46,6 +46,7 @@
             this.grdColAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositorychkIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
@@ -54,7 +55,6 @@
             this.cmdEdit = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).BeginInit();
             this.pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMedicine)).BeginInit();
@@ -335,6 +335,24 @@
             this.panelControl2.Size = new System.Drawing.Size(997, 64);
             this.panelControl2.TabIndex = 0;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Appearance.Options.UseBackColor = true;
+            this.btnDelete.Appearance.Options.UseFont = true;
+            this.btnDelete.Appearance.Options.UseForeColor = true;
+            this.btnDelete.Location = new System.Drawing.Point(783, 16);
+            this.btnDelete.LookAndFeel.SkinName = "Seven Classic";
+            this.btnDelete.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 34);
+            this.btnDelete.TabIndex = 2;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // panelControl3
             // 
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -440,27 +458,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(14, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 19);
+            this.label1.Size = new System.Drawing.Size(89, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Patients";
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Appearance.Options.UseBackColor = true;
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Appearance.Options.UseForeColor = true;
-            this.btnDelete.Location = new System.Drawing.Point(783, 16);
-            this.btnDelete.LookAndFeel.SkinName = "Seven Classic";
-            this.btnDelete.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 34);
-            this.btnDelete.TabIndex = 2;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.label1.Text = "Medicines";
             // 
             // frmMedicines
             // 
