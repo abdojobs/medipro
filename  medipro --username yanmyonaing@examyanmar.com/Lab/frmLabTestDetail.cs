@@ -82,7 +82,7 @@ namespace Lab
                     }
                     else
                     {
-                        int labTestPK = SqlDb.ExecuteScalar<int>("getID tblLabTest");
+                        int labTestPK = SqlDb.ExecuteScalar<int>("Call getID ('tblLabTest')");
 
                         int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblLabTest WHERE labTestPK=@labTestPK AND isDelete=0", new MySqlParameter("@labTestPK", labTestPK));
 

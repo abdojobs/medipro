@@ -268,7 +268,7 @@ namespace Lab
                 {
                     DateTime dtToday = DateTime.Parse(dteRegDate.EditValue.ToString());
                     string strToday = dtToday.ToString("yyyy-MM-dd");
-                    txtRegNo.Text = SqlDb.ExecuteScalar<string>("getRegNo N'tblPatient','" + strToday + "'");
+                    txtRegNo.Text = SqlDb.ExecuteScalar<string>("Call getRegNo (N'tblPatient','" + strToday + "')");
 
                     //int CurUserID = SqlDb.ExecuteScalar<int>("getRegNo tblPatient N'");
 

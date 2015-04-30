@@ -205,7 +205,7 @@ namespace Lab
                     {
                         if (DublicateSAMA() == true)
                         {
-                            int DocID = SqlDb.ExecuteScalar<int>("getID tblDoctor");
+                            int DocID = SqlDb.ExecuteScalar<int>("Call getID ('tblDoctor')");
 
                             int DcoIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblDoctor WHERE doctorPK=@DoctorPK AND isDelete=0", new MySqlParameter("@DoctorPK", DocID));
 
@@ -283,7 +283,7 @@ namespace Lab
                 }
             }
 
-            CurUserID = SqlDb.ExecuteScalar<int>("getID sysUser");
+            CurUserID = SqlDb.ExecuteScalar<int>("Call getID ('sysUser')");
 
             int UserIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysUser WHERE PK=@UserID AND isDelete=0", new MySqlParameter("@UserID", CurUserID));
 

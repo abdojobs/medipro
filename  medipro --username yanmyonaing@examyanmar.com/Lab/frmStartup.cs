@@ -305,8 +305,8 @@ namespace Lab
 
         private void cmdDoctors_Click(object sender, EventArgs e)
         {
-            AppVariable.CURRENT_SUB_MENU = "7";
-            new frmDoctor().ShowDialog();
+            //AppVariable.CURRENT_SUB_MENU = "7";
+            //new frmDoctor().ShowDialog();
         }      
         
     }
