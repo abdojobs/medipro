@@ -417,9 +417,9 @@ namespace exaCore
 
         public bool IsDuplicatedString(string TableName, string FieldName, string Value, string PKeyField, int PKey)
         {
-            int cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM "+ TableName + " WHERE "+ FieldName + "='"+Value+"' AND "+PKeyField+"<>"+PKey.ToString());
+            object cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM "+ TableName + " WHERE "+ FieldName + "='"+Value+"' AND "+PKeyField+"<>"+PKey.ToString());
 
-            if (cnt > 0)
+            if (Convert.ToInt32(cnt) > 0)
             {
                 return true;
             }
@@ -431,9 +431,9 @@ namespace exaCore
 
         public bool IsViewMainMenu(string MenuPK, string UserLevelPK)
         {
-            int cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM sysMainMenuDefine WHERE mainmenuPK =" + MenuPK + " AND levelPK = " + UserLevelPK + " AND IsView = 1");
+            object cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM sysMainMenuDefine WHERE mainmenuPK =" + MenuPK + " AND levelPK = " + UserLevelPK + " AND IsView = 1");
 
-            if (cnt > 0)
+            if (Convert.ToInt32( cnt) > 0)
             {
                 return true;
             }
@@ -445,28 +445,28 @@ namespace exaCore
 
         public bool IsAllow(string SubMenuPK, string UserLevelPK, string Function)
         {
-            int cnt = 0;
+            object cnt = 0;
             bool result = false;
 
             if (Function == "IsView")
             {
-                cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataView = 1");
-                result = (cnt > 0) ? true : false;
+                cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataView = 1");
+                result = (Convert.ToInt32(cnt) > 0) ? true : false;
             }
             else if (Function == "IsInsert")
             {
-                cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataInsert = 1");
-                result = (cnt > 0) ? true : false;
+                cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataInsert = 1");
+                result = (Convert.ToInt32(cnt) > 0) ? true : false;
             }
             else if (Function == "IsEdit")
             {
-                cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataEdit = 1");
-                result = (cnt > 0) ? true : false;
+                cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataEdit = 1");
+                result = (Convert.ToInt32(cnt) > 0) ? true : false;
             }
             else if (Function == "IsDelete")
             {
-                cnt = ExecuteScalar<int>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataDelete = 1");
-                result = (cnt > 0) ? true : false;
+                cnt = ExecuteScalar<object>("SELECT COUNT(*) cnt FROM sysLevelDefine WHERE submenuPK =" + SubMenuPK + " AND levelPK = " + UserLevelPK + " AND dataDelete = 1");
+                result = (Convert.ToInt32(cnt) > 0) ? true : false;
             }
 
             return result;
