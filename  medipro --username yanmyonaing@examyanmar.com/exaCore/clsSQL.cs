@@ -62,7 +62,8 @@ namespace exaCore
                             con.Open();
                         result = (DType)Convert.ChangeType(command.ExecuteScalar(), typeof(DType));
                         //result = (DType)command.ExecuteScalar();
-                        //return result;
+                        return result;
+
                     }
                     catch (Exception exp)
                     {
