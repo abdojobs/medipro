@@ -18,15 +18,15 @@ namespace Lab
         public frmLabTestDetail()
         {
             InitializeComponent();
-            cboLab.DataSource = SqlDb.GetDataSet("Select labPK,labName from tblLaboratory where isActive='True'").Tables[0];
+            cboLab.DataSource = SqlDb.GetDataSet("Select labPK,labName from tblLaboratory ").Tables[0];
             cboLab.ValueMember = "labPK";
             cboLab.DisplayMember = "labName";
 
-            cboBodySystem.DataSource = SqlDb.GetDataSet("Select labCatPK,labCatName from tblLabCat where isActive='True'").Tables[0];
+            cboBodySystem.DataSource = SqlDb.GetDataSet("Select labCatPK,labCatName from tblLabCat").Tables[0];
             cboBodySystem.ValueMember = "labCatPK";
             cboBodySystem.DisplayMember = "labCatName";
 
-            cboType.DataSource = SqlDb.GetDataSet("Select labTypePK,labTypeName from tblLabType where isActive='True'").Tables[0];
+            cboType.DataSource = SqlDb.GetDataSet("Select labTypePK,labTypeName from tblLabType").Tables[0];
             cboType.ValueMember = "labTypePK";
             cboType.DisplayMember = "labTypeName";
         }

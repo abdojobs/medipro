@@ -65,12 +65,12 @@
             this.pnlBackground.Controls.Add(this.grdLaboratory);
             this.pnlBackground.Controls.Add(this.pnl2);
             this.pnlBackground.Controls.Add(this.pnl1);
-            this.pnlBackground.Location = new System.Drawing.Point(20, 17);
+            this.pnlBackground.Location = new System.Drawing.Point(15, 14);
             this.pnlBackground.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnlBackground.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnlBackground.Margin = new System.Windows.Forms.Padding(0);
             this.pnlBackground.Name = "pnlBackground";
-            this.pnlBackground.Size = new System.Drawing.Size(1333, 834);
+            this.pnlBackground.Size = new System.Drawing.Size(1000, 678);
             this.pnlBackground.TabIndex = 3;
             // 
             // grdLaboratory
@@ -81,15 +81,13 @@
             this.grdLaboratory.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.grdLaboratory.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdLaboratory.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.grdLaboratory.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grdLaboratory.Location = new System.Drawing.Point(20, 94);
+            this.grdLaboratory.Location = new System.Drawing.Point(15, 76);
             this.grdLaboratory.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdLaboratory.MainView = this.grdViewLaboratory;
-            this.grdLaboratory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grdLaboratory.Name = "grdLaboratory";
             this.grdLaboratory.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositorychkIsActive});
-            this.grdLaboratory.Size = new System.Drawing.Size(1293, 649);
+            this.grdLaboratory.Size = new System.Drawing.Size(970, 527);
             this.grdLaboratory.TabIndex = 2;
             this.grdLaboratory.UseEmbeddedNavigator = true;
             this.grdLaboratory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -195,12 +193,12 @@
             this.pnl2.Controls.Add(this.cmdNew);
             this.pnl2.Controls.Add(this.pnl3);
             this.pnl2.Controls.Add(this.cmdEdit);
-            this.pnl2.Location = new System.Drawing.Point(1, 753);
+            this.pnl2.Location = new System.Drawing.Point(1, 612);
             this.pnl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.pnl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnl2.Margin = new System.Windows.Forms.Padding(0);
             this.pnl2.Name = "pnl2";
-            this.pnl2.Size = new System.Drawing.Size(1329, 79);
+            this.pnl2.Size = new System.Drawing.Size(997, 64);
             this.pnl2.TabIndex = 0;
             // 
             // cmdExit
@@ -212,12 +210,11 @@
             this.cmdExit.Appearance.Options.UseBackColor = true;
             this.cmdExit.Appearance.Options.UseFont = true;
             this.cmdExit.Appearance.Options.UseForeColor = true;
-            this.cmdExit.Location = new System.Drawing.Point(1187, 20);
+            this.cmdExit.Location = new System.Drawing.Point(890, 16);
             this.cmdExit.LookAndFeel.SkinName = "Seven Classic";
             this.cmdExit.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdExit.Name = "cmdExit";
-            this.cmdExit.Size = new System.Drawing.Size(125, 42);
+            this.cmdExit.Size = new System.Drawing.Size(94, 34);
             this.cmdExit.TabIndex = 2;
             this.cmdExit.Text = "Exit";
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
@@ -231,12 +228,11 @@
             this.cmdNew.Appearance.Options.UseBackColor = true;
             this.cmdNew.Appearance.Options.UseFont = true;
             this.cmdNew.Appearance.Options.UseForeColor = true;
-            this.cmdNew.Location = new System.Drawing.Point(899, 20);
+            this.cmdNew.Location = new System.Drawing.Point(682, 16);
             this.cmdNew.LookAndFeel.SkinName = "Seven Classic";
             this.cmdNew.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdNew.Name = "cmdNew";
-            this.cmdNew.Size = new System.Drawing.Size(125, 42);
+            this.cmdNew.Size = new System.Drawing.Size(94, 34);
             this.cmdNew.TabIndex = 4;
             this.cmdNew.Text = "New";
             this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
@@ -247,31 +243,28 @@
             this.pnl3.Appearance.Options.UseBackColor = true;
             this.pnl3.Controls.Add(this.cmdSearch);
             this.pnl3.Controls.Add(this.txtSearch);
-            this.pnl3.Location = new System.Drawing.Point(20, 17);
+            this.pnl3.Location = new System.Drawing.Point(15, 14);
             this.pnl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnl3.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.pnl3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl3.Name = "pnl3";
-            this.pnl3.Size = new System.Drawing.Size(443, 47);
+            this.pnl3.Size = new System.Drawing.Size(332, 38);
             this.pnl3.TabIndex = 1;
             // 
             // cmdSearch
             // 
             this.cmdSearch.Image = global::Lab.Properties.Resources.search;
-            this.cmdSearch.Location = new System.Drawing.Point(392, 10);
+            this.cmdSearch.Location = new System.Drawing.Point(294, 8);
             this.cmdSearch.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.cmdSearch.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdSearch.Name = "cmdSearch";
-            this.cmdSearch.Size = new System.Drawing.Size(33, 23);
+            this.cmdSearch.Size = new System.Drawing.Size(25, 19);
             this.cmdSearch.TabIndex = 1;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(13, 10);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Location = new System.Drawing.Point(10, 8);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(372, 22);
+            this.txtSearch.Size = new System.Drawing.Size(279, 20);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -284,12 +277,11 @@
             this.cmdEdit.Appearance.Options.UseBackColor = true;
             this.cmdEdit.Appearance.Options.UseFont = true;
             this.cmdEdit.Appearance.Options.UseForeColor = true;
-            this.cmdEdit.Location = new System.Drawing.Point(1043, 20);
+            this.cmdEdit.Location = new System.Drawing.Point(782, 16);
             this.cmdEdit.LookAndFeel.SkinName = "Seven Classic";
             this.cmdEdit.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(125, 42);
+            this.cmdEdit.Size = new System.Drawing.Size(94, 34);
             this.cmdEdit.TabIndex = 3;
             this.cmdEdit.Text = "Edit";
             this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
@@ -305,7 +297,7 @@
             this.pnl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.pnl1.Margin = new System.Windows.Forms.Padding(0);
             this.pnl1.Name = "pnl1";
-            this.pnl1.Size = new System.Drawing.Size(1329, 68);
+            this.pnl1.Size = new System.Drawing.Size(997, 55);
             this.pnl1.TabIndex = 0;
             // 
             // lbl1
@@ -313,22 +305,20 @@
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.ForeColor = System.Drawing.Color.White;
-            this.lbl1.Location = new System.Drawing.Point(19, 30);
-            this.lbl1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl1.Location = new System.Drawing.Point(14, 24);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(202, 24);
+            this.lbl1.Size = new System.Drawing.Size(164, 19);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Lab Package Setup";
             // 
             // frmLabPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1369, 866);
+            this.ClientSize = new System.Drawing.Size(1027, 704);
             this.Controls.Add(this.pnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmLabPackage";
             this.Text = "Laboratory Setup";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

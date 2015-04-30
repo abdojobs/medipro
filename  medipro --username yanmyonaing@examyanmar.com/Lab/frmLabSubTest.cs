@@ -44,7 +44,7 @@ namespace Lab
 
         private void Binding()
         {
-            DataSet ds = SqlDb.GetDataSet("SELECT labSubTestPK,labSubTestCode, labSubTestName,labSubTestDescription, isActive FROM tblLabSubTest WHERE isDelete = 0");
+            DataSet ds = SqlDb.GetDataSet("SELECT labSubTestPK,labTestPK,labSubTestCode, labSubTestName,labSubTestDescription, isActive FROM tblLabSubTest WHERE isDelete = 0");
             grd.DataSource = ds.Tables[0];
 
             grdView.FocusedRowHandle = curIndex;
@@ -65,13 +65,14 @@ namespace Lab
                 curIndex = grdView.GetDataSourceRowIndex(grdView.FocusedRowHandle);
 
                 frmLabSubTestDetail detailForm = new frmLabSubTestDetail();
-
+                
                 detailForm.txtCode.Tag = dr.ItemArray[0].ToString();
-                detailForm.txtCode.Text = dr.ItemArray[1].ToString();
-                detailForm.txtName.Text = dr.ItemArray[2].ToString();
-                detailForm.txtDescription.Text = dr.ItemArray[3].ToString();
+                detailForm.cboLabTest.SelectedValue = dr.ItemArray[1].ToString();
+                detailForm.txtCode.Text = dr.ItemArray[2].ToString();
+                detailForm.txtName.Text = dr.ItemArray[3].ToString();
+                detailForm.txtDescription.Text = dr.ItemArray[4].ToString();
 
-                detailForm.chkIsActive.EditValue = bool.Parse(dr.ItemArray[4].ToString());
+                detailForm.chkIsActive.EditValue = bool.Parse(dr.ItemArray[5].ToString());
                 detailForm.cmdSave.Tag = "Edit";
 
                 detailForm.ShowDialog();

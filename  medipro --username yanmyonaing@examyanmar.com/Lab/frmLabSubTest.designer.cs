@@ -47,6 +47,7 @@
             this.cmdEdit = new DevExpress.XtraEditors.SimpleButton();
             this.pnl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.grdColLabTestPK = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).BeginInit();
             this.pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd)).BeginInit();
@@ -118,6 +119,7 @@
             this.grdView.ColumnPanelRowHeight = 30;
             this.grdView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grdColPK,
+            this.grdColLabTestPK,
             this.grdColLabTestCode,
             this.grdColLabTestName,
             this.grdColLabTestDesc,
@@ -340,6 +342,12 @@
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Lab Sub Test Setup";
             // 
+            // grdColLabTestPK
+            // 
+            this.grdColLabTestPK.Caption = "LabtestPK";
+            this.grdColLabTestPK.FieldName = "labTestPK";
+            this.grdColLabTestPK.Name = "grdColLabTestPK";
+            // 
             // frmLabSubTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -389,5 +397,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColLabTestDesc;
         private DevExpress.XtraGrid.Columns.GridColumn grdColIsActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorychkIsActive;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColLabTestPK;
     }
 }

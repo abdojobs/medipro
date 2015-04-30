@@ -195,6 +195,9 @@ namespace Lab
                     txtSpecimen.Text = dr["specimen"].ToString();
                     txtTat.Text = dr["tat"].ToString();
                     txtUsage.Text = dr["clinicalUsage"].ToString();
+
+                    
+                    
                 }
             }
         }
