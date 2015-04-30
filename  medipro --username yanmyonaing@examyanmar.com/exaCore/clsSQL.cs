@@ -11,8 +11,7 @@ using MySql.Data.MySqlClient;
 namespace exaCore
 {
     public class clsSQL
-    {
-        
+    {        
         static string connString = "";
         public MySqlConnection con;
         private MySqlTransaction rTran;
@@ -43,7 +42,6 @@ namespace exaCore
 
         public DType ExecuteScalar<DType>(string SqlString, params MySqlParameter[] parameters)
         {
-
             DType result = default(DType);
 
             if (!string.IsNullOrEmpty(SqlString))
@@ -62,7 +60,8 @@ namespace exaCore
                     {
                         if (con.State != ConnectionState.Open)
                             con.Open();
-                        result = (DType)command.ExecuteScalar();
+                        result = (DType)Convert.ChangeType(command.ExecuteScalar(), typeof(DType));
+                        //result = (DType)command.ExecuteScalar();
                         //return result;
                     }
                     catch (Exception exp)
@@ -99,8 +98,21 @@ namespace exaCore
                     try
                     {
                         con.Open();
-                        result = (DType)command.ExecuteScalar();
-                        //return result;
+                        result = (DType)Convert.ChangeType(command.ExecuteScalar(), typeof(DType));
+                        //object objResult = command.ExecuteScalar();
+
+                        //switch (Type.GetTypeCode(objResult.GetType()))
+                        //{ 
+                        //    case TypeCode.Int16:
+                        //        result = Convert.ToInt32(objResult);
+                        //        break;
+
+                        //    case TypeCode.String:
+                        //        break;
+
+                        //    case TypeCode.Boolean:
+                        //        break;
+                        //}
                     }
                     catch (Exception exp)
                     {
