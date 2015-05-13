@@ -131,8 +131,8 @@
             this.colIsAllow});
             this.grdViewRole.GridControl = this.gridRole;
             this.grdViewRole.Name = "grdViewRole";
-            this.grdViewRole.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.grdViewRole.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.grdViewRole.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.grdViewRole.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.grdViewRole.OptionsView.EnableAppearanceEvenRow = true;
             this.grdViewRole.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grdViewRole.OptionsView.ShowDetailButtons = false;
@@ -172,7 +172,7 @@
             this.colIsAllow.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colIsAllow.Caption = "Is Allow";
             this.colIsAllow.ColumnEdit = this.resChkIsAllow;
-            this.colIsAllow.FieldName = "policyIsAllowed";
+            this.colIsAllow.FieldName = "isAllowed";
             this.colIsAllow.MaxWidth = 60;
             this.colIsAllow.Name = "colIsAllow";
             this.colIsAllow.OptionsColumn.AllowMove = false;

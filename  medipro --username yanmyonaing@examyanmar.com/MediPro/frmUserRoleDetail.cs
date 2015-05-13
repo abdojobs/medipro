@@ -60,7 +60,7 @@ namespace MediPro
                 {
                     intRolePK = SqlDb.ExecuteScalar<int>("getID 'sysRoles'");
 
-                    SqlDb.ExecuteQuery("INSERT INTO sysRoles(rolePK,roleName,isActive,updateDate,updatePK,createDate,createPK) " +
+                    SqlDb.ExecuteQuery("INSERT INTO sysroles(rolePK,roleName,isActive,updateDate,updatePK,createDate,createPK) " +
                                                 "VALUES(@rolePK,@roleName,@isActive,NOW(),@updatePK,NOW(),@createPK)",
                                                 new MySqlParameter("@rolePK", intRolePK),
                                                 new MySqlParameter("@roleName", txtRoleName.Text.Trim()),
@@ -69,52 +69,40 @@ namespace MediPro
                                                 new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK));
 
 
-
-                    DialogResult dr = MessageBox.Show("The role has been saved successfully. Do you want to create other role?", "MediPro :: Clinic System", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    if (dr == DialogResult.Yes)
-                    {
-                        txtRoleName.Text = string.Empty;
-                        intRolePK = 0;
-
-                        chkIsActive.EditValue = true;
-
-                        txtRoleName.Focus();
-                    }
-                    
-
-
                 }
                 else
                 {
-                    SqlDb.ExecuteQuery("UPDATE sysRoles SET roleName=@roleName,isActive=@isActive,updateDate=NOW(),updatePK=@UpdatePK WHERE rolePK=@rolePK",
+                    SqlDb.ExecuteQuery("UPDATE sysroles SET roleName=@roleName,isActive=@isActive,updateDate=NOW(),updatePK=@UpdatePK WHERE rolePK=@rolePK",
                                             new MySqlParameter("@rolePK", intRolePK.ToString()),
                                             new MySqlParameter("@roleName", txtRoleName.Text.Trim()),
                                             new MySqlParameter("@isActive", chkIsActive.EditValue),
                                             new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK.ToString()));
 
-                    MessageBox.Show("The role has been saved successfully.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     
                 }
 
-                SqlDb.ExecuteQuery("DELETE FROM sysRolePolicy WHERE rolePK="+intRolePK.ToString());
+                SqlDb.ExecuteQuery("DELETE FROM sysrolepolicy WHERE rolePK="+intRolePK.ToString());
 
                 foreach (DataRow drSave in dtGridSource.Rows)
                 {
                     if (drSave.RowState != DataRowState.Deleted)
                     {
                         int intPolicyPK = int.Parse(drSave["policyPK"].ToString());
-                        bool booIsAllow = bool.Parse(drSave["policyIsAllowed"].ToString());
+                        bool booIsAllow = bool.Parse(drSave["isAllowed"].ToString());
                         
                         if (booIsAllow)
                         {
-                            SqlDb.ExecuteQuery("INSERT INTO sysRolePolicy (policyPK,rolePK)" +
+                            SqlDb.ExecuteQuery("INSERT INTO sysrolepolicy (policyPK,rolePK)" +
                                             " VALUES(" + intPolicyPK.ToString() + "," + intRolePK.ToString() + ")");
                         }    
                     }
                     
 
                 }
+
+
+                MessageBox.Show("The role has been saved successfully.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -126,18 +114,6 @@ namespace MediPro
             }
             
             
-        }
-
-        private bool ValidateForm()
-        {
-            bool value = true;
-            if (txtRoleName.Text.Length < 1)
-            {
-                MessageBox.Show("Please enter diagnosis.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                value = false;
-                txtRoleName.Focus();
-            }
-            return value;
         }
 
         private void frmUserRoleDetail_Load(object sender, EventArgs e)
@@ -154,10 +130,27 @@ namespace MediPro
             }
             
 
-            dtGridSource = SqlDb.GetDataSet("select p.policyPK, p.policyText, IFNULL(rp.rolePK,0)  rolePK, " +
-                                            "IFNULL(rp.rolePK,0) = 0  AS policyIsAllowed from sysPolicies p " +
-                                            "LEFT JOIN (SELECT * FROM sysRolePolicy WHERE rolePK="+intRolePK.ToString()+") rp ON p.policyPK = rp.policyPK WHERE IFNULL(rp.rolePK," + intRolePK.ToString() + ") = " + intRolePK.ToString()).Tables[0];
-            
+            dtGridSource = SqlDb.GetDataSet("SELECT policyPK, policyText FROM syspolicies").Tables[0];
+
+            dtGridSource.Columns.Add("isAllowed",typeof(Boolean));
+
+            for (int iloop = 0; iloop < dtGridSource.Rows.Count; iloop++)
+            {
+                int intPolicyPK = int.Parse(dtGridSource.Rows[iloop]["policyPK"].ToString());
+
+                int intPolicyCnt  = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM sysrolepolicy WHERE rolePK = " + intRolePK.ToString() + " AND policyPK = " + intPolicyPK.ToString());
+
+                if (intPolicyCnt > 0)
+                {
+                    dtGridSource.Rows[iloop]["isAllowed"] = true;    
+                }
+                else
+                {
+                    dtGridSource.Rows[iloop]["isAllowed"] = false;    
+                }
+
+                
+            }            
 
 
             gridRole.DataSource = dtGridSource;
