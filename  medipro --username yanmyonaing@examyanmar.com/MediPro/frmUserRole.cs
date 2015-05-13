@@ -53,7 +53,7 @@ namespace MediPro
 
         private void BindingUserRole()
         {
-            DataSet dsUserRole = SqlDb.GetDataSet("SELECT rolePK, roleName, isActive FROM sysRoles WHERE isDelete = 0");
+            DataSet dsUserRole = SqlDb.GetDataSet("SELECT rolePK, roleName, isActive FROM sysroles WHERE isDelete = 0");
             grdUserRole.DataSource = dsUserRole.Tables[0];
 
             grdViewUserRole.FocusedRowHandle = curIndex;
@@ -71,7 +71,7 @@ namespace MediPro
         {
             curIndex = grdViewUserRole.RowCount;
 
-            frmUserRoleDetail.intRolePK = int.Parse(drUserRole.ItemArray[0].ToString());
+            frmUserRoleDetail.intRolePK = int.Parse(drUserRole["rolePK"].ToString());
 
             frmUserRoleDetail UserRoleDetailForm = new frmUserRoleDetail();
 
@@ -103,7 +103,7 @@ namespace MediPro
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DataSet dsUserRole = SqlDb.GetDataSet("SELECT rolePK, roleName, isActive FROM sysRoles WHERE isDelete = 0 and roleName like '%" + txtSearch.Text + "%'");
+            DataSet dsUserRole = SqlDb.GetDataSet("SELECT rolePK, roleName, isActive FROM sysroles WHERE isDelete = 0 and roleName like '%" + txtSearch.Text + "%'");
             grdUserRole.DataSource = dsUserRole.Tables[0];
 
             grdViewUserRole.FocusedRowHandle = curIndex;
