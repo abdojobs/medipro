@@ -131,10 +131,7 @@
             this.colIsAllow});
             this.grdViewRole.GridControl = this.gridRole;
             this.grdViewRole.Name = "grdViewRole";
-            this.grdViewRole.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.grdViewRole.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.grdViewRole.OptionsView.EnableAppearanceEvenRow = true;
-            this.grdViewRole.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
             this.grdViewRole.OptionsView.ShowDetailButtons = false;
             this.grdViewRole.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.grdViewRole.OptionsView.ShowGroupPanel = false;
