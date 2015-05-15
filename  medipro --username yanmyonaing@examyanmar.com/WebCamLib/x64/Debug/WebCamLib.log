@@ -1,4 +1,4 @@
-﻿Build started 15/05/2015 12:06:44.
+﻿Build started 15/05/2015 15:56:36.
      1>Project "C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "x64\Debug\WebCamLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -18,4 +18,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.05
