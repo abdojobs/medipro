@@ -1,0 +1,21 @@
+﻿Build started 15/05/2015 12:06:44.
+     1>Project "C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "x64\Debug\WebCamLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       GenerateTargetFrameworkMonikerAttribute:
+       Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+       ClCompile:
+         All outputs are up-to-date.
+         All outputs are up-to-date.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll) does not match the Linker's OutputFile property value (C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\WebCamLib\bin\Debug\WebCamLib.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         All outputs are up-to-date.
+         WebCamLib.vcxproj -> C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll
+       FinalizeBuildStatus:
+         Deleting file "x64\Debug\WebCamLib.unsuccessfulbuild".
+         Touching "x64\Debug\WebCamLib.lastbuildstate".
+     1>Done Building Project "C:\Users\ice-pc\Desktop\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04
