@@ -171,7 +171,7 @@ namespace MediPro
             {
                 AppVariable.CURRENT_SUB_MENU = cmdUserLevel.Tag.ToString();
 
-                frmUserLevel UserLevelForm = new frmUserLevel();
+                frmUserRole UserLevelForm = new frmUserRole();
                 UserLevelForm.Show();
                 //UserLevelForm.TopMost = true;
 

@@ -89,9 +89,7 @@
     <Reference Include="DevExpress.XtraRichEdit.v12.1.Extensions, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
@@ -303,6 +301,18 @@
     <Compile Include="frmClinicTimeByDoctor.Designer.cs">
       <DependentUpon>frmClinicTimeByDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRole.designer.cs">
+      <DependentUpon>frmUserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserRoleDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRoleDetail.designer.cs">
+      <DependentUpon>frmUserRoleDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVisitPatientsbyDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +420,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmClinicTimeByDoctor.resx">
       <DependentUpon>frmClinicTimeByDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRole.resx">
+      <DependentUpon>frmUserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRoleDetail.resx">
+      <DependentUpon>frmUserRoleDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVisitPatientsbyDoctor.resx">
       <DependentUpon>frmVisitPatientsbyDoctor.cs</DependentUpon>
