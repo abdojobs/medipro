@@ -60,7 +60,7 @@ namespace Lab
         private void tabControlMain_SelectedPageChanging(object sender, DevExpress.XtraTab.TabPageChangingEventArgs e)
         {
             bool IsView;
-
+            e.Page.Tag = 3;
             switch (e.Page.Tag.ToString())
             {
                 case "1":
@@ -336,7 +336,7 @@ namespace Lab
                                                     "join tbllabinvoice as inv on inv.labInvoiceNo = req.labInvoiceNo " +
                                                     "join tblpatient as p on  p.RegNo = inv.patientPK " +
                                                     "join tbldoctor as doc on doc.doctorPK = inv.doctorPK " +
-                                                    "where req.hasResultIssued = 0 and branchPK = " + AppVariable.CURRENT_BRANCH_PK.ToString() + 
+                                                    "where req.hasResultIssued = 0 and req.branchPK = " + AppVariable.CURRENT_BRANCH_PK.ToString() + 
                                                     " order by req.labtechnicianrequestPK desc");
             grdLabTechReq.DataSource = dsLabTechReq.Tables[0];
 
