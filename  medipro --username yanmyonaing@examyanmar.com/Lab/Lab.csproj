@@ -147,6 +147,12 @@
     <Compile Include="frmLabSubTestDetail.designer.cs">
       <DependentUpon>frmLabSubTestDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmlabTechReqSample.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmlabTechReqSample.designer.cs">
+      <DependentUpon>frmlabTechReqSample.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLabTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     <EmbeddedResource Include="frmLabSubTestDetail.resx">
       <DependentUpon>frmLabSubTestDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmlabTechReqSample.resx">
+      <DependentUpon>frmlabTechReqSample.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLabTest.resx">
       <DependentUpon>frmLabTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +279,7 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
