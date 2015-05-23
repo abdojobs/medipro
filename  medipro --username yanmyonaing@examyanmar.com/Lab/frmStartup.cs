@@ -54,6 +54,7 @@ namespace Lab
         {
             BindingBooking();
             BindingVisiting();
+            BindingLabTechReq();
         }
 
         private void tabControlMain_SelectedPageChanging(object sender, DevExpress.XtraTab.TabPageChangingEventArgs e)
@@ -307,7 +308,69 @@ namespace Lab
         {
             //AppVariable.CURRENT_SUB_MENU = "7";
             //new frmDoctor().ShowDialog();
-        }      
-        
+        }
+
+
+        //################## Lab Tech Request 
+
+#region LabTechRequest
+
+        DataRow drLabTechReq;
+        int curLabTechReqIndex;
+
+
+        private void GetLabTechReqRow()
+        {
+            if (grdViewLabTechReq.RowCount > 0)
+            {
+                drLabTechReq = grdViewLabTechReq.GetDataRow(grdViewLabTechReq.FocusedRowHandle);
+            }
+        }
+
+        private void BindingLabTechReq()
+        {
+            DataSet dsLabTechReq = SqlDb.GetDataSet("select req.labtechnicianrequestPK, req.labInvoiceNo, req.labTestPK,req.sampleID, req.hasSample, " +
+                                                    "req.hasResult, req.resultDateTime, lab.labTestCode,lab.labTestName, lab.companyPK,p.RegNo, p.Name, " +
+                                                    "p.FatherName, p.DOB,doc.doctorPK, doc.doctor from tbllabtechnicianrequest as req  " +
+                                                    "join tbllabtest as lab on lab.labTestPK = req.labTestPK " +
+                                                    "join tbllabinvoice as inv on inv.labInvoiceNo = req.labInvoiceNo " +
+                                                    "join tblpatient as p on  p.RegNo = inv.patientPK " +
+                                                    "join tbldoctor as doc on doc.doctorPK = inv.doctorPK " +
+                                                    "where req.hasResultIssued = 0 and branchPK = " + AppVariable.CURRENT_BRANCH_PK.ToString() + 
+                                                    " order by req.labtechnicianrequestPK desc");
+            grdLabTechReq.DataSource = dsLabTechReq.Tables[0];
+
+            grdViewLabTechReq.FocusedRowHandle = curLabTechReqIndex;
+        }
+
+        private void grdViewLabTechReq_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            GetLabTechReqRow();
+        }
+
+
+
+        private void grdViewLabTechReq_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            GetLabTechReqRow();
+        }
+
+
+        private void btnLabSample_Click(object sender, EventArgs e)
+        {
+            curLabTechReqIndex = grdViewLabTechReq.RowCount;
+
+            frmLabTechReqSample fLabTechReqSample = new frmLabTechReqSample();
+            frmLabTechReqSample.intLabTechReqPK = int.Parse(drLabTechReq.ItemArray[0].ToString());
+
+            fLabTechReqSample.ShowDialog();
+
+            BindingLabTechReq();
+        }
+
+#endregion
+
+       
+
     }
 }
