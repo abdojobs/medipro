@@ -68,7 +68,7 @@ namespace Lab
                 
                 if (AuthCnt > 0)
                 {
-                    DataSet dsUser = SqlDb.GetDataSet("SELECT PK, name, login, levelPK FROM sysUser WHERE login=@Login AND passw=@PWD AND isDelete=@isDelete AND isActive=@isActive",
+                    DataSet dsUser = SqlDb.GetDataSet("SELECT PK, name, login, levelPK, branchPK FROM sysUser WHERE login=@Login AND passw=@PWD AND isDelete=@isDelete AND isActive=@isActive",
                                                      new MySqlParameter("@login", txtLogin.Text.Trim()),
                                                         new MySqlParameter("@PWD", Crypto.Encrypt(txtPassword.Text.Trim())),
                                                         new MySqlParameter("@isDelete", false),
@@ -78,6 +78,7 @@ namespace Lab
                     AppVariable.CURRENT_USER_FULLNAME = dsUser.Tables[0].Rows[0]["name"].ToString();
                     AppVariable.CURRENT_USER_LEVEL_ID = int.Parse(dsUser.Tables[0].Rows[0]["levelPK"].ToString());
                     AppVariable.CURRENT_LOGIN_ID = dsUser.Tables[0].Rows[0]["login"].ToString();
+                    AppVariable.CURRENT_BRANCH_PK = int.Parse(dsUser.Tables[0].Rows[0]["branchPK"].ToString());
 
                     sysLogs.logs_login();
                     
