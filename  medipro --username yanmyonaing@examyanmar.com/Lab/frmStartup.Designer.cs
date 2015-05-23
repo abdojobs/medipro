@@ -50,15 +50,9 @@
             this.grdBooking = new DevExpress.XtraGrid.GridControl();
             this.grdViewBooking = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColBookingPK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColPName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdDName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColStatus = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColIsReg = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemchkIsRegistered = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.grdColToken = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColIsViaited = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemchkIsPhone = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.grdColDoctorID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -66,15 +60,10 @@
             this.grdTodayVisitPatients = new DevExpress.XtraGrid.GridControl();
             this.grdViewTodayVisitPatients = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.grdColPK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColTokenNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColPatientName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdTime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColIsRegistered = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.grdColVisitStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorPK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColVPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColRegNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -111,6 +100,14 @@
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.grdColContactNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemchkRCollect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -129,7 +126,7 @@
             this.panelControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewBooking)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsRegistered)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsPhone)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -154,6 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
@@ -255,11 +253,11 @@
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.Controls.Add(this.panelControl7);
             this.panelControl6.Controls.Add(this.gridControl9);
-            this.panelControl6.Location = new System.Drawing.Point(851, 45);
+            this.panelControl6.Location = new System.Drawing.Point(13, 346);
             this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(396, 587);
+            this.panelControl6.Size = new System.Drawing.Size(819, 287);
             this.panelControl6.TabIndex = 17;
             // 
             // panelControl7
@@ -275,7 +273,7 @@
             this.panelControl7.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl7.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl7.Name = "panelControl7";
-            this.panelControl7.Size = new System.Drawing.Size(393, 36);
+            this.panelControl7.Size = new System.Drawing.Size(816, 36);
             this.panelControl7.TabIndex = 12;
             // 
             // labelControl17
@@ -303,7 +301,7 @@
             this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl9.MainView = this.gridView10;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(395, 550);
+            this.gridControl9.Size = new System.Drawing.Size(818, 250);
             this.gridControl9.TabIndex = 11;
             this.gridControl9.UseEmbeddedNavigator = true;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -325,6 +323,8 @@
             this.gridColumn34,
             this.gridColumn35,
             this.gridColumn46,
+            this.gridColumn1,
+            this.gridColumn2,
             this.gridColumn36});
             this.gridView10.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView10.GridControl = this.gridControl9;
@@ -356,7 +356,7 @@
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 0;
-            this.gridColumn34.Width = 116;
+            this.gridColumn34.Width = 130;
             // 
             // gridColumn35
             // 
@@ -365,7 +365,7 @@
             this.gridColumn35.Name = "gridColumn35";
             this.gridColumn35.Visible = true;
             this.gridColumn35.VisibleIndex = 1;
-            this.gridColumn35.Width = 150;
+            this.gridColumn35.Width = 239;
             // 
             // gridColumn46
             // 
@@ -373,7 +373,7 @@
             this.gridColumn46.Name = "gridColumn46";
             this.gridColumn46.Visible = true;
             this.gridColumn46.VisibleIndex = 2;
-            this.gridColumn46.Width = 126;
+            this.gridColumn46.Width = 201;
             // 
             // gridColumn36
             // 
@@ -401,7 +401,7 @@
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Controls.Add(this.panelControl5);
             this.panelControl4.Controls.Add(this.grdBooking);
-            this.panelControl4.Location = new System.Drawing.Point(13, 346);
+            this.panelControl4.Location = new System.Drawing.Point(13, 45);
             this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl4.Name = "panelControl4";
@@ -450,7 +450,8 @@
             this.grdBooking.MainView = this.grdViewBooking;
             this.grdBooking.Name = "grdBooking";
             this.grdBooking.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemchkIsRegistered});
+            this.repositoryItemchkIsPhone,
+            this.repositoryItemchkRCollect});
             this.grdBooking.Size = new System.Drawing.Size(818, 249);
             this.grdBooking.TabIndex = 11;
             this.grdBooking.UseEmbeddedNavigator = true;
@@ -470,14 +471,12 @@
             this.grdViewBooking.ColumnPanelRowHeight = 30;
             this.grdViewBooking.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grdColBookingPK,
-            this.grdColDate,
             this.grdColPName,
             this.grdDName,
-            this.grdColTime,
-            this.grdColStatus,
-            this.grdColIsReg,
-            this.grdColToken,
-            this.grdColIsViaited,
+            this.gridColumn3,
+            this.gridColumn4,
+            this.gridColumn5,
+            this.gridColumn6,
             this.grdColDoctorID});
             this.grdViewBooking.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.grdViewBooking.GridControl = this.grdBooking;
@@ -503,24 +502,6 @@
             this.grdColBookingPK.OptionsColumn.AllowSize = false;
             this.grdColBookingPK.OptionsColumn.ReadOnly = true;
             // 
-            // grdColDate
-            // 
-            this.grdColDate.Caption = "Date";
-            this.grdColDate.FieldName = "abdate";
-            this.grdColDate.Name = "grdColDate";
-            this.grdColDate.OptionsColumn.AllowEdit = false;
-            this.grdColDate.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColDate.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColDate.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColDate.OptionsColumn.AllowMove = false;
-            this.grdColDate.OptionsColumn.AllowShowHide = false;
-            this.grdColDate.OptionsColumn.AllowSize = false;
-            this.grdColDate.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColDate.OptionsColumn.ReadOnly = true;
-            this.grdColDate.Visible = true;
-            this.grdColDate.VisibleIndex = 0;
-            this.grdColDate.Width = 129;
-            // 
             // grdColPName
             // 
             this.grdColPName.AppearanceHeader.Options.UseTextOptions = true;
@@ -538,8 +519,8 @@
             this.grdColPName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.grdColPName.OptionsColumn.ReadOnly = true;
             this.grdColPName.Visible = true;
-            this.grdColPName.VisibleIndex = 1;
-            this.grdColPName.Width = 188;
+            this.grdColPName.VisibleIndex = 0;
+            this.grdColPName.Width = 180;
             // 
             // grdDName
             // 
@@ -556,95 +537,17 @@
             this.grdDName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.grdDName.OptionsColumn.ReadOnly = true;
             this.grdDName.Visible = true;
-            this.grdDName.VisibleIndex = 2;
-            this.grdDName.Width = 150;
+            this.grdDName.VisibleIndex = 1;
+            this.grdDName.Width = 143;
             // 
-            // grdColTime
+            // repositoryItemchkIsPhone
             // 
-            this.grdColTime.Caption = "Time";
-            this.grdColTime.FieldName = "abTime";
-            this.grdColTime.Name = "grdColTime";
-            this.grdColTime.OptionsColumn.AllowEdit = false;
-            this.grdColTime.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColTime.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColTime.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColTime.OptionsColumn.AllowMove = false;
-            this.grdColTime.OptionsColumn.AllowShowHide = false;
-            this.grdColTime.OptionsColumn.AllowSize = false;
-            this.grdColTime.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColTime.OptionsColumn.ReadOnly = true;
-            this.grdColTime.Visible = true;
-            this.grdColTime.VisibleIndex = 3;
-            this.grdColTime.Width = 85;
-            // 
-            // grdColStatus
-            // 
-            this.grdColStatus.Caption = "Booking Status";
-            this.grdColStatus.FieldName = "abType";
-            this.grdColStatus.Name = "grdColStatus";
-            this.grdColStatus.OptionsColumn.AllowEdit = false;
-            this.grdColStatus.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColStatus.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColStatus.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColStatus.OptionsColumn.AllowMove = false;
-            this.grdColStatus.OptionsColumn.AllowShowHide = false;
-            this.grdColStatus.OptionsColumn.AllowSize = false;
-            this.grdColStatus.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColStatus.OptionsColumn.ReadOnly = true;
-            this.grdColStatus.Visible = true;
-            this.grdColStatus.VisibleIndex = 4;
-            this.grdColStatus.Width = 154;
-            // 
-            // grdColIsReg
-            // 
-            this.grdColIsReg.Caption = "Is Registered";
-            this.grdColIsReg.ColumnEdit = this.repositoryItemchkIsRegistered;
-            this.grdColIsReg.FieldName = "isNew";
-            this.grdColIsReg.Name = "grdColIsReg";
-            this.grdColIsReg.OptionsColumn.AllowEdit = false;
-            this.grdColIsReg.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColIsReg.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColIsReg.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColIsReg.OptionsColumn.AllowMove = false;
-            this.grdColIsReg.OptionsColumn.AllowShowHide = false;
-            this.grdColIsReg.OptionsColumn.AllowSize = false;
-            this.grdColIsReg.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColIsReg.OptionsColumn.ReadOnly = true;
-            this.grdColIsReg.Visible = true;
-            this.grdColIsReg.VisibleIndex = 5;
-            this.grdColIsReg.Width = 110;
-            // 
-            // repositoryItemchkIsRegistered
-            // 
-            this.repositoryItemchkIsRegistered.AutoHeight = false;
-            this.repositoryItemchkIsRegistered.DisplayValueChecked = "1";
-            this.repositoryItemchkIsRegistered.DisplayValueUnchecked = "0";
-            this.repositoryItemchkIsRegistered.LookAndFeel.SkinName = "VS2010";
-            this.repositoryItemchkIsRegistered.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.repositoryItemchkIsRegistered.Name = "repositoryItemchkIsRegistered";
-            // 
-            // grdColToken
-            // 
-            this.grdColToken.Caption = "Token";
-            this.grdColToken.FieldName = "tokenNo";
-            this.grdColToken.Name = "grdColToken";
-            this.grdColToken.OptionsColumn.AllowEdit = false;
-            this.grdColToken.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColToken.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColToken.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColToken.OptionsColumn.AllowMove = false;
-            this.grdColToken.OptionsColumn.AllowShowHide = false;
-            this.grdColToken.OptionsColumn.AllowSize = false;
-            this.grdColToken.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColToken.OptionsColumn.ReadOnly = true;
-            this.grdColToken.Visible = true;
-            this.grdColToken.VisibleIndex = 6;
-            // 
-            // grdColIsViaited
-            // 
-            this.grdColIsViaited.Caption = "IsVisited";
-            this.grdColIsViaited.FieldName = "isVisited";
-            this.grdColIsViaited.Name = "grdColIsViaited";
+            this.repositoryItemchkIsPhone.AutoHeight = false;
+            this.repositoryItemchkIsPhone.DisplayValueChecked = "1";
+            this.repositoryItemchkIsPhone.DisplayValueUnchecked = "0";
+            this.repositoryItemchkIsPhone.LookAndFeel.SkinName = "VS2010";
+            this.repositoryItemchkIsPhone.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.repositoryItemchkIsPhone.Name = "repositoryItemchkIsPhone";
             // 
             // grdColDoctorID
             // 
@@ -670,11 +573,11 @@
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.Controls.Add(this.panelControl3);
             this.panelControl1.Controls.Add(this.grdTodayVisitPatients);
-            this.panelControl1.Location = new System.Drawing.Point(13, 45);
+            this.panelControl1.Location = new System.Drawing.Point(847, 45);
             this.panelControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(819, 288);
+            this.panelControl1.Size = new System.Drawing.Size(400, 588);
             this.panelControl1.TabIndex = 17;
             // 
             // panelControl3
@@ -690,7 +593,7 @@
             this.panelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl3.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(816, 36);
+            this.panelControl3.Size = new System.Drawing.Size(397, 36);
             this.panelControl3.TabIndex = 12;
             // 
             // labelControl15
@@ -705,7 +608,8 @@
             // 
             // grdTodayVisitPatients
             // 
-            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
@@ -719,7 +623,7 @@
             this.grdTodayVisitPatients.Name = "grdTodayVisitPatients";
             this.grdTodayVisitPatients.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit2});
-            this.grdTodayVisitPatients.Size = new System.Drawing.Size(818, 250);
+            this.grdTodayVisitPatients.Size = new System.Drawing.Size(399, 550);
             this.grdTodayVisitPatients.TabIndex = 11;
             this.grdTodayVisitPatients.UseEmbeddedNavigator = true;
             this.grdTodayVisitPatients.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -738,14 +642,10 @@
             this.grdViewTodayVisitPatients.ColumnPanelRowHeight = 30;
             this.grdViewTodayVisitPatients.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.grdColPK,
-            this.grdColTokenNo,
             this.grdColPatientName,
             this.grdColDoctorName,
-            this.grdTime,
-            this.grdColIsRegistered,
-            this.grdColVisitStatus,
+            this.grdColContactNo,
             this.grdColDoctorPK,
-            this.grdColVPK,
             this.grdColRegNo});
             this.grdViewTodayVisitPatients.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.grdViewTodayVisitPatients.GridControl = this.grdTodayVisitPatients;
@@ -771,29 +671,10 @@
             this.grdColPK.OptionsColumn.AllowSize = false;
             this.grdColPK.OptionsColumn.ReadOnly = true;
             // 
-            // grdColTokenNo
-            // 
-            this.grdColTokenNo.AppearanceHeader.Options.UseTextOptions = true;
-            this.grdColTokenNo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.grdColTokenNo.Caption = "Token No.";
-            this.grdColTokenNo.FieldName = "tokenNo";
-            this.grdColTokenNo.Name = "grdColTokenNo";
-            this.grdColTokenNo.OptionsColumn.AllowEdit = false;
-            this.grdColTokenNo.OptionsColumn.AllowFocus = false;
-            this.grdColTokenNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColTokenNo.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColTokenNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColTokenNo.OptionsColumn.AllowMove = false;
-            this.grdColTokenNo.OptionsColumn.AllowShowHide = false;
-            this.grdColTokenNo.OptionsColumn.AllowSize = false;
-            this.grdColTokenNo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColTokenNo.OptionsColumn.ReadOnly = true;
-            this.grdColTokenNo.Visible = true;
-            this.grdColTokenNo.VisibleIndex = 0;
-            this.grdColTokenNo.Width = 80;
-            // 
             // grdColPatientName
             // 
+            this.grdColPatientName.AppearanceCell.Options.UseTextOptions = true;
+            this.grdColPatientName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.grdColPatientName.Caption = "Patient\'s Name";
             this.grdColPatientName.FieldName = "patientName";
             this.grdColPatientName.Name = "grdColPatientName";
@@ -808,11 +689,13 @@
             this.grdColPatientName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.grdColPatientName.OptionsColumn.ReadOnly = true;
             this.grdColPatientName.Visible = true;
-            this.grdColPatientName.VisibleIndex = 1;
-            this.grdColPatientName.Width = 200;
+            this.grdColPatientName.VisibleIndex = 0;
+            this.grdColPatientName.Width = 179;
             // 
             // grdColDoctorName
             // 
+            this.grdColDoctorName.AppearanceCell.Options.UseTextOptions = true;
+            this.grdColDoctorName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.grdColDoctorName.Caption = "Doctor";
             this.grdColDoctorName.FieldName = "doctorName";
             this.grdColDoctorName.Name = "grdColDoctorName";
@@ -827,47 +710,8 @@
             this.grdColDoctorName.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
             this.grdColDoctorName.OptionsColumn.ReadOnly = true;
             this.grdColDoctorName.Visible = true;
-            this.grdColDoctorName.VisibleIndex = 2;
-            this.grdColDoctorName.Width = 167;
-            // 
-            // grdTime
-            // 
-            this.grdTime.Caption = "Time";
-            this.grdTime.FieldName = "abTime";
-            this.grdTime.Name = "grdTime";
-            this.grdTime.OptionsColumn.AllowEdit = false;
-            this.grdTime.OptionsColumn.AllowFocus = false;
-            this.grdTime.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdTime.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdTime.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdTime.OptionsColumn.AllowMove = false;
-            this.grdTime.OptionsColumn.AllowShowHide = false;
-            this.grdTime.OptionsColumn.AllowSize = false;
-            this.grdTime.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdTime.OptionsColumn.ReadOnly = true;
-            this.grdTime.Visible = true;
-            this.grdTime.VisibleIndex = 3;
-            this.grdTime.Width = 89;
-            // 
-            // grdColIsRegistered
-            // 
-            this.grdColIsRegistered.Caption = "Is Registered";
-            this.grdColIsRegistered.ColumnEdit = this.repositoryItemCheckEdit2;
-            this.grdColIsRegistered.FieldName = "isNew";
-            this.grdColIsRegistered.Name = "grdColIsRegistered";
-            this.grdColIsRegistered.OptionsColumn.AllowEdit = false;
-            this.grdColIsRegistered.OptionsColumn.AllowFocus = false;
-            this.grdColIsRegistered.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColIsRegistered.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColIsRegistered.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColIsRegistered.OptionsColumn.AllowMove = false;
-            this.grdColIsRegistered.OptionsColumn.AllowShowHide = false;
-            this.grdColIsRegistered.OptionsColumn.AllowSize = false;
-            this.grdColIsRegistered.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColIsRegistered.OptionsColumn.ReadOnly = true;
-            this.grdColIsRegistered.Visible = true;
-            this.grdColIsRegistered.VisibleIndex = 4;
-            this.grdColIsRegistered.Width = 111;
+            this.grdColDoctorName.VisibleIndex = 1;
+            this.grdColDoctorName.Width = 149;
             // 
             // repositoryItemCheckEdit2
             // 
@@ -877,25 +721,6 @@
             this.repositoryItemCheckEdit2.LookAndFeel.SkinName = "VS2010";
             this.repositoryItemCheckEdit2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
-            // 
-            // grdColVisitStatus
-            // 
-            this.grdColVisitStatus.Caption = "Visit Status";
-            this.grdColVisitStatus.FieldName = "abType";
-            this.grdColVisitStatus.Name = "grdColVisitStatus";
-            this.grdColVisitStatus.OptionsColumn.AllowEdit = false;
-            this.grdColVisitStatus.OptionsColumn.AllowFocus = false;
-            this.grdColVisitStatus.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColVisitStatus.OptionsColumn.AllowIncrementalSearch = false;
-            this.grdColVisitStatus.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColVisitStatus.OptionsColumn.AllowMove = false;
-            this.grdColVisitStatus.OptionsColumn.AllowShowHide = false;
-            this.grdColVisitStatus.OptionsColumn.AllowSize = false;
-            this.grdColVisitStatus.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.True;
-            this.grdColVisitStatus.OptionsColumn.ReadOnly = true;
-            this.grdColVisitStatus.Visible = true;
-            this.grdColVisitStatus.VisibleIndex = 5;
-            this.grdColVisitStatus.Width = 169;
             // 
             // grdColDoctorPK
             // 
@@ -914,12 +739,6 @@
             this.grdColDoctorPK.OptionsFilter.AllowAutoFilter = false;
             this.grdColDoctorPK.OptionsFilter.AllowFilter = false;
             this.grdColDoctorPK.Width = 250;
-            // 
-            // grdColVPK
-            // 
-            this.grdColVPK.Caption = "VisitPK";
-            this.grdColVPK.FieldName = "visitPK";
-            this.grdColVPK.Name = "grdColVPK";
             // 
             // grdColRegNo
             // 
@@ -1458,6 +1277,71 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
+            // grdColContactNo
+            // 
+            this.grdColContactNo.AppearanceCell.Options.UseTextOptions = true;
+            this.grdColContactNo.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.grdColContactNo.Caption = "Contact No";
+            this.grdColContactNo.Name = "grdColContactNo";
+            this.grdColContactNo.Visible = true;
+            this.grdColContactNo.VisibleIndex = 2;
+            this.grdColContactNo.Width = 150;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Invoice No";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.Width = 118;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Total Amount";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 128;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Phone";
+            this.gridColumn3.ColumnEdit = this.repositoryItemchkIsPhone;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 70;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "P-Remark";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 179;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "R-Collect";
+            this.gridColumn5.ColumnEdit = this.repositoryItemchkRCollect;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 57;
+            // 
+            // repositoryItemchkRCollect
+            // 
+            this.repositoryItemchkRCollect.AutoHeight = false;
+            this.repositoryItemchkRCollect.Name = "repositoryItemchkRCollect";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "R-Remark";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 187;
+            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1495,7 +1379,7 @@
             this.panelControl5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdBooking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewBooking)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsRegistered)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsPhone)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
@@ -1524,6 +1408,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1582,27 +1467,16 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl15;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColDate;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColTime;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColStatus;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColIsReg;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemchkIsRegistered;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColToken;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemchkIsPhone;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn46;
         private DevExpress.XtraGrid.GridControl grdTodayVisitPatients;
         private DevExpress.XtraGrid.Views.Grid.GridView grdViewTodayVisitPatients;
         private DevExpress.XtraGrid.Columns.GridColumn grdColPK;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColTokenNo;
         private DevExpress.XtraGrid.Columns.GridColumn grdColPatientName;
         private DevExpress.XtraGrid.Columns.GridColumn grdColDoctorName;
-        private DevExpress.XtraGrid.Columns.GridColumn grdTime;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColIsRegistered;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColVisitStatus;
         private DevExpress.XtraGrid.Columns.GridColumn grdColDoctorPK;
         private DevExpress.XtraGrid.Columns.GridColumn grdColRegNo;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColIsViaited;
-        private DevExpress.XtraGrid.Columns.GridColumn grdColVPK;
         private DevExpress.XtraEditors.SimpleButton cmdDoctors;
         private DevExpress.XtraEditors.SimpleButton cmdPatients;
         private DevExpress.XtraEditors.SimpleButton cmdCategory;
@@ -1612,6 +1486,14 @@
         private DevExpress.XtraEditors.SimpleButton cmdSubLabTest;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private DevExpress.XtraGrid.Columns.GridColumn grdColContactNo;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemchkRCollect;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
 
     }
 }
