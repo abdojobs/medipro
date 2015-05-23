@@ -43,6 +43,8 @@
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn46 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
@@ -52,7 +54,12 @@
             this.grdColBookingPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColPName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdDName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemchkIsPhone = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemchkRCollect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
@@ -62,9 +69,10 @@
             this.grdColPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColPatientName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.grdColContactNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColRegNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.cmdRefresh = new DevExpress.XtraEditors.SimpleButton();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape = new Microsoft.VisualBasic.PowerPacks.LineShape();
@@ -95,19 +103,38 @@
             this.cmdUser = new DevExpress.XtraEditors.SimpleButton();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.tabPageLab = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnLabResult = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLabSample = new DevExpress.XtraEditors.SimpleButton();
+            this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
+            this.grdLabTechReq = new DevExpress.XtraGrid.GridControl();
+            this.grdViewLabTechReq = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.collabtechnicianrequestPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLabInvoiceNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRegNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFather = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDoctor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLabTestCode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLabTestName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSampleID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHasSample = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repChkHasSample = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.colHasResult = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repChkHasResult = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repositorychkIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.repDateTest = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.grdColContactNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemchkRCollect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -127,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewBooking)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsPhone)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -148,16 +176,30 @@
             this.panelAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.tabPageLab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
+            this.panelControl10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grdLabTechReq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewLabTechReq)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repChkHasSample)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repChkHasResult)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositorychkIsActive)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTest.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
+            this.panelControl11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControlMain.Appearance.BackColor = System.Drawing.Color.Cornsilk;
             this.tabControlMain.Appearance.Options.UseBackColor = true;
             this.tabControlMain.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
@@ -174,7 +216,8 @@
             this.tabPageHome,
             this.tabPageMasterFile,
             this.tabPageReport,
-            this.tabPageAdministrator});
+            this.tabPageAdministrator,
+            this.tabPageLab});
             this.tabControlMain.SelectedPageChanging += new DevExpress.XtraTab.TabPageChangingEventHandler(this.tabControlMain_SelectedPageChanging);
             // 
             // tabPageHome
@@ -246,9 +289,9 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.Controls.Add(this.panelControl7);
@@ -262,8 +305,8 @@
             // 
             // panelControl7
             // 
-            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl7.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl7.Appearance.Options.UseBackColor = true;
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -288,9 +331,9 @@
             // 
             // gridControl9
             // 
-            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl9.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -375,6 +418,22 @@
             this.gridColumn46.VisibleIndex = 2;
             this.gridColumn46.Width = 201;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Invoice No";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.Width = 118;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Total Amount";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 128;
+            // 
             // gridColumn36
             // 
             this.gridColumn36.AppearanceHeader.Options.UseTextOptions = true;
@@ -395,8 +454,8 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Controls.Add(this.panelControl5);
@@ -410,8 +469,8 @@
             // 
             // panelControl5
             // 
-            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -436,9 +495,9 @@
             // 
             // grdBooking
             // 
-            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdBooking.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -540,6 +599,15 @@
             this.grdDName.VisibleIndex = 1;
             this.grdDName.Width = 143;
             // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "Phone";
+            this.gridColumn3.ColumnEdit = this.repositoryItemchkIsPhone;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 70;
+            // 
             // repositoryItemchkIsPhone
             // 
             this.repositoryItemchkIsPhone.AutoHeight = false;
@@ -548,6 +616,36 @@
             this.repositoryItemchkIsPhone.LookAndFeel.SkinName = "VS2010";
             this.repositoryItemchkIsPhone.LookAndFeel.UseDefaultLookAndFeel = false;
             this.repositoryItemchkIsPhone.Name = "repositoryItemchkIsPhone";
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "P-Remark";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 179;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "R-Collect";
+            this.gridColumn5.ColumnEdit = this.repositoryItemchkRCollect;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 57;
+            // 
+            // repositoryItemchkRCollect
+            // 
+            this.repositoryItemchkRCollect.AutoHeight = false;
+            this.repositoryItemchkRCollect.Name = "repositoryItemchkRCollect";
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "R-Remark";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.Width = 187;
             // 
             // grdColDoctorID
             // 
@@ -582,8 +680,8 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -608,9 +706,9 @@
             // 
             // grdTodayVisitPatients
             // 
-            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -713,14 +811,15 @@
             this.grdColDoctorName.VisibleIndex = 1;
             this.grdColDoctorName.Width = 149;
             // 
-            // repositoryItemCheckEdit2
+            // grdColContactNo
             // 
-            this.repositoryItemCheckEdit2.AutoHeight = false;
-            this.repositoryItemCheckEdit2.DisplayValueChecked = "1";
-            this.repositoryItemCheckEdit2.DisplayValueUnchecked = "0";
-            this.repositoryItemCheckEdit2.LookAndFeel.SkinName = "VS2010";
-            this.repositoryItemCheckEdit2.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
+            this.grdColContactNo.AppearanceCell.Options.UseTextOptions = true;
+            this.grdColContactNo.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.grdColContactNo.Caption = "Contact No";
+            this.grdColContactNo.Name = "grdColContactNo";
+            this.grdColContactNo.Visible = true;
+            this.grdColContactNo.VisibleIndex = 2;
+            this.grdColContactNo.Width = 150;
             // 
             // grdColDoctorPK
             // 
@@ -745,6 +844,15 @@
             this.grdColRegNo.Caption = "RegNo";
             this.grdColRegNo.FieldName = "RegNo";
             this.grdColRegNo.Name = "grdColRegNo";
+            // 
+            // repositoryItemCheckEdit2
+            // 
+            this.repositoryItemCheckEdit2.AutoHeight = false;
+            this.repositoryItemCheckEdit2.DisplayValueChecked = "1";
+            this.repositoryItemCheckEdit2.DisplayValueUnchecked = "0";
+            this.repositoryItemCheckEdit2.LookAndFeel.SkinName = "VS2010";
+            this.repositoryItemCheckEdit2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
             // 
             // cmdRefresh
             // 
@@ -1201,6 +1309,348 @@
             this.pictureBox14.TabIndex = 3;
             this.pictureBox14.TabStop = false;
             // 
+            // tabPageLab
+            // 
+            this.tabPageLab.Appearance.Header.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tabPageLab.Appearance.Header.Options.UseFont = true;
+            this.tabPageLab.Controls.Add(this.panelControl2);
+            this.tabPageLab.Image = global::Lab.Properties.Resources.labtest32;
+            this.tabPageLab.ImagePadding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.tabPageLab.Name = "tabPageLab";
+            this.tabPageLab.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageLab.Size = new System.Drawing.Size(1266, 652);
+            this.tabPageLab.Text = "Lab";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl2.Appearance.Options.UseBackColor = true;
+            this.panelControl2.Controls.Add(this.pictureBox3);
+            this.panelControl2.Controls.Add(this.btnLabResult);
+            this.panelControl2.Controls.Add(this.btnLabSample);
+            this.panelControl2.Controls.Add(this.panelControl10);
+            this.panelControl2.Controls.Add(this.shapeContainer2);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(2, 2);
+            this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(1262, 648);
+            this.panelControl2.TabIndex = 1;
+            this.panelControl2.Tag = "1";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(99, 18);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(2, 15);
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnLabResult
+            // 
+            this.btnLabResult.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btnLabResult.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnLabResult.Appearance.ForeColor = System.Drawing.Color.Teal;
+            this.btnLabResult.Appearance.Options.UseBackColor = true;
+            this.btnLabResult.Appearance.Options.UseFont = true;
+            this.btnLabResult.Appearance.Options.UseForeColor = true;
+            this.btnLabResult.Appearance.Options.UseTextOptions = true;
+            this.btnLabResult.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnLabResult.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnLabResult.Image = global::Lab.Properties.Resources.invoice_16;
+            this.btnLabResult.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnLabResult.Location = new System.Drawing.Point(106, 14);
+            this.btnLabResult.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLabResult.Name = "btnLabResult";
+            this.btnLabResult.Size = new System.Drawing.Size(102, 23);
+            this.btnLabResult.TabIndex = 20;
+            this.btnLabResult.Text = "Result";
+            // 
+            // btnLabSample
+            // 
+            this.btnLabSample.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.btnLabSample.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnLabSample.Appearance.ForeColor = System.Drawing.Color.Teal;
+            this.btnLabSample.Appearance.Options.UseBackColor = true;
+            this.btnLabSample.Appearance.Options.UseFont = true;
+            this.btnLabSample.Appearance.Options.UseForeColor = true;
+            this.btnLabSample.Appearance.Options.UseTextOptions = true;
+            this.btnLabSample.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnLabSample.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnLabSample.Image = global::Lab.Properties.Resources.refresh;
+            this.btnLabSample.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnLabSample.Location = new System.Drawing.Point(14, 14);
+            this.btnLabSample.Margin = new System.Windows.Forms.Padding(0);
+            this.btnLabSample.Name = "btnLabSample";
+            this.btnLabSample.Size = new System.Drawing.Size(77, 23);
+            this.btnLabSample.TabIndex = 19;
+            this.btnLabSample.Text = "Sample";
+            this.btnLabSample.Click += new System.EventHandler(this.btnLabSample_Click);
+            // 
+            // panelControl10
+            // 
+            this.panelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl10.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelControl10.Appearance.Options.UseBackColor = true;
+            this.panelControl10.Controls.Add(this.grdLabTechReq);
+            this.panelControl10.Controls.Add(this.panelControl11);
+            this.panelControl10.Location = new System.Drawing.Point(13, 61);
+            this.panelControl10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+            this.panelControl10.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl10.Name = "panelControl10";
+            this.panelControl10.Size = new System.Drawing.Size(1231, 572);
+            this.panelControl10.TabIndex = 17;
+            // 
+            // grdLabTechReq
+            // 
+            this.grdLabTechReq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdLabTechReq.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.grdLabTechReq.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.grdLabTechReq.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.grdLabTechReq.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.grdLabTechReq.EmbeddedNavigator.Buttons.Remove.Visible = false;
+            this.grdLabTechReq.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
+            this.grdLabTechReq.Location = new System.Drawing.Point(0, 38);
+            this.grdLabTechReq.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.grdLabTechReq.MainView = this.grdViewLabTechReq;
+            this.grdLabTechReq.Name = "grdLabTechReq";
+            this.grdLabTechReq.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositorychkIsActive,
+            this.repDateTest,
+            this.repChkHasSample,
+            this.repChkHasResult});
+            this.grdLabTechReq.Size = new System.Drawing.Size(1229, 532);
+            this.grdLabTechReq.TabIndex = 13;
+            this.grdLabTechReq.UseEmbeddedNavigator = true;
+            this.grdLabTechReq.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewLabTechReq});
+            // 
+            // grdViewLabTechReq
+            // 
+            this.grdViewLabTechReq.Appearance.Empty.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.grdViewLabTechReq.Appearance.Empty.Options.UseBackColor = true;
+            this.grdViewLabTechReq.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
+            this.grdViewLabTechReq.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grdViewLabTechReq.Appearance.FocusedCell.BackColor = System.Drawing.Color.SkyBlue;
+            this.grdViewLabTechReq.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grdViewLabTechReq.Appearance.FocusedRow.BackColor = System.Drawing.Color.SkyBlue;
+            this.grdViewLabTechReq.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewLabTechReq.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grdViewLabTechReq.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grdViewLabTechReq.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.SkyBlue;
+            this.grdViewLabTechReq.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.grdViewLabTechReq.Appearance.SelectedRow.BackColor = System.Drawing.Color.SkyBlue;
+            this.grdViewLabTechReq.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grdViewLabTechReq.ColumnPanelRowHeight = 30;
+            this.grdViewLabTechReq.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.collabtechnicianrequestPK,
+            this.colLabInvoiceNo,
+            this.colRegNo,
+            this.colName,
+            this.colFather,
+            this.colDoctor,
+            this.colLabTestCode,
+            this.colLabTestName,
+            this.colSampleID,
+            this.colHasSample,
+            this.colHasResult});
+            this.grdViewLabTechReq.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.grdViewLabTechReq.GridControl = this.grdLabTechReq;
+            this.grdViewLabTechReq.Name = "grdViewLabTechReq";
+            this.grdViewLabTechReq.OptionsView.EnableAppearanceEvenRow = true;
+            this.grdViewLabTechReq.OptionsView.ShowDetailButtons = false;
+            this.grdViewLabTechReq.OptionsView.ShowGroupExpandCollapseButtons = false;
+            this.grdViewLabTechReq.OptionsView.ShowGroupPanel = false;
+            this.grdViewLabTechReq.OptionsView.ShowIndicator = false;
+            this.grdViewLabTechReq.RowHeight = 25;
+            this.grdViewLabTechReq.ViewCaptionHeight = 30;
+            this.grdViewLabTechReq.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grdViewLabTechReq_RowClick);
+            this.grdViewLabTechReq.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.grdViewLabTechReq_FocusedRowChanged);
+            // 
+            // collabtechnicianrequestPK
+            // 
+            this.collabtechnicianrequestPK.Caption = "labtechnicianrequestPK";
+            this.collabtechnicianrequestPK.FieldName = "labtechnicianrequestPK";
+            this.collabtechnicianrequestPK.Name = "collabtechnicianrequestPK";
+            this.collabtechnicianrequestPK.OptionsColumn.AllowEdit = false;
+            this.collabtechnicianrequestPK.OptionsColumn.AllowMove = false;
+            this.collabtechnicianrequestPK.OptionsColumn.AllowShowHide = false;
+            this.collabtechnicianrequestPK.OptionsColumn.AllowSize = false;
+            this.collabtechnicianrequestPK.OptionsColumn.ReadOnly = true;
+            // 
+            // colLabInvoiceNo
+            // 
+            this.colLabInvoiceNo.Caption = "Invoice";
+            this.colLabInvoiceNo.FieldName = "labInvoiceNo";
+            this.colLabInvoiceNo.Name = "colLabInvoiceNo";
+            this.colLabInvoiceNo.OptionsColumn.AllowEdit = false;
+            this.colLabInvoiceNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.colLabInvoiceNo.OptionsColumn.AllowMove = false;
+            this.colLabInvoiceNo.OptionsColumn.AllowShowHide = false;
+            this.colLabInvoiceNo.OptionsColumn.ReadOnly = true;
+            this.colLabInvoiceNo.Visible = true;
+            this.colLabInvoiceNo.VisibleIndex = 0;
+            this.colLabInvoiceNo.Width = 117;
+            // 
+            // colRegNo
+            // 
+            this.colRegNo.Caption = "Reg No.";
+            this.colRegNo.FieldName = "RegNo";
+            this.colRegNo.Name = "colRegNo";
+            this.colRegNo.Visible = true;
+            this.colRegNo.VisibleIndex = 1;
+            this.colRegNo.Width = 88;
+            // 
+            // colName
+            // 
+            this.colName.Caption = "Name";
+            this.colName.FieldName = "Name";
+            this.colName.Name = "colName";
+            this.colName.Visible = true;
+            this.colName.VisibleIndex = 2;
+            this.colName.Width = 88;
+            // 
+            // colFather
+            // 
+            this.colFather.Caption = "Father";
+            this.colFather.FieldName = "FatherName";
+            this.colFather.Name = "colFather";
+            this.colFather.Visible = true;
+            this.colFather.VisibleIndex = 3;
+            this.colFather.Width = 88;
+            // 
+            // colDoctor
+            // 
+            this.colDoctor.Caption = "Ref. Dr.";
+            this.colDoctor.FieldName = "doctor";
+            this.colDoctor.Name = "colDoctor";
+            this.colDoctor.Visible = true;
+            this.colDoctor.VisibleIndex = 4;
+            this.colDoctor.Width = 88;
+            // 
+            // colLabTestCode
+            // 
+            this.colLabTestCode.Caption = "Test Code";
+            this.colLabTestCode.FieldName = "labTestCode";
+            this.colLabTestCode.Name = "colLabTestCode";
+            this.colLabTestCode.Visible = true;
+            this.colLabTestCode.VisibleIndex = 5;
+            this.colLabTestCode.Width = 88;
+            // 
+            // colLabTestName
+            // 
+            this.colLabTestName.Caption = "Test Name";
+            this.colLabTestName.FieldName = "labTestName";
+            this.colLabTestName.Name = "colLabTestName";
+            this.colLabTestName.Visible = true;
+            this.colLabTestName.VisibleIndex = 6;
+            this.colLabTestName.Width = 88;
+            // 
+            // colSampleID
+            // 
+            this.colSampleID.Caption = "Sample ID";
+            this.colSampleID.FieldName = "sampleID";
+            this.colSampleID.Name = "colSampleID";
+            this.colSampleID.Visible = true;
+            this.colSampleID.VisibleIndex = 7;
+            this.colSampleID.Width = 88;
+            // 
+            // colHasSample
+            // 
+            this.colHasSample.Caption = "Sample?";
+            this.colHasSample.ColumnEdit = this.repChkHasSample;
+            this.colHasSample.FieldName = "hasSample";
+            this.colHasSample.Name = "colHasSample";
+            this.colHasSample.Visible = true;
+            this.colHasSample.VisibleIndex = 8;
+            this.colHasSample.Width = 50;
+            // 
+            // repChkHasSample
+            // 
+            this.repChkHasSample.AutoHeight = false;
+            this.repChkHasSample.Name = "repChkHasSample";
+            // 
+            // colHasResult
+            // 
+            this.colHasResult.Caption = "Result?";
+            this.colHasResult.ColumnEdit = this.repChkHasResult;
+            this.colHasResult.FieldName = "hasResult";
+            this.colHasResult.Name = "colHasResult";
+            this.colHasResult.Visible = true;
+            this.colHasResult.VisibleIndex = 9;
+            this.colHasResult.Width = 50;
+            // 
+            // repChkHasResult
+            // 
+            this.repChkHasResult.AutoHeight = false;
+            this.repChkHasResult.Name = "repChkHasResult";
+            // 
+            // repositorychkIsActive
+            // 
+            this.repositorychkIsActive.AutoHeight = false;
+            this.repositorychkIsActive.LookAndFeel.SkinName = "VS2010";
+            this.repositorychkIsActive.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.repositorychkIsActive.Name = "repositorychkIsActive";
+            // 
+            // repDateTest
+            // 
+            this.repDateTest.AutoHeight = false;
+            this.repDateTest.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repDateTest.Name = "repDateTest";
+            this.repDateTest.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            // 
+            // panelControl11
+            // 
+            this.panelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl11.Appearance.BackColor = System.Drawing.Color.OldLace;
+            this.panelControl11.Appearance.Options.UseBackColor = true;
+            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl11.Controls.Add(this.labelControl2);
+            this.panelControl11.Location = new System.Drawing.Point(1, 1);
+            this.panelControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl11.Name = "panelControl11";
+            this.panelControl11.Size = new System.Drawing.Size(1228, 36);
+            this.panelControl11.TabIndex = 12;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Navy;
+            this.labelControl2.Location = new System.Drawing.Point(11, 12);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(29, 19);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Lab";
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2});
+            this.shapeContainer2.Size = new System.Drawing.Size(1256, 642);
+            this.shapeContainer2.TabIndex = 22;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 14;
+            this.lineShape2.X2 = 1109;
+            this.lineShape2.Y1 = 42;
+            this.lineShape2.Y2 = 42;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1277,71 +1727,6 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // grdColContactNo
-            // 
-            this.grdColContactNo.AppearanceCell.Options.UseTextOptions = true;
-            this.grdColContactNo.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.grdColContactNo.Caption = "Contact No";
-            this.grdColContactNo.Name = "grdColContactNo";
-            this.grdColContactNo.Visible = true;
-            this.grdColContactNo.VisibleIndex = 2;
-            this.grdColContactNo.Width = 150;
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Invoice No";
-            this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 3;
-            this.gridColumn1.Width = 118;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "Total Amount";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 4;
-            this.gridColumn2.Width = 128;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Phone";
-            this.gridColumn3.ColumnEdit = this.repositoryItemchkIsPhone;
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 70;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "P-Remark";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
-            this.gridColumn4.Width = 179;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "R-Collect";
-            this.gridColumn5.ColumnEdit = this.repositoryItemchkRCollect;
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 57;
-            // 
-            // repositoryItemchkRCollect
-            // 
-            this.repositoryItemchkRCollect.AutoHeight = false;
-            this.repositoryItemchkRCollect.Name = "repositoryItemchkRCollect";
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "R-Remark";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
-            this.gridColumn6.Width = 187;
-            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1380,6 +1765,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdBooking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewBooking)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkIsPhone)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
@@ -1404,11 +1790,26 @@
             this.panelAdmin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.tabPageLab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
+            this.panelControl10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grdLabTechReq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewLabTechReq)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repChkHasSample)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repChkHasResult)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositorychkIsActive)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTest.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repDateTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
+            this.panelControl11.ResumeLayout(false);
+            this.panelControl11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemchkRCollect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1494,6 +1895,33 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemchkRCollect;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraTab.XtraTabPage tabPageLab;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl10;
+        private DevExpress.XtraEditors.PanelControl panelControl11;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraGrid.GridControl grdLabTechReq;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewLabTechReq;
+        private DevExpress.XtraGrid.Columns.GridColumn collabtechnicianrequestPK;
+        private DevExpress.XtraGrid.Columns.GridColumn colLabInvoiceNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colRegNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colName;
+        private DevExpress.XtraGrid.Columns.GridColumn colFather;
+        private DevExpress.XtraGrid.Columns.GridColumn colDoctor;
+        private DevExpress.XtraGrid.Columns.GridColumn colLabTestCode;
+        private DevExpress.XtraGrid.Columns.GridColumn colLabTestName;
+        private DevExpress.XtraGrid.Columns.GridColumn colSampleID;
+        private DevExpress.XtraGrid.Columns.GridColumn colHasSample;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repChkHasSample;
+        private DevExpress.XtraGrid.Columns.GridColumn colHasResult;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repChkHasResult;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorychkIsActive;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repDateTest;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private DevExpress.XtraEditors.SimpleButton btnLabResult;
+        private DevExpress.XtraEditors.SimpleButton btnLabSample;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape2;
 
     }
 }
