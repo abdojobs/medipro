@@ -175,17 +175,17 @@ namespace Lab
         
         private void grdViewTodayVisitPatients_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (grdViewTodayVisitPatients.RowCount > 0)
+            if (grdViewLabTestReq.RowCount > 0)
             {
-                drTodayVisit = grdViewTodayVisitPatients.GetDataRow(grdViewTodayVisitPatients.FocusedRowHandle);
+                drTodayVisit = grdViewLabTestReq.GetDataRow(grdViewLabTestReq.FocusedRowHandle);
             }
         }
 
         private void grdViewTodayVisitPatients_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if (grdViewTodayVisitPatients.RowCount > 0)
+            if (grdViewLabTestReq.RowCount > 0)
             {
-                drTodayVisit = grdViewTodayVisitPatients.GetDataRow(grdViewTodayVisitPatients.FocusedRowHandle);
+                drTodayVisit = grdViewLabTestReq.GetDataRow(grdViewLabTestReq.FocusedRowHandle);
             }
         }
 
@@ -230,9 +230,9 @@ namespace Lab
                                                 "ON tblDoctor.titlePK = tblTitle.titlePK WHERE abdate = @abDate",
                                                 new MySqlParameter("@abDate", curDate.ToString("yyyy-MM-dd")));
 
-            grdTodayVisitPatients.DataSource = dsVisiting.Tables[0];
+            grdLabTestReq.DataSource = dsVisiting.Tables[0];
 
-            grdViewTodayVisitPatients.FocusedRowHandle = curVisitedIndex;
+            grdViewLabTestReq.FocusedRowHandle = curVisitedIndex;
         }
 
         private void cmdRefresh_Click(object sender, EventArgs e)
@@ -321,26 +321,27 @@ namespace Lab
 
         private void GetLabTechReqRow()
         {
-            if (grdViewLabTechReq.RowCount > 0)
+            if (grdViewLabTestReq.RowCount > 0)
             {
-                drLabTechReq = grdViewLabTechReq.GetDataRow(grdViewLabTechReq.FocusedRowHandle);
+                drLabTechReq = grdViewLabTestReq.GetDataRow(grdViewLabTestReq.FocusedRowHandle);
             }
         }
 
         private void BindingLabTechReq()
         {
-            DataSet dsLabTechReq = SqlDb.GetDataSet("select req.labtechnicianrequestPK, req.labInvoiceNo, req.labTestPK,req.sampleID, req.hasSample, " +
-                                                    "req.hasResult, req.resultDateTime, lab.labTestCode,lab.labTestName, lab.companyPK,p.RegNo, p.Name, " +
-                                                    "p.FatherName, p.DOB,doc.doctorPK, doc.doctor from tbllabtechnicianrequest as req  " +
-                                                    "join tbllabtest as lab on lab.labTestPK = req.labTestPK " +
-                                                    "join tbllabinvoice as inv on inv.labInvoiceNo = req.labInvoiceNo " +
-                                                    "join tblpatient as p on  p.RegNo = inv.patientPK " +
-                                                    "join tbldoctor as doc on doc.doctorPK = inv.doctorPK " +
-                                                    "where req.hasResultIssued = 0 and req.branchPK = " + AppVariable.CURRENT_BRANCH_PK.ToString() + 
-                                                    " order by req.labtechnicianrequestPK desc");
-            grdLabTechReq.DataSource = dsLabTechReq.Tables[0];
+            //DataSet dsLabTechReq = SqlDb.GetDataSet("select req.labtechnicianrequestPK, req.labInvoiceNo, req.labTestPK,req.sampleID, req.hasSample, " +
+            //                                        "req.hasResult, req.resultDateTime, lab.labTestCode,lab.labTestName, lab.companyPK,p.RegNo, p.Name, " +
+            //                                        "p.FatherName, p.DOB,doc.doctorPK, doc.doctor from tbllabtechnicianrequest as req  " +
+            //                                        "join tbllabtest as lab on lab.labTestPK = req.labTestPK " +
+            //                                        "join tbllabinvoice as inv on inv.labInvoiceNo = req.labInvoiceNo " +
+            //                                        "join tblpatient as p on  p.RegNo = inv.patientPK " +
+            //                                        "join tbldoctor as doc on doc.doctorPK = inv.doctorPK " +
+            //                                        "where req.hasResultIssued = 0 and req.branchPK = " + AppVariable.CURRENT_BRANCH_PK.ToString() + 
+            //                                        " order by req.labtechnicianrequestPK desc");
+            DataSet dsLabTechReq = SqlDb.GetDataSet("select h.labrequestheaderPK,d.doctor,h.patientName,h.patientAge,h.patientPhone from tbllabrequestheader as h inner join tbldoctor as d on d.doctorPK=h.doctorPK");
+            grdLabTestReq.DataSource = dsLabTechReq.Tables[0];
 
-            grdViewLabTechReq.FocusedRowHandle = curLabTechReqIndex;
+            grdViewLabTestReq.FocusedRowHandle = curLabTechReqIndex;
         }
 
         private void grdViewLabTechReq_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -358,7 +359,7 @@ namespace Lab
 
         private void btnLabSample_Click(object sender, EventArgs e)
         {
-            curLabTechReqIndex = grdViewLabTechReq.RowCount;
+            curLabTechReqIndex = grdViewLabTestReq.RowCount;
 
             frmLabTechReqSample fLabTechReqSample = new frmLabTechReqSample();
             frmLabTechReqSample.intLabTechReqPK = int.Parse(drLabTechReq.ItemArray[0].ToString());
@@ -369,6 +370,13 @@ namespace Lab
         }
 
 #endregion
+
+        private void grdLabTestReq_DoubleClick(object sender, EventArgs e)
+        {
+            DataRow dr= grdViewLabTestReq.GetFocusedDataRow();
+            string labReqHeaderPK = dr["labrequestheaderPK"].ToString();
+            new frmLabInvoice(labReqHeaderPK).Show();
+        }
 
        
 
