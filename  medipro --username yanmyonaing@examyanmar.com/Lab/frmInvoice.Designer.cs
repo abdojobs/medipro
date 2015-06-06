@@ -480,7 +480,7 @@
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Invoice Information";
             // 
-            // frmDoctor
+            // frmInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -488,9 +488,9 @@
             this.ClientSize = new System.Drawing.Size(1071, 722);
             this.Controls.Add(this.pnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmDoctor";
+            this.Name = "frmInvoice";
             this.Text = "frmDoctor";
-            this.Load += new System.EventHandler(this.frmDoctor_Load);
+            this.Load += new System.EventHandler(this.frmInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).EndInit();
             this.pnlBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdDoctor)).EndInit();
