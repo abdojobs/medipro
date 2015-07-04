@@ -13,5 +13,6 @@ namespace exaCore
         public static string CURRENT_LOGIN_ID;
         public static string CURRENT_SUB_MENU;
         public static string CURRENT_Cam_Name;
+        public static int CURRENT_BRANCH_PK;
     }
 }

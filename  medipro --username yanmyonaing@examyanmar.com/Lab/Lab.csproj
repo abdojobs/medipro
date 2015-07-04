@@ -35,13 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Design, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
-    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -51,7 +49,7 @@
     <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data, Version=6.9.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.configuration" />
@@ -66,6 +64,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmLabAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabAgent.designer.cs">
+      <DependentUpon>frmLabAgent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabAgents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabAgents.designer.cs">
+      <DependentUpon>frmLabAgents.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInvoiceDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +120,12 @@
     </Compile>
     <Compile Include="frmLabCategory.designer.cs">
       <DependentUpon>frmLabCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabInvoice.Designer.cs">
+      <DependentUpon>frmLabInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLaboratory.cs">
       <SubType>Form</SubType>
@@ -215,6 +231,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="frmLabAgent.resx">
+      <DependentUpon>frmLabAgent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabAgents.resx">
+      <DependentUpon>frmLabAgents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInvoiceDetail.resx">
       <DependentUpon>frmInvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLabCategory.resx">
       <DependentUpon>frmLabCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabInvoice.resx">
+      <DependentUpon>frmLabInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLaboratory.resx">
       <DependentUpon>frmLaboratory.cs</DependentUpon>
