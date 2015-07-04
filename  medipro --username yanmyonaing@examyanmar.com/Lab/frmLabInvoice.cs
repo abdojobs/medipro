@@ -36,7 +36,10 @@ namespace Lab
             dt.Columns.Add("isDonor", typeof(bool));
             foreach (DataRow dr in dt.Rows)
             {
-                dr["isDonor"] = true;
+                if (dr["donorPK"] != DBNull.Value)
+                {
+                    dr["isDonor"] = true;
+                }
             }
             grdItems.DataSource = dt;
             //grdItems.DataSource = 

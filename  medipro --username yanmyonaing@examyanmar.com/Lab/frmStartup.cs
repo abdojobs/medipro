@@ -243,30 +243,7 @@ namespace Lab
 
         #endregion Startup Page
 
-        //private void cmdCategory_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void cmdLaboratory_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void cmdPackage_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void cmdLabTest_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void cmdSubLabTest_Click(object sender, EventArgs e)
-        //{
-
-        //}
+        
 
         private void cmdPatients_Click(object sender, EventArgs e)
         {
@@ -376,6 +353,12 @@ namespace Lab
             DataRow dr= grdViewLabTestReq.GetFocusedDataRow();
             string labReqHeaderPK = dr["labrequestheaderPK"].ToString();
             new frmLabInvoice(labReqHeaderPK).Show();
+        }
+
+        private void cmdAgent_Click(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmLabAgents().ShowDialog();
         }
 
        

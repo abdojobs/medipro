@@ -627,7 +627,7 @@ namespace MediPro
 
         private void LoadLuePatient()
         {
-            dsPatient = SqlDb.GetDataSet("SELECT RegNo, (TitleName + ' ' + Name) As Name, Convert(varchar,DOB,105) as DOB, FatherName, NRC FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE tblPatient.isDelete = 0");
+            dsPatient = SqlDb.GetDataSet("SELECT RegNo, CONCAT(TitleName , ' ' , Name) As Name,  DOB, FatherName, NRC FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE tblPatient.isDelete = 0");
             luePatient.Properties.DataSource = dsPatient.Tables[0];
         }
 

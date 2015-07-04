@@ -81,7 +81,8 @@ namespace Lab
                     AppVariable.CURRENT_BRANCH_PK = int.Parse(dsUser.Tables[0].Rows[0]["branchPK"].ToString());
 
                     sysLogs.logs_login();
-                    
+                    //new frmLabInvoice().Show();
+                    //return;
                     Main MainForm = new Main();
                     MainForm.Show();
 

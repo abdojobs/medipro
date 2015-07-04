@@ -108,15 +108,6 @@
             this.btnLabResult = new DevExpress.XtraEditors.SimpleButton();
             this.btnLabSample = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl10 = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.linkChangePassword = new System.Windows.Forms.LinkLabel();
-            this.linkLogout = new System.Windows.Forms.LinkLabel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.grdLabTechReq = new DevExpress.XtraGrid.GridControl();
             this.grdViewLabTechReq = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.collabtechnicianrequestPK = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,6 +125,16 @@
             this.repChkHasResult = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repositorychkIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.repDateTest = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
+            this.panelControl11 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape2 = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.linkChangePassword = new System.Windows.Forms.LinkLabel();
+            this.linkLogout = new System.Windows.Forms.LinkLabel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cmdAgent = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -181,11 +182,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).BeginInit();
             this.panelControl10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
-            this.panelControl11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLabTechReq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewLabTechReq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repChkHasSample)).BeginInit();
@@ -193,12 +189,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositorychkIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateTest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateTest.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).BeginInit();
+            this.panelControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControlMain.Appearance.BackColor = System.Drawing.Color.Cornsilk;
             this.tabControlMain.Appearance.Options.UseBackColor = true;
             this.tabControlMain.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
@@ -288,8 +289,8 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.Controls.Add(this.panelControl7);
@@ -303,8 +304,8 @@
             // 
             // panelControl7
             // 
-            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl7.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl7.Appearance.Options.UseBackColor = true;
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -323,14 +324,14 @@
             this.labelControl17.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.labelControl17.Location = new System.Drawing.Point(11, 12);
             this.labelControl17.Name = "labelControl17";
-            this.labelControl17.Size = new System.Drawing.Size(149, 19);
+            this.labelControl17.Size = new System.Drawing.Size(148, 19);
             this.labelControl17.TabIndex = 0;
             this.labelControl17.Text = "Today Invoice List";
             // 
             // gridControl9
             // 
-            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.gridControl9.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -451,8 +452,8 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Controls.Add(this.panelControl5);
@@ -466,8 +467,8 @@
             // 
             // panelControl5
             // 
-            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -492,9 +493,9 @@
             // 
             // grdBooking
             // 
-            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdBooking.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -677,8 +678,8 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -703,9 +704,9 @@
             // 
             // grdLabTestReq
             // 
-            this.grdLabTestReq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdLabTestReq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdLabTestReq.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdLabTestReq.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdLabTestReq.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -899,6 +900,7 @@
             // 
             this.panelMasterFiles.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
+            this.panelMasterFiles.Controls.Add(this.cmdAgent);
             this.panelMasterFiles.Controls.Add(this.cmdDoctors);
             this.panelMasterFiles.Controls.Add(this.cmdCategory);
             this.panelMasterFiles.Controls.Add(this.cmdSubLabTest);
@@ -1376,8 +1378,8 @@
             // 
             // panelControl10
             // 
-            this.panelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl10.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl10.Appearance.Options.UseBackColor = true;
             this.panelControl10.Controls.Add(this.grdLabTechReq);
@@ -1389,133 +1391,11 @@
             this.panelControl10.Size = new System.Drawing.Size(1231, 572);
             this.panelControl10.TabIndex = 17;
             // 
-            // panelControl11
-            // 
-            this.panelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelControl11.Appearance.BackColor = System.Drawing.Color.OldLace;
-            this.panelControl11.Appearance.Options.UseBackColor = true;
-            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl11.Controls.Add(this.labelControl2);
-            this.panelControl11.Location = new System.Drawing.Point(1, 1);
-            this.panelControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-            this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
-            this.panelControl11.Name = "panelControl11";
-            this.panelControl11.Size = new System.Drawing.Size(1228, 36);
-            this.panelControl11.TabIndex = 12;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.labelControl2.Location = new System.Drawing.Point(11, 12);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(29, 19);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Lab";
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(3, 3);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape2});
-            this.shapeContainer2.Size = new System.Drawing.Size(1256, 642);
-            this.shapeContainer2.TabIndex = 22;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lineShape2
-            // 
-            this.lineShape2.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.lineShape2.Name = "lineShape2";
-            this.lineShape2.X1 = 14;
-            this.lineShape2.X2 = 1109;
-            this.lineShape2.Y1 = 42;
-            this.lineShape2.Y2 = 42;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::Lab.Properties.Resources.exa_logo;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(1157, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(118, 39);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.linkChangePassword);
-            this.panel1.Controls.Add(this.linkLogout);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Location = new System.Drawing.Point(857, 16);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(295, 24);
-            this.panel1.TabIndex = 6;
-            // 
-            // linkChangePassword
-            // 
-            this.linkChangePassword.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkChangePassword.AutoSize = true;
-            this.linkChangePassword.BackColor = System.Drawing.Color.Transparent;
-            this.linkChangePassword.DisabledLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkChangePassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkChangePassword.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.linkChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("linkChangePassword.Image")));
-            this.linkChangePassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkChangePassword.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkChangePassword.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkChangePassword.Location = new System.Drawing.Point(80, 6);
-            this.linkChangePassword.Name = "linkChangePassword";
-            this.linkChangePassword.Size = new System.Drawing.Size(124, 13);
-            this.linkChangePassword.TabIndex = 2;
-            this.linkChangePassword.TabStop = true;
-            this.linkChangePassword.Text = "      Change Password";
-            this.linkChangePassword.VisitedLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkChangePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkChangePassword_LinkClicked);
-            // 
-            // linkLogout
-            // 
-            this.linkLogout.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLogout.AutoSize = true;
-            this.linkLogout.BackColor = System.Drawing.Color.Transparent;
-            this.linkLogout.DisabledLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkLogout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLogout.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.linkLogout.Image = global::Lab.Properties.Resources.exit;
-            this.linkLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLogout.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLogout.LinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkLogout.Location = new System.Drawing.Point(219, 6);
-            this.linkLogout.Name = "linkLogout";
-            this.linkLogout.Size = new System.Drawing.Size(67, 13);
-            this.linkLogout.TabIndex = 2;
-            this.linkLogout.TabStop = true;
-            this.linkLogout.Text = "       Logout";
-            this.linkLogout.VisitedLinkColor = System.Drawing.SystemColors.Highlight;
-            this.linkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogout_LinkClicked);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::Lab.Properties.Resources.menu;
-            this.pictureBox2.Location = new System.Drawing.Point(210, 5);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(2, 15);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // grdLabTechReq
             // 
-            this.grdLabTechReq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdLabTechReq.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdLabTechReq.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdLabTechReq.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdLabTechReq.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -1711,6 +1591,148 @@
             this.repDateTest.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             // 
+            // panelControl11
+            // 
+            this.panelControl11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl11.Appearance.BackColor = System.Drawing.Color.OldLace;
+            this.panelControl11.Appearance.Options.UseBackColor = true;
+            this.panelControl11.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl11.Controls.Add(this.labelControl2);
+            this.panelControl11.Location = new System.Drawing.Point(1, 1);
+            this.panelControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+            this.panelControl11.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.panelControl11.Margin = new System.Windows.Forms.Padding(0);
+            this.panelControl11.Name = "panelControl11";
+            this.panelControl11.Size = new System.Drawing.Size(1228, 36);
+            this.panelControl11.TabIndex = 12;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Navy;
+            this.labelControl2.Location = new System.Drawing.Point(11, 12);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(29, 19);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Lab";
+            // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(3, 3);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape2});
+            this.shapeContainer2.Size = new System.Drawing.Size(1256, 642);
+            this.shapeContainer2.TabIndex = 22;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape2
+            // 
+            this.lineShape2.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.lineShape2.Name = "lineShape2";
+            this.lineShape2.X1 = 14;
+            this.lineShape2.X2 = 1109;
+            this.lineShape2.Y1 = 42;
+            this.lineShape2.Y2 = 42;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = global::Lab.Properties.Resources.exa_logo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(1157, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(118, 39);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.linkChangePassword);
+            this.panel1.Controls.Add(this.linkLogout);
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Location = new System.Drawing.Point(857, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(295, 24);
+            this.panel1.TabIndex = 6;
+            // 
+            // linkChangePassword
+            // 
+            this.linkChangePassword.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkChangePassword.AutoSize = true;
+            this.linkChangePassword.BackColor = System.Drawing.Color.Transparent;
+            this.linkChangePassword.DisabledLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkChangePassword.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkChangePassword.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.linkChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("linkChangePassword.Image")));
+            this.linkChangePassword.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkChangePassword.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkChangePassword.LinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkChangePassword.Location = new System.Drawing.Point(80, 6);
+            this.linkChangePassword.Name = "linkChangePassword";
+            this.linkChangePassword.Size = new System.Drawing.Size(124, 13);
+            this.linkChangePassword.TabIndex = 2;
+            this.linkChangePassword.TabStop = true;
+            this.linkChangePassword.Text = "      Change Password";
+            this.linkChangePassword.VisitedLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkChangePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkChangePassword_LinkClicked);
+            // 
+            // linkLogout
+            // 
+            this.linkLogout.ActiveLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLogout.AutoSize = true;
+            this.linkLogout.BackColor = System.Drawing.Color.Transparent;
+            this.linkLogout.DisabledLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLogout.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLogout.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.linkLogout.Image = global::Lab.Properties.Resources.exit;
+            this.linkLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.linkLogout.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLogout.LinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLogout.Location = new System.Drawing.Point(219, 6);
+            this.linkLogout.Name = "linkLogout";
+            this.linkLogout.Size = new System.Drawing.Size(67, 13);
+            this.linkLogout.TabIndex = 2;
+            this.linkLogout.TabStop = true;
+            this.linkLogout.Text = "       Logout";
+            this.linkLogout.VisitedLinkColor = System.Drawing.SystemColors.Highlight;
+            this.linkLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogout_LinkClicked);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::Lab.Properties.Resources.menu;
+            this.pictureBox2.Location = new System.Drawing.Point(210, 5);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(2, 15);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
+            // cmdAgent
+            // 
+            this.cmdAgent.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAgent.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdAgent.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdAgent.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdAgent.Appearance.Options.UseBackColor = true;
+            this.cmdAgent.Appearance.Options.UseFont = true;
+            this.cmdAgent.Appearance.Options.UseForeColor = true;
+            this.cmdAgent.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdAgent.Image = global::Lab.Properties.Resources.sublabtest32;
+            this.cmdAgent.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdAgent.Location = new System.Drawing.Point(645, 202);
+            this.cmdAgent.Name = "cmdAgent";
+            this.cmdAgent.Size = new System.Drawing.Size(110, 76);
+            this.cmdAgent.TabIndex = 8;
+            this.cmdAgent.Tag = "4";
+            this.cmdAgent.Text = "Agent";
+            this.cmdAgent.Click += new System.EventHandler(this.cmdAgent_Click);
+            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1780,13 +1802,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl10)).EndInit();
             this.panelControl10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
-            this.panelControl11.ResumeLayout(false);
-            this.panelControl11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdLabTechReq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewLabTechReq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repChkHasSample)).EndInit();
@@ -1794,6 +1809,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositorychkIsActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateTest.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repDateTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl11)).EndInit();
+            this.panelControl11.ResumeLayout(false);
+            this.panelControl11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1905,6 +1927,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repChkHasResult;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorychkIsActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repDateTest;
+        private DevExpress.XtraEditors.SimpleButton cmdAgent;
 
     }
 }
