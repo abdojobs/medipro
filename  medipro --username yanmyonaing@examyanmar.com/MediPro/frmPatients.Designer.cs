@@ -49,9 +49,9 @@
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.cmdExit = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdEdit = new DevExpress.XtraEditors.SimpleButton();
             this.cmdViewDetail = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdEdit = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).BeginInit();
@@ -215,6 +215,8 @@
             // grdColDOB
             // 
             this.grdColDOB.Caption = "Date of Birth";
+            this.grdColDOB.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.grdColDOB.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.grdColDOB.FieldName = "DOB";
             this.grdColDOB.Name = "grdColDOB";
             this.grdColDOB.OptionsColumn.AllowFocus = false;
@@ -367,25 +369,6 @@
             this.cmdExit.Text = "Exit";
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
             // 
-            // cmdEdit
-            // 
-            this.cmdEdit.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdEdit.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEdit.Appearance.ForeColor = System.Drawing.Color.Black;
-            this.cmdEdit.Appearance.Options.UseBackColor = true;
-            this.cmdEdit.Appearance.Options.UseFont = true;
-            this.cmdEdit.Appearance.Options.UseForeColor = true;
-            this.cmdEdit.Location = new System.Drawing.Point(775, 16);
-            this.cmdEdit.LookAndFeel.SkinName = "Seven Classic";
-            this.cmdEdit.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(94, 34);
-            this.cmdEdit.TabIndex = 0;
-            this.cmdEdit.Text = "Edit";
-            this.cmdEdit.Visible = false;
-            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
-            // 
             // cmdViewDetail
             // 
             this.cmdViewDetail.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -421,6 +404,25 @@
             this.cmdNew.TabIndex = 0;
             this.cmdNew.Text = "New";
             this.cmdNew.Click += new System.EventHandler(this.cmdNew_Click);
+            // 
+            // cmdEdit
+            // 
+            this.cmdEdit.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdEdit.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEdit.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.cmdEdit.Appearance.Options.UseBackColor = true;
+            this.cmdEdit.Appearance.Options.UseFont = true;
+            this.cmdEdit.Appearance.Options.UseForeColor = true;
+            this.cmdEdit.Location = new System.Drawing.Point(775, 16);
+            this.cmdEdit.LookAndFeel.SkinName = "Seven Classic";
+            this.cmdEdit.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.cmdEdit.Name = "cmdEdit";
+            this.cmdEdit.Size = new System.Drawing.Size(94, 34);
+            this.cmdEdit.TabIndex = 0;
+            this.cmdEdit.Text = "Edit";
+            this.cmdEdit.Visible = false;
+            this.cmdEdit.Click += new System.EventHandler(this.cmdEdit_Click);
             // 
             // panelControl1
             // 

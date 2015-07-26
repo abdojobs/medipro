@@ -128,7 +128,7 @@
             // txtCopies
             // 
             this.txtCopies.Location = new System.Drawing.Point(251, 526);
-            this.txtCopies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCopies.Margin = new System.Windows.Forms.Padding(2);
             this.txtCopies.MaxLength = 2;
             this.txtCopies.Multiline = true;
             this.txtCopies.Name = "txtCopies";
@@ -328,6 +328,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteDOB.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dteDOB.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dteDOB.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteDOB.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dteDOB.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
@@ -715,7 +717,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "frmPatientDetail";
-            this.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Padding = new System.Windows.Forms.Padding(2);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
