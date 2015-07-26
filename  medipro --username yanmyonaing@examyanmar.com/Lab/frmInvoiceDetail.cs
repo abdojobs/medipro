@@ -11,13 +11,13 @@ using exaCore;
 
 namespace Lab
 {
-    public partial class frmDoctorDetail : Form
+    public partial class frmInvoiceDetail : Form
     {
         clsSQL SqlDb = new clsSQL();
         string loginID = string.Empty;
         int CurUserID;
 
-        public frmDoctorDetail()
+        public frmInvoiceDetail()
         {
             InitializeComponent();
         }

@@ -332,8 +332,8 @@ namespace MediPro
                 {
                     try
                     {
-                        Byte[] bytePatientData = new Byte[0];
-                        bytePatientData = (Byte[])(dsPatient.Tables[0].Rows[0]["Photo"]);
+                        byte[] bytePatientData = new byte[0];
+                        bytePatientData = (byte[])(dsPatient.Tables[0].Rows[0]["Photo"]);
                         MemoryStream ms = new MemoryStream(bytePatientData);
 
                         if (ms.Length > 0)

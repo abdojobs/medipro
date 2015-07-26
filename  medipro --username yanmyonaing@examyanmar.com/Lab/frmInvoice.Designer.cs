@@ -489,7 +489,7 @@
             this.Controls.Add(this.pnlBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmInvoice";
-            this.Text = "frmDoctor";
+            this.Text = "frmInvoice";
             this.Load += new System.EventHandler(this.frmInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).EndInit();
             this.pnlBackground.ResumeLayout(false);

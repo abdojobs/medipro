@@ -1,5 +1,5 @@
-﻿Build started 04/07/2015 12:53:25 PM.
-     1>Project "C:\Users\Archer\Desktop\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" on node 2 (build target(s)).
+﻿Build started 7/26/2015 10:59:54 PM.
+     1>Project "D:\Jobfiles\MediPro\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "x64\Debug\WebCamLib.unsuccessfulbuild" because "AlwaysCreate" was specified.
        GenerateTargetFrameworkMonikerAttribute:
@@ -7,15 +7,34 @@
        ClCompile:
          All outputs are up-to-date.
          All outputs are up-to-date.
-     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Archer\Desktop\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll) does not match the Linker's OutputFile property value (C:\Users\Archer\Desktop\MediPro MySQL Version\MediPro\WebCamLib\bin\Debug\WebCamLib.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       ManagedIncrementalBuildPostProcessDependencyGraph:
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 10.0\VC\BIN\X86_AMD64\1033\CLUI.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\MICROSOFT VISUAL STUDIO 10.0\COMMON7\IDE\MSPDBSRV.EXE' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\MSCORLIB.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\SYSTEM.CORE.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\SYSTEM.DATA.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\SYSTEM.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\SYSTEM.XML.DLL' or one of its dependencies. The system cannot find the file specified.
+         To improve incremental build performance for managed components, please make sure that the 'VC++ Directories->Reference Directories' points to all the paths which contain the referenced managed assemblies.
+         Could not load file or assembly 'file:///C:\PROGRAM FILES\REFERENCE ASSEMBLIES\MICROSOFT\FRAMEWORK\.NETFRAMEWORK\V4.0\MICROSOFT.VISUALC.DLL' or one of its dependencies. The system cannot find the file specified.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(D:\Jobfiles\MediPro\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll) does not match the Linker's OutputFile property value (D:\Jobfiles\MediPro\MediPro MySQL Version\MediPro\WebCamLib\bin\Debug\WebCamLib.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
        Link:
          All outputs are up-to-date.
-         WebCamLib.vcxproj -> C:\Users\Archer\Desktop\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll
+         WebCamLib.vcxproj -> D:\Jobfiles\MediPro\MediPro MySQL Version\MediPro\x64\Debug\WebCamLib.dll
+       MetaGen:
+       Skipping target "MetaGen" because all output files are up-to-date with respect to the input files.
        FinalizeBuildStatus:
          Deleting file "x64\Debug\WebCamLib.unsuccessfulbuild".
          Touching "x64\Debug\WebCamLib.lastbuildstate".
-     1>Done Building Project "C:\Users\Archer\Desktop\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" (build target(s)).
+     1>Done Building Project "D:\Jobfiles\MediPro\MediPro MySQL Version\MediPro\WebCamLib\WebCamLib.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.25
+Time Elapsed 00:00:00.13

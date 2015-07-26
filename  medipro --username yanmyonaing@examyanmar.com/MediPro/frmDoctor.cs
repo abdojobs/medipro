@@ -72,7 +72,7 @@ namespace MediPro
 
         private void BindingDoctor()
         {
-            DataSet dsDoctor = SqlDb.GetDataSet("SELECT tblDoctor.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) AS doctorName, tblSpecialize.specialize, tblPosition.position, tblDoctor.gender, tblDoctor.samaNo, " +
+            DataSet dsDoctor = SqlDb.GetDataSet("SELECT tblDoctor.doctorPK, CONCAT(tblTitle.TitleName, ' ', tblDoctor.doctor) AS doctorName, tblSpecialize.specialize, tblPosition.position, tblDoctor.gender, tblDoctor.samaNo, " +
                                             "tblDoctor.address, tblDoctor.homePhone, tblDoctor.mobilePhone, tblDoctor.email, tblDoctor.isActive, tblDoctor.doctor, tblDoctor.titlePK, tblDoctor.specializePK, tblDoctor.positionPK " +
                                             "FROM tblDoctor JOIN tblPosition ON tblDoctor.positionPK = tblPosition.positionPK JOIN tblSpecialize ON tblDoctor.specializePK = tblSpecialize.specializePK " +
                                             "JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK WHERE tblPosition.isDelete = 0");
