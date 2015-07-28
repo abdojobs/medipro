@@ -34,27 +34,27 @@
             this.grdColID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColFullName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColSpecialize = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColPosition = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdCoSamaNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColHomePhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColMobilePhone = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColGender = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositorychkIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.grdColEmail = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColtitlePK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColSpecializePK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.grdColPositionPK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pnl2 = new DevExpress.XtraEditors.PanelControl();
             this.cmdExit = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
             this.pnl3 = new DevExpress.XtraEditors.PanelControl();
             this.cmdSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.cmdEdit = new DevExpress.XtraEditors.SimpleButton();
             this.pnl1 = new DevExpress.XtraEditors.PanelControl();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.grdColPosition = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdColPositionPK = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.grdCoSamaNo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pnlBackground)).BeginInit();
             this.pnlBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdDoctor)).BeginInit();
@@ -64,7 +64,7 @@
             this.pnl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnl3)).BeginInit();
             this.pnl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl1)).BeginInit();
             this.pnl1.SuspendLayout();
             this.SuspendLayout();
@@ -197,6 +197,44 @@
             this.grdColSpecialize.VisibleIndex = 1;
             this.grdColSpecialize.Width = 150;
             // 
+            // grdColPosition
+            // 
+            this.grdColPosition.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdColPosition.AppearanceHeader.Options.UseFont = true;
+            this.grdColPosition.Caption = "Position";
+            this.grdColPosition.FieldName = "position";
+            this.grdColPosition.Name = "grdColPosition";
+            this.grdColPosition.OptionsColumn.AllowEdit = false;
+            this.grdColPosition.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.grdColPosition.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.grdColPosition.OptionsColumn.AllowMove = false;
+            this.grdColPosition.OptionsColumn.AllowShowHide = false;
+            this.grdColPosition.OptionsColumn.AllowSize = false;
+            this.grdColPosition.OptionsColumn.FixedWidth = true;
+            this.grdColPosition.OptionsColumn.ReadOnly = true;
+            this.grdColPosition.Visible = true;
+            this.grdColPosition.VisibleIndex = 2;
+            this.grdColPosition.Width = 120;
+            // 
+            // grdCoSamaNo
+            // 
+            this.grdCoSamaNo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdCoSamaNo.AppearanceHeader.Options.UseFont = true;
+            this.grdCoSamaNo.Caption = "SAMA No.";
+            this.grdCoSamaNo.FieldName = "samaNo";
+            this.grdCoSamaNo.Name = "grdCoSamaNo";
+            this.grdCoSamaNo.OptionsColumn.AllowEdit = false;
+            this.grdCoSamaNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.grdCoSamaNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.grdCoSamaNo.OptionsColumn.AllowMove = false;
+            this.grdCoSamaNo.OptionsColumn.AllowShowHide = false;
+            this.grdCoSamaNo.OptionsColumn.AllowSize = false;
+            this.grdCoSamaNo.OptionsColumn.FixedWidth = true;
+            this.grdCoSamaNo.OptionsColumn.ReadOnly = true;
+            this.grdCoSamaNo.Visible = true;
+            this.grdCoSamaNo.VisibleIndex = 3;
+            this.grdCoSamaNo.Width = 100;
+            // 
             // grdColHomePhone
             // 
             this.grdColHomePhone.Caption = "Home Phone";
@@ -243,22 +281,6 @@
             this.grdColGender.VisibleIndex = 6;
             this.grdColGender.Width = 71;
             // 
-            // grdColEmail
-            // 
-            this.grdColEmail.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdColEmail.AppearanceHeader.Options.UseFont = true;
-            this.grdColEmail.Caption = "Email Address";
-            this.grdColEmail.FieldName = "email";
-            this.grdColEmail.Name = "grdColEmail";
-            this.grdColEmail.OptionsColumn.AllowEdit = false;
-            this.grdColEmail.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColEmail.OptionsColumn.AllowMove = false;
-            this.grdColEmail.OptionsColumn.AllowShowHide = false;
-            this.grdColEmail.OptionsColumn.AllowSize = false;
-            this.grdColEmail.OptionsColumn.FixedWidth = true;
-            this.grdColEmail.OptionsColumn.ReadOnly = true;
-            this.grdColEmail.Width = 180;
-            // 
             // grdColIsActive
             // 
             this.grdColIsActive.AppearanceHeader.Options.UseTextOptions = true;
@@ -289,6 +311,22 @@
             this.repositorychkIsActive.Name = "repositorychkIsActive";
             this.repositorychkIsActive.ReadOnly = true;
             // 
+            // grdColEmail
+            // 
+            this.grdColEmail.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.grdColEmail.AppearanceHeader.Options.UseFont = true;
+            this.grdColEmail.Caption = "Email Address";
+            this.grdColEmail.FieldName = "email";
+            this.grdColEmail.Name = "grdColEmail";
+            this.grdColEmail.OptionsColumn.AllowEdit = false;
+            this.grdColEmail.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.grdColEmail.OptionsColumn.AllowMove = false;
+            this.grdColEmail.OptionsColumn.AllowShowHide = false;
+            this.grdColEmail.OptionsColumn.AllowSize = false;
+            this.grdColEmail.OptionsColumn.FixedWidth = true;
+            this.grdColEmail.OptionsColumn.ReadOnly = true;
+            this.grdColEmail.Width = 180;
+            // 
             // grdColName
             // 
             this.grdColName.Caption = "Doctor";
@@ -309,6 +347,12 @@
             this.grdColSpecializePK.FieldName = "specializePK";
             this.grdColSpecializePK.Name = "grdColSpecializePK";
             this.grdColSpecializePK.Width = 120;
+            // 
+            // grdColPositionPK
+            // 
+            this.grdColPositionPK.Caption = "PositionPK";
+            this.grdColPositionPK.FieldName = "positionPK";
+            this.grdColPositionPK.Name = "grdColPositionPK";
             // 
             // pnl2
             // 
@@ -368,7 +412,7 @@
             this.pnl3.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pnl3.Appearance.Options.UseBackColor = true;
             this.pnl3.Controls.Add(this.cmdSearch);
-            this.pnl3.Controls.Add(this.textEdit1);
+            this.pnl3.Controls.Add(this.txtSearch);
             this.pnl3.Location = new System.Drawing.Point(15, 14);
             this.pnl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.pnl3.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -386,12 +430,12 @@
             this.cmdSearch.Size = new System.Drawing.Size(25, 19);
             this.cmdSearch.TabIndex = 1;
             // 
-            // textEdit1
+            // txtSearch
             // 
-            this.textEdit1.Location = new System.Drawing.Point(10, 8);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(279, 20);
-            this.textEdit1.TabIndex = 0;
+            this.txtSearch.Location = new System.Drawing.Point(10, 8);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(279, 20);
+            this.txtSearch.TabIndex = 0;
             // 
             // cmdEdit
             // 
@@ -432,53 +476,9 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(14, 24);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(166, 19);
+            this.lbl1.Size = new System.Drawing.Size(165, 19);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Doctor Information";
-            // 
-            // grdColPosition
-            // 
-            this.grdColPosition.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdColPosition.AppearanceHeader.Options.UseFont = true;
-            this.grdColPosition.Caption = "Position";
-            this.grdColPosition.FieldName = "position";
-            this.grdColPosition.Name = "grdColPosition";
-            this.grdColPosition.OptionsColumn.AllowEdit = false;
-            this.grdColPosition.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColPosition.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdColPosition.OptionsColumn.AllowMove = false;
-            this.grdColPosition.OptionsColumn.AllowShowHide = false;
-            this.grdColPosition.OptionsColumn.AllowSize = false;
-            this.grdColPosition.OptionsColumn.FixedWidth = true;
-            this.grdColPosition.OptionsColumn.ReadOnly = true;
-            this.grdColPosition.Visible = true;
-            this.grdColPosition.VisibleIndex = 2;
-            this.grdColPosition.Width = 120;
-            // 
-            // grdColPositionPK
-            // 
-            this.grdColPositionPK.Caption = "PositionPK";
-            this.grdColPositionPK.FieldName = "positionPK";
-            this.grdColPositionPK.Name = "grdColPositionPK";
-            // 
-            // grdCoSamaNo
-            // 
-            this.grdCoSamaNo.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.grdCoSamaNo.AppearanceHeader.Options.UseFont = true;
-            this.grdCoSamaNo.Caption = "SAMA No.";
-            this.grdCoSamaNo.FieldName = "samaNo";
-            this.grdCoSamaNo.Name = "grdCoSamaNo";
-            this.grdCoSamaNo.OptionsColumn.AllowEdit = false;
-            this.grdCoSamaNo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.grdCoSamaNo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.grdCoSamaNo.OptionsColumn.AllowMove = false;
-            this.grdCoSamaNo.OptionsColumn.AllowShowHide = false;
-            this.grdCoSamaNo.OptionsColumn.AllowSize = false;
-            this.grdCoSamaNo.OptionsColumn.FixedWidth = true;
-            this.grdCoSamaNo.OptionsColumn.ReadOnly = true;
-            this.grdCoSamaNo.Visible = true;
-            this.grdCoSamaNo.VisibleIndex = 3;
-            this.grdCoSamaNo.Width = 100;
             // 
             // frmDoctor
             // 
@@ -500,7 +500,7 @@
             this.pnl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnl3)).EndInit();
             this.pnl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnl1)).EndInit();
             this.pnl1.ResumeLayout(false);
             this.pnl1.PerformLayout();
@@ -526,7 +526,7 @@
         private DevExpress.XtraEditors.PanelControl pnl2;
         private DevExpress.XtraEditors.PanelControl pnl3;
         private DevExpress.XtraEditors.SimpleButton cmdSearch;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtSearch;
         private DevExpress.XtraEditors.PanelControl pnl1;
         private System.Windows.Forms.Label lbl1;
         private DevExpress.XtraEditors.SimpleButton cmdExit;
