@@ -899,9 +899,9 @@
             // 
             // tabControlMain
             // 
-            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControlMain.Appearance.BackColor = System.Drawing.Color.Cornsilk;
             this.tabControlMain.Appearance.Options.UseBackColor = true;
             this.tabControlMain.HeaderOrientation = DevExpress.XtraTab.TabOrientation.Horizontal;
@@ -912,7 +912,7 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.Padding = new System.Windows.Forms.Padding(5);
             this.tabControlMain.SelectedTabPage = this.tabPageHome;
-            this.tabControlMain.Size = new System.Drawing.Size(1294, 868);
+            this.tabControlMain.Size = new System.Drawing.Size(1294, 734);
             this.tabControlMain.TabIndex = 0;
             this.tabControlMain.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabPageHome,
@@ -936,7 +936,7 @@
             this.tabPageHome.Name = "tabPageHome";
             this.tabPageHome.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageHome.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.tabPageHome.Size = new System.Drawing.Size(1292, 824);
+            this.tabPageHome.Size = new System.Drawing.Size(1292, 690);
             this.tabPageHome.Tag = "1";
             this.tabPageHome.Text = "Home";
             // 
@@ -960,7 +960,7 @@
             this.panelHome.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelHome.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelHome.Name = "panelHome";
-            this.panelHome.Size = new System.Drawing.Size(1288, 820);
+            this.panelHome.Size = new System.Drawing.Size(1288, 686);
             this.panelHome.TabIndex = 0;
             this.panelHome.Tag = "1";
             // 
@@ -997,9 +997,9 @@
             // 
             // panelControl6
             // 
-            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl6.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl6.Appearance.Options.UseBackColor = true;
             this.panelControl6.Controls.Add(this.panelControl7);
@@ -1008,13 +1008,13 @@
             this.panelControl6.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl6.Name = "panelControl6";
-            this.panelControl6.Size = new System.Drawing.Size(422, 759);
+            this.panelControl6.Size = new System.Drawing.Size(422, 625);
             this.panelControl6.TabIndex = 17;
             // 
             // panelControl7
             // 
-            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl7.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl7.Appearance.Options.UseBackColor = true;
             this.panelControl7.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1039,9 +1039,9 @@
             // 
             // gridControl9
             // 
-            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl9.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl9.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -1052,7 +1052,7 @@
             this.gridControl9.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gridControl9.MainView = this.gridView10;
             this.gridControl9.Name = "gridControl9";
-            this.gridControl9.Size = new System.Drawing.Size(421, 721);
+            this.gridControl9.Size = new System.Drawing.Size(421, 587);
             this.gridControl9.TabIndex = 11;
             this.gridControl9.UseEmbeddedNavigator = true;
             this.gridControl9.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1144,8 +1144,8 @@
             // 
             // panelControl4
             // 
-            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.panelControl4.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelControl4.Appearance.Options.UseBackColor = true;
             this.panelControl4.Controls.Add(this.panelControl5);
@@ -1154,13 +1154,13 @@
             this.panelControl4.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl4.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(819, 458);
+            this.panelControl4.Size = new System.Drawing.Size(819, 324);
             this.panelControl4.TabIndex = 17;
             // 
             // panelControl5
             // 
-            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl5.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl5.Appearance.Options.UseBackColor = true;
             this.panelControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1185,9 +1185,9 @@
             // 
             // grdBooking
             // 
-            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdBooking.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdBooking.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdBooking.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -1200,7 +1200,7 @@
             this.grdBooking.Name = "grdBooking";
             this.grdBooking.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemchkIsRegistered});
-            this.grdBooking.Size = new System.Drawing.Size(818, 421);
+            this.grdBooking.Size = new System.Drawing.Size(818, 287);
             this.grdBooking.TabIndex = 11;
             this.grdBooking.UseEmbeddedNavigator = true;
             this.grdBooking.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1428,8 +1428,8 @@
             // 
             // panelControl3
             // 
-            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -1454,8 +1454,8 @@
             // 
             // grdTodayVisitPatients
             // 
-            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdTodayVisitPatients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdTodayVisitPatients.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -1767,7 +1767,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape});
-            this.shapeContainer1.Size = new System.Drawing.Size(1282, 814);
+            this.shapeContainer1.Size = new System.Drawing.Size(1282, 680);
             this.shapeContainer1.TabIndex = 0;
             this.shapeContainer1.TabStop = false;
             // 
@@ -1790,7 +1790,7 @@
             this.tabPageMasterFile.Image = global::MediPro.Properties.Resources.Settings;
             this.tabPageMasterFile.Name = "tabPageMasterFile";
             this.tabPageMasterFile.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 824);
+            this.tabPageMasterFile.Size = new System.Drawing.Size(1292, 690);
             this.tabPageMasterFile.Tag = "2";
             this.tabPageMasterFile.Text = " Master Files";
             // 
@@ -1818,7 +1818,7 @@
             this.panelMasterFiles.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMasterFiles.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMasterFiles.Name = "panelMasterFiles";
-            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 820);
+            this.panelMasterFiles.Size = new System.Drawing.Size(1288, 686);
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
             // 
@@ -2082,7 +2082,7 @@
             this.tabPageMedicalRecord.Image = global::MediPro.Properties.Resources.Modify;
             this.tabPageMedicalRecord.Name = "tabPageMedicalRecord";
             this.tabPageMedicalRecord.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 824);
+            this.tabPageMedicalRecord.Size = new System.Drawing.Size(1292, 690);
             this.tabPageMedicalRecord.Tag = "3";
             this.tabPageMedicalRecord.Text = " Medical Record";
             // 
@@ -2132,7 +2132,7 @@
             this.panelMedicalRecord.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelMedicalRecord.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelMedicalRecord.Name = "panelMedicalRecord";
-            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 820);
+            this.panelMedicalRecord.Size = new System.Drawing.Size(1288, 686);
             this.panelMedicalRecord.TabIndex = 1;
             // 
             // txtVisitDoctor
@@ -2262,8 +2262,8 @@
             // 
             // pnlDailyProgress
             // 
-            this.pnlDailyProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlDailyProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlDailyProgress.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlDailyProgress.Appearance.Options.UseBackColor = true;
             this.pnlDailyProgress.Controls.Add(this.txtSummary);
@@ -2279,11 +2279,13 @@
             // 
             // txtSummary
             // 
+            this.txtSummary.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.txtSummary.Location = new System.Drawing.Point(161, 26);
             this.txtSummary.MenuManager = this.barManager1;
             this.txtSummary.Name = "txtSummary";
             this.txtSummary.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtSummary.Size = new System.Drawing.Size(395, 426);
+            this.txtSummary.Size = new System.Drawing.Size(395, 394);
             this.txtSummary.TabIndex = 16;
             this.txtSummary.Validated += new System.EventHandler(this.txtSummary_Validated);
             // 
@@ -2527,7 +2529,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 742);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 743);
             this.barDockControlBottom.Size = new System.Drawing.Size(1307, 0);
             // 
             // barDockControlLeft
@@ -2535,14 +2537,14 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 742);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 743);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1307, 0);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 742);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 743);
             // 
             // fileNewItem1
             // 
@@ -3970,7 +3972,7 @@
             // setModerateSectionPageMarginsItem1
             // 
             this.setModerateSectionPageMarginsItem1.Caption = "Moderate\r\nTop:\t        1\"\tBottom:\t        1\"\r\nLeft:\t     0.75\"\tRight:\t\t     0.75\"" +
-    "";
+                "";
             this.setModerateSectionPageMarginsItem1.Enabled = false;
             this.setModerateSectionPageMarginsItem1.Id = 190;
             this.setModerateSectionPageMarginsItem1.Name = "setModerateSectionPageMarginsItem1";
@@ -4194,9 +4196,8 @@
             // 
             // grdSummaryHead
             // 
-            this.grdSummaryHead.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdSummaryHead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.grdSummaryHead.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdSummaryHead.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdSummaryHead.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -4210,7 +4211,7 @@
             this.grdSummaryHead.MainView = this.grdViewSummary;
             this.grdSummaryHead.Margin = new System.Windows.Forms.Padding(6);
             this.grdSummaryHead.Name = "grdSummaryHead";
-            this.grdSummaryHead.Size = new System.Drawing.Size(160, 416);
+            this.grdSummaryHead.Size = new System.Drawing.Size(160, 394);
             this.grdSummaryHead.TabIndex = 15;
             this.grdSummaryHead.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewSummary});
@@ -4302,8 +4303,8 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.OldLace;
             this.panelControl2.Appearance.Options.UseBackColor = true;
             this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
@@ -4318,6 +4319,7 @@
             // 
             // simpleButton5
             // 
+            this.simpleButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.simpleButton5.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.simpleButton5.Appearance.BackColor2 = System.Drawing.Color.Transparent;
             this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4606,9 +4608,9 @@
             // 
             // tabRemarks
             // 
-            this.tabRemarks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabRemarks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabRemarks.Location = new System.Drawing.Point(616, 90);
             this.tabRemarks.LookAndFeel.SkinName = "Metropolis";
             this.tabRemarks.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -4675,9 +4677,9 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.navBarHistory);
             this.panel2.Location = new System.Drawing.Point(0, 36);
@@ -4688,9 +4690,9 @@
             // navBarHistory
             // 
             this.navBarHistory.ActiveGroup = this.nbgPastHistory;
-            this.navBarHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.navBarHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.navBarHistory.Appearance.GroupHeader.ForeColor = System.Drawing.Color.Teal;
             this.navBarHistory.Appearance.GroupHeader.Options.UseForeColor = true;
             this.navBarHistory.Appearance.NavigationPaneHeader.ForeColor = System.Drawing.Color.Red;
@@ -4714,10 +4716,10 @@
             this.nbgObstericsHis,
             this.nbgGynaecological,
             this.nbgOtherMedical});
-            this.navBarHistory.Location = new System.Drawing.Point(0, -9);
+            this.navBarHistory.Location = new System.Drawing.Point(0, -4);
             this.navBarHistory.Name = "navBarHistory";
             this.navBarHistory.OptionsNavPane.ExpandedWidth = 648;
-            this.navBarHistory.Size = new System.Drawing.Size(648, 500);
+            this.navBarHistory.Size = new System.Drawing.Size(648, 487);
             this.navBarHistory.TabIndex = 8;
             this.navBarHistory.Text = "navBarHistory";
             this.navBarHistory.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("Metropolis");
@@ -5721,11 +5723,14 @@
             // 
             this.nbgPanelOtherMedical.Controls.Add(this.txtOtherMedicalHistory);
             this.nbgPanelOtherMedical.Name = "nbgPanelOtherMedical";
-            this.nbgPanelOtherMedical.Size = new System.Drawing.Size(590, 270);
+            this.nbgPanelOtherMedical.Size = new System.Drawing.Size(600, 270);
             this.nbgPanelOtherMedical.TabIndex = 7;
             // 
             // txtOtherMedicalHistory
             // 
+            this.txtOtherMedicalHistory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOtherMedicalHistory.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOtherMedicalHistory.Location = new System.Drawing.Point(13, 13);
             this.txtOtherMedicalHistory.Multiline = true;
@@ -5805,8 +5810,8 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox8.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox8.Location = new System.Drawing.Point(12, 20);
@@ -5848,9 +5853,9 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl1.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl1.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -5943,9 +5948,9 @@
             // 
             // gridControl3
             // 
-            this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl3.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.gridControl3.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.gridControl3.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -6038,8 +6043,8 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox7.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox7.Location = new System.Drawing.Point(12, 25);
@@ -6063,8 +6068,8 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox19.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox19.Location = new System.Drawing.Point(8, 377);
@@ -6088,8 +6093,8 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox3.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(12, 205);
@@ -6100,8 +6105,8 @@
             // 
             // groupBMI
             // 
-            this.groupBMI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBMI.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBMI.Controls.Add(this.comboBox1);
             this.groupBMI.Controls.Add(this.label28);
             this.groupBMI.Controls.Add(this.txtBMI);
@@ -6350,9 +6355,9 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.AutoSize = true;
             this.panel3.Controls.Add(this.navBarControl1);
             this.panel3.Location = new System.Drawing.Point(0, 44);
@@ -8095,8 +8100,8 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox9.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox9.Location = new System.Drawing.Point(12, 22);
@@ -8192,9 +8197,9 @@
             // 
             // grdLab
             // 
-            this.grdLab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdLab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdLab.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdLab.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdLab.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -8306,8 +8311,8 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox10.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.Location = new System.Drawing.Point(12, 25);
@@ -8330,9 +8335,9 @@
             // 
             // grdDiagnosis
             // 
-            this.grdDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdDiagnosis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdDiagnosis.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdDiagnosis.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdDiagnosis.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -8435,8 +8440,8 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox11.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox11.Location = new System.Drawing.Point(12, 25);
@@ -8566,9 +8571,9 @@
             // 
             // grdTreatment
             // 
-            this.grdTreatment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grdTreatment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.grdTreatment.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdTreatment.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdTreatment.EmbeddedNavigator.Buttons.Edit.Visible = false;
@@ -8733,8 +8738,8 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox12.BackgroundImage = global::MediPro.Properties.Resources.line;
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox12.Location = new System.Drawing.Point(12, 25);
@@ -8847,7 +8852,7 @@
             this.shapeContainer2.Name = "shapeContainer2";
             this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShapeMR});
-            this.shapeContainer2.Size = new System.Drawing.Size(1282, 814);
+            this.shapeContainer2.Size = new System.Drawing.Size(1282, 680);
             this.shapeContainer2.TabIndex = 13;
             this.shapeContainer2.TabStop = false;
             // 
@@ -8868,7 +8873,7 @@
             this.tabPageReport.Image = global::MediPro.Properties.Resources.Stats;
             this.tabPageReport.Name = "tabPageReport";
             this.tabPageReport.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageReport.Size = new System.Drawing.Size(1292, 824);
+            this.tabPageReport.Size = new System.Drawing.Size(1292, 690);
             this.tabPageReport.Tag = "4";
             this.tabPageReport.Text = "  Reports";
             // 
@@ -8881,7 +8886,7 @@
             this.panelReports.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelReports.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelReports.Name = "panelReports";
-            this.panelReports.Size = new System.Drawing.Size(1288, 820);
+            this.panelReports.Size = new System.Drawing.Size(1288, 686);
             this.panelReports.TabIndex = 1;
             // 
             // tabPageAdministrator
@@ -8892,7 +8897,7 @@
             this.tabPageAdministrator.Image = ((System.Drawing.Image)(resources.GetObject("tabPageAdministrator.Image")));
             this.tabPageAdministrator.Name = "tabPageAdministrator";
             this.tabPageAdministrator.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 824);
+            this.tabPageAdministrator.Size = new System.Drawing.Size(1292, 690);
             this.tabPageAdministrator.Tag = "5";
             this.tabPageAdministrator.Text = "  Admin";
             // 
@@ -8911,7 +8916,7 @@
             this.panelAdmin.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelAdmin.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(1288, 820);
+            this.panelAdmin.Size = new System.Drawing.Size(1288, 686);
             this.panelAdmin.TabIndex = 1;
             // 
             // label14
@@ -9355,7 +9360,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(1307, 742);
+            this.ClientSize = new System.Drawing.Size(1307, 743);
             this.Controls.Add(this.pnlUserMenu);
             this.Controls.Add(this.picExaLogo);
             this.Controls.Add(this.tabControlMain);
