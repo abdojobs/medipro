@@ -633,7 +633,7 @@ namespace MediPro
 
         private void PatientDataLoadWithRegNo()
         {
-            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, Convert(varchar, DOB,105) As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new MySqlParameter("@RegNo", RegNo));
+            DataSet dsCurPatient = SqlDb.GetDataSet("SELECT RegNo, Name, DOB As DOBDisplay, DOB, FatherName, NRC, Gender, Photo FROM tblPatient WHERE isDelete = 0 AND RegNo=@RegNo", new MySqlParameter("@RegNo", RegNo));
 
             txtRegNo.Text = dsCurPatient.Tables[0].Rows[0]["RegNo"].ToString();
             txtFatherName.Text = dsCurPatient.Tables[0].Rows[0]["FatherName"].ToString();
@@ -652,7 +652,7 @@ namespace MediPro
 
         private void LoadVisited()
         {
-            DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, (tblTitle.TitleName + ' ' + tblDoctor.doctor) As doctor, Convert(varchar, tblVisit.visitDate,105) As visitDate " +
+            DataSet dsVisit = SqlDb.GetDataSet("SELECT tblVisit.visitPK, tblVisit.RegNo, tblVisit.visitDescription, tblVisit.doctorPK, Concat(tblTitle.TitleName , ' ' , tblDoctor.doctor) As doctor, tblVisit.visitDate As visitDate " +
                                                "FROM tblDoctor INNER JOIN tblVisit ON tblDoctor.doctorPK = tblVisit.doctorPK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK " +
                                                "WHERE tblVisit.RegNo = @RegNo", new MySqlParameter("@RegNo", RegNo));
             lueVisit.Properties.DataSource = dsVisit.Tables[0];
@@ -686,6 +686,7 @@ namespace MediPro
             RegNo = luePatient.EditValue.ToString();
 
             PatientDataLoadWithRegNo();
+            txtSummary.Text = "";
             LoadMedSummary(RegNo);
         }
 
@@ -711,7 +712,7 @@ namespace MediPro
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        //MessageBox.Show(ex.Message);
                     }
                 }
             }
