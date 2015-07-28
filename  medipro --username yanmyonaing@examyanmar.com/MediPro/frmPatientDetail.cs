@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using WebCamLib;
 using exaCore;
 using System.IO;
 using System.Drawing.Imaging;
