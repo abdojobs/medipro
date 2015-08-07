@@ -81,6 +81,7 @@
             this.panelMasterFiles = new DevExpress.XtraEditors.PanelControl();
             this.cmdMedType = new DevExpress.XtraEditors.SimpleButton();
             this.cmdUnit = new System.Windows.Forms.Button();
+            this.cmdMedTemp = new System.Windows.Forms.Button();
             this.cmdMedicines = new System.Windows.Forms.Button();
             this.cmdBodySystem = new System.Windows.Forms.Button();
             this.cmdManufacturer = new System.Windows.Forms.Button();
@@ -108,7 +109,7 @@
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmdMedTemp = new System.Windows.Forms.Button();
+            this.cmdCameraSetup = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -952,6 +953,7 @@
             // 
             this.panelMasterFiles.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
+            this.panelMasterFiles.Controls.Add(this.cmdCameraSetup);
             this.panelMasterFiles.Controls.Add(this.cmdMedType);
             this.panelMasterFiles.Controls.Add(this.cmdUnit);
             this.panelMasterFiles.Controls.Add(this.cmdMedTemp);
@@ -978,10 +980,10 @@
             // 
             // cmdMedType
             // 
-            this.cmdMedType.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdMedType.Appearance.BackColor = System.Drawing.Color.SteelBlue;
             this.cmdMedType.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdMedType.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdMedType.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdMedType.Appearance.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdMedType.Appearance.ForeColor = System.Drawing.Color.White;
             this.cmdMedType.Appearance.Options.UseBackColor = true;
             this.cmdMedType.Appearance.Options.UseFont = true;
             this.cmdMedType.Appearance.Options.UseForeColor = true;
@@ -989,64 +991,100 @@
             this.cmdMedType.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.cmdMedType.Location = new System.Drawing.Point(36, 201);
             this.cmdMedType.Name = "cmdMedType";
-            this.cmdMedType.Size = new System.Drawing.Size(110, 76);
+            this.cmdMedType.Size = new System.Drawing.Size(107, 76);
             this.cmdMedType.TabIndex = 7;
             this.cmdMedType.Tag = "4";
             this.cmdMedType.Text = "Medicine Type";
+            this.cmdMedType.Click += new System.EventHandler(this.cmdMedType_Click_1);
             // 
             // cmdUnit
             // 
-            this.cmdUnit.Location = new System.Drawing.Point(709, 229);
+            this.cmdUnit.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdUnit.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdUnit.ForeColor = System.Drawing.Color.White;
+            this.cmdUnit.Location = new System.Drawing.Point(684, 201);
             this.cmdUnit.Name = "cmdUnit";
-            this.cmdUnit.Size = new System.Drawing.Size(75, 23);
+            this.cmdUnit.Size = new System.Drawing.Size(90, 76);
             this.cmdUnit.TabIndex = 5;
             this.cmdUnit.Tag = "17";
             this.cmdUnit.Text = "Unit";
-            this.cmdUnit.UseVisualStyleBackColor = true;
+            this.cmdUnit.UseVisualStyleBackColor = false;
             this.cmdUnit.Click += new System.EventHandler(this.cmdUnit_Click);
+            // 
+            // cmdMedTemp
+            // 
+            this.cmdMedTemp.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdMedTemp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMedTemp.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdMedTemp.ForeColor = System.Drawing.Color.White;
+            this.cmdMedTemp.Location = new System.Drawing.Point(549, 201);
+            this.cmdMedTemp.Name = "cmdMedTemp";
+            this.cmdMedTemp.Size = new System.Drawing.Size(128, 76);
+            this.cmdMedTemp.TabIndex = 5;
+            this.cmdMedTemp.Tag = "17";
+            this.cmdMedTemp.Text = "Medicine Template";
+            this.cmdMedTemp.UseVisualStyleBackColor = false;
+            this.cmdMedTemp.Click += new System.EventHandler(this.cmdMedTemp_Click);
             // 
             // cmdMedicines
             // 
-            this.cmdMedicines.Location = new System.Drawing.Point(509, 229);
+            this.cmdMedicines.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdMedicines.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdMedicines.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdMedicines.ForeColor = System.Drawing.Color.White;
+            this.cmdMedicines.Location = new System.Drawing.Point(452, 201);
             this.cmdMedicines.Name = "cmdMedicines";
-            this.cmdMedicines.Size = new System.Drawing.Size(75, 23);
+            this.cmdMedicines.Size = new System.Drawing.Size(90, 76);
             this.cmdMedicines.TabIndex = 5;
             this.cmdMedicines.Tag = "17";
             this.cmdMedicines.Text = "Medicines";
-            this.cmdMedicines.UseVisualStyleBackColor = true;
+            this.cmdMedicines.UseVisualStyleBackColor = false;
             this.cmdMedicines.Click += new System.EventHandler(this.cmdMedicines_Click);
             // 
             // cmdBodySystem
             // 
-            this.cmdBodySystem.Location = new System.Drawing.Point(428, 229);
+            this.cmdBodySystem.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdBodySystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdBodySystem.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdBodySystem.ForeColor = System.Drawing.Color.White;
+            this.cmdBodySystem.Location = new System.Drawing.Point(355, 201);
             this.cmdBodySystem.Name = "cmdBodySystem";
-            this.cmdBodySystem.Size = new System.Drawing.Size(75, 23);
+            this.cmdBodySystem.Size = new System.Drawing.Size(90, 76);
             this.cmdBodySystem.TabIndex = 5;
             this.cmdBodySystem.Tag = "17";
             this.cmdBodySystem.Text = "Body System";
-            this.cmdBodySystem.UseVisualStyleBackColor = true;
+            this.cmdBodySystem.UseVisualStyleBackColor = false;
             this.cmdBodySystem.Click += new System.EventHandler(this.cmdBodySystem_Click);
             // 
             // cmdManufacturer
             // 
-            this.cmdManufacturer.Location = new System.Drawing.Point(347, 229);
+            this.cmdManufacturer.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdManufacturer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdManufacturer.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdManufacturer.ForeColor = System.Drawing.Color.White;
+            this.cmdManufacturer.Location = new System.Drawing.Point(258, 201);
             this.cmdManufacturer.Name = "cmdManufacturer";
-            this.cmdManufacturer.Size = new System.Drawing.Size(75, 23);
+            this.cmdManufacturer.Size = new System.Drawing.Size(90, 76);
             this.cmdManufacturer.TabIndex = 5;
             this.cmdManufacturer.Tag = "17";
             this.cmdManufacturer.Text = "Manufacturer";
-            this.cmdManufacturer.UseVisualStyleBackColor = true;
+            this.cmdManufacturer.UseVisualStyleBackColor = false;
             this.cmdManufacturer.Click += new System.EventHandler(this.cmdManufacturer_Click);
             // 
             // cmdChemName
             // 
-            this.cmdChemName.Location = new System.Drawing.Point(266, 229);
+            this.cmdChemName.BackColor = System.Drawing.Color.SteelBlue;
+            this.cmdChemName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdChemName.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdChemName.ForeColor = System.Drawing.Color.White;
+            this.cmdChemName.Location = new System.Drawing.Point(150, 201);
             this.cmdChemName.Name = "cmdChemName";
-            this.cmdChemName.Size = new System.Drawing.Size(75, 23);
+            this.cmdChemName.Size = new System.Drawing.Size(101, 76);
             this.cmdChemName.TabIndex = 5;
             this.cmdChemName.Tag = "17";
             this.cmdChemName.Text = "Chem Name";
-            this.cmdChemName.UseVisualStyleBackColor = true;
+            this.cmdChemName.UseVisualStyleBackColor = false;
             this.cmdChemName.Click += new System.EventHandler(this.cmdChemName_Click);
             // 
             // label15
@@ -1357,16 +1395,25 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // cmdMedTemp
+            // cmdCameraSetup
             // 
-            this.cmdMedTemp.Location = new System.Drawing.Point(590, 229);
-            this.cmdMedTemp.Name = "cmdMedTemp";
-            this.cmdMedTemp.Size = new System.Drawing.Size(113, 23);
-            this.cmdMedTemp.TabIndex = 5;
-            this.cmdMedTemp.Tag = "17";
-            this.cmdMedTemp.Text = "Medicine Template";
-            this.cmdMedTemp.UseVisualStyleBackColor = true;
-            this.cmdMedTemp.Click += new System.EventHandler(this.cmdMedTemp_Click);
+            this.cmdCameraSetup.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdCameraSetup.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdCameraSetup.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCameraSetup.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdCameraSetup.Appearance.Options.UseBackColor = true;
+            this.cmdCameraSetup.Appearance.Options.UseFont = true;
+            this.cmdCameraSetup.Appearance.Options.UseForeColor = true;
+            this.cmdCameraSetup.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdCameraSetup.Image = global::Pharma.Properties.Resources.webcam;
+            this.cmdCameraSetup.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdCameraSetup.Location = new System.Drawing.Point(36, 487);
+            this.cmdCameraSetup.Name = "cmdCameraSetup";
+            this.cmdCameraSetup.Size = new System.Drawing.Size(110, 76);
+            this.cmdCameraSetup.TabIndex = 8;
+            this.cmdCameraSetup.Tag = "10";
+            this.cmdCameraSetup.Text = "Camera Setup";
+            this.cmdCameraSetup.Click += new System.EventHandler(this.cmdCameraSetup_Click);
             // 
             // frmStartup
             // 
@@ -1519,6 +1566,7 @@
         private System.Windows.Forms.Button cmdUnit;
         private DevExpress.XtraEditors.SimpleButton cmdMedType;
         private System.Windows.Forms.Button cmdMedTemp;
+        private DevExpress.XtraEditors.SimpleButton cmdCameraSetup;
 
     }
 }

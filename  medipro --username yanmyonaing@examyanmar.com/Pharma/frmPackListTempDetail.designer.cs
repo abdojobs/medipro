@@ -418,7 +418,7 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(10, 19);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(127, 18);
+            this.lbl1.Size = new System.Drawing.Size(126, 18);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Template Detail";
             // 

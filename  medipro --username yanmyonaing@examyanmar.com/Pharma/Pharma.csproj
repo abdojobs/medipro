@@ -81,6 +81,12 @@
     <Compile Include="frmBodySystemDetail.Designer.cs">
       <DependentUpon>frmBodySystemDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCameraSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCameraSetup.designer.cs">
+      <DependentUpon>frmCameraSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,18 @@
     </Compile>
     <Compile Include="frmChemNameDetail.Designer.cs">
       <DependentUpon>frmChemNameDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabCatDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabCatDetail.designer.cs">
+      <DependentUpon>frmLabCatDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLabCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLabCategory.designer.cs">
+      <DependentUpon>frmLabCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -185,6 +203,9 @@
     <EmbeddedResource Include="frmBodySystemDetail.resx">
       <DependentUpon>frmBodySystemDetail.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCameraSetup.resx">
+      <DependentUpon>frmCameraSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmChangePassword.resx">
       <DependentUpon>frmChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmChemNameDetail.resx">
       <DependentUpon>frmChemNameDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabCatDetail.resx">
+      <DependentUpon>frmLabCatDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLabCategory.resx">
+      <DependentUpon>frmLabCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -234,6 +261,7 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

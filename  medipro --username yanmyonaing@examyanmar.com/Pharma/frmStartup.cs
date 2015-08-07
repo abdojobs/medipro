@@ -296,5 +296,17 @@ namespace Pharma
             AppVariable.CURRENT_SUB_MENU = "7";
             new frmPackListTemp().ShowDialog();
         }
+
+        private void cmdMedType_Click_1(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmMedType().ShowDialog();
+        }
+
+        private void cmdCameraSetup_Click(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmCameraSetup().ShowDialog();
+        }
     }
 }

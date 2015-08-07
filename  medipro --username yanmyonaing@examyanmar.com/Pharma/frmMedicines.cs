@@ -28,8 +28,9 @@ namespace Pharma
         {
             curIndex = grdViewMedicine.RowCount;
 
-            frmMedicineDetail fMedicineDetail = new frmMedicineDetail();
             frmMedicineDetail.intMedPK = 0;
+            frmMedicineDetail fMedicineDetail = new frmMedicineDetail();
+            
             fMedicineDetail.ShowDialog();
 
             BindingMedicine();
@@ -148,6 +149,20 @@ namespace Pharma
                 }
             }
 
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DataSet ds= SqlDb.GetDataSet("SELECT m.medPK, m.medName, " +
+                                "mtype.medTypeName,cname.chemName, bsys.systemName, " +
+                                "manu.manuName, manu.manuCountry, m.isActive " +
+                                "FROM tblMedicine m  " +
+                                "JOIN tblMedType mtype ON m.medTypePK = mtype.medTypePK " +
+                                "JOIN tblChemName cname ON m.chemNamePK = cname.chemNamePK " +
+                                "JOIN tblBodySystem bsys ON m.systemPK = bsys.systemPK " +
+                                "JOIN tblManufacturer manu ON m.manuPK = manu.manuPK " +
+                                "WHERE m.isDelete = 0 and m.medName like '%"+txtSearch.Text.Trim()+"%'");
+            grdMedicine.DataSource = ds.Tables[0];
         }
     }
 }
