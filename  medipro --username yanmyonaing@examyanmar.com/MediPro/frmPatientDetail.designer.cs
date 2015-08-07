@@ -336,6 +336,7 @@
             this.dteDOB.Size = new System.Drawing.Size(202, 20);
             this.dteDOB.TabIndex = 4;
             this.dteDOB.EditValueChanged += new System.EventHandler(this.dteDOB_EditValueChanged);
+            this.dteDOB.Leave += new System.EventHandler(this.dteDOB_Leave);
             // 
             // label24
             // 
@@ -701,7 +702,7 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(11, 19);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(112, 18);
+            this.lbl1.Size = new System.Drawing.Size(111, 18);
             this.lbl1.TabIndex = 6;
             this.lbl1.Text = "Patient Detail";
             // 

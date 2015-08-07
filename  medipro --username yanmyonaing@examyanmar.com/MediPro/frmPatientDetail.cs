@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using WebCamLib;
+//using WebCamLib;
 using exaCore;
 using System.IO;
 using System.Drawing.Imaging;
-using Touchless.Vision.Camera;
+//using Touchless.Vision.Camera;
 
 namespace MediPro
 {
@@ -24,6 +24,7 @@ namespace MediPro
         public frmPatientDetail()
         {
             InitializeComponent();
+            
         }
 
         private void cmdExit_Click(object sender, EventArgs e)
@@ -211,10 +212,7 @@ namespace MediPro
 
         private void dteDOB_EditValueChanged(object sender, EventArgs e)
         {
-            string dtDOB = dteDOB.EditValue.ToString();
-
-            if (dtDOB.Length > 0)
-                txtAge.Text = Helper.CalAge(DateTime.Parse(dtDOB));
+            
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
@@ -253,7 +251,7 @@ namespace MediPro
                                             new MySqlParameter("@NRC", txtNRC.Text.Trim()),
                                             new MySqlParameter("@Gender", cboGender.Text.Trim()),
                                             new MySqlParameter("@FatherName", txtFatherName.Text.Trim()),
-                                            new MySqlParameter("@DOB", dteDOB.EditValue),
+                                            new MySqlParameter("@DOB", dteDOB.DateTime),
                                             new MySqlParameter("@Phone", txtContactNo.Text.Trim()),
                                             new MySqlParameter("@Email", txtEmail.Text.Trim()),
                                             new MySqlParameter("@Address", txtAddress.Text.Trim()),
@@ -344,7 +342,7 @@ namespace MediPro
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        //MessageBox.Show(ex.Message);
                     }
                 }
             }
@@ -367,20 +365,20 @@ namespace MediPro
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            int nameCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE Name=@Name AND isDelete=0", new MySqlParameter("@Name", txtName.Text.Trim()));
+            //int nameCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE Name=@Name AND isDelete=0", new MySqlParameter("@Name", txtName.Text.Trim()));
 
-            if (nameCnt > 0)
-            {
-                MessageBox.Show("Patient Name is already exit. Please check your patient name.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lblPatientName.ForeColor = Color.Red;
+            //if (nameCnt > 0)
+            //{
+            //    MessageBox.Show("Patient Name is already exit. Please check your patient name.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    lblPatientName.ForeColor = Color.Red;
 
-                //frmPatientSearch PatientSearchForm = new frmPatientSearch();
+            //    //frmPatientSearch PatientSearchForm = new frmPatientSearch();
 
-                ////PatientSearchForm.TopMost = true;
-                //PatientSearchForm.ShowDialog();
+            //    ////PatientSearchForm.TopMost = true;
+            //    //PatientSearchForm.ShowDialog();
 
 
-            }
+            //}
         }
 
         public static Font barcodeFont = new Font("3 of 9 Barcode", 15);
@@ -432,6 +430,24 @@ namespace MediPro
         private void frmPatientDetail_Paint(object sender, PaintEventArgs e)
         {
             DrawBarcode(txtName.Text, dteDOB.Text, txtRegNo.Text, imgBarcode);
+        }
+
+        private void dteDOB_Leave(object sender, EventArgs e)
+        {
+            if (dteDOB.DateTime != null)
+            {
+                txtAge.Text = Helper.CalAge(dteDOB.DateTime);
+            }
+            if (txtRegNo.Text.Trim() == "")
+            {
+                int nameCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblPatient WHERE Name=@Name AND Date(DOB)=Date(@DOB)  AND isDelete=0", new MySqlParameter("@Name", txtName.Text.Trim()), new MySqlParameter("@DOB", dteDOB.DateTime.Date));
+
+                if (nameCnt > 0)
+                {
+                    MessageBox.Show("Patient with same name and date of birth already exited. Please check your patient info again.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    lblPatientName.ForeColor = Color.Red;
+                }
+            }
         }
     }
 }
