@@ -22,6 +22,7 @@ namespace Touchless.Vision.Contracts
             {
                 if (_image == null)
                 {
+                    
                     _image = OriginalImage.Clone() as Bitmap;
                 }
 
