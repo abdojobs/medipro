@@ -49,8 +49,8 @@ namespace exaCore
 
                 if (camStatus == true)
                 {
-                    _frameSource.Camera.CaptureWidth = 320;
-                    _frameSource.Camera.CaptureHeight = 240;
+                    _frameSource.Camera.CaptureWidth = this.ImgControl.Width;
+                    _frameSource.Camera.CaptureHeight = this.ImgControl.Height;
                     _frameSource.Camera.Fps = 50;
                     _frameSource.NewFrame += OnImageCaptured;
 
@@ -73,12 +73,16 @@ namespace exaCore
             if (_latestFrame != null)
             {
                 // Draw the latest image from the active camera
-                e.Graphics.DrawImage(_latestFrame, 0, 0, _latestFrame.Width, _latestFrame.Height);
+                e.Graphics.DrawImage(_latestFrame, 0, 0, ImgControl.Width, ImgControl.Height);
+                //e.Graphics.DrawImage(_latestFrame, 0, 0, _latestFrame.Width, _latestFrame.Height);
             }
         }
 
         public void OnImageCaptured(Touchless.Vision.Contracts.IFrameSource frameSource, Touchless.Vision.Contracts.Frame frame, double fps)
         {
+
+            //Image img = frame.Image.Clone(new RectangleF(0, 0, this.ImgControl.Width, this.ImgControl.Height), System.Drawing.Imaging.PixelFormat.Undefined);
+            //_latestFrame = img as Bitmap;
             _latestFrame = frame.Image;
             ImgControl.Invalidate();
         }
@@ -96,7 +100,11 @@ namespace exaCore
             // Trash the old camera
             if (_frameSource != null)
             {
-                ImgControl.Image = (Bitmap)_latestFrame.Clone();
+                //Graphics g= ImgControl.CreateGraphics();
+                //g.DrawImage(_latestFrame, 0, 0, ImgControl.Width, ImgControl.Height);
+                ImgControl.Image = new Bitmap(_latestFrame, ImgControl.Width, ImgControl.Height);
+                //ImgControl.Image = ImgControl.Image;
+                 //ImgControl.Image = (Bitmap)_latestFrame.Clone();
                 _frameSource.NewFrame -= OnImageCaptured;
                 _frameSource.Camera.Dispose();
                 setFrameSource(null);
