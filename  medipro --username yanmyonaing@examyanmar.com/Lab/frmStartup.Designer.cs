@@ -77,6 +77,8 @@
             this.lineShape = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.tabPageMasterFile = new DevExpress.XtraTab.XtraTabPage();
             this.panelMasterFiles = new DevExpress.XtraEditors.PanelControl();
+            this.cmdReferFee = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdAgent = new DevExpress.XtraEditors.SimpleButton();
             this.cmdDoctors = new DevExpress.XtraEditors.SimpleButton();
             this.cmdCategory = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSubLabTest = new DevExpress.XtraEditors.SimpleButton();
@@ -134,7 +136,7 @@
             this.linkChangePassword = new System.Windows.Forms.LinkLabel();
             this.linkLogout = new System.Windows.Forms.LinkLabel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmdAgent = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdCameraSetup = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -900,6 +902,8 @@
             // 
             this.panelMasterFiles.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
+            this.panelMasterFiles.Controls.Add(this.cmdCameraSetup);
+            this.panelMasterFiles.Controls.Add(this.cmdReferFee);
             this.panelMasterFiles.Controls.Add(this.cmdAgent);
             this.panelMasterFiles.Controls.Add(this.cmdDoctors);
             this.panelMasterFiles.Controls.Add(this.cmdCategory);
@@ -924,6 +928,46 @@
             this.panelMasterFiles.Size = new System.Drawing.Size(1262, 648);
             this.panelMasterFiles.TabIndex = 1;
             this.panelMasterFiles.Tag = "2";
+            // 
+            // cmdReferFee
+            // 
+            this.cmdReferFee.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdReferFee.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdReferFee.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdReferFee.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdReferFee.Appearance.Options.UseBackColor = true;
+            this.cmdReferFee.Appearance.Options.UseFont = true;
+            this.cmdReferFee.Appearance.Options.UseForeColor = true;
+            this.cmdReferFee.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdReferFee.Image = global::Lab.Properties.Resources.sublabtest32;
+            this.cmdReferFee.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdReferFee.Location = new System.Drawing.Point(761, 202);
+            this.cmdReferFee.Name = "cmdReferFee";
+            this.cmdReferFee.Size = new System.Drawing.Size(110, 76);
+            this.cmdReferFee.TabIndex = 9;
+            this.cmdReferFee.Tag = "4";
+            this.cmdReferFee.Text = "Refer Fee";
+            this.cmdReferFee.Click += new System.EventHandler(this.cmdReferFee_Click);
+            // 
+            // cmdAgent
+            // 
+            this.cmdAgent.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdAgent.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdAgent.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdAgent.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdAgent.Appearance.Options.UseBackColor = true;
+            this.cmdAgent.Appearance.Options.UseFont = true;
+            this.cmdAgent.Appearance.Options.UseForeColor = true;
+            this.cmdAgent.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdAgent.Image = global::Lab.Properties.Resources.sublabtest32;
+            this.cmdAgent.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdAgent.Location = new System.Drawing.Point(645, 202);
+            this.cmdAgent.Name = "cmdAgent";
+            this.cmdAgent.Size = new System.Drawing.Size(110, 76);
+            this.cmdAgent.TabIndex = 8;
+            this.cmdAgent.Tag = "4";
+            this.cmdAgent.Text = "Agent";
+            this.cmdAgent.Click += new System.EventHandler(this.cmdAgent_Click);
             // 
             // cmdDoctors
             // 
@@ -1713,25 +1757,25 @@
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
-            // cmdAgent
+            // cmdCameraSetup
             // 
-            this.cmdAgent.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdAgent.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdAgent.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdAgent.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.cmdAgent.Appearance.Options.UseBackColor = true;
-            this.cmdAgent.Appearance.Options.UseFont = true;
-            this.cmdAgent.Appearance.Options.UseForeColor = true;
-            this.cmdAgent.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.cmdAgent.Image = global::Lab.Properties.Resources.sublabtest32;
-            this.cmdAgent.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.cmdAgent.Location = new System.Drawing.Point(645, 202);
-            this.cmdAgent.Name = "cmdAgent";
-            this.cmdAgent.Size = new System.Drawing.Size(110, 76);
-            this.cmdAgent.TabIndex = 8;
-            this.cmdAgent.Tag = "4";
-            this.cmdAgent.Text = "Agent";
-            this.cmdAgent.Click += new System.EventHandler(this.cmdAgent_Click);
+            this.cmdCameraSetup.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdCameraSetup.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdCameraSetup.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdCameraSetup.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdCameraSetup.Appearance.Options.UseBackColor = true;
+            this.cmdCameraSetup.Appearance.Options.UseFont = true;
+            this.cmdCameraSetup.Appearance.Options.UseForeColor = true;
+            this.cmdCameraSetup.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdCameraSetup.Image = global::Lab.Properties.Resources.webcam;
+            this.cmdCameraSetup.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdCameraSetup.Location = new System.Drawing.Point(33, 483);
+            this.cmdCameraSetup.Name = "cmdCameraSetup";
+            this.cmdCameraSetup.Size = new System.Drawing.Size(110, 76);
+            this.cmdCameraSetup.TabIndex = 10;
+            this.cmdCameraSetup.Tag = "10";
+            this.cmdCameraSetup.Text = "Camera Setup";
+            this.cmdCameraSetup.Click += new System.EventHandler(this.cmdCameraSetup_Click);
             // 
             // frmStartup
             // 
@@ -1928,6 +1972,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositorychkIsActive;
         private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit repDateTest;
         private DevExpress.XtraEditors.SimpleButton cmdAgent;
+        private DevExpress.XtraEditors.SimpleButton cmdReferFee;
+        private DevExpress.XtraEditors.SimpleButton cmdCameraSetup;
 
     }
 }

@@ -160,8 +160,11 @@ namespace Lab
 
         private void cmdRemove_Click(object sender, EventArgs e)
         {
-            dgv.Rows.Add(new object[] { dgvPicked.CurrentRow.Cells[0].Value, dgvPicked.CurrentRow.Cells[1].Value });
-            dgvPicked.Rows.RemoveAt(dgvPicked.CurrentRow.Index);
+            if (dgvPicked.CurrentRow != null)
+            {
+                dgv.Rows.Add(new object[] { dgvPicked.CurrentRow.Cells[0].Value, dgvPicked.CurrentRow.Cells[1].Value });
+                dgvPicked.Rows.RemoveAt(dgvPicked.CurrentRow.Index);
+            }
         }
 
         private void cmdRemoveAll_Click(object sender, EventArgs e)
@@ -180,7 +183,7 @@ namespace Lab
             if (txtName.Tag.ToString().Length > 0)
             {
                 DataTable dt= new DataTable();
-                dt= SqlDb.GetDataSet("select labTestPK,labTestName from tblLabTest except select tblLabPackageDetail.labTestPK,tblLabTest.labTestName from tblLabPackageDetail inner join tblLabTest on tblLabPackageDetail.labTestPK=tblLabTest.labTestPK where tblLabPackageDetail.labPackPK=@labPackPK", new MySqlParameter("@labPackPK", txtName.Tag)).Tables[0];
+                dt= SqlDb.GetDataSet("select labTestPK,labTestName from tblLabTest where labTestPK not in( select tblLabPackageDetail.labTestPK from tblLabPackageDetail inner join tblLabTest on tblLabPackageDetail.labTestPK=tblLabTest.labTestPK where tblLabPackageDetail.labPackPK=@labPackPK)", new MySqlParameter("@labPackPK", txtName.Tag)).Tables[0];
                 if (dt.Rows.Count > 0)
                 {
                     dgv.Rows.Clear();
