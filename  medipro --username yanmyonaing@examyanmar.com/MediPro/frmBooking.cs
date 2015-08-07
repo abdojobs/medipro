@@ -428,5 +428,58 @@ namespace MediPro
                 }
             }
         }
+
+        private void grdViewClinicTime_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void grdViewClinicTime_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
+        {
+            if (e.Column.VisibleIndex == dgvColBook.VisibleIndex)
+            {
+                MessageBox.Show("Book");
+            }
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dgvColBookk.Index)
+            {
+                if (dgv.CurrentRow != null)
+                {
+                        int patientCnt;
+                        if (radioNewPatient.Checked == true)
+                        {
+                            patientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE patientName=@PatientName AND doctorPK=@DoctorPK AND abdate=@ABDate",
+                                                                    new MySqlParameter("@PatientName", txtPatientName.Text),
+                                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                                    new MySqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                        }
+                        else
+                        {
+                            patientCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblBooking WHERE patientName=@PatientName AND doctorPK=@DoctorPK AND abdate=@ABDate",
+                                                                    new MySqlParameter("@PatientName", luePatient.Text),
+                                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                                    new MySqlParameter("@ABDate", dtBoooking.Date.ToString("yyyy-MM-dd")));
+                        }
+
+                        if (patientCnt > 0)
+                        {
+                            DialogResult = MessageBox.Show("Please check your booking list. This patient's name was booked. Are you sure?", "MediPro :: Clinic System", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                            if (DialogResult == DialogResult.Yes)
+                            {
+                                Save();
+                            }
+                        }
+                        else
+                        {
+                            Save();
+                        }
+                    
+                }
+            }
+        }
     }
 }
