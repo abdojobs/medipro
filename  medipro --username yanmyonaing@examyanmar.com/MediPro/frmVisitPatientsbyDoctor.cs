@@ -10,7 +10,7 @@ using exaCore;
 using MySql.Data.MySqlClient;
 using System.IO;
 using System.Drawing.Imaging;
-using Touchless.Vision.Camera;
+//using Touchless.Vision.Camera;
 
 namespace MediPro
 {
