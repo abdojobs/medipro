@@ -31,8 +31,8 @@ namespace MediPro
         {
             InitializeComponent();
 
-            this.Height = 346;
-            grpClinicTime.Visible = false;          
+            //this.Height = 346;
+            //grpClinicTime.Visible = false;          
         }
 
         private void cmdSave_Click(object sender, EventArgs e)
@@ -191,13 +191,13 @@ namespace MediPro
 
         private void LoadLuePatient()
         {
-            dsPatient = SqlDb.GetDataSet("SELECT RegNo, (TitleName + ' ' + Name) As Name, Convert(varchar, DOB, 105) As DOB, FatherName, NRC FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE tblPatient.isDelete = 0");
+            dsPatient = SqlDb.GetDataSet("SELECT RegNo,CONCAT (TitleName , ' ' , Name) As Name, DOB, FatherName, NRC FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE tblPatient.isDelete = 0");
             luePatient.Properties.DataSource = dsPatient.Tables[0];
         }
 
         private void LoadLueDoctor()
         {
-            dsDoctor = SqlDb.GetDataSet("SELECT doctorPK, (TitleName + ' ' + doctor) AS doctor, position, specialize FROM tblDoctor INNER JOIN tblPosition ON tblDoctor.positionPK = tblPosition.positionPK INNER JOIN tblSpecialize ON tblDoctor.specializePK = tblSpecialize.specializePK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK WHERE (tblDoctor.isActive = 1)");
+            dsDoctor = SqlDb.GetDataSet("SELECT doctorPK,CONCAT (TitleName , ' ' , doctor) AS doctor, position, specialize FROM tblDoctor INNER JOIN tblPosition ON tblDoctor.positionPK = tblPosition.positionPK INNER JOIN tblSpecialize ON tblDoctor.specializePK = tblSpecialize.specializePK INNER JOIN tblTitle ON tblDoctor.titlePK = tblTitle.titlePK WHERE (tblDoctor.isActive = 1)");
             lueDoctor.Properties.DataSource = dsDoctor.Tables[0];
         }
 
@@ -207,7 +207,7 @@ namespace MediPro
             {
                 grpClinicTime.Enabled = true;
 
-                DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK, (clinicDay + ' (' + ctdOption + ')') AS clinicDay, toTime, fromTime FROM tblClinicTimeByDoctor " +
+                DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK,CONCAT (clinicDay , ' (' ,ctdOption , ')') AS clinicDay, toTime, fromTime FROM tblClinicTimeByDoctor " +
                                         "WHERE isDelete = 0 AND doctorPK = @DoctorPK",
                                         new MySqlParameter("@DoctorPK", doctorPK));
 
@@ -341,18 +341,18 @@ namespace MediPro
 
         private void dteBookingDate_EditValueChanged(object sender, EventArgs e)
         {
-            dtBoooking = Convert.ToDateTime(dteBookingDate.EditValue.ToString());
+            dtBoooking = dteBookingDate.DateTime;
             
             if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
-                int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
+                int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND isDelete=0",
                                                     new MySqlParameter("@DoctorPK", doctorPK),
-                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                    new MySqlParameter("@CTDOption", cboOption.Text));
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString())
+                                                    );
 
                 if (ctdCnt < 1)
                 {
-                    MessageBox.Show(lueDoctor.Text + " is not sit " + cboOption.Text + ".", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(lueDoctor.Text + " is not sit on" + dteBookingDate.DateTime.DayOfWeek.ToString() + ".", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     dteBookingDate.Focus();
 
@@ -374,14 +374,14 @@ namespace MediPro
                 {
                     grpClinicTime.Visible = true;                    
                     widenStatus = true;
-                    myTimer.Start();
+                    //myTimer.Start();
                 }
 
                 if (this.Height == 503)
                 {
                     grpClinicTime.Visible = false;
                     widenStatus = false;
-                    myTimer.Start();
+                    //myTimer.Start();
                 }
             }
         }

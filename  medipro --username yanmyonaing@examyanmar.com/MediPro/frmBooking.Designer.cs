@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.repositorycboDay = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryFromTime = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.repositoryToTime = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
@@ -53,6 +54,8 @@
             this.grdColfromTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColtoTime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.grdColDoctorPK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dgvColBook = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdBook = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.cmdClinicTime = new DevExpress.XtraEditors.SimpleButton();
             this.lueDoctor = new DevExpress.XtraEditors.LookUpEdit();
             this.dteBookingDate = new DevExpress.XtraEditors.DateEdit();
@@ -85,6 +88,7 @@
             this.grpClinicTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCTbyDoctor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewClinicTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDoctor.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBookingDate.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBookingDate.Properties)).BeginInit();
@@ -152,7 +156,7 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(10, 19);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(69, 18);
+            this.lbl1.Size = new System.Drawing.Size(68, 18);
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Booking";
             // 
@@ -232,7 +236,7 @@
             this.cmdSave.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cmdSave.Appearance.Options.UseFont = true;
             this.cmdSave.Appearance.Options.UseForeColor = true;
-            this.cmdSave.Location = new System.Drawing.Point(394, 452);
+            this.cmdSave.Location = new System.Drawing.Point(391, 483);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 26);
             this.cmdSave.TabIndex = 6;
@@ -247,7 +251,7 @@
             this.cmdExit.Appearance.Options.UseFont = true;
             this.cmdExit.Appearance.Options.UseForeColor = true;
             this.cmdExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cmdExit.Location = new System.Drawing.Point(475, 452);
+            this.cmdExit.Location = new System.Drawing.Point(473, 483);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(75, 26);
             this.cmdExit.TabIndex = 7;
@@ -316,7 +320,7 @@
             this.panelControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl1.LookAndFeel.UseWindowsXPTheme = true;
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(573, 499);
+            this.panelControl1.Size = new System.Drawing.Size(573, 518);
             this.panelControl1.TabIndex = 1;
             // 
             // cboOption
@@ -344,7 +348,7 @@
             this.grpClinicTime.Location = new System.Drawing.Point(38, 281);
             this.grpClinicTime.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grpClinicTime.Name = "grpClinicTime";
-            this.grpClinicTime.Size = new System.Drawing.Size(339, 198);
+            this.grpClinicTime.Size = new System.Drawing.Size(512, 198);
             this.grpClinicTime.TabIndex = 23;
             this.grpClinicTime.Text = "Clinic Time of Dr Name";
             // 
@@ -361,20 +365,22 @@
             this.grdCTbyDoctor.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdCTbyDoctor.MainView = this.grdViewClinicTime;
             this.grdCTbyDoctor.Name = "grdCTbyDoctor";
-            this.grdCTbyDoctor.Size = new System.Drawing.Size(335, 175);
+            this.grdCTbyDoctor.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.cmdBook});
+            this.grdCTbyDoctor.Size = new System.Drawing.Size(508, 175);
             this.grdCTbyDoctor.TabIndex = 2;
             this.grdCTbyDoctor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewClinicTime});
             // 
             // grdViewClinicTime
             // 
-            this.grdViewClinicTime.Appearance.EvenRow.BackColor = System.Drawing.Color.OldLace;
-            this.grdViewClinicTime.Appearance.EvenRow.Options.UseBackColor = true;
-            this.grdViewClinicTime.Appearance.FocusedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewClinicTime.Appearance.FocusedRow.BackColor = System.Drawing.Color.SlateGray;
+            this.grdViewClinicTime.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
             this.grdViewClinicTime.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grdViewClinicTime.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grdViewClinicTime.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grdViewClinicTime.Appearance.HeaderPanel.Options.UseFont = true;
-            this.grdViewClinicTime.Appearance.SelectedRow.BackColor = System.Drawing.Color.Cornsilk;
+            this.grdViewClinicTime.Appearance.SelectedRow.BackColor = System.Drawing.Color.Gray;
             this.grdViewClinicTime.Appearance.SelectedRow.Options.UseBackColor = true;
             this.grdViewClinicTime.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.grdViewClinicTime.ColumnPanelRowHeight = 30;
@@ -383,7 +389,8 @@
             this.grdColDay,
             this.grdColfromTime,
             this.grdColtoTime,
-            this.grdColDoctorPK});
+            this.grdColDoctorPK,
+            this.dgvColBook});
             this.grdViewClinicTime.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.grdViewClinicTime.GridControl = this.grdCTbyDoctor;
             this.grdViewClinicTime.Name = "grdViewClinicTime";
@@ -395,7 +402,7 @@
             this.grdViewClinicTime.OptionsCustomization.AllowGroup = false;
             this.grdViewClinicTime.OptionsCustomization.AllowQuickHideColumns = false;
             this.grdViewClinicTime.OptionsCustomization.AllowSort = false;
-            this.grdViewClinicTime.OptionsView.EnableAppearanceEvenRow = true;
+            this.grdViewClinicTime.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.grdViewClinicTime.OptionsView.ShowDetailButtons = false;
             this.grdViewClinicTime.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.grdViewClinicTime.OptionsView.ShowGroupPanel = false;
@@ -502,6 +509,22 @@
             this.grdColDoctorPK.OptionsFilter.AllowFilter = false;
             this.grdColDoctorPK.Width = 250;
             // 
+            // dgvColBook
+            // 
+            this.dgvColBook.ColumnEdit = this.cmdBook;
+            this.dgvColBook.Name = "dgvColBook";
+            this.dgvColBook.ShowButtonMode = DevExpress.XtraGrid.Views.Base.ShowButtonModeEnum.ShowAlways;
+            this.dgvColBook.Visible = true;
+            this.dgvColBook.VisibleIndex = 3;
+            // 
+            // cmdBook
+            // 
+            this.cmdBook.AutoHeight = false;
+            this.cmdBook.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Book", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            this.cmdBook.Name = "cmdBook";
+            this.cmdBook.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
             // cmdClinicTime
             // 
             this.cmdClinicTime.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -515,12 +538,13 @@
             this.cmdClinicTime.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.cmdClinicTime.Image = global::MediPro.Properties.Resources.timebydoctor16;
             this.cmdClinicTime.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.cmdClinicTime.Location = new System.Drawing.Point(352, 198);
+            this.cmdClinicTime.Location = new System.Drawing.Point(356, 198);
             this.cmdClinicTime.Margin = new System.Windows.Forms.Padding(0);
             this.cmdClinicTime.Name = "cmdClinicTime";
             this.cmdClinicTime.Size = new System.Drawing.Size(25, 20);
             this.cmdClinicTime.TabIndex = 3;
             this.cmdClinicTime.ToolTip = "Click information for Doctor\'s Clinic Time ";
+            this.cmdClinicTime.Visible = false;
             this.cmdClinicTime.Click += new System.EventHandler(this.cmdClinicTime_Click);
             // 
             // lueDoctor
@@ -559,9 +583,12 @@
             this.dteBookingDate.Properties.Appearance.Options.UseFont = true;
             this.dteBookingDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteBookingDate.Properties.DisplayFormat.FormatString = "D";
-            this.dteBookingDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteBookingDate.Properties.Mask.EditMask = "D";
+            this.dteBookingDate.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteBookingDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dteBookingDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteBookingDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dteBookingDate.Properties.Mask.EditMask = "";
+            this.dteBookingDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.dteBookingDate.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteBookingDate.Size = new System.Drawing.Size(211, 20);
@@ -747,7 +774,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(577, 503);
+            this.ClientSize = new System.Drawing.Size(577, 522);
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBooking";
@@ -769,6 +796,7 @@
             this.grpClinicTime.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdCTbyDoctor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdViewClinicTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmdBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueDoctor.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBookingDate.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBookingDate.Properties)).EndInit();
@@ -825,6 +853,8 @@
         public System.Windows.Forms.Label lblLastBookingTime;
         public DevExpress.XtraEditors.LookUpEdit lueDoctor;
         public DevExpress.XtraEditors.TextEdit txtPatientName;
+        private DevExpress.XtraGrid.Columns.GridColumn dgvColBook;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdBook;
 
     }
 }
