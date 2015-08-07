@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Touchless.Vision.Camera;
+using exaCore;
 using System.Configuration;
+using Touchless.Vision;
+using Touchless.Vision.Camera;
 
 namespace MediPro
 {
