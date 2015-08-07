@@ -61,7 +61,7 @@ namespace Lab
                     }
                     else
                     {
-                        int LabID = SqlDb.ExecuteScalar<int>("Call getID ('tblLabAgent')");
+                        int LabID = SqlDb.ExecuteScalar<int>("Call getID ('tblagent')");
 
                         int LabIDCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblAgent WHERE agentPK=@agentPK", new MySqlParameter("@agentPK", LabID));
 

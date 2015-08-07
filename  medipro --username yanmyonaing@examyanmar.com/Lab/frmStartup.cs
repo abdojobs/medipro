@@ -272,7 +272,7 @@ namespace Lab
         private void cmdLabTest_Click(object sender, EventArgs e)
         {
             AppVariable.CURRENT_SUB_MENU = "7";
-            new frmLabTest().ShowDialog();
+            new frmLabTestList().ShowDialog();
         }
 
         private void cmdSubLabTest_Click(object sender, EventArgs e)
@@ -359,6 +359,31 @@ namespace Lab
         {
             AppVariable.CURRENT_SUB_MENU = "7";
             new frmLabAgents().ShowDialog();
+        }
+
+        private void cmdReferFee_Click(object sender, EventArgs e)
+        {
+            AppVariable.CURRENT_SUB_MENU = "7";
+            new frmLabReferFee().ShowDialog();
+        }
+
+        private void cmdCameraSetup_Click(object sender, EventArgs e)
+        {
+            if (SqlDb.IsAllow(cmdCameraSetup.Tag.ToString(), AppVariable.CURRENT_USER_LEVEL_ID.ToString(), "IsView") == true)
+            {
+                AppVariable.CURRENT_SUB_MENU = cmdCameraSetup.Tag.ToString();
+
+                frmCameraSetup CamersSetupForm = new frmCameraSetup();
+
+                CamersSetupForm.ShowDialog();
+                //CamersSetupForm.TopMost = true;
+
+                sysLogs.logsDetail(int.Parse(AppVariable.CURRENT_SUB_MENU), "Viewing");
+            }
+            else
+            {
+                MessageBox.Show("Sorry, Administrator is not allow this action?", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
        
