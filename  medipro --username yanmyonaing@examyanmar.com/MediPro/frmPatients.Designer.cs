@@ -47,7 +47,7 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.cmdExit = new DevExpress.XtraEditors.SimpleButton();
             this.cmdViewDetail = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNew = new DevExpress.XtraEditors.SimpleButton();
@@ -63,7 +63,7 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.SuspendLayout();
@@ -326,7 +326,7 @@
             this.panelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.panelControl3.Appearance.Options.UseBackColor = true;
             this.panelControl3.Controls.Add(this.simpleButton3);
-            this.panelControl3.Controls.Add(this.textEdit1);
+            this.panelControl3.Controls.Add(this.txtSearch);
             this.panelControl3.Location = new System.Drawing.Point(15, 14);
             this.panelControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
             this.panelControl3.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -343,13 +343,15 @@
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(25, 19);
             this.simpleButton3.TabIndex = 1;
+            this.simpleButton3.TextChanged += new System.EventHandler(this.simpleButton3_TextChanged);
             // 
-            // textEdit1
+            // txtSearch
             // 
-            this.textEdit1.Location = new System.Drawing.Point(10, 8);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(279, 20);
-            this.textEdit1.TabIndex = 0;
+            this.txtSearch.Location = new System.Drawing.Point(10, 8);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(279, 20);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cmdExit
             // 
@@ -468,7 +470,7 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
@@ -488,7 +490,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtSearch;
         private DevExpress.XtraEditors.SimpleButton cmdExit;
         private DevExpress.XtraEditors.SimpleButton cmdEdit;
         private DevExpress.XtraEditors.SimpleButton cmdNew;

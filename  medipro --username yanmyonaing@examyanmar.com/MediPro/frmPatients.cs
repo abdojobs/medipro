@@ -155,7 +155,7 @@ namespace MediPro
 
                 DateTime dobDate = DateTime.Parse(drPatient.ItemArray[5].ToString());
                 PatientDetailForm.dteDOB.EditValue = dobDate.ToShortDateString();
-
+                PatientDetailForm.txtAge.Text = Helper.CalAge(dobDate);
                 PatientDetailForm.cboGender.Text = drPatient.ItemArray[3].ToString();
                 PatientDetailForm.txtEmail.Text = drPatient.ItemArray[8].ToString();
                 PatientDetailForm.txtAddress.Text = drPatient.ItemArray[7].ToString();
@@ -194,7 +194,7 @@ namespace MediPro
 
                 DateTime dobDate = DateTime.Parse(drPatient.ItemArray[5].ToString());
                 PatientDetailForm.dteDOB.EditValue = dobDate.ToShortDateString();
-
+                PatientDetailForm.txtAge.Text = Helper.CalAge(dobDate);
                 PatientDetailForm.cboGender.Text = drPatient.ItemArray[3].ToString();
                 PatientDetailForm.txtEmail.Text = drPatient.ItemArray[8].ToString();
                 PatientDetailForm.txtAddress.Text = drPatient.ItemArray[7].ToString();
@@ -222,6 +222,20 @@ namespace MediPro
             {
                 drPatient = grdViewPatient.GetDataRow(grdViewPatient.FocusedRowHandle);
             }
+        }
+
+        private void simpleButton3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            DataSet dsPatients = SqlDb.GetDataSet("SELECT tblPatient.RegNo, CONCAT(tblTitle.TitleName, ' ', tblPatient.Name) AS FullName, tblPatient.NRC, tblPatient.Gender, " +
+                                                    "tblPatient.FatherName, tblPatient.DOB, tblPatient.Phone, tblPatient.Address, tblPatient.email, tblPatient.RegDate, tblPatient.Name, tblPatient.titlePK, tblPatient.isDelete " +
+                                                    "FROM tblPatient INNER JOIN tblTitle ON tblPatient.titlePK = tblTitle.titlePK WHERE (tblPatient.isDelete = 0) AND tblPatient.Name like '%"+txtSearch.Text+"%'");
+
+            grdPatient.DataSource = dsPatients.Tables[0];
         }
     }
 }
