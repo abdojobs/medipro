@@ -17,8 +17,8 @@ namespace exaCore
 
         public clsSQL()
         {
-            //connString = ConfigurationManager.ConnectionStrings["CnnpMediPro"].ToString();
-            connString = "Server=localhost;Port=3306;Database=medipro;Persist Security Info=True;User ID=root;";
+            connString = ConfigurationManager.ConnectionStrings["CnnpMediPro"].ToString();
+            //connString = "Server=localhost;Port=3306;Database=medipro;Persist Security Info=True;User ID=root;";
             //connString = "Server=192.168.1.88;Port=9999;Database=medipro;Persist Security Info=True;User ID=ymn;Password=passw0rd;";
             con = new MySqlConnection(connString);
         }
