@@ -161,7 +161,7 @@
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(847, 467);
-            this.panelControl2.TabIndex = 0;
+            this.panelControl2.TabIndex = 2;
             // 
             // btnDeletUnit
             // 
@@ -172,7 +172,7 @@
             this.btnDeletUnit.Location = new System.Drawing.Point(731, 337);
             this.btnDeletUnit.Name = "btnDeletUnit";
             this.btnDeletUnit.Size = new System.Drawing.Size(99, 26);
-            this.btnDeletUnit.TabIndex = 47;
+            this.btnDeletUnit.TabIndex = 14;
             this.btnDeletUnit.Text = "Delete Relation";
             this.btnDeletUnit.Click += new System.EventHandler(this.btnDeletUnit_Click);
             // 
@@ -191,7 +191,7 @@
             this.chkIsActive.Properties.LookAndFeel.SkinName = "VS2010";
             this.chkIsActive.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
             this.chkIsActive.Size = new System.Drawing.Size(75, 19);
-            this.chkIsActive.TabIndex = 46;
+            this.chkIsActive.TabIndex = 6;
             // 
             // btnAddPackListTemp
             // 
@@ -203,7 +203,7 @@
             this.btnAddPackListTemp.Location = new System.Drawing.Point(542, 78);
             this.btnAddPackListTemp.Name = "btnAddPackListTemp";
             this.btnAddPackListTemp.Size = new System.Drawing.Size(289, 26);
-            this.btnAddPackListTemp.TabIndex = 45;
+            this.btnAddPackListTemp.TabIndex = 12;
             this.btnAddPackListTemp.Text = "Add from the select template";
             this.btnAddPackListTemp.Click += new System.EventHandler(this.btnAddPackListTemp_Click);
             // 
@@ -215,7 +215,7 @@
             this.cboPackListTemp.Location = new System.Drawing.Point(542, 50);
             this.cboPackListTemp.Name = "cboPackListTemp";
             this.cboPackListTemp.Size = new System.Drawing.Size(288, 21);
-            this.cboPackListTemp.TabIndex = 44;
+            this.cboPackListTemp.TabIndex = 11;
             // 
             // label11
             // 
@@ -245,7 +245,7 @@
             this.resSpinToValue,
             this.repositoryItemTextEdit1});
             this.gridPackList.Size = new System.Drawing.Size(288, 217);
-            this.gridPackList.TabIndex = 42;
+            this.gridPackList.TabIndex = 13;
             this.gridPackList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -467,7 +467,7 @@
             this.txtDosageMyan.Name = "txtDosageMyan";
             this.txtDosageMyan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDosageMyan.Size = new System.Drawing.Size(228, 84);
-            this.txtDosageMyan.TabIndex = 41;
+            this.txtDosageMyan.TabIndex = 10;
             // 
             // label9
             // 
@@ -502,7 +502,7 @@
             this.txtDosageEng.Name = "txtDosageEng";
             this.txtDosageEng.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDosageEng.Size = new System.Drawing.Size(228, 84);
-            this.txtDosageEng.TabIndex = 38;
+            this.txtDosageEng.TabIndex = 9;
             // 
             // txtIndicationMyan
             // 
@@ -513,7 +513,7 @@
             this.txtIndicationMyan.Name = "txtIndicationMyan";
             this.txtIndicationMyan.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtIndicationMyan.Size = new System.Drawing.Size(228, 84);
-            this.txtIndicationMyan.TabIndex = 37;
+            this.txtIndicationMyan.TabIndex = 8;
             // 
             // label7
             // 
@@ -547,7 +547,7 @@
             this.cboChemPK.Location = new System.Drawing.Point(138, 49);
             this.cboChemPK.Name = "cboChemPK";
             this.cboChemPK.Size = new System.Drawing.Size(242, 21);
-            this.cboChemPK.TabIndex = 34;
+            this.cboChemPK.TabIndex = 1;
             // 
             // cboManuPK
             // 
@@ -557,7 +557,7 @@
             this.cboManuPK.Location = new System.Drawing.Point(138, 152);
             this.cboManuPK.Name = "cboManuPK";
             this.cboManuPK.Size = new System.Drawing.Size(242, 21);
-            this.cboManuPK.TabIndex = 31;
+            this.cboManuPK.TabIndex = 4;
             // 
             // label1
             // 
@@ -589,7 +589,7 @@
             this.txtMedName.Location = new System.Drawing.Point(138, 17);
             this.txtMedName.Name = "txtMedName";
             this.txtMedName.Size = new System.Drawing.Size(242, 20);
-            this.txtMedName.TabIndex = 30;
+            this.txtMedName.TabIndex = 0;
             // 
             // cboSystemPK
             // 
@@ -599,7 +599,7 @@
             this.cboSystemPK.Location = new System.Drawing.Point(138, 119);
             this.cboSystemPK.Name = "cboSystemPK";
             this.cboSystemPK.Size = new System.Drawing.Size(242, 21);
-            this.cboSystemPK.TabIndex = 27;
+            this.cboSystemPK.TabIndex = 3;
             // 
             // label3
             // 
@@ -678,7 +678,7 @@
             this.txtIndicationEng.Name = "txtIndicationEng";
             this.txtIndicationEng.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtIndicationEng.Size = new System.Drawing.Size(228, 84);
-            this.txtIndicationEng.TabIndex = 9;
+            this.txtIndicationEng.TabIndex = 7;
             // 
             // label24
             // 
@@ -751,7 +751,7 @@
             this.cmdExit.Location = new System.Drawing.Point(789, 547);
             this.cmdExit.Name = "cmdExit";
             this.cmdExit.Size = new System.Drawing.Size(75, 26);
-            this.cmdExit.TabIndex = 11;
+            this.cmdExit.TabIndex = 0;
             this.cmdExit.TabStop = false;
             this.cmdExit.Text = "Close";
             this.cmdExit.Click += new System.EventHandler(this.cmdExit_Click);
@@ -766,7 +766,7 @@
             this.cmdSave.Location = new System.Drawing.Point(708, 547);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 26);
-            this.cmdSave.TabIndex = 10;
+            this.cmdSave.TabIndex = 3;
             this.cmdSave.Text = "Save";
             this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
@@ -783,7 +783,7 @@
             this.pnl1.Margin = new System.Windows.Forms.Padding(0);
             this.pnl1.Name = "pnl1";
             this.pnl1.Size = new System.Drawing.Size(878, 46);
-            this.pnl1.TabIndex = 13;
+            this.pnl1.TabIndex = 0;
             this.pnl1.TabStop = true;
             // 
             // lbl1
@@ -793,7 +793,7 @@
             this.lbl1.ForeColor = System.Drawing.Color.White;
             this.lbl1.Location = new System.Drawing.Point(11, 19);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(125, 18);
+            this.lbl1.Size = new System.Drawing.Size(124, 18);
             this.lbl1.TabIndex = 6;
             this.lbl1.Text = "Medicine Detail";
             // 

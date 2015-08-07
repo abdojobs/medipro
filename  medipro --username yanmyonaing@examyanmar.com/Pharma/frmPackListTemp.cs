@@ -100,7 +100,7 @@ namespace Pharma
 
                 frmPackListTempDetail DiagnosisDetailForm = new frmPackListTempDetail();                
 
-                DiagnosisDetailForm.txtPackListTempName.Tag = '0';
+                DiagnosisDetailForm.txtPackListTempName.Tag = "0";
                 DiagnosisDetailForm.txtPackListTempName.Text = string.Empty;
                 DiagnosisDetailForm.cmdSave.Tag = "Add";
                 DiagnosisDetailForm.ShowDialog();
@@ -110,7 +110,7 @@ namespace Pharma
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            DataSet dsPackListTemp = SqlDb.GetDataSet("SELECT packListPK, packListName, isActive FROM tblPackListTemp WHERE isDelete = 0 and PackListTemp like '%" + txtSearch.Text + "%'");
+            DataSet dsPackListTemp = SqlDb.GetDataSet("SELECT packListPK, packListName, isActive FROM tblPackListTemp WHERE isDelete = 0 and packListName like '%" + txtSearch.Text + "%'");
             grdPackListTemp.DataSource = dsPackListTemp.Tables[0];
 
             grdViewPackListTemp.FocusedRowHandle = curIndex;

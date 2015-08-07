@@ -181,6 +181,7 @@ namespace Pharma
                                                 new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
                                                 new MySqlParameter("@createPK", AppVariable.CURRENT_USER_PK),
                                                 new MySqlParameter("@image", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
+                    
 
 
                     
@@ -218,7 +219,7 @@ namespace Pharma
                                                 new MySqlParameter("@isActive", chkIsActive.EditValue),
                                                 new MySqlParameter("@updatePK", AppVariable.CURRENT_USER_PK),
                                                 new MySqlParameter("@image", MySqlDbType.VarBinary, bytImgData.Length, ParameterDirection.Input, false, 0, 0, null, DataRowVersion.Current, bytImgData));
-
+                    
 
                     MessageBox.Show("The medicine has been saved successfully.", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -251,6 +252,8 @@ namespace Pharma
             {
                 MessageBox.Show(strErrMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
 
         private void LoadData()
