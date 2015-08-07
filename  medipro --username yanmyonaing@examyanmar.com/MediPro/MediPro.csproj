@@ -106,11 +106,11 @@
     <Reference Include="System.Xml" />
     <Reference Include="Touchless.Vision, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Touchless.Vision.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\MediproHelper\Touchless.Vision.dll</HintPath>
     </Reference>
     <Reference Include="WebCamLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\WebCamLib.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\MediproHelper\WebCamLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -120,7 +120,6 @@
     <Compile Include="Class\Helper.cs" />
     <Compile Include="Class\sysLogs.cs" />
     <Compile Include="Class\USER.cs" />
-    <Compile Include="Class\WebCam.cs" />
     <Compile Include="dsBarcode.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
