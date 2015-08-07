@@ -157,7 +157,9 @@ namespace MediPro
         private void cboDoctor_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cboDoctor.Text.Length > 0)
+            {
                 CTDBinding();
+            }
         }
 
         private void grdViewClinicTime_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -202,6 +204,8 @@ namespace MediPro
         {
             try
             {
+                e.Valid = true;
+                return;
 
                 DateTime fromTime = Convert.ToDateTime(grdViewClinicTime.GetRowCellValue(e.RowHandle, "fromTime"));
                 DateTime toTime = Convert.ToDateTime(grdViewClinicTime.GetRowCellValue(e.RowHandle, "toTime"));

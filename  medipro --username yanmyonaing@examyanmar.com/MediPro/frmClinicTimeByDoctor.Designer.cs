@@ -237,7 +237,7 @@
             // 
             this.grdColfromTime.Caption = "From Time";
             this.grdColfromTime.ColumnEdit = this.repositoryFromTime;
-            this.grdColfromTime.DisplayFormat.FormatString = "d";
+            this.grdColfromTime.DisplayFormat.FormatString = "h:mm tt";
             this.grdColfromTime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.grdColfromTime.FieldName = "fromTime";
             this.grdColfromTime.Name = "grdColfromTime";
