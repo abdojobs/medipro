@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.repositorycboDay = new DevExpress.XtraEditors.Repository.RepositoryItemComboBox();
             this.repositoryFromTime = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
             this.repositoryToTime = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
@@ -76,6 +77,11 @@
             this.backstageViewButtonItem1 = new DevExpress.XtraBars.Ribbon.BackstageViewButtonItem();
             this.backstageViewItemSeparator1 = new DevExpress.XtraBars.Ribbon.BackstageViewItemSeparator();
             this.myTimer = new System.Windows.Forms.Timer(this.components);
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvColDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColFromTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColToTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColBookk = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositorycboDay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryFromTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryToTime)).BeginInit();
@@ -94,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteBookingDate.Properties)).BeginInit();
             this.grpPatientType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPatientName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // repositorycboDay
@@ -290,6 +297,7 @@
             // 
             this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
             this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.grdCTbyDoctor);
             this.panelControl1.Controls.Add(this.cboOption);
             this.panelControl1.Controls.Add(this.grpClinicTime);
             this.panelControl1.Controls.Add(this.cmdClinicTime);
@@ -344,7 +352,7 @@
             this.grpClinicTime.AppearanceCaption.ForeColor = System.Drawing.Color.Navy;
             this.grpClinicTime.AppearanceCaption.Options.UseFont = true;
             this.grpClinicTime.AppearanceCaption.Options.UseForeColor = true;
-            this.grpClinicTime.Controls.Add(this.grdCTbyDoctor);
+            this.grpClinicTime.Controls.Add(this.dgv);
             this.grpClinicTime.Location = new System.Drawing.Point(38, 281);
             this.grpClinicTime.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grpClinicTime.Name = "grpClinicTime";
@@ -354,20 +362,19 @@
             // 
             // grdCTbyDoctor
             // 
-            this.grdCTbyDoctor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grdCTbyDoctor.EmbeddedNavigator.Buttons.Append.Visible = false;
             this.grdCTbyDoctor.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
             this.grdCTbyDoctor.EmbeddedNavigator.Buttons.Edit.Visible = false;
             this.grdCTbyDoctor.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.grdCTbyDoctor.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.grdCTbyDoctor.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.grdCTbyDoctor.Location = new System.Drawing.Point(2, 21);
+            this.grdCTbyDoctor.Location = new System.Drawing.Point(495, 70);
             this.grdCTbyDoctor.LookAndFeel.UseDefaultLookAndFeel = false;
             this.grdCTbyDoctor.MainView = this.grdViewClinicTime;
             this.grdCTbyDoctor.Name = "grdCTbyDoctor";
             this.grdCTbyDoctor.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.cmdBook});
-            this.grdCTbyDoctor.Size = new System.Drawing.Size(508, 175);
+            this.grdCTbyDoctor.Size = new System.Drawing.Size(75, 70);
             this.grdCTbyDoctor.TabIndex = 2;
             this.grdCTbyDoctor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grdViewClinicTime});
@@ -410,6 +417,8 @@
             this.grdViewClinicTime.RowHeight = 25;
             this.grdViewClinicTime.ScrollStyle = DevExpress.XtraGrid.Views.Grid.ScrollStyleFlags.LiveVertScroll;
             this.grdViewClinicTime.ViewCaptionHeight = 30;
+            this.grdViewClinicTime.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.grdViewClinicTime_RowCellClick);
+            this.grdViewClinicTime.Click += new System.EventHandler(this.grdViewClinicTime_Click);
             // 
             // grdColctdPK
             // 
@@ -617,7 +626,6 @@
             this.radioRegPatient.Name = "radioRegPatient";
             this.radioRegPatient.Size = new System.Drawing.Size(127, 18);
             this.radioRegPatient.TabIndex = 1;
-            this.radioRegPatient.TabStop = true;
             this.radioRegPatient.Text = "&Registered Patient";
             this.radioRegPatient.UseVisualStyleBackColor = true;
             this.radioRegPatient.CheckedChanged += new System.EventHandler(this.radioRegPatient_CheckedChanged);
@@ -625,6 +633,7 @@
             // radioNewPatient
             // 
             this.radioNewPatient.AutoSize = true;
+            this.radioNewPatient.Checked = true;
             this.radioNewPatient.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioNewPatient.ForeColor = System.Drawing.Color.Navy;
             this.radioNewPatient.Location = new System.Drawing.Point(58, 24);
@@ -769,6 +778,64 @@
             this.myTimer.Interval = 10;
             this.myTimer.Tick += new System.EventHandler(this.myTimer_Tick);
             // 
+            // dgv
+            // 
+            this.dgv.AllowUserToAddRows = false;
+            this.dgv.AllowUserToDeleteRows = false;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvColDay,
+            this.dgvColFromTime,
+            this.dgvColToTime,
+            this.dgvColBookk});
+            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgv.Location = new System.Drawing.Point(2, 21);
+            this.dgv.Name = "dgv";
+            this.dgv.ReadOnly = true;
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.Size = new System.Drawing.Size(508, 175);
+            this.dgv.TabIndex = 0;
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
+            // 
+            // dgvColDay
+            // 
+            this.dgvColDay.HeaderText = "Day";
+            this.dgvColDay.Name = "dgvColDay";
+            this.dgvColDay.ReadOnly = true;
+            // 
+            // dgvColFromTime
+            // 
+            this.dgvColFromTime.HeaderText = "From";
+            this.dgvColFromTime.Name = "dgvColFromTime";
+            this.dgvColFromTime.ReadOnly = true;
+            // 
+            // dgvColToTime
+            // 
+            this.dgvColToTime.HeaderText = "To";
+            this.dgvColToTime.Name = "dgvColToTime";
+            this.dgvColToTime.ReadOnly = true;
+            // 
+            // dgvColBookk
+            // 
+            this.dgvColBookk.HeaderText = "";
+            this.dgvColBookk.Name = "dgvColBookk";
+            this.dgvColBookk.ReadOnly = true;
+            this.dgvColBookk.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvColBookk.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvColBookk.Text = "Book";
+            this.dgvColBookk.UseColumnTextForButtonValue = true;
+            // 
             // frmBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -803,6 +870,7 @@
             this.grpPatientType.ResumeLayout(false);
             this.grpPatientType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPatientName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -855,6 +923,11 @@
         public DevExpress.XtraEditors.TextEdit txtPatientName;
         private DevExpress.XtraGrid.Columns.GridColumn dgvColBook;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit cmdBook;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColFromTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColToTime;
+        private System.Windows.Forms.DataGridViewButtonColumn dgvColBookk;
 
     }
 }
