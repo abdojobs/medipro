@@ -91,15 +91,11 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="UIAutomationProvider">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    <Reference Include="WebCamLib, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\MediproHelper\WebCamLib.dll</HintPath>
     </Reference>
-    <Reference Include="WebCamLib">
-      <HintPath>..\WebCamLib\bin\Debug\WebCamLib.dll</HintPath>
-    </Reference>
-    <Reference Include="WindowsBase">
-      <RequiredTargetFramework>3.0</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camera\Camera.cs" />
