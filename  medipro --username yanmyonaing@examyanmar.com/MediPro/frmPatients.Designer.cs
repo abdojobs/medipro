@@ -313,7 +313,7 @@
             this.panelControl2.Controls.Add(this.cmdViewDetail);
             this.panelControl2.Controls.Add(this.cmdNew);
             this.panelControl2.Controls.Add(this.cmdEdit);
-            this.panelControl2.Location = new System.Drawing.Point(1, 612);
+            this.panelControl2.Location = new System.Drawing.Point(1, 614);
             this.panelControl2.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.panelControl2.LookAndFeel.UseDefaultLookAndFeel = false;
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
