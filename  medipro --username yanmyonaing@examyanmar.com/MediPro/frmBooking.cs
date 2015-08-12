@@ -207,9 +207,10 @@ namespace MediPro
             {
                 grpClinicTime.Enabled = true;
 
-                DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK,CONCAT (clinicDay , ' (' ,ctdOption , ')') AS clinicDay, toTime, fromTime FROM tblClinicTimeByDoctor " +
+                DataSet dsCTD = SqlDb.GetDataSet("SELECT ctdPK, doctorPK,CONCAT (clinicDay , ' (' ,ctdOption , ')') AS clinicDay,  fromTime,toTime FROM tblClinicTimeByDoctor " +
                                         "WHERE isDelete = 0 AND doctorPK = @DoctorPK",
                                         new MySqlParameter("@DoctorPK", doctorPK));
+                dgv.DataSource = dsCTD.Tables[0];
 
                 grdCTbyDoctor.DataSource = dsCTD.Tables[0];
             }
@@ -316,12 +317,12 @@ namespace MediPro
             grpClinicTime.Text = "Clinic Time by " + lueDoctor.Text;
             CTDBinding();
 
-            if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
+            if ( doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
-                int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND ctdOption=@CTDOption AND isDelete=0",
+                int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay  AND isDelete=0",
                                                     new MySqlParameter("@DoctorPK", doctorPK),
-                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString()),
-                                                    new MySqlParameter("@CTDOption", cboOption.Text));
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString())
+                                                   );
 
                 if (ctdCnt < 1)
                 {
@@ -343,7 +344,7 @@ namespace MediPro
         {
             dtBoooking = dteBookingDate.DateTime;
             
-            if (cboOption.Text.Length > 0 && doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
+            if (doctorPK.ToString().Length > 0 && dteBookingDate.Text.Length > 0)
             {
                 int ctdCnt = SqlDb.ExecuteScalar<int>("SELECT COUNT(*) FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND isDelete=0",
                                                     new MySqlParameter("@DoctorPK", doctorPK),
@@ -353,7 +354,7 @@ namespace MediPro
                 if (ctdCnt < 1)
                 {
                     MessageBox.Show(lueDoctor.Text + " is not sit on" + dteBookingDate.DateTime.DayOfWeek.ToString() + ".", "MediPro :: Clinic System", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    dgv.DataSource = SqlDb.GetDataSet("SELECT ctdPK, doctorPK,CONCAT (clinicDay , ' (' ,ctdOption , ')') AS clinicDay,  fromTime,toTime FROM tblClinicTimeByDoctor WHERE ctdPK is null").Tables[0];
                     dteBookingDate.Focus();
 
                     lblLastBookingTime.Text = string.Empty;
@@ -361,7 +362,11 @@ namespace MediPro
                 }
                 else
                 {
-                    takeTokenNoAndBookingTime();
+                    dgv.DataSource = SqlDb.GetDataSet("SELECT ctdPK, doctorPK,CONCAT (clinicDay , ' (' ,ctdOption , ')') AS clinicDay,  fromTime,toTime FROM tblClinicTimeByDoctor WHERE doctorPK=@DoctorPK AND clinicDay=@ClinicDay AND isDelete=0",
+                                                    new MySqlParameter("@DoctorPK", doctorPK),
+                                                    new MySqlParameter("@ClinicDay", dtBoooking.DayOfWeek.ToString())
+                                                    ).Tables[0];
+                    //takeTokenNoAndBookingTime();
                 }
             }
         }
