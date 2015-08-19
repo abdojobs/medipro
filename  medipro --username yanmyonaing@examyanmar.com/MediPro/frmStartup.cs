@@ -1739,6 +1739,11 @@ namespace MediPro
             savePhysicalExamination();
         }
 
+        private void cmdLabTestPrice_Click(object sender, EventArgs e)
+        {
+            new frmLabTestPrice().ShowDialog();
+        }
+
 
 
 
