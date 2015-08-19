@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            this.dgvColSellingPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinSellingPrice = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.panelBG = new System.Windows.Forms.Panel();
             this.dgv = new DevExpress.XtraGrid.GridControl();
             this.dgvView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -40,7 +43,6 @@
             this.dgvColProfitMargin = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgvColExchangePK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dgvColDiscount = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dgvColSellingPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositorychkIsActive = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.lueLabTest = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panelFooter = new DevExpress.XtraEditors.PanelControl();
@@ -51,7 +53,7 @@
             this.cmdSave = new DevExpress.XtraEditors.SimpleButton();
             this.panelHeader = new DevExpress.XtraEditors.PanelControl();
             this.lblHeader = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinSellingPrice)).BeginInit();
             this.panelBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
@@ -66,11 +68,26 @@
             this.panelHeader.SuspendLayout();
             this.SuspendLayout();
             // 
+            // dgvColSellingPrice
+            // 
+            this.dgvColSellingPrice.Caption = "Selling Price";
+            this.dgvColSellingPrice.ColumnEdit = this.repositoryItemSpinSellingPrice;
+            this.dgvColSellingPrice.FieldName = "sellingPrice";
+            this.dgvColSellingPrice.Name = "dgvColSellingPrice";
+            this.dgvColSellingPrice.UnboundExpression = "[originalPrice] + [profitMargin]";
+            this.dgvColSellingPrice.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            this.dgvColSellingPrice.Visible = true;
+            this.dgvColSellingPrice.VisibleIndex = 6;
+            // 
+            // repositoryItemSpinSellingPrice
+            // 
+            this.repositoryItemSpinSellingPrice.AutoHeight = false;
+            this.repositoryItemSpinSellingPrice.Name = "repositoryItemSpinSellingPrice";
+            // 
             // panelBG
             // 
             this.panelBG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelBG.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(245)))), ((int)(((byte)(241)))));
-            this.panelBG.Controls.Add(this.checkBox1);
             this.panelBG.Controls.Add(this.dgv);
             this.panelBG.Controls.Add(this.panelFooter);
             this.panelBG.Controls.Add(this.panelHeader);
@@ -90,14 +107,15 @@
             this.dgv.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
             this.dgv.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.dgv.EmbeddedNavigator.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
-            this.dgv.Location = new System.Drawing.Point(15, 89);
+            this.dgv.Location = new System.Drawing.Point(15, 71);
             this.dgv.LookAndFeel.UseDefaultLookAndFeel = false;
             this.dgv.MainView = this.dgvView;
             this.dgv.Name = "dgv";
             this.dgv.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositorychkIsActive,
-            this.lueLabTest});
-            this.dgv.Size = new System.Drawing.Size(947, 473);
+            this.lueLabTest,
+            this.repositoryItemSpinSellingPrice});
+            this.dgv.Size = new System.Drawing.Size(947, 491);
             this.dgv.TabIndex = 3;
             this.dgv.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dgvView});
@@ -131,6 +149,11 @@
             this.dgvColDiscount,
             this.dgvColSellingPrice});
             this.dgvView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.dgvColSellingPrice;
+            styleFormatCondition1.Expression = "[originalPrice] - [profitMargin]";
+            this.dgvView.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1});
             this.dgvView.GridControl = this.dgv;
             this.dgvView.Name = "dgvView";
             this.dgvView.OptionsView.EnableAppearanceEvenRow = true;
@@ -140,6 +163,7 @@
             this.dgvView.OptionsView.ShowIndicator = false;
             this.dgvView.RowHeight = 25;
             this.dgvView.ViewCaptionHeight = 30;
+            this.dgvView.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dgvView_CellValueChanged);
             // 
             // dgvColPK
             // 
@@ -214,15 +238,6 @@
             this.dgvColDiscount.Name = "dgvColDiscount";
             this.dgvColDiscount.Visible = true;
             this.dgvColDiscount.VisibleIndex = 5;
-            // 
-            // dgvColSellingPrice
-            // 
-            this.dgvColSellingPrice.Caption = "Selling Price";
-            this.dgvColSellingPrice.FieldName = "sellingPrice";
-            this.dgvColSellingPrice.Name = "dgvColSellingPrice";
-            this.dgvColSellingPrice.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            this.dgvColSellingPrice.Visible = true;
-            this.dgvColSellingPrice.VisibleIndex = 6;
             // 
             // repositorychkIsActive
             // 
@@ -354,16 +369,6 @@
             this.lblHeader.TabIndex = 0;
             this.lblHeader.Text = "Lab Test Price List";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(423, 66);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // frmLabTestPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,8 +379,8 @@
             this.Name = "frmLabTestPrice";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinSellingPrice)).EndInit();
             this.panelBG.ResumeLayout(false);
-            this.panelBG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositorychkIsActive)).EndInit();
@@ -417,6 +422,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn dgvColDiscount;
         private DevExpress.XtraGrid.Columns.GridColumn dgvColSellingPrice;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit lueLabTest;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repositoryItemSpinSellingPrice;
     }
 }

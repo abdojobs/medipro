@@ -34,6 +34,21 @@ namespace MediPro
             }
             MessageBox.Show("Saving Successful");
         }
+
+        private void dgvView_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.Name == dgvColProfitMargin.Name || e.Column.Name==dgvColOriginalPrice.Name || e.Column.Name==dgvColDiscount.Name)
+            {
+                double originalPrice =Convert.ToDouble( dgvView.GetDataRow(e.RowHandle)[dgvColOriginalPrice.FieldName]);
+                double profitMargin =Convert.ToDouble( dgvView.GetDataRow(e.RowHandle)[dgvColProfitMargin.FieldName]);
+                double discountRate =Convert.ToDouble( dgvView.GetDataRow(e.RowHandle)[dgvColDiscount.FieldName]);
+
+                double grossSellingPrice=originalPrice+(originalPrice*profitMargin/100);
+                double finalSellingPrice = grossSellingPrice - (grossSellingPrice * discountRate / 100);
+                
+                dgvView.SetRowCellValue(e.RowHandle, dgvColSellingPrice,finalSellingPrice);
+            }
+        }
     }
 
     public class LabTestPrice
