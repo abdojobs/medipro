@@ -740,6 +740,7 @@
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
             this.insertPageBreakItem2 = new DevExpress.XtraRichEdit.UI.InsertPageBreakItem();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLabTestPrice = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -1800,6 +1801,7 @@
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
             this.panelMasterFiles.Controls.Add(this.cmdDoctors);
             this.panelMasterFiles.Controls.Add(this.cmdFrequency);
+            this.panelMasterFiles.Controls.Add(this.cmdLabTestPrice);
             this.panelMasterFiles.Controls.Add(this.cmdDiagnosis);
             this.panelMasterFiles.Controls.Add(this.cmdPosition);
             this.panelMasterFiles.Controls.Add(this.cmdSpecializeSetup);
@@ -9355,6 +9357,26 @@
             this.simpleButton2.Text = " Visit Patients";
             this.simpleButton2.Click += new System.EventHandler(this.cmdTodayPatients_Click);
             // 
+            // cmdLabTestPrice
+            // 
+            this.cmdLabTestPrice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLabTestPrice.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLabTestPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdLabTestPrice.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdLabTestPrice.Appearance.Options.UseBackColor = true;
+            this.cmdLabTestPrice.Appearance.Options.UseFont = true;
+            this.cmdLabTestPrice.Appearance.Options.UseForeColor = true;
+            this.cmdLabTestPrice.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdLabTestPrice.Image = global::MediPro.Properties.Resources.diagnosis32;
+            this.cmdLabTestPrice.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdLabTestPrice.Location = new System.Drawing.Point(611, 202);
+            this.cmdLabTestPrice.Name = "cmdLabTestPrice";
+            this.cmdLabTestPrice.Size = new System.Drawing.Size(154, 76);
+            this.cmdLabTestPrice.TabIndex = 4;
+            this.cmdLabTestPrice.Tag = "12";
+            this.cmdLabTestPrice.Text = "Price setup for Lab Tests";
+            this.cmdLabTestPrice.Click += new System.EventHandler(this.cmdLabTestPrice_Click);
+            // 
             // frmStartup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10286,6 +10308,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColSummaryPK;
         private DevExpress.XtraGrid.Columns.GridColumn grdColSummaryTitle;
         private DevExpress.XtraGrid.Columns.GridColumn grdColSummary;
+        private DevExpress.XtraEditors.SimpleButton cmdLabTestPrice;
 
     }
 }
