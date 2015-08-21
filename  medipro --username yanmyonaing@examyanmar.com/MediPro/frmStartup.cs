@@ -1744,6 +1744,11 @@ namespace MediPro
             new frmLabTestPrice().ShowDialog();
         }
 
+        private void cmdItemPrice_Click(object sender, EventArgs e)
+        {
+            new frmItemPrice().ShowDialog();
+        }
+
 
 
 
