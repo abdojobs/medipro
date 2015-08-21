@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStartup));
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.tabPageHome = new DevExpress.XtraTab.XtraTabPage();
@@ -88,6 +87,7 @@
             this.panelMasterFiles = new DevExpress.XtraEditors.PanelControl();
             this.cmdDoctors = new DevExpress.XtraEditors.SimpleButton();
             this.cmdFrequency = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLabTestPrice = new DevExpress.XtraEditors.SimpleButton();
             this.cmdDiagnosis = new DevExpress.XtraEditors.SimpleButton();
             this.cmdPosition = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSpecializeSetup = new DevExpress.XtraEditors.SimpleButton();
@@ -114,7 +114,7 @@
             this.cmdTodayPatients = new DevExpress.XtraEditors.SimpleButton();
             this.pnlDailyProgress = new DevExpress.XtraEditors.PanelControl();
             this.txtSummary = new DevExpress.XtraEditors.MemoEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -740,7 +740,7 @@
             this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
             this.insertPageBreakItem2 = new DevExpress.XtraRichEdit.UI.InsertPageBreakItem();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdLabTestPrice = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdItemPrice = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tabPageHome.SuspendLayout();
@@ -1801,6 +1801,7 @@
             this.panelMasterFiles.Appearance.Options.UseBackColor = true;
             this.panelMasterFiles.Controls.Add(this.cmdDoctors);
             this.panelMasterFiles.Controls.Add(this.cmdFrequency);
+            this.panelMasterFiles.Controls.Add(this.cmdItemPrice);
             this.panelMasterFiles.Controls.Add(this.cmdLabTestPrice);
             this.panelMasterFiles.Controls.Add(this.cmdDiagnosis);
             this.panelMasterFiles.Controls.Add(this.cmdPosition);
@@ -1863,6 +1864,26 @@
             this.cmdFrequency.Tag = "13";
             this.cmdFrequency.Text = "Frequency";
             this.cmdFrequency.Click += new System.EventHandler(this.cmdFrequency_Click);
+            // 
+            // cmdLabTestPrice
+            // 
+            this.cmdLabTestPrice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdLabTestPrice.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdLabTestPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdLabTestPrice.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdLabTestPrice.Appearance.Options.UseBackColor = true;
+            this.cmdLabTestPrice.Appearance.Options.UseFont = true;
+            this.cmdLabTestPrice.Appearance.Options.UseForeColor = true;
+            this.cmdLabTestPrice.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdLabTestPrice.Image = global::MediPro.Properties.Resources.diagnosis32;
+            this.cmdLabTestPrice.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdLabTestPrice.Location = new System.Drawing.Point(611, 202);
+            this.cmdLabTestPrice.Name = "cmdLabTestPrice";
+            this.cmdLabTestPrice.Size = new System.Drawing.Size(108, 76);
+            this.cmdLabTestPrice.TabIndex = 4;
+            this.cmdLabTestPrice.Tag = "12";
+            this.cmdLabTestPrice.Text = "Lab Test Price";
+            this.cmdLabTestPrice.Click += new System.EventHandler(this.cmdLabTestPrice_Click);
             // 
             // cmdDiagnosis
             // 
@@ -2234,7 +2255,6 @@
             this.lueVisit.Properties.DropDownRows = 10;
             this.lueVisit.Properties.LookAndFeel.SkinName = "Metropolis";
             this.lueVisit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.lueVisit.Properties.NullText = "";
             this.lueVisit.Properties.PopupWidth = 650;
             this.lueVisit.Properties.ValueMember = "visitPK";
             this.lueVisit.Size = new System.Drawing.Size(131, 20);
@@ -4377,7 +4397,6 @@
             this.luePatient.Properties.DropDownRows = 10;
             this.luePatient.Properties.LookAndFeel.SkinName = "Metropolis";
             this.luePatient.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.luePatient.Properties.NullText = "";
             this.luePatient.Properties.PopupWidth = 650;
             this.luePatient.Properties.ValueMember = "RegNo";
             this.luePatient.Size = new System.Drawing.Size(180, 20);
@@ -8294,7 +8313,6 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("labTestDescription", "Description")});
             this.resLueLabTest.DisplayMember = "labTestName";
             this.resLueLabTest.Name = "resLueLabTest";
-            this.resLueLabTest.NullText = "";
             this.resLueLabTest.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
             this.resLueLabTest.ValueMember = "labTestPK";
             // 
@@ -8424,7 +8442,6 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("diagnosis", "diagnosis")});
             this.reslueDiagnosis.DisplayMember = "diagnosis";
             this.reslueDiagnosis.Name = "reslueDiagnosis";
-            this.reslueDiagnosis.NullText = "";
             this.reslueDiagnosis.ValueMember = "diagnosisPK";
             // 
             // label10
@@ -8765,7 +8782,6 @@
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Size = new System.Drawing.Size(650, 522);
             this.txtRemarks.TabIndex = 35;
-            this.txtRemarks.Text = "";
             // 
             // panelControl13
             // 
@@ -9357,25 +9373,25 @@
             this.simpleButton2.Text = " Visit Patients";
             this.simpleButton2.Click += new System.EventHandler(this.cmdTodayPatients_Click);
             // 
-            // cmdLabTestPrice
+            // cmdItemPrice
             // 
-            this.cmdLabTestPrice.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.cmdLabTestPrice.Appearance.BackColor2 = System.Drawing.Color.Transparent;
-            this.cmdLabTestPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cmdLabTestPrice.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.cmdLabTestPrice.Appearance.Options.UseBackColor = true;
-            this.cmdLabTestPrice.Appearance.Options.UseFont = true;
-            this.cmdLabTestPrice.Appearance.Options.UseForeColor = true;
-            this.cmdLabTestPrice.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.cmdLabTestPrice.Image = global::MediPro.Properties.Resources.diagnosis32;
-            this.cmdLabTestPrice.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.cmdLabTestPrice.Location = new System.Drawing.Point(611, 202);
-            this.cmdLabTestPrice.Name = "cmdLabTestPrice";
-            this.cmdLabTestPrice.Size = new System.Drawing.Size(154, 76);
-            this.cmdLabTestPrice.TabIndex = 4;
-            this.cmdLabTestPrice.Tag = "12";
-            this.cmdLabTestPrice.Text = "Price setup for Lab Tests";
-            this.cmdLabTestPrice.Click += new System.EventHandler(this.cmdLabTestPrice_Click);
+            this.cmdItemPrice.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.cmdItemPrice.Appearance.BackColor2 = System.Drawing.Color.Transparent;
+            this.cmdItemPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.cmdItemPrice.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.cmdItemPrice.Appearance.Options.UseBackColor = true;
+            this.cmdItemPrice.Appearance.Options.UseFont = true;
+            this.cmdItemPrice.Appearance.Options.UseForeColor = true;
+            this.cmdItemPrice.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.cmdItemPrice.Image = global::MediPro.Properties.Resources.diagnosis32;
+            this.cmdItemPrice.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.cmdItemPrice.Location = new System.Drawing.Point(725, 202);
+            this.cmdItemPrice.Name = "cmdItemPrice";
+            this.cmdItemPrice.Size = new System.Drawing.Size(99, 76);
+            this.cmdItemPrice.TabIndex = 4;
+            this.cmdItemPrice.Tag = "12";
+            this.cmdItemPrice.Text = "Item Price";
+            this.cmdItemPrice.Click += new System.EventHandler(this.cmdItemPrice_Click);
             // 
             // frmStartup
             // 
@@ -10309,6 +10325,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn grdColSummaryTitle;
         private DevExpress.XtraGrid.Columns.GridColumn grdColSummary;
         private DevExpress.XtraEditors.SimpleButton cmdLabTestPrice;
+        private DevExpress.XtraEditors.SimpleButton cmdItemPrice;
 
     }
 }
